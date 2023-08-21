@@ -61,7 +61,6 @@ $title = 'お問い合わせ';
             @endif
         </div>
 
-
         <div class="c-form__terms">
             <div class="c-form__terms-container">
                 <h4 class="c-form__terms-ttl">プライバシーポリシー</h4>
