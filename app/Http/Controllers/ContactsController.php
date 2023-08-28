@@ -45,7 +45,7 @@ class ContactsController extends Controller
             //$contact->save();
 
             // メール送信
-            Mail::to($input['email'])->send(new ContactMail('mails.contact', 'お問い合わせありがとうございます', $input));
+            Mail::to($input['email'])->send(new ContactMail('mails.contact', '【OBFall株式会社】お問い合わせありがとうございます', $input));
 
             return redirect()->route('complete');
         } else {

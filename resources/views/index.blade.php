@@ -77,7 +77,7 @@
 
                 <p class="sub" style="padding: 20px 20px;">
                     私たちOBFall株式会社の社名の由来は、リンカーンの有名なゲティスバーグ演説、独立宣言の以下3つの頭文字からきています。<br class="br-sp" />
-                    <strong class="highlight">「government &nbsp;<strong class="letter">o</strong>f the people, <strong class="letter">b</strong>y the people,<strong class="letter">f</strong>or the people（人民の、人民による、人民のための政治）」</strong>
+                    <strong class="highlight">「government &nbsp;<strong class="letter">o</strong>f the people, <strong class="letter">b</strong>y the people,<strong class="letter">f</strong>or the people(人民の、人民による、人民のための政治)」</strong><br>
                     私たちが行うのは政治ではありませんが、会社員にも、役割や評価など多くのものに囚われ100%のパフォーマンスを発揮できていない人がいるように感じます。
                     私たちOBFall株式会社は、3つの柱をもって新しい会社の形に挑戦し、働く全ての人が自由に、高いパフォーマンスを発揮できる社会を創ることを宣言いたします。
                 </p>

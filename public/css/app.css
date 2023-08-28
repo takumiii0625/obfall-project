@@ -488,7 +488,7 @@ nav li:hover {
     object-fit: cover;
     width: 50%;
     height: 33.3vw;
-    padding-left: 30px;
+    padding-left: 23px;
 }
 
 .service li a {
@@ -908,7 +908,7 @@ footer .wrap {
         display: block;
         position: fixed;
         right: -40%;
-        width: 20%;
+        width: 30%;
 
         background-color: white;
         opacity: 0.8;
@@ -922,11 +922,11 @@ footer .wrap {
     .nav-02 ul {
         display: flex;
         flex-direction: column;
-        font-size: 4px;
+        font-size: 16px;
     }
 
     .nav-02 ul li {
-        margin-bottom: 20px;
+        margin-bottom: 32px;
         color: #006e98;
     }
 
