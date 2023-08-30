@@ -34,6 +34,22 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->text($this->template)->subject($this->subject);
+        // 送信者向け
+        if ($this->template === 'mails.contact') {
+            return $this->from('h.katono@obfall.co.jp', 'OBFall株式会社')
+                ->text($this->template)
+                ->subject($this->subject);
+        }
+        // 会社側向け
+        elseif ($this->template === 'mails.contact_to_company') {
+            return $this->from('h.katono@obfall.co.jp', $this->data['company'])
+                ->replyTo($this->data['email'], $this->data['company'])
+                ->text($this->template)
+                ->subject($this->subject);
+        }
+        // その他のケース
+        else {
+            return $this->text($this->template)->subject($this->subject);
+        }
     }
 }

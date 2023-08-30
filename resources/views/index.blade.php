@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OBFall株式会社</title>
+    <title>OBFall株式会社</title>:
+    <link rel="icon" href="./image/favicon.png" type=image/png">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="text/javascript" src="http://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0D8Mqiyl_Gou1VCfi3p6E4jV-8lqhliW549_OZVyLQ-Y5LDQcDLkF41bPrE6rSydcSX9vDs0gdEXpRWcSKBw-Q" charset="UTF-8"></script>
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
