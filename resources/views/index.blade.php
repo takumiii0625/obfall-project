@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OBFall株式会社</title>:
+    <meta property="og:image" content="https://obfall.com/image/logo_OBFall2.png">
+    <title>OBFall株式会社</title>
     <link rel="icon" href="./image/favicon.png" type=image/png">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://obfall.com/css/app.css" rel="stylesheet">
     <script type="text/javascript" src="http://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0D8Mqiyl_Gou1VCfi3p6E4jV-8lqhliW549_OZVyLQ-Y5LDQcDLkF41bPrE6rSydcSX9vDs0gdEXpRWcSKBw-Q" charset="UTF-8"></script>
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -62,8 +63,7 @@
                     を全てのひとへ</strong><br>
                 私たちは皆、人生の主人公です。<br>
                 働くことも人生の一部。<br>
-                OBFall株式会社は、<br>
-                従来にない新しい会社の形を実現します。
+                OBFall株式会社は、<br>従来にない新しい会社の形を実現します。
             </p>
 
         </div>
@@ -74,9 +74,9 @@
         <div id="about" class="service">
             <h1 class="fadein-scroll fadein-from-up"><span>私たちOBFall株式会社について</span></h1>
 
-            <div class="fadein-scroll fadein-from-up" style="background-color: #ffffff; width: 83%; padding: 10px 10px; margin: auto;     margin-bottom: 100px;">
+            <div class="fadein-scroll fadein-from-up" style="background-color: #ffffff; width: 87%; padding: 10px 10px; margin: auto;     margin-bottom: 100px;">
 
-                <p class="sub" style="padding: 20px 20px;">
+                <p class="sub" style="padding: 20px 10px;">
                     私たちOBFall株式会社の社名の由来は、リンカーンの有名なゲティスバーグ演説、独立宣言の以下3つの頭文字からきています。<br class="br-sp" />
                     <strong class="highlight">「government &nbsp;<strong class="letter">o</strong>f the people, <strong class="letter">b</strong>y the people,<strong class="letter">f</strong>or the people(人民の、人民による、人民のための政治)」</strong><br>
                     私たちが行うのは政治ではありませんが、会社員にも、役割や評価など多くのものに囚われ100%のパフォーマンスを発揮できていない人がいるように感じます。
@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div class="wrap">
-                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/recruit/8" target="_blank" rel="noopener noreferrer">採用サイトはこちら
+                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/recruit/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら
                     <i class="fa-solid fa-circle-arrow-right"></i>
                 </a>
             </div>
@@ -203,11 +203,11 @@
                 <!-- <h2 class="fadein-scroll fadein-from-down">熱いパッションを持っている<br><span>あなた</span>を待っています。</h2>-->
                 <div class="recruit-jobs fadein-scroll fadein-from-down ">
                     <!-- <p>お問い合わせ</p>
-                    <p>各種お問い合わせはこちら<br>※新しいタブが開きます</p>-->
+                   <p>各種お問い合わせはこちら<br>※新しいタブが開きます</p>-->
                     <div class="jobs" style="background-color: #ffffff;">
-                        <a class=" fadein-scroll fadein-from-down" href="{{ route('contact') }}" target="_blank" rel="noopener noreferrer">企業様お問い合わせ<i class="fa-solid fa-arrow-right"></i></a>
-                        <a class="fadein-scroll fadein-from-down" href="https://obfall.itszai.jp/recruit/8" target="_blank" rel="noopener noreferrer">採用情報・エントリー<i class="fa-solid fa-arrow-right"></i></a>
-                        <!--<a class="fadein-scroll fadein-from-down" href="{{ route('contact') }}" target="_blank" rel="noopener noreferrer">PR・広報<i class="fa-solid fa-arrow-right"></i></a>-->
+                        <a class=" fadein-scroll fadein-from-down" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">企業様お問い合わせ<i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="fadein-scroll fadein-from-down" href="https://obfall-recruit.com/" target="_blank" rel="noopener noreferrer">採用情報・エントリー<i class="fa-solid fa-arrow-right"></i></a>
+                        <!--<a class="fadein-scroll fadein-from-down" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">PR・広報<i class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
             </div>
@@ -244,7 +244,7 @@
         }
     });-->
 
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="https://obfall.com/js/main.js"></script>
 
 </body>
 
