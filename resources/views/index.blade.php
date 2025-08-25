@@ -244,7 +244,8 @@
         }
     });-->
 
-    <script src="https://obfall.com/js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+
 
 </body>
 
