@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="https://obfall.com/image/logo_OBFall2.png">
     <title>OBFall株式会社</title>
-    <link rel="icon" href="./image/favicon.png" type=image/png">
+    <link rel="icon" href="./image/favicon.png" type="image/png">
     <link href="https://obfall.com/css/app.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 

@@ -24,9 +24,9 @@ use App\Http\Controllers\User\UserNewsesController;
 
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
 
 Route::get('/', [TopController::class, 'index'])->name('index');
 
