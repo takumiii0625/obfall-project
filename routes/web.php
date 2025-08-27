@@ -28,6 +28,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('/', [TopController::class, 'index'])->name('index');
 
 Route::get('/dev', [TopController::class, 'indexDev'])->name('indexDev');
 

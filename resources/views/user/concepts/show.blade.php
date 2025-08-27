@@ -69,7 +69,7 @@
     </div>
     <main class="flex-grow-1">
 
-        <div class="vision mb-6" id="service">
+        <div class="vision mb-6" id="recruit">
             <div class="wrap">
                 <h1 class="fadein-scroll fadein-from-up"><span>企業理念</span></h1>
                 <h2 class="fadein-scroll fadein-from-down">

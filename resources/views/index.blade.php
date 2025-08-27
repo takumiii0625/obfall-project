@@ -8,6 +8,8 @@
     <title>OBFall株式会社</title>
     <link rel="icon" href="./image/favicon.png" type=image/png">
     <link href="https://obfall.com/css/app.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <script type="text/javascript" src="http://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0D8Mqiyl_Gou1VCfi3p6E4jV-8lqhliW549_OZVyLQ-Y5LDQcDLkF41bPrE6rSydcSX9vDs0gdEXpRWcSKBw-Q" charset="UTF-8"></script>
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -157,7 +159,54 @@
                 </ul>
             </div>
         </div>
+        <div class="recruit mt-4" id="recruit">
+            <div class="wrap">
+                <h1 class="fadein-scroll fadein-from-up"><span>自社開発</span></h1>
 
+                <div class="recruit-jobs fadein-scroll fadein-from-down">
+                    {{-- ▼ 3列グリッド --}}
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        @forelse ($assign['inhouse_developments'] as $record)
+                        <div class="col">
+                            <a href="{{ $record->inhouse_developments_home_page_url }}"
+                                class="card h-100 text-decoration-none text-reset"
+                                target="_blank" rel="noopener">
+
+                                <div class="card-body d-flex flex-column">
+                                    <div class="text-center text-muted mb-1">{{ $record->category }}</div>
+                                </div>
+
+                                {{-- 画像：中央配置＋トリミングなし --}}
+                                @if ($record->inhouse_developments_image_url)
+                                <div class="d-flex align-items-center justify-content-center px-3 pb-3"
+                                    style="height: 200px;"> {{-- 高さはお好みで --}}
+                                    <img src="{{ asset($record->inhouse_developments_image_url) }}"
+                                        alt="自社開発画像"
+                                        class="img-fluid"
+                                        style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                                </div>
+                                @endif
+
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title mb-2">{{ $record->title }}</h5>
+                                    <p class="card-text mb-0 text-muted"
+                                        style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">
+                                        {{ $record->content }}
+                                    </p>
+                                </div>
+                            </a>
+
+                        </div>
+                        @empty
+                        <div class="col">
+                            <p class="mb-0">自社開発はまだありません。</p>
+                        </div>
+                        @endforelse
+                    </div>
+                    {{-- ▲ 3列グリッド --}}
+                </div>
+            </div>
+        </div>
 
         <div class="about" id="company">
             <div class="wrap">

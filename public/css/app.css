@@ -466,7 +466,7 @@ header {
 }
 
 .contact {
-    background-color: rgb(242, 23, 23);
+    background-color: white;
     width: 100%;
     height: 120px;
     position: fixed;
@@ -1331,4 +1331,38 @@ footer .devwrap {
     .about {
         padding: 250px 0;
     }
+}
+
+/* ① 100vh 問題を回避（モバイルで実高さに追従させる） */
+.min-vh-100 {
+    min-height: 100dvh !important;
+}
+
+/* body に適用済みのクラスを上書き */
+
+/* ② フッターを通常フローに戻す（固定指定があってもモバイルでは打ち消す） */
+footer {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+@media (max-width: 767.98px) {
+    footer {
+        position: static !important;
+    }
+}
+
+/* ③ 念のため本文の下に余白を確保（固定フッターの影響が残っても被らない） */
+@media (max-width: 767.98px) {
+    main {
+        padding-bottom: 96px;
+    }
+
+    /* フッターの高さ目安に合わせて調整可 */
+    footer .devwrap {
+        padding: 16px 0;
+    }
+
+    /* 触らなくてもOK。見た目の余白調整 */
 }
