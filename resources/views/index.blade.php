@@ -161,7 +161,7 @@
             </div>
         </div>
         {{--自社開発--}}
-        <div class="recruit mt-4" id="recruit">
+        <div class="about mt-4" id="recruit">
             <div class="wrap">
                 <h1 class="fadein-scroll fadein-from-up"><span>自社開発</span></h1>
 

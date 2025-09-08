@@ -55,7 +55,6 @@ class TopController extends Controller
             ->whereNull('deleted_at')
             ->orderBy('id', 'desc')
             ->get();
-
         return view('index', compact('assign'));
     }
 }
