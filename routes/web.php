@@ -47,6 +47,7 @@ Route::get('/concepts', function () {
 
 
 
+
 //トップページ
 Route::get('/contact', [ContactsController::class, 'contact'])->name('contact');
 //確認ページ
@@ -60,6 +61,10 @@ Route::post('/process', [ContactsController::class, 'process'])->name('process')
 Route::get('/privacy-policy', function () {
     return view('privacy_policy');
 })->name('privacy-policy');
+
+Route::get('/human-rights-policy', function () {
+    return view('human-rights-policy');
+})->name('human-rights-policy');
 
 
 Route::middleware([RedirectIfAuthenticated::class . ':office'])->group(function () {
