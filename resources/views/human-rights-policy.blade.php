@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>人権方針・社内相談窓口 | OBFall株式会社</title>
   <meta name="description" content="当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。" />
-  <meta property="og:title" content="人権方針・社内相談窓口 | 会社名">
+  <meta property="og:title" content="人権方針・社内相談窓口 | OBFall株式会社">
   <meta property="og:description" content="当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。">
   <meta property="og:type" content="website">
   <meta name="color-scheme" content="light dark">
