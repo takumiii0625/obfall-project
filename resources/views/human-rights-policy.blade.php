@@ -274,7 +274,7 @@
 
     <section aria-labelledby="policy-meta">
       <h2 id="policy-meta">改定履歴</h2>
-      <p>制定：2025年10月6日／最終改定：2025年10月6日</p>
+      <p>制定：2025年10月1日／最終改定：2025年10月6日</p>
 
     </section>
   </main>
