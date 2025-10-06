@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>人権方針・社内相談窓口 | 会社名</title>
+  <title>人権方針・社内相談窓口 | OBFall株式会社</title>
   <meta name="description" content="当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。" />
   <meta property="og:title" content="人権方針・社内相談窓口 | 会社名">
   <meta property="og:description" content="当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。">
@@ -237,10 +237,10 @@
 
         <div class="contact-card" role="group" aria-label="相談窓口の連絡先">
           <p><strong>窓口名：</strong>人権・ハラスメント相談窓口</p>
-          <p><strong>担当部署：</strong>管理部（人事管掌）</p>
+          <p><strong>担当部署：</strong>管理部</p>
           <p><strong>受付時間：</strong>平日 9:00〜18:00（年末年始・当社指定休日を除く）</p>
           <p><strong>メール：</strong><a href="info@obfall.co.jp">info@obfall.co.jp</a></p>
-          <p><strong>郵送：</strong>〒105-0022 東京都港区海岸1-2-3 汐留芝離宮ビルディング 21F <br> 会社名 OBFall株式会社 行</p>
+          <p><strong>郵送：</strong>〒105-0022 東京都港区海岸1-2-3 汐留芝離宮ビルディング 21F <br>OBFall株式会社 人権・ハラスメント相談窓口 行</p>
         </div>
 
         <h3>受付から対応までの流れ</h3>
