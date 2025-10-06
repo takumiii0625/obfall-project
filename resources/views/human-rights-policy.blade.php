@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,126 +11,190 @@
   <meta property="og:type" content="website">
   <meta name="color-scheme" content="light dark">
   <style>
-    :root{
-      --brand:#4aa3df;         /* light blue theme */
-      --brand-ink:#0d3b66;
-      --ink:#1f2937;
-      --muted:#4b5563;
-      --bg:#f7fbff;
-      --card:#ffffff;
-      --ok:#0b8a2d;
-      --warn:#b45309;
-      --border:#e5eef7;
-      --focus:#2563eb;
+    :root {
+      --brand: #4aa3df;
+      /* light blue theme */
+      --brand-ink: #0d3b66;
+      --ink: #1f2937;
+      --muted: #4b5563;
+      --bg: #f7fbff;
+      --card: #ffffff;
+      --ok: #0b8a2d;
+      --warn: #b45309;
+      --border: #e5eef7;
+      --focus: #2563eb;
     }
-    *{box-sizing:border-box}
-    body{
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-                   "Hiragino Sans", Meiryo, "Noto Sans JP", "Segoe UI", Arial, sans-serif;
-      margin:0;
-      color:var(--ink);
-      background:linear-gradient(180deg,var(--bg),#fff);
-      line-height:1.7;
+        "Hiragino Sans", Meiryo, "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, var(--bg), #fff);
+      line-height: 1.7;
     }
-    header{
-      background:linear-gradient(135deg,var(--brand) 0%, #8bc6f5 100%);
-      color:#fff;
-      padding:48px 20px;
+
+    header {
+      background: linear-gradient(135deg, var(--brand) 0%, #8bc6f5 100%);
+      color: #fff;
+      padding: 48px 20px;
     }
-    header .container{max-width:980px;margin:0 auto}
-    header h1{
-      margin:0 0 8px;
-      font-size:clamp(26px,3.6vw,40px);
-      letter-spacing:.02em;
+
+    header .container {
+      max-width: 980px;
+      margin: 0 auto
     }
-    header p{margin:0;color:#eef6ff}
-    main{max-width:980px;margin:0 auto;padding:28px 16px 56px}
-    .note{
-      background:#e8f4ff;
-      border:1px solid var(--border);
-      padding:12px 14px;
-      border-radius:10px;
-      font-size:0.95rem;
-      color:#0b3b63;
-      margin-bottom:24px;
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 3.6vw, 40px);
+      letter-spacing: .02em;
     }
-    section{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:22px;
-      margin:18px 0 26px;
-      box-shadow:0 6px 18px rgba(22,57,94,.04);
+
+    header p {
+      margin: 0;
+      color: #eef6ff
     }
-    h2{
-      font-size:clamp(20px,2.4vw,26px);
-      margin:0 0 12px;
-      color:var(--brand-ink);
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 56px
     }
-    h3{
-      margin:20px 0 8px;
-      font-size:1.05rem;
-      color:var(--ink);
+
+    .note {
+      background: #e8f4ff;
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #0b3b63;
+      margin-bottom: 24px;
     }
-    p{margin:12px 0}
-    ul{margin:8px 0 16px 1.2em}
-    li{margin:6px 0}
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 18px 0 26px;
+      box-shadow: 0 6px 18px rgba(22, 57, 94, .04);
     }
-    @media(min-width:840px){
-      .grid{grid-template-columns:1.2fr .8fr}
+
+    h2 {
+      font-size: clamp(20px, 2.4vw, 26px);
+      margin: 0 0 12px;
+      color: var(--brand-ink);
     }
-    .badge{
-      display:inline-block;
-      background:#dff5e8;
-      color:var(--ok);
-      padding:2px 8px;
-      border-radius:999px;
-      font-size:.8rem;
-      margin-left:6px;
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1.05rem;
+      color: var(--ink);
     }
-    .contact-card{
-      border:1px dashed var(--border);
-      border-radius:12px;
-      padding:14px;
-      background:#fbfdff;
+
+    p {
+      margin: 12px 0
     }
-    .contact-card a{
-      color:var(--brand-ink);
-      text-decoration:underline;
-      word-break:break-all;
+
+    ul {
+      margin: 8px 0 16px 1.2em
     }
-    .disclaimer{
-      font-size:.92rem;
-      color:var(--muted);
+
+    li {
+      margin: 6px 0
     }
-    .btn{
-      appearance:none;
-      border:none;
-      background:var(--brand);
-      color:#fff;
-      padding:12px 18px;
-      border-radius:10px;
-      font-weight:600;
-      cursor:pointer;
-      transition:.2s transform ease, .2s opacity ease;
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-    .btn:hover{transform:translateY(-1px);opacity:.95}
-    .kbd{
-      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      background:#eef6ff;border:1px solid var(--border);padding:0 6px;border-radius:6px;
+
+    @media(min-width:840px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
     }
-    footer{
-      max-width:980px;margin:24px auto 48px;padding:0 16px;color:var(--muted);font-size:.9rem;
+
+    .badge {
+      display: inline-block;
+      background: #dff5e8;
+      color: var(--ok);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin-left: 6px;
     }
+
+    .contact-card {
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .contact-card a {
+      color: var(--brand-ink);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    .disclaimer {
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      background: var(--brand);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s transform ease, .2s opacity ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: .95
+    }
+
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: #eef6ff;
+      border: 1px solid var(--border);
+      padding: 0 6px;
+      border-radius: 6px;
+    }
+
+    footer {
+      max-width: 980px;
+      margin: 24px auto 48px;
+      padding: 0 16px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     /* focus styles */
-    a, button{outline-offset:3px}
-    a:focus-visible, .btn:focus-visible{outline:3px solid var(--focus)}
+    a,
+    button {
+      outline-offset: 3px
+    }
+
+    a:focus-visible,
+    .btn:focus-visible {
+      outline: 3px solid var(--focus)
+    }
   </style>
 </head>
+
 <body>
   <header role="banner">
     <div class="container">
@@ -139,14 +204,11 @@
   </header>
 
   <main role="main">
-    <div class="note" aria-live="polite">
-      このページはテンプレートです。青文字の「会社名」「窓口情報」などを御社情報に置き換えてご利用ください。
-    </div>
 
     <div class="grid">
       <section aria-labelledby="policy">
         <h2 id="policy">人権に関する基本方針</h2>
-        <p><strong>会社名</strong>（以下「当社」）は、国連「ビジネスと人権に関する指導原則」等の国際規範および関連法令を尊重し、事業活動のあらゆる場面で人権侵害を容認しません。差別、ハラスメント、いじめ、プライバシー侵害、権利の不当な侵害など、いかなる行為に対しても未然防止と是正に努めます。</p>
+        <p><strong>OBFall株式会社</strong>（以下「当社」）は、国連「ビジネスと人権に関する指導原則」等の国際規範および関連法令を尊重し、事業活動のあらゆる場面で人権侵害を容認しません。差別、ハラスメント、いじめ、プライバシー侵害、権利の不当な侵害など、いかなる行為に対しても未然防止と是正に努めます。</p>
 
         <h3>適用範囲</h3>
         <p>本方針は、当社で働くすべての人（正社員、契約社員、嘱託、派遣、アルバイト等）および取引先・顧客など当社の事業活動に関わるすべての関係者に適用します。</p>
@@ -160,7 +222,7 @@
         </ul>
 
         <h3>是正・救済</h3>
-        <p>侵害が疑われる事案を把握した場合、事実確認を行い、必要な是正措置・再発防止策を実施します。相談・通報を行った方や協力者に対する不利益取扱い（報復）を禁じます <span class="badge">No Retaliation</span>。</p>
+        <p>侵害が疑われる事案を把握した場合、事実確認を行い、必要な是正措置・再発防止策を実施します。相談・通報を行った方や協力者に対する不利益取扱い（報復）を禁じます 。</p>
 
         <h3>教育・周知</h3>
         <p>本方針の実効性を高めるため、従業員に対し継続的に教育・研修を実施し、関連規程・手順を整備します。</p>
@@ -175,11 +237,10 @@
 
         <div class="contact-card" role="group" aria-label="相談窓口の連絡先">
           <p><strong>窓口名：</strong>人権・ハラスメント相談窓口</p>
-          <p><strong>担当部署：</strong>総務部（人事管掌）</p>
-          <p><strong>受付時間：</strong>平日 9:00〜17:00（年末年始・当社指定休日を除く）</p>
-          <p><strong>メール：</strong><a href="mailto:hr-privacy@example.co.jp">hr-privacy@example.co.jp</a></p>
-          <p><strong>郵送：</strong>〒000-0000 東京都〇〇区〇〇 0-0-0 〇〇ビル 0F <br> 会社名 人権・ハラスメント相談窓口 行</p>
-          <p><strong>外部相談先（任意）：</strong>社労士・弁護士ホットラインの情報を記載可</p>
+          <p><strong>担当部署：</strong>管理部（人事管掌）</p>
+          <p><strong>受付時間：</strong>平日 9:00〜18:00（年末年始・当社指定休日を除く）</p>
+          <p><strong>メール：</strong><a href="info@obfall.co.jp">info@obfall.co.jp</a></p>
+          <p><strong>郵送：</strong>〒105-0022 東京都港区海岸1-2-3 汐留芝離宮ビルディング 21F <br> 会社名 OBFall株式会社 行</p>
         </div>
 
         <h3>受付から対応までの流れ</h3>
@@ -213,19 +274,18 @@
 
     <section aria-labelledby="policy-meta">
       <h2 id="policy-meta">改定履歴</h2>
-      <p>制定：2025年10月6日／最終改定：—</p>
-      <button class="btn" onclick="alert('このテンプレートの文言を御社名や実際の窓口情報に置換して公開してください。')">
-        公開前チェック
-      </button>
+      <p>制定：2025年10月6日／最終改定：2025年10月6日</p>
+
     </section>
   </main>
 
   <footer role="contentinfo">
-    <p>© <span id="year"></span> 会社名 / このページは一般公開用の情報提供を目的としています。</p>
+    <p>© <span id="year"></span> OBFall株式会社 / このページは一般公開用の情報提供を目的としています。</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>

@@ -275,8 +275,12 @@
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
                 </p>
+
                 <small>&copy; OBFall株式会社</small>
             </div>
 
@@ -303,7 +307,11 @@
 
 
 </html>
-
+<style>
+    .human-rights-policy {
+        color: #eef6ff
+    }
+</style>
 
 <script>
     function scrollToTop() {
