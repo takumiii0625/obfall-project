@@ -996,7 +996,7 @@ footer .devwrap {
         object-fit: cover;
         /* 余白を作らず、はみ出し分はカット */
         -o-object-position: center;
-        object-position: center;
+           object-position: center;
         /* どこを見せるか：中央 */
         -o-object-fit: cover;
     }
@@ -1569,7 +1569,6 @@ footer {
         transform: none !important;
     }
 }
-
 
 html,
 body {
