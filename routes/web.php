@@ -34,16 +34,39 @@ Route::get('/dev', [TopController::class, 'indexDev'])->name('indexDev');
 Route::get('/newses/{id}', [UserNewsesController::class, 'show'])->name('userNewsShow')->setDefaults(['description' => 'お知らせ詳細']);
 // サービス
 Route::get('/service', [UserServicesController::class, 'show'])->name('userServicesShow')->setDefaults(['description' => 'サービス詳細']);
+// 自社開発
+Route::get('/service/products', function () {
+    return view('user/services/products');
+})->name('products');
 
+// 受託開発
+Route::get('/service/contract', function () {
+    return view('user/services/contract');
+})->name('contract');
+
+// SES
+Route::get('/service/ses', function () {
+    return view('user/services/ses');
+})->name('ses');
+
+// 脆弱性診断
+Route::get('/service/security', function () {
+    return view('user/services/security');
+})->name('security');
 // 会社概要
 Route::get('/aboutus', function () {
     return view('user/aboutuses/show');
 })->name('aboutus');
 
 // 企業理念
-Route::get('/concepts', function () {
-    return view('user/concepts/show');
-})->name('concept');
+Route::get('/philosophy', function () {
+    return view('user/philosophy/show');
+})->name('philosophy');
+
+// 実績
+Route::get('/achievements', function () {
+    return view('user/achievements/show');
+})->name('achievements');
 
 
 

@@ -1,18 +1,171 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="https://obfall.com/image/logo_OBFall2.png">
-    <title>OBFall株式会社</title>
-    <link rel="icon" href="../image/favicon.png" type="image/png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Bootstrap 5 CDN (例) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Services | OBFall Inc.</title>
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --muted: #657287;
+            --blue: #1E90FF;
+            --bg: #fff;
+            --card: #fff;
+            --line: #E7EEF5;
+            --radius: 14px;
+            --maxw: 1120px;
+        }
+
+        .hero {
+            --hero-img: url('../image/chou.jpg');
+
+            position: relative;
+            background-image: var(--hero-img);
+            background-size: cover;
+            /* 画面いっぱいにフィット */
+            background-position: center;
+            /* 中央寄せ */
+            background-repeat: no-repeat;
+            min-height: 56vh;
+            /* お好みで高さ調整 */
+            color: #111;
+            /* テキスト色 */
+        }
+
+        /* 白フィルター（上に薄く被せる） */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.45);
+            /* 透明度はお好みで 0.3〜0.6 */
+            pointer-events: none;
+            /* クリック干渉を防ぐ */
+        }
+
+        /* テキストを最前面に */
+        .hero .wrap {
+            position: relative;
+            z-index: 1;
+            padding: clamp(48px, 13vw, 120px) 16px 0;
+        }
+
+        @media (max-width:480px) {
+            .hero .wrap {
+                position: relative;
+                z-index: 1;
+                padding: clamp(48px, 33vw, 120px) 16px 0;
+            }
+        }
+
+
+        .hero .title h1 {
+            line-height: 1.3;
+            margin: 0 0 .5rem;
+            color: #111;
+        }
+
+        .hero .sub {
+            font-weight: 600;
+            letter-spacing: .06em;
+            opacity: .9;
+        }
+
+        .hero .lead {
+            margin-top: 1rem;
+            max-width: 60ch;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.8
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+
+        h1 {
+            margin: 0 0 .4rem;
+            font-size: clamp(28px, 4vw, 40px)
+        }
+
+        .lead {
+            color: var(--muted);
+            max-width: 760px
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+            margin: 28px 0 48px
+        }
+
+        @media (min-width:900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px
+        }
+
+        .kicker {
+            font-size: 12px;
+            letter-spacing: .12em;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        h2,
+        h3 {
+            margin: .2rem 0 .4rem
+        }
+
+        p {
+            margin: .4rem 0 1rem;
+            color: var(--muted)
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            background: var(--blue);
+            color: #fff
+        }
+
+        a.more {
+            color: var(--blue);
+            text-decoration: none
+        }
+
+        footer {
+            padding: 36px 0;
+            border-top: 1px solid var(--line);
+            text-align: center
+        }
+    </style>
 </head>
 
 <body>
@@ -22,16 +175,15 @@
                 <a href="{{ route('indexDev') }}" class="text-dark text-decoration-none">
                     <div class="logo-container">
                         <img src="../image/logo_OBFall.png" class="link" onclick="scrollToTop()" />
-                        <div class="title" onclick="scrollToTop()">OBFall株式会社</div>
                     </div>
                 </a>
                 <nav class="nav-01">
                     <ul>
-                        <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                        <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                        <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -41,139 +193,82 @@
                     <span class="bar bar-bottom"></span>
                 </div>
             </div>
-
         </header>
         <nav class="nav-02">
             <ul>
 
-                <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
-        <div class="main-visual">
-            <div class="img-wrap-sub">
-                <img src="../image/chou.jpg">
-            </div>
-        </div>
-        <div class="text-container">
-            <p class="fadein-scroll fadein-from-down smaller-text custom-line-height">
-                <strong class="larger-text">Service</strong><br>
-            </p>
-
-        </div>
-
     </div>
-    <main class="">
-        <div class="vision" id="service">
-            <div class="wrap">
-                <h1 class="fadein-scroll fadein-from-up"><span>SES事業</span></h1>
-                <h2 class="fadein-scroll fadein-from-down">
-                    OBFallのSESでは、<br class="br-sp" />
-                    <div class="strong-point">
-                        <p class="catch">フリーランスと会社員のいいとこ取り</p>
-                    </div>
-                    をしている従業員で構成されているため、他社との差別化を実現しています。
-                </h2>
-                <ul class="fadein-scroll fadein-from-down">
-                    <li>
-                        <p class="catch">
-                            <br class="br-sp" />パフォーマンス
-                        </p>
-                        <p class="sub">エンジニアのモチベーションを第一として客先業務に従事するため、主体的な姿勢を持った高いパフォーマンスをお約束します。</p>
-                    </li>
-                    <li>
-                        <p class="catch">
-                            <br class="br-sp" />報酬形態
-                        <p class="sub">会社員でありながらフリーランスエンジニアに近い報酬形態をとっているため、人材の差別化が図れます。</p>
-                    </li>
-                    <li>
-                        <p class="catch"><br class="br-sp" />採用、育成</p>
-                        <p class="sub">スキル面のみならず質の高いエンジニアを採用、育成しているため、費用対効果の高い価値提供を実現いたします。</p>
-                    </li>
-                </ul>
+
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="title">
+                <h1>ITの力で、人と社会の可能性を広げる。</h1>
+                <div class="sub">Servise</div>
             </div>
+            <p class="lead">自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。</p>
         </div>
-        {{--自社開発--}}
-        <div class="recruit mt-4" id="recruit">
-            <div class="wrap">
-                <h1 class="fadein-scroll fadein-from-up"><span>自社開発</span></h1>
-
-                <div class="recruit-jobs fadein-scroll fadein-from-down">
-                    {{-- ▼ 3列グリッド --}}
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        @forelse ($assign['inhouse_developments'] as $record)
-                        <div class="col">
-                            <a href="{{ $record->inhouse_developments_home_page_url }}"
-                                class="card h-100 text-decoration-none text-reset"
-                                target="_blank" rel="noopener">
-
-                                <div class="card-body d-flex flex-column">
-                                    <div class="text-center text-muted mb-1">{{ $record->category }}</div>
-                                </div>
-
-                                {{-- 画像：中央配置＋トリミングなし --}}
-                                @if ($record->inhouse_developments_image_url)
-                                <div class="d-flex align-items-center justify-content-center px-3 pb-3"
-                                    style="height: 200px;"> {{-- 高さはお好みで --}}
-                                    <img src="{{ asset($record->inhouse_developments_image_url) }}"
-                                        alt="自社開発画像"
-                                        class="img-fluid"
-                                        style="max-height: 100%; max-width: 100%; object-fit: contain;">
-                                </div>
-                                @endif
-
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title mb-2">{{ $record->title }}</h5>
-                                    <p class="card-text mb-0 text-muted"
-                                        style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">
-                                        {{ $record->content }}
-                                    </p>
-                                </div>
-                            </a>
-
-                        </div>
-                        @empty
-                        <div class="col">
-                            <p class="mb-0">自社開発はまだありません。</p>
-                        </div>
-                        @endforelse
-                    </div>
-                    {{-- ▲ 3列グリッド --}}
-                </div>
-            </div>
-        </div>
+    </section>
+    <main class="wrap">
 
 
+        <section aria-label="service-cards" class="grid">
+            <!-- 自社開発 -->
+            <article class="card">
+                <div class="kicker">Products</div>
+                <h3>自社開発（Products）</h3>
+                <img src="images/service_own.jpg" alt="自社開発のイメージ">
+                <p>人の生き方・働き方・暮らしの中にある課題を見つめ、誰もが自分らしく生きられる社会を実現するためのプロダクトを開発。</p>
+                <a class="more" href="{{ route('products') }}">詳しく見る →</a>
+            </article>
+
+            <!-- 受託開発 -->
+            <article class="card">
+                <div class="kicker">Contract Development</div>
+                <h3>受託開発（Contract Development）</h3>
+                <img src="images/service_contract.jpg" alt="受託開発のイメージ">
+                <p>同じ目線で課題に向き合うパートナーとして、Web/アプリを共創。機能だけでなく、安心まで届ける開発体制で伴走します。</p>
+                <a class="more" href="{{ route('contract') }}">詳しく見る →</a>
+            </article>
+
+            <!-- SES -->
+            <article class="card">
+                <div class="kicker">Team Support</div>
+                <h3>SES（技術支援）</h3>
+                <img src="images/service_ses.jpg" alt="SES事業のイメージ">
+                <p>エンジニアが最大限力を発揮できる環境を整え、技術とチームの両面から現場を支援。人と組織が共に成長する関係を築きます。</p>
+                <a class="more" href="{{ route('ses') }}">詳しく見る →</a>
+            </article>
+
+            <!-- 脆弱性診断 -->
+            <article class="card">
+                <div class="kicker">Security</div>
+                <h3>脆弱性診断（Vulnerability Assessment）</h3>
+                <img src="images/service_security.jpg" alt="脆弱性診断のイメージ">
+                <p>開発を理解するセキュリティチームが、攻撃者の視点でリスクを特定。再現性のある改善提案でプロダクトを安全に前進させます。</p>
+                <a class="more" href="{{ route('security') }}">詳しく見る →</a>
+            </article>
+        </section>
+
+        <section aria-label="cta">
+            <a class="btn" href="/contact">まずは相談する</a>
+        </section>
     </main>
 
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
-                <p>
-                    〒105-0022<br>
-                    東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904
-                </p>
-                <small>&copy; OBFall株式会社</small>
-            </div>
-        </div>
+        <small>© OBFall Inc.</small>
     </footer>
     <script src="{{ asset('js/main.js') }}" defer></script>
 
-
 </body>
 
-
-<style>
-    /* スマホ表示用のスタイル */
-    @media (max-width: 767px) {
-        .fs-7 {
-            font-size: 3px;
-        }
-
-    }
-</style>
+</html>

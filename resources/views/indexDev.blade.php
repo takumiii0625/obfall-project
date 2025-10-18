@@ -28,11 +28,12 @@
                 </a>
                 <nav class="nav-01">
                     <ul>
-                        <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                        <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                        <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+
+                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -47,11 +48,11 @@
         <nav class="nav-02">
             <ul>
 
-                <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
@@ -70,7 +71,10 @@
                     を全てのひとへ</strong><br>
                 私たちは皆、人生の主人公です。<br>
                 働くことも人生の一部。<br>
-                OBFall株式会社は、<br>従来にない新しい会社の形を実現します。
+                OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
+                <a href="{{ route('philosophy') }}" class="btn btn-dark">
+                    企業理念画面へ
+                </a>
             </p>
 
         </div>
@@ -78,40 +82,43 @@
     </div>
 
     <main>
-        <div id="about" class="service">
+        <div id="about" class="service pt-4">
 
             <ul>
                 <section class="shinkansen-bg">
                     <div class="container ps-0"> <!-- 左パディングを0 -->
                         <h1 class="fadein-scroll fadein-from-left m-0 text-start">
-                            <div class="heading-chip">CONCEPT</div>
+                            <div class="heading-chip">SERVICE</div>
                         </h1>
                     </div>
                 </section>
-                <section class="py-5">
+                <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
                             {{-- 左：画像（トリミングなし） --}}
-                            <div class="col-md-6">
+                            <div class="col-md-6 order-2 order-md-1">
                                 <img
-                                    src="{{ asset('image/concept.png') }}"
+                                    src="{{ asset('image/obfall_3s.gif') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
                                     style="max-width:100%; height:auto;">
                             </div>
 
                             {{-- 右：見出し・英字・内容・ボタン --}}
-                            <div class="col-md-6">
-                                <h2 class="h4 mb-1">企業理念</h2>
-                                <div class="text-muted small mb-3">CONCEPT</div>
+                            <div class="col-md-6 order-1 order-md-2">
+                                <div class="text-muted small mb-1 text-end text-md-start">サービス</div>
+                                <h2 class="h4 mb-3 text-container maintitle text-end text-md-start">SERVICE</h2>
+
 
                                 <p class="mb-4">
-                                    ここに企業理念の概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
+                                    ITの力で、人と社会の可能性を広げる。<br>
+                                    自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。
+
                                 </p>
 
                                 {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="{{ route('concept') }}" class="btn btn-dark">
-                                    企業理念画面へ <i class="fa-solid fa-arrow-right ms-1"></i>
+                                <a href="{{ route('userServicesShow') }}" class="btn btn-dark">
+                                    サービス詳細画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -123,23 +130,26 @@
                 <section class="shinkansen-bg">
                     <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
                         <h1 class="fadein-scroll fadein-from-right m-0 text-end">
-                            <div class="heading-chip--flip">SERVICE</div>
+                            <div class="heading-chip--flip">ACHIEVEMENTS</div>
                         </h1>
                     </div>
                 </section>
 
-                <section class="py-5">
+                <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
                             {{-- 左：テキスト --}}
                             <div class="col-md-6">
-                                <h2 class="h4 mb-1">サービス詳細</h2>
-                                <div class="text-muted small mb-3">SERVICE</div>
+                                <div class="text-muted small mb-1">実績・事例紹介</div>
+                                <h2 class="h4 maintitle text-container mb-3">ACHIEVEMENTS</h2>
+
                                 <p class="mb-4">
-                                    ここにサービス詳細の概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
+                                    ITの可能性を、実績で証明する。<br>
+                                    自社開発・受託開発・SES・脆弱性診断の4つの領域で、
+                                    “つくる・支える・守る”を軸に、テクノロジーで課題解決に挑んでいます。
                                 </p>
-                                <a href="{{ route('userServicesShow') }}" class="btn btn-dark">
-                                    サービス詳細画面へ <i class="fa-solid fa-arrow-right ms-1"></i>
+                                <a href="{{ route('achievements') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                                    実績・事例紹介 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
 
@@ -155,44 +165,47 @@
                 </section>
             </ul>
 
-
-
             <ul>
                 <section class="shinkansen-bg">
-                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
+                    <div class="container ps-0"> <!-- 左パディングを0 -->
                         <h1 class="fadein-scroll fadein-from-left m-0 text-start">
                             <div class="heading-chip">ABOUT US</div>
                         </h1>
                     </div>
                 </section>
-
-                <section class="py-5">
+                <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
-                            {{-- 右：画像（トリミングなし） --}}
-                            <div class="col-md-6">
-                                <img src="{{ asset('image/aboutus.png') }}"
+                            {{-- 左：画像（トリミングなし） --}}
+                            <div class="col-md-6 order-2 order-md-1">
+                                <img
+                                    src="{{ asset('image/achievements.png') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
-                                    style="max-width:100%;height:auto;">
+                                    style="max-width:100%; height:auto;">
                             </div>
-                            {{-- 左：テキスト --}}
-                            <div class="col-md-6">
-                                <h2 class="h4 mb-1">会社概要</h2>
-                                <div class="text-muted small mb-3">ABOUT US</div>
+
+                            {{-- 右：見出し・英字・内容・ボタン --}}
+                            <div class="col-md-6 order-1 order-md-2">
+                                <div class="text-muted small mb-1 text-end text-md-start">会社概要</div>
+                                <h2 class="h4 mb-3 text-container text-end text-md-start maintitle">ABOUT US</h2>
+
+
                                 <p class="mb-4">
-                                    ここに会社概要の概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
+                                    会社情報をご紹介いたします。<br>
+                                    OBFall株式会社は、ITの力で社会課題の解決を図り、
+                                    人と社会の可能性を広げる企業として成長を続けてまいります。<br>
+
                                 </p>
+
+                                {{-- 遷移ボタン（お好みでどちらか） --}}
                                 <a href="{{ route('aboutus') }}" class="btn btn-dark">
-                                    会社概要画面へ <i class="fa-solid fa-arrow-right ms-1"></i>
+                                    会社概要画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
-
-
                         </div>
                     </div>
                 </section>
-
             </ul>
 
             <ul>
@@ -203,48 +216,70 @@
                         </h1>
                     </div>
                 </section>
-                <section class="py-5">
+                <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
-                            <div class="col-md-6">
-                                <h2 class="h4 mb-1">最新情報</h2>
-                                <div class="text-muted small mb-3">NEWS</div>
-
-                                <p class="mb-4">
-                                    ここに最新情報の概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
-                                </p>
+                            <div class="col-12">
+                                <div class="text-muted small mb-1">最新情報</div>
+                                <h2 class="h4 mb-3 text-container maintitle">NEWS</h2>
 
                             </div>
-                            <div class="col-md-6">
-                                <div class="recruit-jobs fadein-scroll fadein-from-down">
-                                    <div class="d-flex flex-column justify-content-center w-100">
-                                        <button id="toggleNewsBtn" class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
-                                            もっと見る >
-                                        </button>
-                                    </div>
+                            <div class="col-12">
+                                <div class="achievements-jobs fadein-scroll fadein-from-down">
+
 
                                     <div class="bg-white">
                                         @php $visibleCount = 3; @endphp
+
                                         @forelse ($assign['news'] as $index => $record)
+
+                                        @php
+                                        // 1) 画像の優先順位（1→2→3）
+                                        $raw = collect([
+                                        $record->news_image_url_1 ?? null,
+                                        $record->news_image_url_2 ?? null,
+                                        $record->news_image_url_3 ?? null,
+                                        ])->first(fn($u) => filled($u));
+
+                                        // 2) 出力URLを正規化
+                                        $imgSrc = $raw
+                                        ? (\Illuminate\Support\Str::startsWith($raw, ['http://','https://','/'])
+                                        ? $raw
+                                        : asset($raw)) // 'storage/...' や 'image/...' など相対パス想定
+                                        : asset('image/noimg-square.jpg'); // 代替画像（任意）
+                                        @endphp
+
                                         <div class="border-bottom news-item {{ $index >= $visibleCount ? 'd-none' : '' }}">
                                             <a href="{{ route('userNewsShow', ['id' => $record->id]) }}"
                                                 class="d-flex text-decoration-none text-dark mb-3 mt-3">
 
-                                                <div class="d-flex w-100 align-items-center">
-                                                    <div class="flex-grow-1 text-truncate pe-3">
+                                                {{-- サムネ（正方形でトリミング） --}}
+                                                <div class="ratio ratio-1x1 flex-shrink-0 me-3" style="width:72px;">
+                                                    <img src="{{ $imgSrc }}" alt="{{ $record->title }}"
+                                                        class="w-100 h-100 rounded shadow-sm" style="object-fit:cover;" loading="lazy">
+                                                </div>
+
+                                                {{-- タイトル & 日付 --}}
+                                                <div class="d-flex w-100 align-items-center mobile-small">
+                                                    <div class="flex-grow-1 pe-3 title-cell" title="{{ $record->title }}">
                                                         {{ $record->title }}
                                                     </div>
+
                                                     <time class="text-muted small flex-shrink-0">
                                                         {{ $record->created_at_fmt }}
                                                     </time>
                                                 </div>
-
                                             </a>
                                         </div>
 
                                         @empty
-                                        <p class="m-0 py-2">お知らせはまだありません。</p>
+                                        <p class="text-muted">お知らせはありません。</p>
                                         @endforelse
+                                        <div class="d-flex flex-column justify-content-center w-100">
+                                            <button id="toggleNewsBtn" class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
+                                                もっと見る >
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -259,78 +294,84 @@
 
             <ul>
                 <section class="shinkansen-bg">
-                    <div class="container ps-0"> <!-- 左パディングを0 -->
+                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
                         <h1 class="fadein-scroll fadein-from-left m-0 text-start">
                             <div class="heading-chip">RECRUIT</div>
                         </h1>
                     </div>
                 </section>
-                <section class="py-5">
+
+                <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
-                            {{-- 左：画像（トリミングなし） --}}
-                            <div class="col-md-6">
-                                <img
-                                    src="{{ asset('image/recruit.png') }}"
-                                    alt="サービスのイメージ"
-                                    class="img-fluid rounded shadow-sm d-block"
-                                    style="max-width:100%; height:auto;">
-                            </div>
-
-                            {{-- 右：見出し・英字・内容・ボタン --}}
-                            <div class="col-md-6">
-                                <h2 class="h4 mb-1">採用情報</h2>
-                                <div class="text-muted small mb-3">RECRUIT</div>
-
-                                <p class="mb-4">
-                                    ここに採用情報の概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
-                                </p>
-
-                                {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="https://obfall-recruit.com/" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                                    採用情報画面へ <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </ul>
-
-            <ul>
-                <section class="shinkansen-bg">
-                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
-                        <h1 class="fadein-scroll fadein-from-right m-0 text-end">
-                            <div class="heading-chip--flip">CONTUCT</div>
-                        </h1>
-                    </div>
-                </section>
-
-                <section class="py-5">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            {{-- 左：テキスト --}}
-                            <div class="col-md-6">
-                                <h2 class="h4 mb-1">お問い合わせ</h2>
-                                <div class="text-muted small mb-3">CONTUCT</div>
-                                <p class="mb-4">
-                                    ここにお問い合わせの概要テキストを入れます。強みや提供価値、主な機能などを2〜4行で簡潔に。
-                                </p>
-                                <a href="https://obfall.com/contact" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                                    お問い合わせ画面へ <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
-                            </div>
-
                             {{-- 右：画像（トリミングなし） --}}
-                            <div class="col-md-6">
-                                <img src="{{ asset('image/contuct.png') }}"
+                            <div class="col-md-6 order-2 order-md-1">
+                                <img src="{{ asset('image/aboutus.png') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
                                     style="max-width:100%;height:auto;">
                             </div>
+                            {{-- 左：テキスト --}}
+                            <div class="col-md-6 order-1 order-md-2">
+                                <div class="text-muted small mb-1 text-end text-md-start">採用情報</div>
+                                <h2 class="h4 mb-3 text-container text-end text-md-start maintitle">RECRUIT</h2>
+
+                                <p class="mb-4">
+                                    あなたの、あなたによる、あなたのための場所で。<br>
+                                    私たちは、働くことを人生の一部として誇れる舞台をつくります。<br>
+                                    OBFallでの挑戦が、あなたの成長と物語を彩りますように。
+                                </p>
+                                <a href="https://obfall-recruit.com/" class="btn btn-dark" target="_blank">
+                                    採用情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </section>
+
+            </ul>
+            <ul>
+                <section class="shinkansen-bg">
+                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
+                        <h1 class="fadein-scroll fadein-from-right m-0 text-end">
+                            <div class="heading-chip--flip">CONTACT</div>
+                        </h1>
+                    </div>
+                </section>
+
+                <section class="py-1 py-md-5">
+                    <div class="container">
+                        <div class="row g-4 align-items-center">
+                            {{-- 左：テキスト --}}
+                            <div class="col-md-6">
+                                <div class="text-muted small mb-1">お問い合わせ</div>
+                                <h2 class="h4 mb-3 text-container maintitle">contact</h2>
+
+                                <p class="mb-4">
+                                    〒105-0022<br>
+                                    東京都港区海岸1-2-3<br>
+                                    汐留芝離宮ビルディング21F<br>
+                                    📞03-5403-5904<br>
+                                </p>
+
+                            </div>
+
+                            {{-- 右：画像（トリミングなし） --}}
+                            <div class="col-md-6">
+                                <a href="https://obfall.com/contact" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
             </ul>
+
+
+
+
         </div>
 
         <a href="#" class="back-to-top" style="display: none;">▲</a>
@@ -342,7 +383,10 @@
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
                 </p>
                 <small>&copy; OBFall株式会社</small>
             </div>
@@ -355,7 +399,11 @@
 
 
 </html>
-
+<style>
+    .human-rights-policy {
+        color: #eef6ff
+    }
+</style>
 
 <script>
     function scrollToTop() {

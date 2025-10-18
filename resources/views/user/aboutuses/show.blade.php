@@ -13,6 +13,67 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .hero {
+            --hero-img: url('../image/chou.jpg');
+
+            position: relative;
+            background-image: var(--hero-img);
+            background-size: cover;
+            /* 画面いっぱいにフィット */
+            background-position: center;
+            /* 中央寄せ */
+            background-repeat: no-repeat;
+            min-height: 56vh;
+            /* お好みで高さ調整 */
+            color: #111;
+            /* テキスト色 */
+        }
+
+        /* 白フィルター（上に薄く被せる） */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.45);
+            /* 透明度はお好みで 0.3〜0.6 */
+            pointer-events: none;
+            /* クリック干渉を防ぐ */
+        }
+
+        /* テキストを最前面に */
+        .hero .wrap {
+            position: relative;
+            z-index: 1;
+            padding: clamp(48px, 13vw, 120px) 16px 0;
+        }
+
+        @media (max-width:480px) {
+            .hero .wrap {
+                position: relative;
+                z-index: 1;
+                padding: clamp(48px, 33vw, 120px) 16px 0;
+            }
+        }
+
+
+        .hero .title h1 {
+            line-height: 1.3;
+            margin: 0 0 .5rem;
+            color: #111;
+        }
+
+        .hero .sub {
+            font-weight: 600;
+            letter-spacing: .06em;
+            opacity: .9;
+        }
+
+        .hero .lead {
+            margin-top: 1rem;
+            max-width: 60ch;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,11 +88,11 @@
                 </a>
                 <nav class="nav-01">
                     <ul>
-                        <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                        <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                        <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -46,27 +107,26 @@
         <nav class="nav-02">
             <ul>
 
-                <li class="link text-dark "><a href="{{ route('concept') }}" class="text-dark text-decoration-none">CONCEPT</a></li>
+                <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
+                <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall-recruit.com/" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">RECRUIT</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTUCT</a></li>
+                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
-        <div class="main-visual">
-            <div class="img-wrap-sub">
-                <img src="../image/chou.jpg">
-            </div>
-        </div>
-        <div class="text-container">
-            <p class="fadein-scroll fadein-from-down smaller-text custom-line-height">
-                <strong class="larger-text">About US</strong><br>
-            </p>
-
-        </div>
 
     </div>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="title">
+                <h1>私たちOBFall株式会社について</h1>
+                <div class="sub">About US</div>
+            </div>
+            <p class="lead">会社情報をご紹介いたします。</p>
+        </div>
+    </section>
     <main class="py-5">
 
         <div class="about" id="company">
@@ -111,7 +171,7 @@
                 </div>
             </div>
             <div class="wrap">
-                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/recruit/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら
+                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/achievements/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら
                     <i class="fa-solid fa-circle-arrow-right"></i>
                 </a>
             </div>

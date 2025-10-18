@@ -784,27 +784,27 @@ nav li:hover {
 }
 
 /* Recruit */
-.recruit {
+.achievements {
     padding: 120px 0;
 }
 
-.recruit h2 {
+.achievements h2 {
     font-size: 1.3em;
     font-weight: bold;
     text-align: center;
     padding: 40px 0;
 }
 
-.recruit h2 span {
+.achievements h2 span {
     color: #006e98;
 }
 
-.recruit-jobs {
+.achievements-jobs {
     background-color: white;
     padding: 40px 0;
 }
 
-.recruit-jobs>p {
+.achievements-jobs>p {
     text-align: center;
     padding-bottom: 40px;
     font-weight: bold;
@@ -1230,11 +1230,11 @@ footer .devwrap {
         height: 50vw;
     }
 
-    .recruit .jobs {
+    .achievements .jobs {
         padding: 40px;
     }
 
-    .recruit .jobs a {
+    .achievements .jobs a {
         width: 100%;
     }
 
@@ -1304,7 +1304,7 @@ footer .devwrap {
         color: #3d4cd1;
     }
 
-    .recruit {
+    .achievements {
         padding: 1px 0;
     }
 
@@ -1312,7 +1312,7 @@ footer .devwrap {
         height: 750px;
     }
 
-    .recruit h2 {
+    .achievements h2 {
         font-size: 1.3em;
         font-weight: bold;
         text-align: center;

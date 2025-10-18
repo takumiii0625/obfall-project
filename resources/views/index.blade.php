@@ -29,7 +29,7 @@
                         <li class="link text-dark"><a href="#about" class="text-dark text-decoration-none">About</a></li>
                         <li class="link text-dark"><a href="#service" class="text-dark text-decoration-none">Service</a></li>
                         <li class="link text-dark"><a href="#company" class="text-dark text-decoration-none">Company</a></li>
-                        <li class="link text-dark"><a href="#recruit" class="text-dark text-decoration-none">Contact</a></li>
+                        <li class="link text-dark"><a href="#achievements" class="text-dark text-decoration-none">Contact</a></li>
 
                     </ul>
                 </nav>
@@ -47,7 +47,7 @@
                 <li class="link text-dark"><a href="#about" class="text-dark text-decoration-none">About</a></li>
                 <li class="link text-dark"><a href="#service" class="text-dark text-decoration-none">Service</a></li>
                 <li class="link text-dark"><a href="#company" class="text-dark text-decoration-none">Company</a></li>
-                <li class="link text-dark"><a href="#recruit" class="text-dark text-decoration-none">Contact</a></li>
+                <li class="link text-dark"><a href="#achievements" class="text-dark text-decoration-none">Contact</a></li>
 
             </ul>
         </nav>
@@ -161,11 +161,11 @@
             </div>
         </div>
         {{--自社開発--}}
-        <div class="about mt-4" id="recruit">
+        <div class="about mt-4" id="achievements">
             <div class="wrap">
                 <h1 class="fadein-scroll fadein-from-up"><span>自社開発</span></h1>
 
-                <div class="recruit-jobs fadein-scroll fadein-from-down">
+                <div class="achievements-jobs fadein-scroll fadein-from-down">
                     {{-- ▼ 3列グリッド --}}
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @forelse ($assign['inhouse_developments'] as $record)
@@ -243,22 +243,22 @@
                 </div>
             </div>
             <div class="wrap">
-                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/recruit/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら
+                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/achievements/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら
                     <i class="fa-solid fa-circle-arrow-right"></i>
                 </a>
             </div>
         </div>
 
-        <div class="recruit" id="recruit">
+        <div class="achievements" id="achievements">
             <div class="wrap">
                 <h1 class="fadein-scroll fadein-from-up"><span>Contact</span></h1>
                 <!-- <h2 class="fadein-scroll fadein-from-down">熱いパッションを持っている<br><span>あなた</span>を待っています。</h2>-->
-                <div class="recruit-jobs fadein-scroll fadein-from-down ">
+                <div class="achievements-jobs fadein-scroll fadein-from-down ">
                     <!-- <p>お問い合わせ</p>
                    <p>各種お問い合わせはこちら<br>※新しいタブが開きます</p>-->
                     <div class="jobs" style="background-color: #ffffff;">
                         <a class=" fadein-scroll fadein-from-down text-dark text-decoration-none" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">企業様お問い合わせ<i class="fa-solid fa-arrow-right"></i></a>
-                        <a class="fadein-scroll fadein-from-down text-dark text-decoration-none" href="https://obfall-recruit.com/" target="_blank" rel="noopener noreferrer">採用情報・エントリー<i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="fadein-scroll fadein-from-down text-dark text-decoration-none" href="{{ route('achievements') }}" target="_blank" rel="noopener noreferrer">採用情報・エントリー<i class="fa-solid fa-arrow-right"></i></a>
                         <!--<a class="fadein-scroll fadein-from-down" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">PR・広報<i class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
