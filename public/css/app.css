@@ -82,7 +82,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #0000006b;
+    background-color: #b0e0e6;
     /* 薄い水色 */
     color: white;
     padding: 10px 15px;
@@ -95,7 +95,7 @@ body {
 }
 
 .back-to-top:hover {
-    background-color: #00000076;
+    background-color: #5555d6;
     color: white;
     /* 濃い青 */
 }
@@ -202,19 +202,8 @@ body {
     background-color: white;
 }
 
-.maintitle {
-    font-size: 35px !important;
-}
-
 .title {
     margin-left: 10px;
-    color: rgb(248, 248, 248);
-}
-
-.logo-container img {
-    height: clamp(28px, 5vw, 48px);
-    /* 28〜48pxの範囲で画面幅に応じて可変 */
-    width: auto;
 }
 
 .home-button {
@@ -261,12 +250,12 @@ body {
 }
 
 .link {
-    color: #ffffffde;
+    color: #000000DE;
     cursor: pointer;
 }
 
 a {
-    color: #ffffffde;
+    color: #000000DE;
     cursor: pointer;
 }
 
@@ -276,7 +265,7 @@ a:hover {
 }
 
 .sub {
-
+    background-color: #f4fbfff6;
     font-size: 20px;
     /* サブテキストのフォントサイズを大きくします */
     color: #333;
@@ -289,11 +278,11 @@ body {
     background-color: #fdfefe;
 
     /* ↓背景グリッド↓ */
-    /* background-image: linear-gradient(0deg, transparent calc(100% - 1px), #f5ffff calc(100% - 1px)),
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #f5ffff calc(100% - 1px)),
         linear-gradient(90deg, transparent calc(100% - 1px), #f5f2fe calc(100% - 1px));
     background-size: 23px 23px;
     background-repeat: repeat;
-    background-position: center center; */
+    background-position: center center;
 }
 
 
@@ -337,12 +326,12 @@ h1 span {
 
 .fa-circle-arrow-right::before {
     content: "\f0a9";
-    color: #ffffff;
+    color: #006e98;
 }
 
 .fa-arrow-right {
     content: "f061";
-    color: #fdfdfd;
+    color: #006e98;
     margin-left: 5px;
 }
 
@@ -396,7 +385,7 @@ h1 span {
 
 /* 右端が斜めに“切れる”バッジ（外側へ少し伸ばす版） */
 .heading-chip {
-    --nose: 70px;
+    --nose: 28px;
     /* 斜めの長さ。大きいほど浅く長く */
     position: relative;
     display: inline-block;
@@ -423,14 +412,14 @@ h1 span {
 
     /* 右端が斜めになる台形（上：外側、下：内側） */
     -webkit-clip-path: polygon(0 0, calc(100% - var(--nose)) 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, calc(100% - var(--nose)) 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, calc(100% - var(--nose)) 0, 100% 100%, 0 100%);
 }
 
 /* ※旧方式の ::after / transform は不要なので削除してください */
 
 /* 左ノーズ（斜めカット）版：ズレなし・一体成形 */
 .heading-chip--flip {
-    --nose: 70px;
+    --nose: 28px;
     /* 斜めの出っ張り量（大きいほど斜度が緩く/長く） */
     position: relative;
     display: inline-block;
@@ -455,7 +444,7 @@ h1 span {
 
     /* ← ここがポイント：左上(0 0) → 右上 → 右下 → 左下( var(--nose) 100% ) */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, var(--nose) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--nose) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, var(--nose) 100%);
 }
 
 
@@ -463,7 +452,7 @@ h1 span {
 
 
 header {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     width: 100%;
     height: 80px;
     position: fixed;
@@ -528,18 +517,11 @@ nav li:hover {
     height: 100vh;
 }
 
-/* ヒーロー画像のラッパー */
-.main-visual {
-    position: relative;
-    overflow: hidden;
-    /* はみ出しを隠す */
-}
-
 .main-visual img {
     width: 100%;
     height: 100vh;
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
     position: absolute;
 
 }
@@ -584,7 +566,7 @@ nav li:hover {
 
 .service li img {
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
     width: 50%;
     height: 33.3vw;
     padding-left: 23px;
@@ -662,7 +644,7 @@ nav li:hover {
 .vision {
     /* background-image: url(image/bg01.jpg); */
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
     height: 650px;
     padding: 100px 0;
 }
@@ -696,13 +678,13 @@ nav li:hover {
     color: #006e98;
     font-weight: bold;
     text-align: center;
-    margin: 24px;
+    margin-bottom: 24px;
 }
 
 .vision ul li .sub {
-
-    text-align: left;
-    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
 }
 
 /* News */
@@ -724,7 +706,7 @@ nav li:hover {
     width: 150px;
     height: 80px;
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
 }
 
 .news-meta time {
@@ -741,16 +723,19 @@ nav li:hover {
 
 .news-title {
     margin: 10px 10px 10px 20px;
-    color: #fefefe;
+    color: #0000008A;
 }
 
 .news-content:hover .news-title>a {
-    color: #ffffff;
+    color: #006e98;
     transition: 0.4s;
 }
 
 /* About Us */
-
+.about {
+    padding-top: 120px;
+    /* background-image: url(image/bg02.jpg);*/
+}
 
 .about ul {
     width: 45%;
@@ -800,7 +785,7 @@ nav li:hover {
 .about-content-inner-wrap img {
     width: 45%;
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
 }
 
 /* Recruit */
@@ -976,100 +961,6 @@ footer .devwrap {
 */
 
 @media (max-width: 768px) {
-
-
-    .maintitle {
-        font-size: 25px !important;
-    }
-
-    .main-visual {
-        height: clamp(320px, 60svh, 520px);
-        /* 画面に応じて 320〜520px で可変 */
-    }
-
-
-
-    .main-visual img {
-        width: 100%;
-        height: 100% !important;
-        /* inlineの height:auto を上書き */
-        object-fit: cover;
-        /* 余白を作らず、はみ出し分はカット */
-        object-position: center;
-        /* どこを見せるか：中央 */
-        -o-object-fit: cover;
-    }
-
-    /* 右端が斜めに“切れる”バッジ（外側へ少し伸ばす版） */
-    .heading-chip {
-        --nose: 70px;
-        /* 斜めの長さ。大きいほど浅く長く */
-        position: relative;
-        display: inline-block;
-        /* テキスト幅にフィット */
-        color: #f7f7f9;
-        line-height: 1.2;
-        font-size: 16px;
-        font-family: 'Times New Roman', Times, serif;
-        padding: .45rem calc(1rem + var(--nose)) .45rem 1rem;
-        /* 右にノーズぶん余白 */
-    }
-
-    /* 背景を1枚で成形（右端を斜めカット） */
-    .heading-chip::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        /* 右へ“ノーズ分”はみ出させる */
-        background: #000;
-
-        /* 右端が斜めになる台形（上：外側、下：内側） */
-        -webkit-clip-path: polygon(0 0, calc(100% - var(--nose)) 0, 100% 100%, 0 100%);
-        clip-path: polygon(0 0, calc(100% - var(--nose)) 0, 100% 100%, 0 100%);
-    }
-
-    /* ※旧方式の ::after / transform は不要なので削除してください */
-
-    /* 左ノーズ（斜めカット）版：ズレなし・一体成形 */
-    .heading-chip--flip {
-        --nose: 70px;
-        /* 斜めの出っ張り量（大きいほど斜度が緩く/長く） */
-        position: relative;
-        display: inline-block;
-        color: #f7f7f9;
-        line-height: 1.2;
-        font-size: 16px;
-        font-family: 'Times New Roman', Times, serif;
-        padding: .45rem 1rem .45rem calc(1rem + var(--nose));
-        /* 左に余白 */
-    }
-
-    .heading-chip--flip::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        /* ノーズぶん左へ広げる */
-        background: #000;
-
-        /* ← ここがポイント：左上(0 0) → 右上 → 右下 → 左下( var(--nose) 100% ) */
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, var(--nose) 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, var(--nose) 100%);
-    }
-
-    .mobile-small {
-        font-size: .875rem;
-    }
-
-    /* small 相当 */
-
     .c-form__terms {
         padding: 10px;
     }
@@ -1079,7 +970,7 @@ footer .devwrap {
         font-size: 32px;
         width: 100%;
         display: block;
-
+        margin-bottom: 100px;
     }
 
 
@@ -1123,7 +1014,6 @@ footer .devwrap {
         display: flex;
         flex-direction: column;
         font-size: 16px;
-        padding: 0px;
     }
 
     .nav-02 ul li {
@@ -1150,7 +1040,7 @@ footer .devwrap {
         width: 2rem;
         height: 2px;
         display: block;
-        background: #000000;
+        background: #006e98;
         transition: 0.1s;
         box-sizing: border-box;
     }
@@ -1232,7 +1122,7 @@ footer .devwrap {
         width: 90%;
         height: auto;
         -o-object-fit: cover;
-        object-fit: cover;
+           object-fit: cover;
     }
 
     .jobs {
@@ -1249,13 +1139,6 @@ footer .devwrap {
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 500px) {
-    .title-cell {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 15ch;
-        /* “約”15文字分の幅。厳密ではない */
-    }
 
     .about {
         padding-top: 250px;
@@ -1299,8 +1182,7 @@ footer .devwrap {
     }
 
     .strong-point .catch {
-        padding-top: 10px;
-        font-size: 20px;
+        font-size: 30px;
     }
 
 
@@ -1322,7 +1204,6 @@ footer .devwrap {
     .vision h2 {
         font-size: 15px;
         text-align: center;
-        margin-top: 24px;
     }
 
     .vision h2 .br-sp {
@@ -1334,7 +1215,7 @@ footer .devwrap {
 
     .vision ul li .catch {
         text-align: center;
-        margin: 8px;
+        margin-bottom: 8px;
     }
 
     .vision ul li .sub {
@@ -1392,8 +1273,7 @@ footer .devwrap {
         font-size: 16px;
         width: 100%;
         display: block;
-
-
+        margin-bottom: 100px;
     }
 
 
@@ -1447,124 +1327,8 @@ footer .devwrap {
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-/* ① 100vh 問題を回避（モバイルで実高さに追従させる） */
-.min-vh-100 {
-    min-height: 100dvh !important;
-}
-
-/* body に適用済みのクラスを上書き */
-
-/* ② フッターを通常フローに戻す（固定指定があってもモバイルでは打ち消す） */
-footer {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-}
-
-@media (max-width: 767.98px) {
-    footer {
-        position: static !important;
-    }
-}
-
-/* ③ 念のため本文の下に余白を確保（固定フッターの影響が残っても被らない） */
-@media (max-width: 767.98px) {
-    main {
-        padding-bottom: 96px;
-    }
-
-    /* フッターの高さ目安に合わせて調整可 */
-    footer .devwrap {
-        padding: 16px 0;
-    }
-
-    /* 触らなくてもOK。見た目の余白調整 */
-}
-
-/* 並び：1→2→3列 */
-.pillars {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    /* モバイル1列 */
-    gap: 16px;
-}
-
-@media (min-width: 576px) {
-    .pillars {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* タブレット2列 */
-}
-
-@media (min-width: 992px) {
-    .pillars {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* PC3列 */
-}
-
-/* カード */
-.pillars>li {
-    background: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 16px;
-    padding: 18px 18px 20px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-@media (hover:hover) {
-    .pillars>li:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, .1);
-    }
-}
-
-/* タイポ */
-.pillars .catch {
-    font-weight: 700;
-    font-size: 1.125rem;
-    margin: 0 0 .25rem;
-}
-
-.pillars .subtitle {
-    color: #6c757d;
-    margin: 0 0 .5rem;
-    font-size: .95rem;
-}
-
-.pillars .sub {
-    margin: 0;
-    line-height: 1.8;
-    font-size: .95rem;
-}
-
-/* モバイルの行間を少し詰めて読みやすく */
-@media (max-width: 575.98px) {
-    .pillars .sub {
-        line-height: 1.7;
-    }
-}
-
-/* （オプション）モーション軽減に配慮 */
-@media (prefers-reduced-motion: reduce) {
-    .pillars>li {
-        transition: none;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .vision .fadein-from-down {
-        transform: none !important;
+@media (max-width: 300px) {
+    .about {
+        padding: 250px 0;
     }
 }
