@@ -374,6 +374,7 @@
 
         </div>
 
+        <a href="#" class="back-to-top" style="display: none;">▲</a>
 
     </main>
     <footer>
