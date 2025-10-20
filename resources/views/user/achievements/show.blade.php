@@ -52,7 +52,7 @@
 
         h4 {
             font-size: 1.2rem;
-            margin-top: 40px;
+            margin-top: 20px;
             color: #007acc;
         }
 
@@ -83,12 +83,12 @@
 
         /* === 画像コンテナ === */
         .image-container {
-            margin: 24px 0;
+            margin-top: 24px;
             text-align: center;
         }
 
         .image-container img {
-            width: 100%;
+            width: 60%;
             max-width: 720px;
             border-radius: 6px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -273,7 +273,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+
         }
 
         /* PC版（768px以上）で横並びに */
@@ -375,12 +375,11 @@
 
         <!-- 🌍 アチーブメント（Achievements） -->
         <section id="achievements" class="section-achievements">
-            <h3 class="achievement-lead">OBFallの挑戦と成果。</h3>
-            <hr>
+            <h1 class="achievement-lead">OBFallの挑戦と成果。</h1>
             <p>
-                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、<br>
-                自社開発・受託開発・脆弱性診断・SESの4つの領域で、<br>
-                社会や現場の課題を“仕組み”として解決してきました。<br><br>
+                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
+                自社開発・受託開発・脆弱性診断・SESの4つの領域で、
+                社会や現場の課題を“仕組み”として解決してきました。<br>
                 ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br>
                 どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
             </p>
@@ -402,8 +401,11 @@
             <!-- digOn -->
             <article class="achievement-item">
                 <div class="achievement-content">
+                    <!-- image: digOnアプリのメイン画面 -->
+                    <div class="image-container">
+                        <img src="../image/digOn_logo.png" alt="digOnアプリ画面" />
+                    </div>
                     <div class="text">
-                        <img src="../image/digOn_logo.png" alt="digOnアプリロゴ" class="app-logo" />
 
                         <h4>digOn（ディグオン）</h4>
                         <p class="lead">
@@ -412,10 +414,7 @@
                             Flutter × Firebase × Webで構築された、クロスプラットフォーム対応の音楽アプリ。<br>
                             再生履歴・レコメンド・お気に入り管理など、ユーザー体験を重視したUIを設計。
                         </p>
-                        <!-- image: digOnアプリのメイン画面 -->
-                        <div class="image-container">
-                            <img src="images/digon_main.jpg" alt="digOnアプリ画面" />
-                        </div>
+
                         <p><a href="https://dig-on-web.com" target="_blank" class="link-button">🔗 digOn公式サイトを見る</a></p>
                     </div>
                 </div>
@@ -426,8 +425,10 @@
             <!-- Store-Pass -->
             <article class="achievement-item">
                 <div class="achievement-content">
+                    <div class="image-container">
+                        <img src="../image/store-pass_logo.png" alt="Store-Passアプリ画面" />
+                    </div>
                     <div class="text">
-                        <img src="../image/store-pass_logo.png" alt="Store-Passアプリロゴ" class="app-logo" />
                         <h4>ストパス（Store-Pass）</h4>
                         <p>
                             店舗とユーザーをつなぐ共通特典アプリ。<br>
@@ -441,9 +442,7 @@
                         <p><a href="https://store-pass.com" target="_blank" class="link-button">🔗 Store-Pass公式サイトを見る</a></p>
                     </div>
 
-                    <div class="image-container">
-                        <img src="../image/iphone立体画像.jpg" alt="Store-Passアプリ画面" />
-                    </div>
+
                 </div>
             </article>
 

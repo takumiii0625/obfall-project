@@ -191,7 +191,7 @@
 
         <div class="about" id="company">
             <div class="wrap">
-                <h1 class=""><span>私たちOBFall株式会社について</span></h1>
+
 
                 <div class="" style="background-color: #ffffff; width: 87%; padding: 10px 10px; margin: auto;     margin-bottom: 100px;">
 
