@@ -415,7 +415,7 @@
                             再生履歴・レコメンド・お気に入り管理など、ユーザー体験を重視したUIを設計。
                         </p>
 
-                        <p><a href="https://dig-on-web.com" target="_blank" class="link-button">🔗 digOn公式サイトを見る</a></p>
+                        <p><a href="https://dig-on-web.com" target="_blank" class="link-button">digOn公式サイトを見る　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
                     </div>
                 </div>
             </article>
@@ -439,7 +439,7 @@
                             店舗とユーザーを緩やかにつなぎ、来店体験を拡張する共通プラットフォーム。<br>
                             加盟店の情報表示や特典管理を統合し、地域の活性化を支える仕組みを提供しています。
                         </p>
-                        <p><a href="https://store-pass.com" target="_blank" class="link-button">🔗 Store-Pass公式サイトを見る</a></p>
+                        <p><a href="https://store-pass.com" target="_blank" class="link-button">Store-Pass公式サイトを見る　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
                     </div>
 
 
@@ -549,6 +549,8 @@
                 開発を理解するセキュリティチームが、安心して使い続けられるプロダクトの実現を支えています。
             </p>
         </section>
+
+
 
     </main>
     <footer>
