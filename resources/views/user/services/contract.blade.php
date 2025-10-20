@@ -125,7 +125,7 @@
 
 
         .lead {
-            color: var(--muted);
+            color: black;
             max-width: 760px
         }
 
