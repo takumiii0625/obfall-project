@@ -33,7 +33,7 @@
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
 
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                        <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -52,7 +52,7 @@
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
@@ -360,7 +360,7 @@
 
                             {{-- 右：画像（トリミングなし） --}}
                             <div class="col-md-6">
-                                <a href="https://obfall.com/contact" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
                                     お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -377,7 +377,15 @@
         <a href="#" class="back-to-top" style="display: none;">▲</a>
 
     </main>
+    <section class="ending" aria-label="closing">
+        <div class="wrap">
+            <p style="font-style:italic;font-size:12px;margin-bottom:.3rem">for all, with all, as one.</p>
+            <p class="muted small" style="margin-top:0">すべての人へ、すべての人とともに、ひとつの未来へ。</p>
+            <!-- CTAを置くならここに： <a href="/contact" class="btn">Contact</a> -->
+        </div>
+    </section>
     <footer>
+
         <div class="devwrap">
             <div class="footer-left">
                 <p>

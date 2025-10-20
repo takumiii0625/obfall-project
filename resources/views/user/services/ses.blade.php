@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
     <title>SES（技術支援） | OBFall Inc.</title>
     <style>
@@ -20,6 +23,77 @@
             --panel: #fff;
             --radius: 14px;
             --maxw: 940px
+        }
+
+        .human-rights-policy {
+            color: #eef6ff
+        }
+
+        .hero {
+            --hero-img: url('../image/chou.jpg');
+
+            position: relative;
+            background-image: var(--hero-img);
+            background-size: cover;
+            /* 画面いっぱいにフィット */
+            background-position: center;
+            /* 中央寄せ */
+            background-repeat: no-repeat;
+            min-height: 56vh;
+            /* お好みで高さ調整 */
+            color: #111;
+            /* テキスト色 */
+        }
+
+        /* 白フィルター（上に薄く被せる） */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.45);
+            /* 透明度はお好みで 0.3〜0.6 */
+            pointer-events: none;
+            /* クリック干渉を防ぐ */
+        }
+
+        /* テキストを最前面に */
+        .hero .wrap {
+            position: relative;
+            z-index: 1;
+            padding: clamp(48px, 13vw, 120px) 16px 0;
+        }
+
+        @media (max-width:480px) {
+            .hero .wrap {
+                position: relative;
+                z-index: 1;
+                padding: clamp(48px, 33vw, 160px) 10px 0;
+            }
+        }
+
+
+        .hero .title h1 {
+            line-height: 1.3;
+            margin: 0 0 .5rem;
+            color: #111;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .hero .sub {
+            font-weight: 600;
+            letter-spacing: .06em;
+            opacity: .9;
+        }
+
+        .hero .lead {
+            margin-top: 1rem;
+            max-width: 60ch;
         }
 
         body {
@@ -47,12 +121,6 @@
             font-size: clamp(28px, 4vw, 40px)
         }
 
-        .sub {
-            color: var(--blue);
-            font-weight: 700;
-            letter-spacing: .12em;
-            margin-bottom: 6px
-        }
 
         .lead {
             color: var(--muted);
@@ -125,6 +193,45 @@
             border-radius: 12px;
             border: 1px solid var(--line)
         }
+
+
+        /* md=768px 基準 */
+        @media (max-width: 767.98px) {
+            .hero {
+                --hero-img: url('../image/chou.jpg');
+
+                position: relative;
+                background-image: var(--hero-img);
+                background-size: cover;
+                /* 画面いっぱいにフィット */
+                background-position: center;
+                /* 中央寄せ */
+                background-repeat: no-repeat;
+                min-height: 46vh;
+                /* お好みで高さ調整 */
+                color: #111;
+                /* テキスト色 */
+            }
+
+            .hero .title h1 {
+                font-size: 1.200rem;
+                line-height: 1.3;
+                margin: 0 0 .5rem;
+            }
+
+            .hero .sub {
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: .06em;
+                opacity: .9;
+            }
+
+            .lead {
+                font-size: 0.875rem;
+            }
+
+            /* small 相当 */
+        }
     </style>
 </head>
 
@@ -143,7 +250,7 @@
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                        <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -161,28 +268,24 @@
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
     </div>
 
-    <div class="main-visual">
-        <div class="img-wrap-sub">
-            <img src="../image/chou.jpg">
+    <section class="hero">
+        <div class="wrap">
+            <div class="title">
+                <h1>人が輝く現場を、技術で支える。</h1>
+                <div class="sub">IT × Team</div>
+            </div>
+            <p class="lead">エンジニアが力を発揮できる環境を整え、技術とチームの両面から現場を支援。「人」と「組織」がともに成長する関係を築くことが、OBFallのSESです。</p>
         </div>
-    </div>
+    </section>
     <main class="wrap">
 
-        <section>
-            <div class="wrap">
-                <div class="sub">IT × Team</div>
-                <h1>人が輝く現場を、技術で支える。</h1>
-                <p class="lead">エンジニアが力を発揮できる環境を整え、技術とチームの両面から現場を支援。「人」と「組織」がともに成長する関係を築くことが、OBFallのSESです。</p>
-                <!-- あてこみ指示：ヒーロー画像：チームのミーティング写真 or オンライン会議のスクリーンショット -->
-                <img class="hero-img" src="/images/ses_hero.jpg" alt="SESのイメージ">
-            </div>
-        </section>
+
         <section aria-label="overview">
             <h2>私たちの想い</h2>
             <p>人が主役の現場を、もっと誇れる場所に。単なる人材支援ではなく、共に挑み、共に成長するパートナーとして並走します。</p>
@@ -192,27 +295,45 @@
 
         <section aria-label="reasons" class="grid two">
             <article class="card">
-                <h3>💡 “人”を中心とした関係づくり</h3>
+                <h3><i class="bi bi-person-heart"></i> “人”を中心とした関係づくり</h3>
                 <p>スキルだけでなく価値観やキャリアを理解し、企業と人が共に成長できる“関係”を設計します。</p>
             </article>
+
             <article class="card">
-                <h3>🤝 継続的な伴走と成長支援</h3>
+                <h3><i class="bi bi-people-fill"></i> 継続的な伴走と成長支援</h3>
                 <p>定期面談・スキル共有・勉強会などで、技術力と人間力の両面から成長を支援します。</p>
             </article>
+
             <article class="card">
-                <h3>🛠️ 現場で磨かれる技術力</h3>
+                <h3><i class="bi bi-tools"></i> 現場で磨かれる技術力</h3>
                 <p>自社開発・受託開発で培った実践知をSESにも還元。提案力と課題解決力で現場に“成長と信頼”をもたらします。</p>
             </article>
         </section>
 
+
         <section aria-label="cta">
             <!-- あてこみ指示：勉強会や1on1面談の様子が伝わる写真1枚 -->
             <p class="note">画像差し込み：/images/ses_meetup.jpg</p>
-            <p><a class="cta" href="/contact?type=ses">お問い合わせ</a></p>
+            <p><a class="cta" href="{{ route('contact') }}">お問い合わせ　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
         </section>
     </main>
-    <footer class="wrap"><small>© OBFall Inc.</small></footer>
+    <footer>
+        <div class="devwrap">
+            <div class="footer-left">
+                <p>
+                    〒105-0022<br>
+                    東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
+                </p>
+                <small>&copy; OBFall株式会社</small>
+            </div>
+        </div>
+    </footer>
     <script src="{{ asset('js/main.js') }}" defer></script>
+
 </body>
 
 

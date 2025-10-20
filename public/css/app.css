@@ -1108,8 +1108,8 @@ footer .devwrap {
     .nav-02 {
         display: block;
         position: fixed;
-        right: -40%;
-        width: 30%;
+        right: -60%;
+        width: 50%;
 
         background-color: white;
         opacity: 0.8;
@@ -1258,9 +1258,7 @@ footer .devwrap {
         /* “約”15文字分の幅。厳密ではない */
     }
 
-    .about {
-        padding-top: 250px;
-    }
+
 
     .service {
         padding: 1px 0;

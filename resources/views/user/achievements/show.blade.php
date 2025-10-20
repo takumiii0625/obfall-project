@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Achievements | OBFall Inc.</title>
 
     <style>
@@ -59,6 +61,8 @@
             font-size: 1.3rem;
             color: #222;
         }
+
+
 
         /* === テキスト・段落 === */
         p {
@@ -179,7 +183,7 @@
             .hero .wrap {
                 position: relative;
                 z-index: 1;
-                padding: clamp(48px, 33vw, 120px) 16px 0;
+                padding: clamp(48px, 33vw, 160px) 10px 0;
             }
         }
 
@@ -188,6 +192,7 @@
             line-height: 1.3;
             margin: 0 0 .5rem;
             color: #111;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .hero .sub {
@@ -199,6 +204,7 @@
         .hero .lead {
             margin-top: 1rem;
             max-width: 60ch;
+
         }
 
         /* === レスポンシブ === */
@@ -224,6 +230,93 @@
 
                 padding: 10px 16px;
             }
+
+            .hero {
+                --hero-img: url('../image/chou.jpg');
+
+                position: relative;
+                background-image: var(--hero-img);
+                background-size: cover;
+                /* 画面いっぱいにフィット */
+                background-position: center;
+                /* 中央寄せ */
+                background-repeat: no-repeat;
+                min-height: 46vh;
+                /* お好みで高さ調整 */
+                color: #111;
+                /* テキスト色 */
+            }
+
+            .hero .title h1 {
+                font-size: 1.090rem;
+                line-height: 1.3;
+                margin: 0 0 .5rem;
+
+            }
+
+            .hero .sub {
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: .06em;
+                opacity: .9;
+            }
+
+            .lead {
+                font-size: 0.875rem;
+            }
+
+            /* small 相当 */
+        }
+
+        /* ベース: 縦並び（スマホ） */
+        .achievement-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* PC版（768px以上）で横並びに */
+        @media (min-width: 768px) {
+            .achievement-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .achievement-content .text {
+                flex: 1;
+            }
+
+            .achievement-content .image-container {
+                flex: 1;
+                text-align: right;
+                /* 右寄せ */
+            }
+
+            .achievement-content .image-container img {
+                max-width: 80%;
+                height: auto;
+            }
+        }
+
+        /* ロゴは常に小さめ。画面幅に応じて 96〜160px で可変 */
+        .app-logo {
+            width: clamp(96px, 18vw, 160px);
+            height: auto;
+            display: block;
+            margin: 0 0 12px;
+            object-fit: contain;
+            /* 任意: 少し落ち着いた見た目にするなら
+  opacity: .95;
+  */
+        }
+
+        /* 配置：PCでは左寄せ、スマホでは中央寄せにしたい場合 */
+        @media (max-width: 575.98px) {
+            .app-logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -243,7 +336,7 @@
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                        <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -261,7 +354,7 @@
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
@@ -273,7 +366,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>ITの力で、人と社会の可能性を広げる。</h1>
-                <div class="sub">Servise</div>
+                <div class="sub">Achievements</div>
             </div>
             <p class="lead">自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。</p>
         </div>
@@ -282,8 +375,7 @@
 
         <!-- 🌍 アチーブメント（Achievements） -->
         <section id="achievements" class="section-achievements">
-            <h2>🌍 アチーブメント（Achievements）</h2>
-            <h3 class="achievement-lead">ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</h3>
+            <h3 class="achievement-lead">OBFallの挑戦と成果。</h3>
             <hr>
             <p>
                 私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、<br>
@@ -296,7 +388,7 @@
 
         <!-- 💡 自社開発 -->
         <section id="products" class="section-products">
-            <h2>💡 自社開発（Products）</h2>
+            <h2><i class="bi bi-lightbulb-fill"></i>自社開発（Products）</h2>
             <h3>人と社会の可能性を広げる、自社プロダクト。<br>OBFallの想いを、サービスというかたちで届ける。</h3>
             <hr>
             <p>
@@ -309,61 +401,77 @@
 
             <!-- digOn -->
             <article class="achievement-item">
-                <h4>🎵 digOn（ディグオン）</h4>
-                <p>
-                    音楽と人の感性をつなぐ、新しい発見体験。<br>
-                    音楽との出会いをもっと自由に、もっと感覚的に。<br>
-                    Flutter × Firebase × Webで構築された、クロスプラットフォーム対応の音楽アプリ。<br>
-                    再生履歴・レコメンド・お気に入り管理など、ユーザー体験を重視したUIを設計。
-                </p>
-                <!-- image: digOnアプリのメイン画面 -->
-                <div class="image-container">
-                    <img src="images/digon_main.jpg" alt="digOnアプリ画面" />
+                <div class="achievement-content">
+                    <div class="text">
+                        <img src="../image/digOn_logo.png" alt="digOnアプリロゴ" class="app-logo" />
+
+                        <h4>digOn（ディグオン）</h4>
+                        <p class="lead">
+                            音楽と人の感性をつなぐ、新しい発見体験。<br>
+                            音楽との出会いをもっと自由に、もっと感覚的に。<br>
+                            Flutter × Firebase × Webで構築された、クロスプラットフォーム対応の音楽アプリ。<br>
+                            再生履歴・レコメンド・お気に入り管理など、ユーザー体験を重視したUIを設計。
+                        </p>
+                        <!-- image: digOnアプリのメイン画面 -->
+                        <div class="image-container">
+                            <img src="images/digon_main.jpg" alt="digOnアプリ画面" />
+                        </div>
+                        <p><a href="https://dig-on-web.com" target="_blank" class="link-button">🔗 digOn公式サイトを見る</a></p>
+                    </div>
                 </div>
-                <p><a href="https://dig-on-web.com" target="_blank" class="link-button">🔗 digOn公式サイトを見る</a></p>
             </article>
 
             <hr>
 
             <!-- Store-Pass -->
             <article class="achievement-item">
-                <h4>🏷️ ストパス（Store-Pass）</h4>
-                <p>
-                    店舗とユーザーをつなぐ共通特典アプリ。<br>
-                    月額無料で、ユーザーは加盟店舗全体で特典を利用可能。<br>
-                    「店舗をまたぐ特典利用」「垣根を超えた顧客体験」を実現するアプリとして開発。
-                </p>
-                <p class="lead">
-                    店舗とユーザーを緩やかにつなぎ、来店体験を拡張する共通プラットフォーム。<br>
-                    加盟店の情報表示や特典管理を統合し、地域の活性化を支える仕組みを提供しています。
-                </p>
-                <!-- image: Store-PassアプリのUI -->
-                <div class="image-container">
-                    <img src="images/storepass_app.jpg" alt="Store-Passアプリ画面" />
+                <div class="achievement-content">
+                    <div class="text">
+                        <img src="../image/store-pass_logo.png" alt="Store-Passアプリロゴ" class="app-logo" />
+                        <h4>ストパス（Store-Pass）</h4>
+                        <p>
+                            店舗とユーザーをつなぐ共通特典アプリ。<br>
+                            月額無料で、ユーザーは加盟店舗全体で特典を利用可能。<br>
+                            「店舗をまたぐ特典利用」「垣根を超えた顧客体験」を実現するアプリとして開発。
+                        </p>
+                        <p class="lead">
+                            店舗とユーザーを緩やかにつなぎ、来店体験を拡張する共通プラットフォーム。<br>
+                            加盟店の情報表示や特典管理を統合し、地域の活性化を支える仕組みを提供しています。
+                        </p>
+                        <p><a href="https://store-pass.com" target="_blank" class="link-button">🔗 Store-Pass公式サイトを見る</a></p>
+                    </div>
+
+                    <div class="image-container">
+                        <img src="../image/iphone立体画像.jpg" alt="Store-Passアプリ画面" />
+                    </div>
                 </div>
-                <p><a href="https://store-pass.com" target="_blank" class="link-button">🔗 Store-Pass公式サイトを見る</a></p>
             </article>
+
 
             <hr>
 
             <!-- 農家システム -->
             <article class="achievement-item">
-                <h4>🌾 農家向け業務効率化システム（開発中・共同開発）</h4>
-                <p>
-                    地域と農業現場に寄り添う、未来をともに作るシステム。<br>
-                    地方農家の方々と共同で設計・開発を進める、業務効率化プラットフォーム。<br>
-                    現場の課題を直接ヒアリングしながら、“使える”を最優先にした仕組みを構築しています。
-                </p>
-                <!-- image: 農業現場やUIのイメージ -->
-                <div class="image-container">
-                    <img src="images/farm_system.jpg" alt="農家向け業務効率化システムイメージ" />
+                <div class="achievement-content">
+                    <div class="text">
+                        <h4>🌾 農家向け業務効率化システム（開発中・共同開発）</h4>
+                        <p>
+                            地域と農業現場に寄り添う、未来をともに作るシステム。<br>
+                            地方農家の方々と共同で設計・開発を進める、業務効率化プラットフォーム。<br>
+                            現場の課題を直接ヒアリングしながら、“使える”を最優先にした仕組みを構築しています。
+                        </p>
+                        <!-- image: 農業現場やUIのイメージ -->
+                        <div class="image-container">
+                            <img src="images/farm_system.jpg" alt="農家向け業務効率化システムイメージ" />
+                        </div>
+                    </div>
                 </div>
             </article>
         </section>
 
         <!-- 💼 受託開発 -->
         <section id="contract-development" class="section-contract">
-            <h2>💼 受託開発（Contract Development）</h2>
+            <h2><i class="bi bi-briefcase-fill"></i> 受託開発（Contract Development）</h2>
             <h3>ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。</h3>
             <hr>
             <p>
@@ -376,7 +484,7 @@
 
             <!-- 医療系システム -->
             <article class="achievement-item">
-                <h4>🧭 開発事例：医療系予約管理システム</h4>
+                <h4><i class="bi bi-compass-fill"></i> 開発事例：医療系予約管理システム</h4>
                 <p>
                     医療現場の効率化と患者体験の両立を実現。<br>
                     複数クリニックの予約・問診・診療履歴を一元管理できるWebシステムを構築。
@@ -400,7 +508,7 @@
 
             <!-- 不動産マッチング -->
             <article class="achievement-item">
-                <h4>🏢 開発事例：不動産マッチングプラットフォーム</h4>
+                <h4><i class="bi bi-buildings"></i> 開発事例：不動産マッチングプラットフォーム</h4>
                 <p>
                     顧客と物件を最適に結ぶ仕組みを構築。<br>
                     不動産企業の業務フローに合わせたBtoCマッチングシステムを開発。
@@ -422,7 +530,7 @@
 
         <!-- 🔒 脆弱性診断 -->
         <section id="security" class="section-security">
-            <h2>🔒 脆弱性診断（Security Assessment）</h2>
+            <h2><i class="bi bi-shield-lock-fill"></i> 脆弱性診断（Security Assessment）</h2>
             <h3>安全は、後付けではなく、設計から。<br>開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</h3>
             <hr>
             <p>
@@ -442,9 +550,22 @@
                 開発を理解するセキュリティチームが、安心して使い続けられるプロダクトの実現を支えています。
             </p>
         </section>
+
     </main>
     <footer>
-        <small>© OBFall Inc.</small>
+        <div class="devwrap">
+            <div class="footer-left">
+                <p>
+                    〒105-0022<br>
+                    東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
+                </p>
+                <small>&copy; OBFall株式会社</small>
+            </div>
+        </div>
     </footer>
     <script src="{{ asset('js/main.js') }}" defer></script>
 </body>

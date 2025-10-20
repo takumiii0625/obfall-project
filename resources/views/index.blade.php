@@ -21,8 +21,8 @@
         <header class="fadein-first fadein-from-up">
             <div class="wrap">
                 <div class="logo-container">
-                    <img src="./image/logo_OBFall.png" class="link" onclick="scrollToTop()" />
-                    <div class="title" onclick="scrollToTop()">OBFall株式会社</div>
+                    <img src="./image/logo_OBFall-old.png" class="link" onclick="scrollToTop()" />
+                    <div class="" onclick="scrollToTop()">OBFall株式会社</div>
                 </div>
                 <nav class="nav-01">
                     <ul>
@@ -257,9 +257,9 @@
                     <!-- <p>お問い合わせ</p>
                    <p>各種お問い合わせはこちら<br>※新しいタブが開きます</p>-->
                     <div class="jobs" style="background-color: #ffffff;">
-                        <a class=" fadein-scroll fadein-from-down text-dark text-decoration-none" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">企業様お問い合わせ<i class="fa-solid fa-arrow-right"></i></a>
+                        <a class=" fadein-scroll fadein-from-down text-dark text-decoration-none" href="{{ route('contact') }}" target="_blank" rel="noopener noreferrer">企業様お問い合わせ<i class="fa-solid fa-arrow-right"></i></a>
                         <a class="fadein-scroll fadein-from-down text-dark text-decoration-none" href="{{ route('achievements') }}" target="_blank" rel="noopener noreferrer">採用情報・エントリー<i class="fa-solid fa-arrow-right"></i></a>
-                        <!--<a class="fadein-scroll fadein-from-down" href="https://obfall.com/contact" target="_blank" rel="noopener noreferrer">PR・広報<i class="fa-solid fa-arrow-right"></i></a>-->
+                        <!--<a class="fadein-scroll fadein-from-down" href="{{ route('contact') }}" target="_blank" rel="noopener noreferrer">PR・広報<i class="fa-solid fa-arrow-right"></i></a>-->
                     </div>
                 </div>
             </div>

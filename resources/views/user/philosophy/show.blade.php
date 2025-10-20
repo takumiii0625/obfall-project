@@ -27,6 +27,10 @@
             --maxw: 1120px;
         }
 
+        .human-rights-policy {
+            color: #eef6ff
+        }
+
         html,
         body {
             background: var(--bg);
@@ -46,6 +50,7 @@
             font-size: clamp(28px, 4vw, 40px);
             font-weight: 800;
             color: black;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         h2 {
@@ -74,11 +79,6 @@
             border-top: 1px solid var(--divider)
         }
 
-        @media (min-width:992px) {
-            section {
-                padding: 96px 0
-            }
-        }
 
         .hero {
             --hero-img: url('../image/chou.jpg');
@@ -129,6 +129,50 @@
         .hero .lead {
             margin-top: 1rem;
             max-width: 60ch;
+        }
+
+        /* md=768px 基準 */
+        @media (max-width: 767.98px) {
+            .hero {
+                --hero-img: url('../image/chou.jpg');
+
+                position: relative;
+                background-image: var(--hero-img);
+                background-size: cover;
+                /* 画面いっぱいにフィット */
+                background-position: center;
+                /* 中央寄せ */
+                background-repeat: no-repeat;
+                min-height: 46vh;
+                /* お好みで高さ調整 */
+                color: #111;
+                /* テキスト色 */
+            }
+
+            .hero .wrap {
+                position: relative;
+                z-index: 1;
+                padding: clamp(48px, 8vw, 160px) 10px;
+            }
+
+            .hero .title h1 {
+                font-size: 1.070rem;
+                line-height: 1.3;
+                margin: 0 0 .5rem;
+            }
+
+            .hero .sub {
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: .06em;
+                opacity: .9;
+            }
+
+            .lead {
+                font-size: 0.875rem;
+            }
+
+            /* small 相当 */
         }
 
         .grid {
@@ -251,7 +295,7 @@
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                        <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -269,7 +313,7 @@
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
@@ -278,7 +322,7 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>あなたの、あなたによる、あなたのためのを、<br>すべての人へ。</h1>
+                <h1 class="">あなたの、あなたによる、あなたのためのを、<br>すべての人へ。</h1>
                 <div class="sub">Philosophy</div>
             </div>
             <p class="lead">テクノロジーの力で、人と社会の可能性をひらく。<br>透明感と誠実さを大切にする私たちの理念ページです。</p>
@@ -359,15 +403,24 @@
         </div>
     </section>
 
-    <!-- ===== Ending ===== -->
-    <section class="ending" aria-label="closing">
-        <div class="wrap">
-            <p style="font-style:italic;font-size:18px;margin-bottom:.3rem">for all, with all, as one.</p>
-            <p class="muted" style="margin-top:0">すべての人へ、すべての人とともに、ひとつの未来へ。</p>
-            <!-- CTAを置くならここに： <a href="/contact" class="btn">Contact</a> -->
+
+    <footer>
+        <div class="devwrap">
+            <div class="footer-left">
+                <p>
+                    〒105-0022<br>
+                    東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
+                </p>
+                <small>&copy; OBFall株式会社</small>
+            </div>
         </div>
-    </section>
+    </footer>
     <script src="{{ asset('js/main.js') }}" defer></script>
+
 </body>
 
 </html>

@@ -31,7 +31,7 @@
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                         <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                        <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                        <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
                     </ul>
                 </nav>
@@ -50,23 +50,22 @@
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
-                <li class="link text-dark "><a href="https://obfall.com/contact" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
+                <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
 
             </ul>
         </nav>
-        <div class="main-visual">
-            <div class="img-wrap-sub">
-                <img src="../image/chou.jpg">
-            </div>
-        </div>
-        <div class="text-container">
-            <p class="fadein-scroll fadein-from-down smaller-text custom-line-height">
-                <strong class="larger-text">NEWS</strong><br>
-            </p>
 
-        </div>
 
     </div>
+    <section class="hero">
+        <div class="wrap">
+            <div class="title">
+                <h1 class="">お知らせ</h1>
+                <div class="sub">News</div>
+            </div>
+            <p class="lead">定期的に会社の情報を発信していきます。</p>
+        </div>
+    </section>
     <main class="py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -128,7 +127,10 @@
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904
+                    03-5403-5904<br>
+                    <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
+                        人権に関する基本方針と社内相談窓口
+                    </a>
                 </p>
                 <small>&copy; OBFall株式会社</small>
             </div>
@@ -141,11 +143,176 @@
 
 
 <style>
+    :root {
+        --bg: #ffffff;
+        --ink: #1A1A1A;
+        --ink-2: #3a3a3a;
+        --muted: #6b7785;
+        --blue: #1E90FF;
+        --blue-weak: #F6FAFD;
+        --card: #ffffff;
+        --divider: #E7EEF5;
+        --radius: 16px;
+        --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+        --maxw: 1120px;
+    }
+
+    .human-rights-policy {
+        color: #eef6ff
+    }
+
+    html,
+    body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", Segoe UI, Roboto, Ubuntu, "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        line-height: 1.8;
+    }
+
+    h1,
+    h2,
+    h3 {
+        line-height: 1.35;
+        margin: 0 0 .5em
+    }
+
+    h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 800;
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    h2 {
+        font-size: clamp(18px, 2.6vw, 26px);
+        font-weight: 700;
+        color: var(--blue)
+    }
+
+    h3 {
+        font-size: clamp(16px, 2.2vw, 22px);
+        font-weight: 700
+    }
+
+    p {
+        margin: .6em 0
+    }
+
+    .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 20px
+    }
+
+    section {
+        padding: 80px 0;
+        border-top: 1px solid var(--divider)
+    }
+
     /* スマホ表示用のスタイル */
     @media (max-width: 767px) {
         .fs-7 {
             font-size: 3px;
         }
 
+    }
+
+    .human-rights-policy {
+        color: #eef6ff
+    }
+
+    .hero {
+        --hero-img: url('../image/chou.jpg');
+
+        position: relative;
+        background-image: var(--hero-img);
+        background-size: cover;
+        /* 画面いっぱいにフィット */
+        background-position: center;
+        /* 中央寄せ */
+        background-repeat: no-repeat;
+        min-height: 56vh;
+        /* お好みで高さ調整 */
+        color: #111;
+        /* テキスト色 */
+    }
+
+    /* 白フィルター（上に薄く被せる） */
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.45);
+        /* 透明度はお好みで 0.3〜0.6 */
+        pointer-events: none;
+        /* クリック干渉を防ぐ */
+    }
+
+    /* テキストを最前面に */
+    .hero .wrap {
+        position: relative;
+        z-index: 1;
+        padding: clamp(48px, 8vw, 120px) 16px;
+    }
+
+
+    .hero .title h1 {
+        line-height: 1.3;
+        margin: 0 0 .5rem;
+    }
+
+    .hero .sub {
+        font-weight: 600;
+        letter-spacing: .06em;
+        opacity: .9;
+    }
+
+    .hero .lead {
+        margin-top: 1rem;
+        max-width: 60ch;
+    }
+
+    /* md=768px 基準 */
+    @media (max-width: 767.98px) {
+        .hero {
+            --hero-img: url('../image/chou.jpg');
+
+            position: relative;
+            background-image: var(--hero-img);
+            background-size: cover;
+            /* 画面いっぱいにフィット */
+            background-position: center;
+            /* 中央寄せ */
+            background-repeat: no-repeat;
+            min-height: 46vh;
+            /* お好みで高さ調整 */
+            color: #111;
+            /* テキスト色 */
+        }
+
+        .hero .wrap {
+            position: relative;
+            z-index: 1;
+            padding: clamp(48px, 8vw, 160px) 10px;
+        }
+
+        .hero .title h1 {
+            font-size: 1.070rem;
+            line-height: 1.3;
+            margin: 0 0 .5rem;
+        }
+
+        .hero .sub {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            opacity: .9;
+        }
+
+        .lead {
+            font-size: 0.875rem;
+        }
+
+        /* small 相当 */
     }
 </style>
