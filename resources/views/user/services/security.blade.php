@@ -360,7 +360,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-puzzle-fill" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">INTRGRITY</div>
                         </span>
                         <h2 class="principle-title">開発を知る診断チーム</h2>
                         <p class="mb-0">私たちは自社でシステム開発も行うエンジニア集団です。<br>
@@ -371,7 +371,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-search" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">TACTICS</div>
                         </span>
                         <h2 class="principle-title">攻撃者の視点からの実践的アプローチ</h2>
                         <p class="mb-0">ツール検査だけでなく、手動検証を中心とした実戦型診断を実施。<br>
@@ -382,7 +382,7 @@
                     <!-- Mission -->
                     <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-diagram-3" aria-hidden="true"></i>
-                            <div class="kicker">MISSION</div>
+                            <div class="kicker">INTEGRATION</div>
                         </span>
                         <h2 class="principle-title">開発と診断のワンストップ体制</h2>
                         <p class="mb-0">
@@ -394,7 +394,7 @@
                     <!-- Values -->
                     <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-clipboard-check" aria-hidden="true"></i>
-                            <div class="kicker">VALUES</div>
+                            <div class="kicker">PRECISION</div>
                         </span>
                         <h2 class="principle-title">再現性と改善を重視したレポート</h2>
                         <p class="mb-0">検出結果を「開発者が理解し、すぐ行動できる形」で提示。<br>
@@ -435,7 +435,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-puzzle-fill" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">INTEGRATE</div>
                         </span>
                         <h2 class="principle-title">開発と診断を一社完結</h2>
                         <p class="mb-0">「外部に委託せず、開発と診断を自社で行う」ため、
@@ -445,7 +445,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-search" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">VALIDATION</div>
                         </span>
                         <h2 class="principle-title">実践経験に基づく検証</h2>
                         <p class="mb-0">診断員は全員が現役エンジニア。<br>
@@ -456,7 +456,7 @@
                     <!-- Mission -->
                     <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-diagram-3" aria-hidden="true"></i>
-                            <div class="kicker">MISSION</div>
+                            <div class="kicker">PARTNERSHIP</div>
                         </span>
                         <h2 class="principle-title">伴走型セキュリティ支援</h2>
                         <p class="mb-0">
@@ -468,7 +468,7 @@
                     <!-- Values -->
                     <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="bi bi-clipboard-check" aria-hidden="true"></i>
-                            <div class="kicker">VALUES</div>
+                            <div class="kicker">FLEXIBILITY</div>
                         </span>
                         <h2 class="principle-title">コストと柔軟性のバランス</h2>
                         <p class="mb-0">大手セキュリティベンダーのような高額コストや硬直的な体制ではなく、

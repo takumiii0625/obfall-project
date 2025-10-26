@@ -401,7 +401,7 @@
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="bi bi-person-heart" aria-hidden="true"></i>
-                                    <div class="kicker">VISION</div>
+                                    <div class="kicker">EMPATHY</div>
                                 </span>
                                 <h2 class="principle-title">“人”を中心とした関係づくり</h2>
                                 <p class="mb-0">スキルシートだけでなく、価値観やキャリアビジョンまでを見据え、
@@ -412,7 +412,7 @@
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="bi bi-people-fill" aria-hidden="true"></i>
-                                    <div class="kicker">VISION</div>
+                                    <div class="kicker">GROWTH</div>
                                 </span>
                                 <h2 class="principle-title">継続的な伴走と成長支援</h2>
                                 <p class="mb-0">配属後もチーム単位でフォローし、キャリアアップ・スキル共有・勉強会など
@@ -422,7 +422,7 @@
                             <!-- Mission -->
                             <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="bi bi-tools" aria-hidden="true"></i>
-                                    <div class="kicker">MISSION</div>
+                                    <div class="kicker">CRAFTSMANSHIP</div>
                                 </span>
                                 <h2 class="principle-title">現場で磨かれる技術力</h2>
                                 <p class="mb-0">
