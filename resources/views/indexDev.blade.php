@@ -280,13 +280,13 @@
                                                 <p class="text-muted m-0 p-3">お知らせはありません。</p>
                                                 @endforelse
 
-                                                <!-- もっと見る -->
+                                                <!-- もっと見る
                                                 <div class="d-flex flex-column justify-content-center w-100">
                                                     <button id="toggleNewsBtn"
                                                         class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
                                                         もっと見る >
                                                     </button>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
