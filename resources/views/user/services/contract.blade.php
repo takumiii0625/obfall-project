@@ -378,7 +378,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-bullseye" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">INSIGHT</div>
                         </span>
                         <h2 class="principle-title">本質をともに見つめる</h2>
                         <p class="mb-0">誰かの「こうありたい」という想いを起点に、テクノロジーで実現へと近づけます。</p>
@@ -386,7 +386,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">SYNTHESIS</div>
                         </span>
                         <h2 class="principle-title">デザインと技術の融合</h2>
                         <p class="mb-0">使いやすさ・伝わりやすさ・拡張性を意識し、UI/UX・機能・パフォーマンスのすべてで“心地よい体験”を設計。</p>
@@ -395,7 +395,7 @@
                     <!-- Mission -->
                     <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                            <div class="kicker">MISSION</div>
+                            <div class="kicker">RELIABILITY</div>
                         </span>
                         <h2 class="principle-title">安心まで届ける開発体制</h2>
                         <p class="mb-0">
@@ -405,7 +405,7 @@
                     <!-- Values -->
                     <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-handshake" aria-hidden="true"></i>
-                            <div class="kicker">VALUES</div>
+                            <div class="kicker">PARTNERSHIP</div>
                         </span>
                         <h2 class="principle-title">長く続く関係を築く</h2>
                         <p class="mb-0">納品して終わりではなく、成長と変化に寄り添う伴走型の開発。改善提案とサポートを継続します。</p>
@@ -428,7 +428,7 @@
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="fa-solid fa-handshake" aria-hidden="true"></i>
-                                    <div class="kicker">VISION</div>
+                                    <div class="kicker">CO-CREATION</div>
                                 </span>
                                 <h2 class="principle-title">共創の姿勢</h2>
                                 <p class="mb-0">クライアントのビジョンを共有し、同じチームとして挑戦。成功を「価値の創出」として捉えます。</p>
@@ -436,7 +436,7 @@
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                                    <div class="kicker">VISION</div>
+                                    <div class="kicker">CONSISTENCY</div>
                                 </span>
                                 <h2 class="principle-title">一貫した技術力と体制</h2>
                                 <p class="mb-0">企画〜設計・デザイン・開発・診断までワンストップ。社内連携で品質・スピード・安心を両立します。</p>
@@ -445,7 +445,7 @@
                             <!-- Mission -->
                             <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                                    <div class="kicker">MISSION</div>
+                                    <div class="kicker">EMPOWERMENT</div>
                                 </span>
                                 <h2 class="principle-title">成長を支える開発文化</h2>
                                 <p class="mb-0">
