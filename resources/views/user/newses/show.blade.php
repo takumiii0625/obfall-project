@@ -113,7 +113,7 @@
                             <!-- お知らせ一覧に戻るボタン -->
                             <div class="mt-5">
                                 <a href="{{ route('userNewsIndex') }}" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-circle-arrow-left me-2"></i>お知らせ一覧に戻る
+                                    <i class="fa-solid fa-circle-arrow-left me-2"></i>一覧に戻る
                                 </a>
                             </div>
 
