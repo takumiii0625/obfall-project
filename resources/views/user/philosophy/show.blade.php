@@ -47,7 +47,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -75,7 +75,7 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 20px 0;
             border-top: 1px solid var(--divider)
         }
 
@@ -156,7 +156,7 @@
             }
 
             .hero .title h1 {
-                font-size: 1.070rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -227,8 +227,11 @@
             font-weight: 700;
             color: var(--blue);
             font-size: 13px;
-            margin-bottom: .6rem
+            margin-bottom: .6rem;
+            font-family: serif;
         }
+
+
 
         .message {
             background: #fff;
@@ -266,16 +269,6 @@
             font-size: 12px;
             color: #708297;
             margin-top: 6px
-        }
-
-        a.btn {
-            display: inline-block;
-            background: var(--blue);
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin-top: 18px
         }
     </style>
 </head>
@@ -322,26 +315,20 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1 class="">あなたの、あなたによる、あなたのためのを、<br>すべての人へ。</h1>
-                <div class="sub">Philosophy</div>
+                <h1 class="">Philosophy</h1>
+                <div class="sub">「あなたの、あなたによる、あなたのための」<br>　をすべての人へ。</div>
             </div>
-            <p class="lead">テクノロジーの力で、人と社会の可能性をひらく。<br>透明感と誠実さを大切にする私たちの理念ページです。</p>
         </div>
     </section>
 
-
     <!-- ===== Vision ===== -->
-    <section id="vision">
-        <div class="wrap grid grid-2">
-            <figure>
-                <!-- 置き換え：ビジョン用の象徴画像 -->
-                <div class="vis-img" aria-label="Vision key visual"></div>
-                <figcaption class="vis-caption">※ビジョン象徴イメージ（後で差し替え）</figcaption>
-            </figure>
-            <div class="card">
+    <section id="vision" style="background:var(--blue-weak);border-top:none">
+        <div class="wrap">
+            <div class="card" style="background:#fff">
                 <div class="kicker">Vision</div>
-                <h2>「あなたの、あなたによる、あなたのための」をすべての人へ。</h2>
-                <p>テクノロジーの力で、人と社会の可能性を広げ、誰もが自分らしく生き、挑戦できる未来を目指します。</p>
+                <h2 style="color:var(--ink)">「あなたの、あなたによる、あなたのための」をすべての人へ。</h2>
+                <p>テクノロジーの力で、人と社会の可能性を広げ、
+                    誰もが自分らしく生き、挑戦できる未来を目指します。</p>
             </div>
         </div>
     </section>
@@ -360,8 +347,8 @@
     <!-- ===== Core Values ===== -->
     <section id="values">
         <div class="wrap">
-            <div class="kicker">Core Values</div>
-            <h2>3つの柱</h2>
+            <div class="kicker">　Core Values</div>
+            <h2>　3つの柱</h2>
             <div class="values">
                 <div class="value">
                     <h4>理念採用</h4>
@@ -390,6 +377,7 @@
         </div>
     </section>
 
+
     <!-- ===== Origin ===== -->
     <section id="origin">
         <div class="wrap">
@@ -402,20 +390,41 @@
             </div>
         </div>
     </section>
+    <nav aria-label="breadcrumb" class="m-3">
+        <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+
+            <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+            <li class="breadcrumb-item">企業理念</a></li>
+        </ol>
+    </nav>
 
 
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="./image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

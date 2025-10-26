@@ -79,7 +79,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -118,7 +118,7 @@
 
         h1 {
             margin: 0 0 .4rem;
-            font-size: clamp(28px, 4vw, 40px)
+            font-size: clamp(28px, 4vw, 100px)
         }
 
 
@@ -128,7 +128,7 @@
         }
 
         section {
-            padding: 56px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--line)
         }
 
@@ -194,6 +194,14 @@
             border: 1px solid var(--line)
         }
 
+        /* ロゴサイズを揃える */
+        .product-logo {
+            height: 56px;
+            /* 必要に応じて 48–72px で調整 */
+            width: auto;
+            object-fit: contain;
+        }
+
         /* md=768px 基準 */
         @media (max-width: 767.98px) {
             .hero {
@@ -213,7 +221,7 @@
             }
 
             .hero .title h1 {
-                font-size: 1.200rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -230,6 +238,64 @@
             }
 
             /* small 相当 */
+        }
+
+        /* 背景トーン（既存の --blue-weak / --ink を尊重） */
+        .bg-blue-weak {
+            background: var(--blue-weak);
+        }
+
+        /* カードの見た目 */
+        .principle-card {
+            transition: box-shadow .2s ease, transform .2s ease;
+            background: #fff;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+        }
+
+        /* アイコンのバッジ */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: rgba(var(--bs-primary-rgb), .12);
+            color: var(--bs-primary);
+            font-size: 1.25rem;
+        }
+
+        /* タイポ */
+        .kicker {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: var(--bs-primary);
+            margin-bottom: .25rem;
+        }
+
+        .principle-title {
+            font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+            line-height: 1.35;
+            margin: 0 0 .5rem;
+            color: var(--ink);
+        }
+
+        /* スマホ微調整 */
+        @media (max-width: 767.98px) {
+            .principle-card {
+                padding: 1.25rem;
+            }
+
+            .icon-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -276,63 +342,134 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>人と社会の可能性を広げる、自社プロダクト。</h1>
-                <div class="sub">IT × Vision</div>
+                <h1>IT × Vision</h1>
+                <div class="sub">人と社会の可能性を広げる、自社プロダクト。</div>
             </div>
-            <p class="lead">OBFallの自社開発は、「テクノロジーで人生をより豊かにする」という理念をかたちにする取り組みです。</p>
         </div>
     </section>
     <main class="wrap">
 
         <section aria-label="overview">
-            <p>人の生き方や働き方、暮らしの中にある課題を見つめ、誰もが自分らしく生きられる社会を実現するためのプロダクトを開発しています。</p>
+            <p>OBFallの自社開発は、「テクノロジーで人生をより豊かにする」という理念をかたちにする取り組みです。<br>人の生き方や働き方、暮らしの中にある課題を見つめ、誰もが自分らしく生きられる社会を実現するためのプロダクトを開発しています。</p>
         </section>
 
-        <section aria-label="principles" class="grid two">
-            <article class="card">
-                <h3><i class="bi bi-people-fill"></i> 人の想いを形にする</h3>
-                <p>誰かの「こうありたい」という想いを起点に、テクノロジーで実現へと近づけます。</p>
-            </article>
 
-            <article class="card">
-                <h3><i class="bi bi-heart-fill"></i> 社会に寄り添うサービスづくり</h3>
-                <p>便利さや効率だけでなく、人と人のつながり・安心・挑戦を支える仕組みを届けます。</p>
-            </article>
+        <section id="principles" class="bg-blue-weak py-5">
+            <div class="wrap">
+                <div class="vstack gap-4"> <!-- ← 縦に積む -->
 
-            <article class="card">
-                <h3><i class="bi bi-arrow-repeat"></i> 共に育てるプロダクト</h3>
-                <p>使う人と共に磨き、社会に溶け込む“続いていく価値”を生み出します。</p>
-            </article>
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">人の想いを形にする</h2>
+                        <p class="mb-0">誰かの「こうありたい」という想いを起点に、テクノロジーで実現へと近づけます。</p>
+                    </article>
+
+                    <!-- Mission -->
+                    <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="fa-solid fa-people-group" aria-hidden="true"></i>
+                            <div class="kicker">MISSION</div>
+                        </span>
+                        <h2 class="principle-title">社会に寄り添うサービスづくり</h2>
+                        <p class="mb-0">便利さや効率だけでなく、人と人のつながり・安心・挑戦を支える仕組みを届けます。</p>
+                    </article>
+
+                    <!-- Values -->
+                    <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="fa-solid fa-gem" aria-hidden="true"></i>
+                            <div class="kicker">VALUES</div>
+                        </span>
+                        <h2 class="principle-title">共に育てるプロダクト</h2>
+                        <p class="mb-0">使う人と共に磨き、社会に溶け込む“続いていく価値”を生み出します。</p>
+                    </article>
+
+                </div>
+            </div>
         </section>
 
-        <section aria-label="products">
-            <h2>代表プロダクト</h2>
-            <!-- あてこみ指示：各プロダクトのスクリーンショット3枚を横並び（モバイルでは縦積み） -->
-            <p class="note">画像差し込み：/images/digon_ui.jpg /images/stpass_ui.jpg /images/agri_ui.jpg</p>
-            <ul>
-                <li>digOn</li>
-                <li>ストパス</li>
-                <li>農業向け業務効率化（開発中）</li>
-            </ul>
-            <p><a class="more" href="{{ route('contact') }}">関連プロジェクトを見る <i class="bi bi-arrow-right-circle-fill"></i></a></p>
-        </section>
 
-        <section aria-label="cta">
-            <p><a class="cta" href="{{ route('contact') }}">お問い合わせ　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
-        </section>
+        <section></section>
+
+        <div aria-label="products" class="my-5">
+            <h2 class="h4 mb-3">実績・事例紹介</h2>
+
+            <!-- row-cols-1（SP縦） / row-cols-md-3（MD以上で3列） -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <!-- digOn -->
+                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                            <img src="../image/digOn_logo.png" alt="digOn ロゴ"
+                                class="product-logo mb-2" loading="lazy">
+                            <p class="mb-0">音楽発掘をもっと身近にする音楽アプリ</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ストパス -->
+                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                            <img src="../image/store-pass_logo.png" alt="ストパス ロゴ"
+                                class="product-logo mb-2" loading="lazy">
+                            <p class="mb-0">ストア特化の来店・販促パスポート</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 農業向け業務効率化（開発中） -->
+                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                            <img src="../image/dx_logo.png" alt="農業向け業務効率化 ロゴ"
+                                class="product-logo mb-2" loading="lazy">
+                            <p class="mb-0">農作業と記録の効率化を支援（開発中）</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+
+                <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('userServicesShow') }}">サービス</a></li>
+                <li class="breadcrumb-item">自社開発</a></li>
+            </ol>
+        </nav>
+
+
     </main>
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="../image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

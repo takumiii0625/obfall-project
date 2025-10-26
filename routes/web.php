@@ -32,17 +32,28 @@ Route::get('/dev', [TopController::class, 'indexDev'])->name('indexDev');
 
 // お知らせ詳細
 Route::get('/newses/{id}', [UserNewsesController::class, 'show'])->name('userNewsShow')->setDefaults(['description' => 'お知らせ詳細']);
+// お知らせ一覧
+Route::get('/newses', [UserNewsesController::class, 'index'])->name('userNewsIndex')->setDefaults(['description' => 'お知らせ一覧']);
+
 // サービス
 Route::get('/service', [UserServicesController::class, 'show'])->name('userServicesShow')->setDefaults(['description' => 'サービス詳細']);
 // 自社開発
 Route::get('/service/products', function () {
     return view('user/services/products');
 })->name('products');
+// 自社開発実績
+Route::get('/achievements/products', function () {
+    return view('user/achievements/products');
+})->name('achievementsProducts');
 
 // 受託開発
 Route::get('/service/contract', function () {
     return view('user/services/contract');
 })->name('contract');
+// 受託開発実績
+Route::get('/achievements/contract', function () {
+    return view('user/achievements/contract');
+})->name('achievementsContract');
 
 // SES
 Route::get('/service/ses', function () {
@@ -53,6 +64,11 @@ Route::get('/service/ses', function () {
 Route::get('/service/security', function () {
     return view('user/services/security');
 })->name('security');
+// 脆弱性診断実績
+Route::get('/achievements/security', function () {
+    return view('user/achievements/security');
+})->name('achievementsSecurity');
+
 // 会社概要
 Route::get('/aboutus', function () {
     return view('user/aboutuses/show');
@@ -125,7 +141,7 @@ Route::middleware([RedirectIfAuthenticated::class . ':office'])->group(function 
 Route::middleware([RedirectIfNotAuthenticated::class . ':office', RedirectIfNoUser::class . ':office'])->group(function () {
 
     // お知らせ一覧
-    Route::get('/newses', [OfficeNewsesController::class, 'index'])->name('officeNewsIndex')->setDefaults(['description' => 'お知らせ一覧']);
+    Route::get('/admins/newses', [OfficeNewsesController::class, 'index'])->name('officeNewsIndex')->setDefaults(['description' => 'お知らせ一覧']);
 
     // お知らせ詳細
     Route::get('/admins/newses/{id}', [OfficeNewsesController::class, 'show'])->name('officeNewsShow')->setDefaults(['description' => 'お知らせ詳細']);

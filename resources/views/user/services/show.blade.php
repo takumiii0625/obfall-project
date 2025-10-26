@@ -81,7 +81,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -113,10 +113,7 @@
         }
 
 
-        h1 {
-            margin: 0 0 .4rem;
-            font-size: clamp(28px, 4vw, 40px)
-        }
+
 
         .lead {
             color: black;
@@ -147,7 +144,8 @@
             letter-spacing: .12em;
             color: var(--blue);
             font-weight: 700;
-            margin-bottom: 6px
+
+            font-family: serif;
         }
 
         h2,
@@ -160,21 +158,20 @@
             color: var(--muted)
         }
 
-        a.btn {
-            display: inline-block;
-            padding: 10px 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            background: var(--blue);
-            color: #fff
-        }
+
 
         a.more {
             color: var(--blue);
-            text-decoration: none
+            text-decoration: none;
+            text-align: end;
         }
 
 
+        .card-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            text-align: center;
+        }
 
         /* md=768px 基準 */
         @media (max-width: 767.98px) {
@@ -195,7 +192,7 @@
             }
 
             .hero .title h1 {
-                font-size: 1.200rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -260,75 +257,89 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>ITの力で、人と社会の可能性を広げる。</h1>
-                <div class="sub">Servise</div>
+                <h1>Servise</h1>
+                <div class="sub">ITの力で、人と社会の可能性を広げる。</div>
             </div>
-            <p class="lead">自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。</p>
         </div>
     </section>
     <main class="wrap">
+        <section aria-label="overview">
+            <p><br>自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。</p>
+        </section>
 
 
         <section aria-label="service-cards" class="grid">
             <!-- 自社開発 -->
             <article class="card">
                 <div class="kicker">Products</div>
-                <h3><i class="bi bi-lightbulb-fill"></i>自社開発<p class="small">（Products）</p>
-                </h3>
-                <img src="images/service_own.jpg" alt="自社開発のイメージ">
-                <p>人の生き方・働き方・暮らしの中にある課題を見つめ、誰もが自分らしく生きられる社会を実現するためのプロダクトを開発。</p>
+                <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
+                <h3 class="card-title">IT × Vision</h3>
+                <p>人と社会の可能性を広げる、自社プロダクト。</p>
                 <a class="more" href="{{ route('products') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
 
             <!-- 受託開発 -->
             <article class="card">
                 <div class="kicker">Contract Development</div>
-                <h3><i class="bi bi-briefcase-fill"></i> 受託開発<p class="small">（Contract Development）</p>
-                </h3>
-                <img src="images/service_contract.jpg" alt="受託開発のイメージ">
-                <p>同じ目線で課題に向き合うパートナーとして、Web/アプリを共創。機能だけでなく、安心まで届ける開発体制で伴走します。</p>
+                <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
+                <h3 class="card-title">IT × Collaboration</h3>
+                <p>ともにつくり、ともに前へ。</p>
                 <a class="more" href="{{ route('contract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
 
             <!-- SES -->
             <article class="card">
                 <div class="kicker">Team Support</div>
-                <h3><i class="bi bi-person-check-fill"></i>SES<p class="small">（技術支援）</p>
-                </h3>
-                <img src="images/service_ses.jpg" alt="SES事業のイメージ">
-                <p>エンジニアが最大限力を発揮できる環境を整え、技術とチームの両面から現場を支援。人と組織が共に成長する関係を築きます。</p>
+                <div><i class="bi bi-lightbulb-fill"></i>SES</div>
+                <h3 class="card-title">IT × Team</h3>
+                <p>人が輝く現場を、技術で支える。</p>
                 <a class="more" href="{{ route('ses') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
 
             <!-- 脆弱性診断 -->
             <article class="card">
                 <div class="kicker">Security</div>
-                <h3><i class="bi bi-shield-lock-fill"></i>脆弱性診断<p class="small">（Vulnerability Assessment）</p>
-                </h3>
-                <img src="images/service_security.jpg" alt="脆弱性診断のイメージ">
-                <p>開発を理解するセキュリティチームが、攻撃者の視点でリスクを特定。再現性のある改善提案でプロダクトを安全に前進させます。</p>
+                <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
+                <h3 class="card-title">Security × Engineering</h3>
+                <p>安全は、後付けではなく、設計から。</p>
                 <a class="more" href="{{ route('security') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
         </section>
+        <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
-        <section aria-label="cta">
-            <a class="btn mb-5" href="{{ route('contact') }}">まずは相談する　<i class="bi bi-arrow-right-circle-fill"></i></a>
-        </section>
-
+                <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                <li class="breadcrumb-item">サービス</a></li>
+            </ol>
+        </nav>
     </main>
 
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="./image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

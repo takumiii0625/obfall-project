@@ -73,7 +73,7 @@
                 働くことも人生の一部。<br>
                 OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
                 <a href="{{ route('philosophy') }}" class="btn btn-dark">
-                    企業理念画面へ
+                    企業理念画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </p>
 
@@ -112,7 +112,7 @@
 
                                 <p class="mb-4">
                                     ITの力で、人と社会の可能性を広げる。<br>
-                                    自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、テクノロジーで人生をより豊かにします。
+                                    自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、人々の人生をより豊かにします。
 
                                 </p>
 
@@ -145,8 +145,7 @@
 
                                 <p class="mb-4">
                                     ITの可能性を、実績で証明する。<br>
-                                    自社開発・受託開発・SES・脆弱性診断の4つの領域で、
-                                    “つくる・支える・守る”を軸に、テクノロジーで課題解決に挑んでいます。
+                                    自社開発・受託開発・SES・脆弱性診断の4つの領域で、<br> “つくる・支える・守る”を軸に、課題解決に挑んでいます。
                                 </p>
                                 <a href="{{ route('achievements') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
                                     実績・事例紹介 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
@@ -220,67 +219,78 @@
                     <div class="container">
                         <div class="row g-4 align-items-center">
                             <div class="col-12">
-                                <div class="text-muted small mb-1">最新情報</div>
+                                <div class="text-muted small mb-1">新着情報</div>
                                 <h2 class="h4 mb-3 text-container maintitle">NEWS</h2>
 
                             </div>
                             <div class="col-12">
                                 <div class="achievements-jobs fadein-scroll fadein-from-down">
 
-
-                                    <div class="bg-white">
-                                        @php $visibleCount = 3; @endphp
-
-                                        @forelse ($assign['news'] as $index => $record)
-
-                                        @php
-                                        // 1) 画像の優先順位（1→2→3）
-                                        $raw = collect([
-                                        $record->news_image_url_1 ?? null,
-                                        $record->news_image_url_2 ?? null,
-                                        $record->news_image_url_3 ?? null,
-                                        ])->first(fn($u) => filled($u));
-
-                                        // 2) 出力URLを正規化
-                                        $imgSrc = $raw
-                                        ? (\Illuminate\Support\Str::startsWith($raw, ['http://','https://','/'])
-                                        ? $raw
-                                        : asset($raw)) // 'storage/...' や 'image/...' など相対パス想定
-                                        : asset('image/noimg-square.jpg'); // 代替画像（任意）
-                                        @endphp
-
-                                        <div class="border-bottom news-item {{ $index >= $visibleCount ? 'd-none' : '' }}">
-                                            <a href="{{ route('userNewsShow', ['id' => $record->id]) }}"
-                                                class="d-flex text-decoration-none text-dark mb-3 mt-3">
-
-                                                {{-- サムネ（正方形でトリミング） --}}
-                                                <div class="ratio ratio-1x1 flex-shrink-0 me-3" style="width:72px;">
-                                                    <img src="{{ $imgSrc }}" alt="{{ $record->title }}"
-                                                        class="w-100 h-100 rounded shadow-sm" style="object-fit:cover;" loading="lazy">
-                                                </div>
-
-                                                {{-- タイトル & 日付 --}}
-                                                <div class="d-flex w-100 align-items-center mobile-small">
-                                                    <div class="flex-grow-1 pe-3 title-cell" title="{{ $record->title }}">
-                                                        {{ $record->title }}
-                                                    </div>
-
-                                                    <time class="text-muted small flex-shrink-0">
-                                                        {{ $record->created_at_fmt }}
-                                                    </time>
-                                                </div>
-                                            </a>
+                                    <div class="row g-3 align-items-start">
+                                        <!-- 左：新着情報ボタン（SPは全幅、PCは左寄せ） -->
+                                        <div class="col-12 col-md-3">
+                                            <div class="d-grid d-md-block">
+                                                <a href="{{ route('userNewsIndex') }}" class="btn btn-dark">
+                                                    新着情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                                                </a>
+                                            </div>
                                         </div>
 
-                                        @empty
-                                        <p class="text-muted">お知らせはありません。</p>
-                                        @endforelse
-                                        <div class="d-flex flex-column justify-content-center w-100">
-                                            <button id="toggleNewsBtn" class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
-                                                もっと見る >
-                                            </button>
+                                        <!-- 右：ニュース一覧（SPでは下に） -->
+                                        <div class="col-12 col-md-9">
+                                            <div class="bg-white">
+                                                @php $visibleCount = 3; @endphp
+
+                                                @forelse ($assign['news'] as $index => $record)
+                                                @php
+                                                $raw = collect([
+                                                $record->news_image_url_1 ?? null,
+                                                $record->news_image_url_2 ?? null,
+                                                $record->news_image_url_3 ?? null,
+                                                ])->first(fn($u) => filled($u));
+
+                                                $imgSrc = $raw
+                                                ? (\Illuminate\Support\Str::startsWith($raw, ['http://','https://','/']) ? $raw : asset($raw))
+                                                : asset('image/noimg-square.jpg');
+                                                @endphp
+
+                                                <div class="border-bottom news-item {{ $index >= $visibleCount ? 'd-none' : '' }}">
+                                                    <a href="{{ route('userNewsShow', ['id' => $record->id]) }}"
+                                                        class="d-flex text-decoration-none text-dark mb-3 mt-3">
+
+                                                        <!-- サムネ（正方形トリミング） -->
+                                                        <div class="ratio ratio-1x1 flex-shrink-0 me-3" style="width:72px;">
+                                                            <img src="{{ $imgSrc }}" alt="{{ $record->title }}"
+                                                                class="w-100 h-100 rounded shadow-sm" style="object-fit:cover;" loading="lazy">
+                                                        </div>
+
+                                                        <!-- タイトル & 日付 -->
+
+                                                        <div class="flex-grow-1">
+                                                            <div class="fw-semibold text-truncate" title="{{ $record->title }}">
+                                                                {{ $record->title }}
+                                                            </div>
+                                                            @if($record->created_at_fmt)
+                                                            <time class="text-muted small">{{ $record->created_at_fmt }}</time>
+                                                            @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                @empty
+                                                <p class="text-muted m-0 p-3">お知らせはありません。</p>
+                                                @endforelse
+
+                                                <!-- もっと見る -->
+                                                <div class="d-flex flex-column justify-content-center w-100">
+                                                    <button id="toggleNewsBtn"
+                                                        class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
+                                                        もっと見る >
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -325,81 +335,53 @@
                                     採用情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
-
-
-                        </div>
-                    </div>
-                </section>
-
-            </ul>
-            <ul>
-                <section class="shinkansen-bg">
-                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
-                        <h1 class="fadein-scroll fadein-from-right m-0 text-end">
-                            <div class="heading-chip--flip">CONTACT</div>
-                        </h1>
-                    </div>
-                </section>
-
-                <section class="py-1 py-md-5">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            {{-- 左：テキスト --}}
-                            <div class="col-md-6">
-                                <div class="text-muted small mb-1">お問い合わせ</div>
-                                <h2 class="h4 mb-3 text-container maintitle">contact</h2>
-
-                                <p class="mb-4">
-                                    〒105-0022<br>
-                                    東京都港区海岸1-2-3<br>
-                                    汐留芝離宮ビルディング21F<br>
-                                    03-5403-5904<br>
-                                </p>
-
-                            </div>
-
-                            {{-- 右：画像（トリミングなし） --}}
-                            <div class="col-md-6">
-                                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </section>
             </ul>
-
-
-
-
         </div>
-
-        <a href="#" class="back-to-top" style="display: none;">▲</a>
 
     </main>
     <section class="ending" aria-label="closing">
         <div class="wrap">
-            <p style="font-style:italic;font-size:12px;margin-bottom:.3rem">for all, with all, as one.</p>
-            <p class="muted small" style="margin-top:0">すべての人へ、すべての人とともに、ひとつの未来へ。</p>
+            <p style="font-style:italic;font-size:12px;margin-bottom:.3rem">of you, by you, for all.</p>
+            <p class="muted small" style="margin-top:0">あなたの、あなたによる、あなたのための。</p>
+            <p class="muted small" style="margin-top:0">その想いから、すべての人の未来へ。</p>
+
             <!-- CTAを置くならここに： <a href="/contact" class="btn">Contact</a> -->
         </div>
     </section>
     <footer>
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="./image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
 
-        <div class="devwrap">
-            <div class="footer-left">
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>
+
+
     <script src="{{ asset('js/main.js') }}" defer></script>
 
 

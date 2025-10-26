@@ -127,6 +127,8 @@
             border-left: 6px solid #66b3ff;
             padding-top: 40px;
             padding-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .section-contract {
@@ -423,60 +425,100 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>Achievements</h1>
-                <div class="sub">ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
+                <h1>Products</h1>
+                <div class="sub">人と社会の可能性を広げる、自社プロダクト。<br>OBFallの想いを、サービスというかたちで届ける。</div>
             </div>
         </div>
     </section>
     <main class="wrap">
         <section aria-label="overview">
             <p>
-                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
-                自社開発・受託開発・脆弱性診断・SESの4つの領域で、
-                社会や現場の課題を“仕組み”として解決してきました。<br>
-                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br>
-                どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
-            </p>
+                OBFallの自社開発は、<strong>社会の“まだ満たされていないニーズ”</strong>に焦点をあて、
+                「テクノロジーで人生をより豊かにする」という理念を実践する取り組みです。<br>
+                便利さよりも、“人がより自分らしく生きられる仕組み”を目指し、
+                発想から企画、開発、運用まですべて自社で行っています。 </p>
         </section>
 
-        <section aria-label="service-cards" class="grid">
-            <!-- 自社開発 -->
-            <article class="card">
-                <div class="kicker">Products</div>
-                <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
-                <h3 class="card-title">IT × Vision</h3>
-                <p>人と社会の可能性を広げる、自社プロダクト。<br>
-                    OBFallの想いを、サービスというかたちで届けます。</p>
-                <a class="more" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+
+        <!-- 💡 自社開発 -->
+        <section id="products" class="section-products">
+            <!-- digOn -->
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <!-- image: digOnアプリのメイン画面 -->
+                    <div class="image-container">
+                        <img src="../image/digOn_logo.png" alt="digOnアプリ画面" />
+                    </div>
+                    <div class="text">
+
+                        <h4>digOn（ディグオン）</h4>
+                        <p>
+                            音楽と人の感性をつなぐ、新しい発見体験。<br>
+                            音楽との出会いをもっと自由に、もっと感覚的に。<br>
+                            Flutter × Firebase × Webで構築された、クロスプラットフォーム対応の音楽アプリ。<br>
+                            再生履歴・レコメンド・お気に入り管理など、ユーザー体験を重視したUIを設計。
+                        </p>
+
+                        <p><a href="https://dig-on-web.com" target="_blank" class="link-button">digOn公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                    </div>
+                </div>
             </article>
 
-            <!-- 受託開発 -->
-            <article class="card">
-                <div class="kicker">Contract Development</div>
-                <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
-                <h3 class="card-title">IT × Collaboration</h3>
-                <p>ともにつくり、ともに前へ。<br>
-                    クライアントの想いを汲み取り、共に課題を解決するパートナーとして伴走します。
-                </p>
-                <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+            <hr>
+
+            <!-- Store-Pass -->
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <div class="image-container">
+                        <img src="../image/store-pass_logo.png" alt="Store-Passアプリ画面" />
+                    </div>
+                    <div class="text">
+                        <h4>ストパス（Store-Pass）</h4>
+                        <p>
+                            店舗とユーザーをつなぐ共通特典アプリ。<br>
+                            月額無料で、ユーザーは加盟店舗全体で特典を利用可能。<br>
+                            「店舗をまたぐ特典利用」「垣根を超えた顧客体験」を実現するアプリとして開発。<br>
+                            店舗とユーザーを緩やかにつなぎ、来店体験を拡張する共通プラットフォーム。<br>
+                            加盟店の情報表示や特典管理を統合し、地域の活性化を支える仕組みを提供しています。
+                        </p>
+
+                        <p><a href="https://store-pass.com" target="_blank" class="link-button">Store-Pass公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                    </div>
+
+
+                </div>
             </article>
 
-            <!-- 脆弱性診断 -->
-            <article class="card">
-                <div class="kicker">Security Assessment</div>
-                <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
-                <h3 class="card-title">Security × Engineering</h3>
-                <p>安全は、後付けではなく、設計から。<br>
-                    開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</p>
-                <a class="more" href="{{ route('achievementsSecurity') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+
+            <hr>
+
+            <!-- 農家システム -->
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <div class="image-container">
+                        <img src="../image/dx_logo.png" alt="農家向け業務効率化システムアプリ画面" />
+                    </div>
+                    <div class="text">
+                        <h4>農家向け業務効率化システム</h4>
+                        <p>
+                            地域と農業現場に寄り添う、未来をともに作るシステム。<br>
+                            地方農家の方々と共同で設計・開発を進める、業務効率化プラットフォーム。<br>
+                            現場の課題を直接ヒアリングしながら、“使える”を最優先にした仕組みを構築しています。
+                        </p>
+                        <p><a href="" target="_blank" class="link-button">（開発中）</a></p>
+                    </div>
+                </div>
             </article>
         </section>
 
+
+        <section></section>
         <nav aria-label="breadcrumb" class="m-3">
             <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
                 <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item">実績・事例紹介</a></li>
+                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('achievements') }}">実績・事例紹介</a></li>
+                <li class="breadcrumb-item">自社開発</a></li>
             </ol>
         </nav>
 
@@ -485,7 +527,7 @@
         <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
             <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
-                <img src="./image/logo_OBFall_white.png"
+                <img src="../image/logo_OBFall_white.png"
                     class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
             </div>
 

@@ -90,7 +90,7 @@
 
 
             .hero .title h1 {
-                font-size: 1.270rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -122,7 +122,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -181,10 +181,10 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>私たちOBFall株式会社について</h1>
-                <div class="sub">About US</div>
+                <h1>About US</h1>
+                <div class="sub">私たちOBFall株式会社について</div>
             </div>
-            <p class="lead">会社情報をご紹介いたします。</p>
+
         </div>
     </section>
     <main class="py-5">
@@ -192,19 +192,8 @@
         <div class="about" id="company">
             <div class="wrap">
 
-
-                <div class="" style="background-color: #ffffff; width: 87%; padding: 10px 10px; margin: auto;     margin-bottom: 100px;">
-
-                    <p class="sub_aboutus">
-                        私たちOBFall株式会社の社名の由来は、リンカーンの有名なゲティスバーグ演説、独立宣言の以下3つの頭文字からきています。<br class=" br-sp" />
-                        <strong class="highlight">「government &nbsp;<strong class="letter">o</strong>f the people, <strong class="letter">b</strong>y the people,<strong class="letter">f</strong>or the people(人民の、人民による、人民のための政治)」</strong><br>
-                        私たちが行うのは政治ではありませんが、会社員にも、役割や評価など多くのものに囚われ100%のパフォーマンスを発揮できていない人がいるように感じます。
-                        私たちOBFall株式会社は、3つの柱をもって新しい会社の形に挑戦し、働く全ての人が自由に、高いパフォーマンスを発揮できる社会を創ることを宣言いたします。
-                    </p>
-                </div>
-
-                <div class="about-content-inner-wrap">
-                    <ul class="fadein-scroll fadein-from-up">
+                <div class="about-content-inner-wrap text-center">
+                    <ul class="">
                         <li>
                             <p class="about-head">会社名</p>
                             <p class="about-data">OBFall株式会社</p>
@@ -215,9 +204,28 @@
                         </li>
                         <li>
                             <p class="about-head">所在地</p>
-                            <p class="about-data">〒105-0022<br>東京都港区海岸1-2-3<br>汐留芝離宮ビルディング 21F<br>
+                            <p class="about-data">
+                                〒105-0022<br>
+                                東京都港区海岸1-2-3<br>
+                                汐留芝離宮ビルディング 21F
                             </p>
+
+                            <!-- 地図（レスポンシブ） -->
+                            <div class="ratio ratio-16x9 rounded overflow-hidden">
+                                <iframe
+                                    src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B5%B7%E5%B2%B81-2-3%20%E6%B1%90%E6%9F%93%E8%8A%9D%E9%9B%A2%E5%AE%AE%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2021F&hl=ja&z=16&output=embed"
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                            </div>
+
+                            <!-- マップを別タブで開く／ルート検索 -->
+                            <div class="mt-2">
+                                <a class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener"
+                                    href="https://www.google.com/maps/dir/?api=1&destination=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B5%B7%E5%B2%B81-2-3%20%E6%B1%90%E6%9F%93%E8%8A%9D%E9%9B%A2%E5%AE%AE%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2021F">
+                                    ルートを検索
+                                </a>
+                            </div>
                         </li>
+
                         <li>
                             <p class="about-head">電話番号</p>
                             <p class="about-data">03-5403-5904<br>
@@ -225,42 +233,56 @@
                         </li>
                         <li>
                             <p class="about-head">設立</p>
-                            <p class="about-data">2021年8月4日<br>
+                            <p class="about-data">2022年8月4日<br>
                             </p>
                         </li>
                         <li>
                             <p class="about-head">資本金</p>
-                            <p class="about-data">100万円</p>
+                            <p class="about-data">1,000,000円</p>
                         </li>
                         <li>
                             <p class="about-head">取引先銀行</p>
                             <p class="about-data">みずほ銀行</p>
                         </li>
-
                     </ul>
-                    <img class="fadein-scroll fadein-from-down" src="../image/siodomebiru.jpg">
                 </div>
             </div>
-            <div class="wrap">
-                <a class="other fadein-scroll fadein-from-left" href="https://obfall.itszai.jp/achievements/34" target="_blank" rel="noopener noreferrer">採用サイトはこちら　<i class="bi bi-arrow-right-circle-fill"></i>
-                </a>
-            </div>
         </div>
+        <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
+                <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                <li class="breadcrumb-item">会社概要</a></li>
+            </ol>
+        </nav>
     </main>
 
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="./image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

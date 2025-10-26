@@ -79,7 +79,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -118,7 +118,7 @@
 
         h1 {
             margin: 0 0 .4rem;
-            font-size: clamp(28px, 4vw, 40px)
+            font-size: clamp(28px, 4vw, 100px)
         }
 
 
@@ -128,7 +128,7 @@
         }
 
         section {
-            padding: 56px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--line)
         }
 
@@ -153,6 +153,18 @@
 
         .two {
             grid-template-columns: 1fr
+        }
+
+        .origin {
+            background: var(--blue-weak);
+            border: 1px solid var(--divider);
+            border-radius: var(--radius);
+            padding: 28px
+        }
+
+        .origin .bar {
+            border-left: 4px solid var(--blue);
+            padding-left: 16px
         }
 
         @media (min-width:820px) {
@@ -214,7 +226,7 @@
             }
 
             .hero .title h1 {
-                font-size: 1.200rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -231,6 +243,64 @@
             }
 
             /* small 相当 */
+        }
+
+        /* 背景トーン（既存の --blue-weak / --ink を尊重） */
+        .bg-blue-weak {
+            background: var(--blue-weak);
+        }
+
+        /* カードの見た目 */
+        .principle-card {
+            transition: box-shadow .2s ease, transform .2s ease;
+            background: #fff;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+        }
+
+        /* アイコンのバッジ */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: rgba(var(--bs-primary-rgb), .12);
+            color: var(--bs-primary);
+            font-size: 1.25rem;
+        }
+
+        /* タイポ */
+        .kicker {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: var(--bs-primary);
+            margin-bottom: .25rem;
+        }
+
+        .principle-title {
+            font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+            line-height: 1.35;
+            margin: 0 0 .5rem;
+            color: var(--ink);
+        }
+
+        /* スマホ微調整 */
+        @media (max-width: 767.98px) {
+            .principle-card {
+                padding: 1.25rem;
+            }
+
+            .icon-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -277,58 +347,143 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>人が輝く現場を、技術で支える。</h1>
-                <div class="sub">IT × Team</div>
+                <h1>IT × Team</h1>
+                <div class="sub">人が輝く現場を、技術で支える。</div>
             </div>
-            <p class="lead">エンジニアが力を発揮できる環境を整え、技術とチームの両面から現場を支援。「人」と「組織」がともに成長する関係を築くことが、OBFallのSESです。</p>
         </div>
     </section>
+
     <main class="wrap">
-
-
         <section aria-label="overview">
-            <h2>私たちの想い</h2>
-            <p>人が主役の現場を、もっと誇れる場所に。単なる人材支援ではなく、共に挑み、共に成長するパートナーとして並走します。</p>
-            <h2>サービス概要</h2>
-            <p>適切なエンジニアを配置し、開発・運用・保守などを支援。配属後も継続的なフォローと学習支援で、長期的な関係と高品質な成果を両立します。</p>
+            <p>エンジニアが力を発揮できる環境を整え、技術とチームの両面から現場を支援。「人」と「組織」がともに成長する関係を築くことが、OBFallのSESです。</p>
         </section>
 
-        <section aria-label="reasons" class="grid two">
-            <article class="card">
-                <h3><i class="bi bi-person-heart"></i> “人”を中心とした関係づくり</h3>
-                <p>スキルだけでなく価値観やキャリアを理解し、企業と人が共に成長できる“関係”を設計します。</p>
-            </article>
+        <section id="principles" class="bg-blue-weak py-5">
+            <div class="wrap">
+                <div class="vstack gap-4"> <!-- ← 縦に積む -->
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">私たちの想い</h2>
+                        <p class="mb-0">人が主役の現場を、もっと誇れる場所に。<br>
+                            OBFallのSESは、エンジニア一人ひとりが自分らしく力を発揮できる環境をつくることで、
+                            企業と人の“成長の循環”を生み出します。<br>
+                            単なる人材支援ではなく、共に挑み、共に成長するパートナーとして並走します。</p>
+                    </article>
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">サービス概要</h2>
+                        <p class="mb-0">私たちは、クライアントの現場課題に最も適したエンジニアをアサインし、
+                            開発・運用・保守などのプロジェクトを技術面とチーム面から支援します。<br>
+                            配属後も定期的なフォローやスキルアップ支援を行い、
+                            長期的な関係構築と高品質な成果創出を両立します。</p>
+                    </article>
 
-            <article class="card">
-                <h3><i class="bi bi-people-fill"></i> 継続的な伴走と成長支援</h3>
-                <p>定期面談・スキル共有・勉強会などで、技術力と人間力の両面から成長を支援します。</p>
-            </article>
 
-            <article class="card">
-                <h3><i class="bi bi-tools"></i> 現場で磨かれる技術力</h3>
-                <p>自社開発・受託開発で培った実践知をSESにも還元。提案力と課題解決力で現場に“成長と信頼”をもたらします。</p>
-            </article>
+
+                </div>
+            </div>
+        </section>
+        <section id="values">
+            <div class="" style="background:var(--blue-weak);border-top:none">
+                <section>
+                </section>
+                <h2 class="my-5">OBFallのSESが選ばれる理由</h2>
+
+                <section id="principles" class="bg-blue-weak py-5">
+                    <div class="wrap">
+                        <div class="vstack gap-4"> <!-- ← 縦に積む -->
+                            <!-- Vision -->
+                            <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                                <span class="icon-badge mb-3"><i class="bi bi-person-heart" aria-hidden="true"></i>
+                                    <div class="kicker">VISION</div>
+                                </span>
+                                <h2 class="principle-title">“人”を中心とした関係づくり</h2>
+                                <p class="mb-0">スキルシートだけでなく、価値観やキャリアビジョンまでを見据え、
+                                    企業と人が共に成長できる“関係”を設計します。<br>
+                                    「どんな現場ならその人が最も輝くか」を起点に考え、
+                                    人とチームの可能性を最大限に引き出します。</p>
+                            </article>
+                            <!-- Vision -->
+                            <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                                <span class="icon-badge mb-3"><i class="bi bi-people-fill" aria-hidden="true"></i>
+                                    <div class="kicker">VISION</div>
+                                </span>
+                                <h2 class="principle-title">継続的な伴走と成長支援</h2>
+                                <p class="mb-0">配属後もチーム単位でフォローし、キャリアアップ・スキル共有・勉強会など
+                                    人と組織が共に進化する環境を提供します。</p>
+                            </article>
+
+                            <!-- Mission -->
+                            <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                                <span class="icon-badge mb-3"><i class="bi bi-tools" aria-hidden="true"></i>
+                                    <div class="kicker">MISSION</div>
+                                </span>
+                                <h2 class="principle-title">現場で磨かれる技術力</h2>
+                                <p class="mb-0">
+                                <p>OBFallでは、自社開発・受託開発を通じて技術を磨き続けています。<br>
+                                    その実践的な知見と経験が、SESにおいても高い提案力と課題解決力を支えています。<br>
+                                    現場に“成長と信頼”という価値をもたらすのが、私たちの強みです。</p>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
         </section>
 
-
-        <section aria-label="cta">
-            <!-- あてこみ指示：勉強会や1on1面談の様子が伝わる写真1枚 -->
-            <p class="note">画像差し込み：/images/ses_meetup.jpg</p>
-            <p><a class="cta" href="{{ route('contact') }}">お問い合わせ　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+        <section id="origin">
+            <div class="wrap">
+                <div class="origin">
+                    <div class="bar">
+                        <div class="kicker">Message</div>
+                        <h3>メッセージ</h3>
+                        <p>SESを、“人を送るビジネス”から“人が活きる仕組み”へ。<br>
+                            OBFallは、ITの力で働く人と企業の関係をより良くデザインしていきます。</p>
+                    </div>
+                </div>
+            </div>
         </section>
+        <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+
+                <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('userServicesShow') }}">サービス</a></li>
+                <li class="breadcrumb-item"></a>SES</li>
+            </ol>
+        </nav>
     </main>
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="../image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

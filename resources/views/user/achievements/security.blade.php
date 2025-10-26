@@ -134,13 +134,18 @@
             border-left: 6px solid #00b894;
             padding-top: 40px;
             padding-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .section-security {
             background: #ffffff;
-            border-left: 6px solid #ff7675;
+            border-left: 6px solid #66b3ff;
             padding-top: 40px;
             padding-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+
         }
 
         /* === 実績アイテム === */
@@ -423,69 +428,78 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>Achievements</h1>
-                <div class="sub">ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
+                <h1>Security Assessment</h1>
+                <div class="sub">安全は、後付けではなく、設計から。<br>開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</div>
             </div>
         </div>
     </section>
     <main class="wrap">
         <section aria-label="overview">
             <p>
-                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
-                自社開発・受託開発・脆弱性診断・SESの4つの領域で、
-                社会や現場の課題を“仕組み”として解決してきました。<br>
-                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br>
-                どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
+                OBFallでは、開発現場を理解したエンジニアが脆弱性診断を実施しています。<br>
+                システムの構造や業務要件を踏まえたうえで、
+                「攻撃者の視点」と「開発者の視点」の両面から現実的なリスクを検証。<br>
+                単なる報告にとどまらず、修正提案や再発防止まで一貫してサポートしています。
             </p>
         </section>
 
-        <section aria-label="service-cards" class="grid">
-            <!-- 自社開発 -->
-            <article class="card">
-                <div class="kicker">Products</div>
-                <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
-                <h3 class="card-title">IT × Vision</h3>
-                <p>人と社会の可能性を広げる、自社プロダクト。<br>
-                    OBFallの想いを、サービスというかたちで届けます。</p>
-                <a class="more" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+
+
+
+        <!-- 🔒 脆弱性診断 -->
+        <section id="products" class="section-products">
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <!-- image: 脆弱性診断のメイン画面 -->
+                    <div class="image-container">
+                        <img src="../image/security.jpg" alt="脆弱性診断画面" />
+                    </div>
+                    <div class="text">
+
+                        <h4>実績紹介</h4>
+                        <p>
+                            • 医療系予約システム（Laravel / AWS）<br>
+                            　個人情報を扱うWebシステムの診断を実施。<br>
+                            　セッション管理や認証の不備を早期に検出し、改善まで支援。<br>
+                            • 不動産マッチングプラットフォーム（Laravel / Nuxt.js）<br>
+                            　権限管理・API認証まわりの診断を実施。<br>
+                            　再発防止のためのコーディングガイドライン策定をサポート。
+                        </p>
+
+                    </div>
+                </div>
             </article>
 
-            <!-- 受託開発 -->
-            <article class="card">
-                <div class="kicker">Contract Development</div>
-                <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
-                <h3 class="card-title">IT × Collaboration</h3>
-                <p>ともにつくり、ともに前へ。<br>
-                    クライアントの想いを汲み取り、共に課題を解決するパートナーとして伴走します。
-                </p>
-                <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
-
-            <!-- 脆弱性診断 -->
-            <article class="card">
-                <div class="kicker">Security Assessment</div>
-                <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
-                <h3 class="card-title">Security × Engineering</h3>
-                <p>安全は、後付けではなく、設計から。<br>
-                    開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</p>
-                <a class="more" href="{{ route('achievementsSecurity') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
+            <hr>
         </section>
-
+        <section></section>
+        <section id="origin">
+            <div class="wrap">
+                <div class="origin">
+                    <div class="bar">
+                        <div class="kicker">At a glance</div>
+                        <h3>一言まとめ</h3>
+                        <p>診断は“終わり”ではなく“成長のはじまり”。<br>
+                            開発を理解するセキュリティチームが、
+                            安心して使い続けられるプロダクトの実現を支えています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <nav aria-label="breadcrumb" class="m-3">
             <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
                 <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item">実績・事例紹介</a></li>
+                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('achievements') }}">実績・事例紹介</a></li>
+                <li class="breadcrumb-item">脆弱性診断</a></li>
             </ol>
         </nav>
-
     </main>
     <footer>
         <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
             <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
-                <img src="./image/logo_OBFall_white.png"
+                <img src="../image/logo_OBFall_white.png"
                     class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
             </div>
 

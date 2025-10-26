@@ -43,4 +43,32 @@ class UserNewsesController extends Controller
 
         return view('user/newses/show', compact('assign'));
     }
+
+    /**
+     * お知らせ一覧
+     *
+     * @param  Request               $request
+     * @return \Illuminate\View\View
+     */
+    public function index(Request $request)
+    {
+
+        // フォームで使ったセッションを削除（入力途中でやめた場合を考慮）
+        session()->forget(['createInputNews', 'insertNews', 'updateInputNews', 'updateNews']);
+
+        // お知らせ一覧取得（お知らせテーブル（newses）を参照し有効なレコード(deleted_at=null、status=1)を表示する。)
+        $query = DB::table('newses')
+            ->select('id', 'title', 'content', 'news_image_url_1', 'status', 'deleted_at')
+            ->selectRaw('DATE_FORMAT(created_at, "%Y年%m月%d日") as created_at_fmt')
+            ->where('status', 1) // 公開中のみ
+            ->whereNull('deleted_at')
+            ->orderBy('id', 'desc');
+
+        // ページネーション
+        $newsList = $query->paginate(PerPage::NEWS_LIST); // ここは10件
+        $newsList->appends(request()->query());           // クエリ引き継ぎ
+        $assign['newsList'] = $newsList;
+
+        return view('user/newses/index', compact('assign'));
+    }
 }

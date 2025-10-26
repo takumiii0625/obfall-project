@@ -79,7 +79,7 @@
         }
 
         h1 {
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(28px, 4vw, 100px);
             font-weight: 800;
             color: black;
             font-family: 'Times New Roman', Times, serif;
@@ -118,7 +118,7 @@
 
         h1 {
             margin: 0 0 .4rem;
-            font-size: clamp(28px, 4vw, 40px)
+            font-size: clamp(28px, 4vw, 100px)
         }
 
 
@@ -129,7 +129,7 @@
         }
 
         section {
-            padding: 56px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--line)
         }
 
@@ -219,7 +219,7 @@
             }
 
             .hero .title h1 {
-                font-size: 1.200rem;
+                font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
@@ -236,6 +236,64 @@
             }
 
             /* small 相当 */
+        }
+
+        /* 背景トーン（既存の --blue-weak / --ink を尊重） */
+        .bg-blue-weak {
+            background: var(--blue-weak);
+        }
+
+        /* カードの見た目 */
+        .principle-card {
+            transition: box-shadow .2s ease, transform .2s ease;
+            background: #fff;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+        }
+
+        /* アイコンのバッジ */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: rgba(var(--bs-primary-rgb), .12);
+            color: var(--bs-primary);
+            font-size: 1.25rem;
+        }
+
+        /* タイポ */
+        .kicker {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: var(--bs-primary);
+            margin-bottom: .25rem;
+        }
+
+        .principle-title {
+            font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+            line-height: 1.35;
+            margin: 0 0 .5rem;
+            color: var(--ink);
+        }
+
+        /* スマホ微調整 */
+        @media (max-width: 767.98px) {
+            .principle-card {
+                padding: 1.25rem;
+            }
+
+            .icon-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -282,95 +340,182 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>安全は、後付けではなく、設計から。</h1>
-                <div class="sub">Security × Engineering</div>
+                <h1>Security × Engineering</h1>
+                <div class="sub">安全は、後付けではなく、設計から。</div>
             </div>
-            <p class="lead">開発を理解するセキュリティ専門チームが、攻撃者の視点でリスクを特定。再現性のある改善提案でプロダクトを安全に前進させます。</p>
         </div>
     </section>
     <main class="wrap">
 
-        <section aria-label="summary">
-            <p>Webアプリ・モバイルアプリ・APIなどの脆弱性診断を提供。開発現場の構造を理解したうえで“攻撃者の視点”からリスクを特定し、プロダクトを安全に前進させます。</p>
+        <section aria-label="overview">
+            <p>私たちは、**「開発を理解するセキュリティ専門チーム」**として、
+                Webアプリ・モバイルアプリ・APIなどの脆弱性診断を提供しています。<br>
+                開発現場の構造を理解したうえで“攻撃者の視点”からリスクを特定し、
+                再現性のある改善提案を通じて、プロダクトを安全に前進させます。</p>
         </section>
 
-        <section aria-label="strengths" class="grid two">
-            <article class="card">
-                <h3><i class="bi bi-puzzle-fill"></i> 開発を知る診断チーム</h3>
-                <p>実装の意図や設計思想を踏まえて診断。「なぜその脆弱性が生まれたのか」「どう修正すべきか」まで踏み込みます。</p>
-            </article>
+        <section id="principles" class="bg-blue-weak py-5">
+            <div class="wrap">
+                <div class="vstack gap-4"> <!-- ← 縦に積む -->
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-puzzle-fill" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">開発を知る診断チーム</h2>
+                        <p class="mb-0">私たちは自社でシステム開発も行うエンジニア集団です。<br>
+                            実装の意図や設計思想を踏まえたうえで診断を行うため、
+                            「なぜその脆弱性が生まれたのか」「どう修正すべきか」まで踏み込んだ支援が可能です。
+                        </p>
+                    </article>
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-search" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">攻撃者の視点からの実践的アプローチ</h2>
+                        <p class="mb-0">ツール検査だけでなく、手動検証を中心とした実戦型診断を実施。<br>
+                            入力値検証・認証認可・情報漏洩・セッション管理・設定不備など、
+                            実際の攻撃手法をシミュレーションし、ビジネスリスクを可視化します。</p>
+                    </article>
 
-            <article class="card">
-                <h3><i class="bi bi-search"></i> 実戦型アプローチ</h3>
-                <p>ツール検査＋手動検証で、入力値検証／認証認可／情報漏洩／セッション管理／設定不備などを網羅的に確認。</p>
-            </article>
+                    <!-- Mission -->
+                    <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-diagram-3" aria-hidden="true"></i>
+                            <div class="kicker">MISSION</div>
+                        </span>
+                        <h2 class="principle-title">開発と診断のワンストップ体制</h2>
+                        <p class="mb-0">
+                        <p>開発フェーズからセキュリティを設計に組み込み、
+                            受託開発・SESチームと連携して脆弱性を未然に防止。<br>
+                            診断結果は再発防止策や運用ガイドラインにまで落とし込みます。</p>
+                    </article>
 
-            <article class="card">
-                <h3><i class="bi bi-diagram-3"></i> ワンストップ体制</h3>
-                <p>開発フェーズからセキュリティを設計に組み込み、受託開発・SESと連携して未然に防止。結果は運用ガイドラインに落とし込みます。</p>
-            </article>
+                    <!-- Values -->
+                    <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-clipboard-check" aria-hidden="true"></i>
+                            <div class="kicker">VALUES</div>
+                        </span>
+                        <h2 class="principle-title">再現性と改善を重視したレポート</h2>
+                        <p class="mb-0">検出結果を「開発者が理解し、すぐ行動できる形」で提示。<br>
+                            リスク説明と修正手順をセットで提供し、
+                            診断が“一過性の報告”で終わらないよう支援します。</p>
+                    </article>
 
-            <article class="card">
-                <h3><i class="bi bi-clipboard-check"></i> 再現性のあるレポート</h3>
-                <p>「開発者がすぐ動ける」形式でレポート化。リスク説明と修正手順をセットで提供し、一過性で終わらせません。</p>
-            </article>
+                </div>
+            </div>
         </section>
 
 
-        <section aria-label="targets">
-            <h2>診断対象</h2>
-            <!-- あてこみ指示：各対象を象徴する小アイコン（Web/モバイル/API/社内/クラウド）を横並び -->
-            <ul>
-                <li>Webアプリ（Laravel, Rails, Node.js など）</li>
-                <li>モバイルアプリ（iOS / Android / Flutter）</li>
-                <li>API / GraphQL / 外部連携</li>
-                <li>管理画面・社内システム</li>
-                <li>クラウド設定診断（GCP / AWS）</li>
-            </ul>
+        <section id="values">
+            <div class="" style="background:var(--blue-weak);border-top:none">
+                <h2 class="my-5">診断対象</h2>
+                <div class="values">
+                    <div class="card mb-4">
+                        <p class="muted">
+                            ・Webアプリ（Laravel, Rails, Node.js など）<br>
+                            ・モバイルアプリ（iOS / Android / Flutter）<br>
+                            ・API / GraphQL / 外部連携<br>
+                            ・管理画面・社内システム<br>
+                            ・クラウド設定診断（GCP / AWS）<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section aria-label="reasons" class="grid two">
-            <article class="card">
-                <h3><i class="bi bi-gear-fill"></i> 開発と診断を一社完結</h3>
-                <p>外部委託を抑え、情報漏洩リスクとコミュニケーションコストを低減。開発者との連携スピードも速いのが特長です。</p>
-            </article>
+        <section id="principles" class="bg-blue-weak py-5">
+            <div class="" style="background:var(--blue-weak);border-top:none">
 
-            <article class="card">
-                <h3><i class="bi bi-search"></i> 実践経験に基づく検証</h3>
-                <p>診断員は現役エンジニア。コード／構成レベルで原因に迫り、修正コストを最小限に抑える提案を行います。</p>
-            </article>
+                <h2 class="my-5">選ばれる理由</h2>
 
-            <article class="card">
-                <h3><i class="bi bi-shield-check"></i> 伴走型セキュリティ支援</h3>
-                <p>改修支援・再診断・運用設計までサポート。「脆弱性をなくす」だけでなく「安全に成長を続ける」ことを目指します。</p>
-            </article>
+            </div>
+            <div class="wrap">
+                <div class="vstack gap-4"> <!-- ← 縦に積む -->
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-puzzle-fill" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">開発と診断を一社完結</h2>
+                        <p class="mb-0">「外部に委託せず、開発と診断を自社で行う」ため、
+                            情報漏洩リスクが低く、開発者との連携スピードも圧倒的。
+                        </p>
+                    </article>
+                    <!-- Vision -->
+                    <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-search" aria-hidden="true"></i>
+                            <div class="kicker">VISION</div>
+                        </span>
+                        <h2 class="principle-title">実践経験に基づく検証</h2>
+                        <p class="mb-0">診断員は全員が現役エンジニア。<br>
+                            脆弱性の発生要因をコード・構成レベルで分析し、
+                            修正コストを最小限に抑える提案を行います。</p>
+                    </article>
 
-            <article class="card">
-                <h3><i class="bi bi-cash-stack"></i> コストと柔軟性のバランス</h3>
-                <p>大手のような高額・長納期ではなく、<strong>必要な範囲を最適なコストで</strong>。中間コストを省き、品質とスピードを両立します。</p>
-            </article>
+                    <!-- Mission -->
+                    <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-diagram-3" aria-hidden="true"></i>
+                            <div class="kicker">MISSION</div>
+                        </span>
+                        <h2 class="principle-title">伴走型セキュリティ支援</h2>
+                        <p class="mb-0">
+                        <p>診断後も改修支援・再診断・運用設計までサポート。<br>
+                            「脆弱性をなくすこと」ではなく「安全に成長し続けること」を目指します。</p>
+
+                    </article>
+
+                    <!-- Values -->
+                    <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
+                        <span class="icon-badge mb-3"><i class="bi bi-clipboard-check" aria-hidden="true"></i>
+                            <div class="kicker">VALUES</div>
+                        </span>
+                        <h2 class="principle-title">コストと柔軟性のバランス</h2>
+                        <p class="mb-0">大手セキュリティベンダーのような高額コストや硬直的な体制ではなく、
+                            「必要な範囲を、最適なコストで」診断する柔軟なプランをご提案します。<br>
+                            中間コストを省き、開発者が直接対応することで、
+                            品質とスピードを両立させた現実的なセキュリティ対策を実現します。</p>
+
+                    </article>
+
+                </div>
+            </div>
         </section>
+        <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
-
-        <section aria-label="cta">
-            <!-- あてこみ指示：レポートのUI断片 or 診断ダッシュボードの静止画 -->
-            <p class="note">画像差し込み：/images/security_report.jpg</p>
-            <p><a class="more" href="/achievements#security">実績を見る <i class="bi bi-arrow-right-circle-fill"></i></a></p>
-            <p><a class="cta" href="{{ route('contact') }}">お問い合わせ　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
-        </section>
+                <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('userServicesShow') }}">サービス</a></li>
+                <li class="breadcrumb-item"></a>脆弱性診断</li>
+            </ol>
+        </nav>
     </main>
     <footer>
-        <div class="devwrap">
-            <div class="footer-left">
+        <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
+                <img src="../image/logo_OBFall_white.png"
+                    class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
+            </div>
+
+            <!-- PC:中央 / SP:一番下（住所など） -->
+            <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
                     東京都港区海岸1-2-3&nbsp;&nbsp;汐留芝離宮ビルディング 21F<br>
-                    03-5403-5904<br>
+                    TEL:03-5403-5904<br>
                     <a href="{{ url('/human-rights-policy') }}" target="_blank" class="human-rights-policy">
                         人権に関する基本方針と社内相談窓口
                     </a>
                 </p>
-                <small>&copy; OBFall株式会社</small>
+
+            </div>
+
+            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
+                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </footer>

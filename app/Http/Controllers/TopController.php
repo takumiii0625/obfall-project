@@ -16,6 +16,7 @@ class TopController extends Controller
 
     public function indexDev()
     {
+
         // お知らせ取得（お知らせテーブル（newses）を参照し有効なレコード(deleted_at=null、status=1)を表示する。)
         $assign['news'] = DB::table('newses')
             ->select('id', 'title', 'content', 'news_image_url_1', 'status', 'deleted_at')

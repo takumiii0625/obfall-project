@@ -127,18 +127,21 @@
             border-left: 6px solid #66b3ff;
             padding-top: 40px;
             padding-bottom: 40px;
+
         }
 
         .section-contract {
             background: #ffffff;
-            border-left: 6px solid #00b894;
+            border-left: 6px solid #66b3ff;
             padding-top: 40px;
             padding-bottom: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .section-security {
             background: #ffffff;
-            border-left: 6px solid #ff7675;
+            border-left: 6px solid #66b3ff;
             padding-top: 40px;
             padding-bottom: 40px;
         }
@@ -423,60 +426,75 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>Achievements</h1>
-                <div class="sub">ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
+                <h1>Contract Development</h1>
+                <div class="sub">ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。</div>
             </div>
         </div>
     </section>
     <main class="wrap">
         <section aria-label="overview">
             <p>
-                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
-                自社開発・受託開発・脆弱性診断・SESの4つの領域で、
-                社会や現場の課題を“仕組み”として解決してきました。<br>
-                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br>
-                どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
+                OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。<br>
+                Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、<br>
+                企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。<br>
+                クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
             </p>
         </section>
 
-        <section aria-label="service-cards" class="grid">
-            <!-- 自社開発 -->
-            <article class="card">
-                <div class="kicker">Products</div>
-                <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
-                <h3 class="card-title">IT × Vision</h3>
-                <p>人と社会の可能性を広げる、自社プロダクト。<br>
-                    OBFallの想いを、サービスというかたちで届けます。</p>
-                <a class="more" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+        <!-- 💼 受託開発 -->
+        <section id="contract" class="section-contract">
+            <!-- CareerLog -->
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <!-- image: CareerLogのメイン画面 -->
+                    <div class="image-container">
+                        <img src="../image/careerlog_logo.png" alt="CareerLog画面" />
+                    </div>
+                    <div class="text">
+
+                        <h4>CareerLog（キャリアログ）</h4>
+                        <p>
+                            キャリアログは、社会人が業界・職種の経験者に1対1で相談できるOB/OG訪問サービス。<br>
+                            登録不要で今すぐOBを検索でき、実体験に基づくアドバイスで転職やキャリアの不安を解消し、自分だけの進路設計を後押しします。
+                        </p>
+
+                        <p><a href="https://career-log.com/" target="_blank" class="link-button">CareerLog公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                    </div>
+                </div>
             </article>
 
-            <!-- 受託開発 -->
-            <article class="card">
-                <div class="kicker">Contract Development</div>
-                <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
-                <h3 class="card-title">IT × Collaboration</h3>
-                <p>ともにつくり、ともに前へ。<br>
-                    クライアントの想いを汲み取り、共に課題を解決するパートナーとして伴走します。
-                </p>
-                <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
+            <hr>
 
-            <!-- 脆弱性診断 -->
-            <article class="card">
-                <div class="kicker">Security Assessment</div>
-                <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
-                <h3 class="card-title">Security × Engineering</h3>
-                <p>安全は、後付けではなく、設計から。<br>
-                    開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</p>
-                <a class="more" href="{{ route('achievementsSecurity') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+            <!-- Store-Pass -->
+            <article class="achievement-item">
+                <div class="achievement-content">
+                    <div class="image-container">
+                        <img src="../image/NoaChoice_logo.jpg" alt="Store-Passアプリ画面" />
+                    </div>
+                    <div class="text">
+                        <h4>NoaChoice（ノアチョイス）</h4>
+                        <p>
+                            結婚式準備の“探す・比べる・決める”をオンラインで完結できるブライダルECサイトです。<br>
+                            レス・タキシード・和装・ジュエリー・ペーパーアイテム・引出物まで、厳選アイテムを適正価格でお届け。<br>
+                            サイズガイドと試着キット、パーソナルサポートで、初めての方でも安心してお選びいただけます。
+                        </p>
+
+                        <p><a href="https://noa-choice.com/" target="_blank" class="link-button">NoaChoice公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                    </div>
+
+
+                </div>
             </article>
+            <hr>
         </section>
 
+        <section></section>
         <nav aria-label="breadcrumb" class="m-3">
             <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
                 <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item">実績・事例紹介</a></li>
+                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('achievements') }}">実績・事例紹介</a></li>
+                <li class="breadcrumb-item">受託開発</a></li>
             </ol>
         </nav>
 
@@ -485,7 +503,7 @@
         <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
             <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
-                <img src="./image/logo_OBFall_white.png"
+                <img src="../image/logo_OBFall_white.png"
                     class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
             </div>
 

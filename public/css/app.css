@@ -212,7 +212,7 @@ body {
 }
 
 .logo-container img {
-    height: clamp(28px, 5vw, 48px);
+    height: clamp(28px, 5vw, 38px);
     /* 28〜48pxの範囲で画面幅に応じて可変 */
     width: auto;
 }
@@ -283,6 +283,7 @@ a:hover {
     /* より深い黒色 */
     line-height: 2;
     /* 行間を広くします */
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -821,7 +822,6 @@ nav li:hover {
 
 .achievements-jobs {
     background-color: white;
-    padding: 40px 0;
 }
 
 .achievements-jobs>p {
@@ -1475,9 +1475,7 @@ footer {
     }
 
     /* フッターの高さ目安に合わせて調整可 */
-    footer .devwrap {
-        padding: 16px 0;
-    }
+
 
     /* 触らなくてもOK。見た目の余白調整 */
 }
@@ -1571,4 +1569,18 @@ footer {
 html,
 body {
     overflow-x: hidden;
+}
+
+
+footer .logo {
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    footer .logo {
+        height: 48px;
+    }
 }

@@ -61,7 +61,7 @@
         <div class="wrap">
             <div class="title">
                 <h1 class="">News</h1>
-                <div class="sub">最新情報</div>
+                <div class="sub">最新情報一覧</div>
             </div>
 
         </div>
@@ -71,65 +71,80 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     <article class="card border-0 shadow-sm">
-                        <div class="card-body p-4 p-md-5">
+                        {{-- user/newses/index.blade.php の一覧部分 --}}
+                        <div class="container py-4">
+                            <h1 class="h4 mb-3">最新情報一覧</h1>
 
-                            {{-- タイトル & 日付（通常フロー） --}}
-                            @php
-                            $date = $assign['record']->created_at_fmt
-                            ?? ($assign['record']->created_at ? $assign['record']->created_at->format('Y-m-d') : '');
-                            @endphp
+                            <div class="list-group list-group-flush">
+                                @forelse ($assign['newsList'] as $item)
+                                @php
+                                $raw = $item->news_image_url_1 ?? null;
+                                $thumb = $raw
+                                ? (\Illuminate\Support\Str::startsWith($raw, ['http://','https://','/']) ? $raw : asset($raw))
+                                : asset('image/noimg-square.jpg');
+                                $date = $item->created_at_fmt ?? '';
+                                @endphp
 
-                            <div class="mb-3">
-                                @if($date)
-                                <div class="text-body-secondary small mb-4">{{ $date }}</div>
-                                @endif
-                                <h1 class="h3 h2-md mb-1">{{ $assign['record']->title }}</h1>
+                                <a href="{{ route('userNewsShow', ['id' => $item->id]) }}"
+                                    class="list-group-item list-group-item-action d-flex align-items-center gap-3 text-decoration-none text-dark">
 
-                            </div>
+                                    {{-- サムネ --}}
+                                    <div class="ratio ratio-1x1 flex-shrink-0" style="width:80px;">
+                                        <img src="{{ $thumb }}" alt="{{ $item->title }}"
+                                            class="w-100 h-100 rounded shadow-sm" style="object-fit:cover;" loading="lazy">
+                                    </div>
 
-                            {{-- 画像（1枚だけ、トリミングなし） --}}
-                            @php
-                            $image = collect([
-                            $assign['record']->news_image_url_1 ?? null,
-                            $assign['record']->news_image_url_2 ?? null,
-                            $assign['record']->news_image_url_3 ?? null,
-                            ])->first(fn($u) => !empty($u));
-                            @endphp
+                                    {{-- タイトル＋日付 --}}
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold text-truncate pe-2" title="{{ $item->title }}">
+                                            {{ $item->title }}
+                                        </div>
+                                        @if($date)
+                                        <time class="text-muted small">{{ $date }}</time>
+                                        @endif
+                                    </div>
 
-                            @if($image)
-                            <figure class="mb-4">
-                                <img src="{{ asset($image) }}"
-                                    alt="お知らせ画像"
-                                    class="img-fluid rounded d-block"
-                                    style="max-width:100%; height:auto;">
-                            </figure>
-                            @endif
-
-                            {{-- 本文（改行維持） --}}
-                            <div class="fs-6 lh-lg" style="white-space: pre-line;">
-                                {{ $assign['record']->content }}
-                            </div>
-
-                            <!-- お知らせ一覧に戻るボタン -->
-                            <div class="mt-5">
-                                <a href="{{ route('userNewsIndex') }}" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-circle-arrow-left me-2"></i>お知らせ一覧に戻る
+                                    {{-- 右端の矢印（Font Awesome）--}}
+                                    <i class="fa-solid fa-chevron-right text-muted ms-auto go-icon" aria-hidden="true"></i>
+                                    <span class="visually-hidden">詳細へ</span>
                                 </a>
+                                @empty
+                                <div class="text-muted p-3">お知らせはありません。</div>
+                                @endforelse
+                            </div>
+                            {{-- 合計件数だけ --}}
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    該当件数 : {{ number_format($assign['newsList']->total()) }}件
+                                </div>
                             </div>
 
+                            {{-- ページネーション（10件） --}}
+                            <div class="mt-3">
+                                {{-- ページネーション（Bootstrap 5 & 中央寄せ） --}}
+                                <nav aria-label="お知らせのページ送り" class="mt-3">
+                                    <div class="d-flex justify-content-center">
+                                        {{ $assign['newsList']->withQueryString()->onEachSide(1)->links('pagination::bootstrap-4') }}
+                                    </div>
+                                </nav>
+
+                            </div>
                         </div>
+
                     </article>
                 </div>
             </div>
+
         </div>
         <nav aria-label="breadcrumb" class="m-3">
             <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
 
                 <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('userNewsIndex') }}">最新情報</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $assign['record']->title ?? '最新情報' }}</li>
+                <li class="breadcrumb-item">最新情報</a></li>
             </ol>
         </nav>
+
+
     </main>
 
     <footer>
