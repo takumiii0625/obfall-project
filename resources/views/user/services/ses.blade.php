@@ -392,7 +392,7 @@
             <div class="" style="background:var(--blue-weak);border-top:none">
                 <section>
                 </section>
-                <h2 class="my-5">OBFallのSESが選ばれる理由</h2>
+                <h2 class="mt-5">OBFallのSESが選ばれる理由</h2>
 
                 <section id="principles" class="bg-blue-weak py-5">
                     <div class="wrap">
