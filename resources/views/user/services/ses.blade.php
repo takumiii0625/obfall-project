@@ -159,7 +159,6 @@
             background: var(--blue-weak);
             border: 1px solid var(--divider);
             border-radius: var(--radius);
-            padding: 28px
         }
 
         .origin .bar {

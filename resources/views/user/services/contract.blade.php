@@ -218,6 +218,8 @@
             /* 必要に応じて 48–72px で調整 */
             width: auto;
             object-fit: contain;
+            border-radius: 10px;
+            /* ← 角丸 */
         }
 
         /* md=768px 基準 */
@@ -485,7 +487,7 @@
 
                 <!-- NoaChoice -->
 
-                <div class="col mb-4">
+                <div class="col ">
                     <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
                         <img src="../image/NoaChoice_logo.jpg" alt="NoaChoice ロゴ"
                             class="product-logo mb-2" loading="lazy">
@@ -494,10 +496,11 @@
                 </div>
 
 
-                <div class="mt-auto text-end">
-                    <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-                </div>
 
+
+            </div>
+            <div class="mt-auto text-end">
+                <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </div>
         </section>
         <nav aria-label="breadcrumb" class="m-3">

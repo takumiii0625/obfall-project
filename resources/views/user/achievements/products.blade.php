@@ -355,6 +355,8 @@
             .achievement-content .image-container img {
                 max-width: 80%;
                 height: auto;
+                border-radius: 20px;
+                /* ← 角丸 */
             }
         }
 
@@ -365,6 +367,8 @@
             display: block;
             margin: 0 0 12px;
             object-fit: contain;
+
+            /* ← 角丸 */
             /* 任意: 少し落ち着いた見た目にするなら
   opacity: .95;
   */

@@ -201,6 +201,8 @@
             /* 必要に応じて 48–72px で調整 */
             width: auto;
             object-fit: contain;
+            border-radius: 10px;
+            /* ← 角丸 */
         }
 
         /* md=768px 基準 */

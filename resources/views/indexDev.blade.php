@@ -72,7 +72,7 @@
                 私たちは皆、人生の主人公です。<br>
                 働くことも人生の一部。<br>
                 OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
-                <a href="{{ route('philosophy') }}" class="btn btn-dark">
+                <a href="{{ route('philosophy') }}" class="btn btn-dark shadow">
                     企業理念画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </p>
@@ -117,7 +117,7 @@
                                 </p>
 
                                 {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="{{ route('userServicesShow') }}" class="btn btn-dark">
+                                <a href="{{ route('userServicesShow') }}" class="btn btn-dark shadow">
                                     サービス詳細画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -147,7 +147,7 @@
                                     ITの可能性を、実績で証明する。<br>
                                     自社開発・受託開発・SES・脆弱性診断の4つの領域で、<br> “つくる・支える・守る”を軸に、課題解決に挑んでいます。
                                 </p>
-                                <a href="{{ route('achievements') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                                <a href="{{ route('achievements') }}" class="btn btn-dark shadow" target="_blank" rel="noopener noreferrer">
                                     実績・事例紹介 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -198,7 +198,7 @@
                                 </p>
 
                                 {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="{{ route('aboutus') }}" class="btn btn-dark">
+                                <a href="{{ route('aboutus') }}" class="btn btn-dark shadow">
                                     会社概要画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -230,7 +230,7 @@
                                         <!-- 左：新着情報ボタン（SPは全幅、PCは左寄せ） -->
                                         <div class="col-12 col-md-3">
                                             <div class="d-grid d-md-block">
-                                                <a href="{{ route('userNewsIndex') }}" class="btn btn-dark">
+                                                <a href="{{ route('userNewsIndex') }}" class="btn btn-dark shadow">
                                                     新着情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                                 </a>
                                             </div>
@@ -331,7 +331,7 @@
                                     私たちは、働くことを人生の一部として誇れる舞台をつくります。<br>
                                     OBFallでの挑戦が、あなたの成長と物語を彩りますように。
                                 </p>
-                                <a href="https://obfall-recruit.com/" class="btn btn-dark" target="_blank">
+                                <a href="https://obfall-recruit.com/" class="btn btn-dark shadow" target="_blank">
                                     採用情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -390,6 +390,24 @@
 
 </html>
 <style>
+    :root {
+        --ink: #101317;
+        --muted: #6a7689;
+        --blue: #1E90FF;
+        --line: #E7EEF5;
+        --panel: #fff;
+        --radius: 14px;
+        --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+        --maxw: 940px
+    }
+
+    .shadow {
+
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+
+    }
+
     .human-rights-policy {
         color: #eef6ff
     }
