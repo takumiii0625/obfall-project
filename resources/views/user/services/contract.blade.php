@@ -379,7 +379,9 @@
             <p>OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。<br>
                 Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、
                 企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。<br>
-                クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。</p>
+                クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
+
+            </p>
         </section>
 
         <section id="principles" class="bg-blue-weak py-5">
@@ -391,7 +393,10 @@
                             <div class="kicker">INSIGHT</div>
                         </span>
                         <h2 class="principle-title">本質をともに見つめる</h2>
-                        <p class="mb-0">誰かの「こうありたい」という想いを起点に、テクノロジーで実現へと近づけます。</p>
+                        <p class="mb-0">課題を「作ること」ではなく「解決すること」として捉え、共に考え抜く。<br>
+                            クライアントの想いや事業の背景を深く理解し、長期的な成長を見据えた開発を行います。
+
+                        </p>
                     </article>
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
@@ -399,7 +404,8 @@
                             <div class="kicker">SYNTHESIS</div>
                         </span>
                         <h2 class="principle-title">デザインと技術の融合</h2>
-                        <p class="mb-0">使いやすさ・伝わりやすさ・拡張性を意識し、UI/UX・機能・パフォーマンスのすべてで“心地よい体験”を設計。</p>
+                        <p class="mb-0">使いやすさ・伝わりやすさ・拡張性を意識し、想いをかたちに。<br>
+                            UI/UX・機能性・パフォーマンスのすべてで“心地よく使われる体験”を設計します。</p>
                     </article>
 
                     <!-- Mission -->
@@ -409,7 +415,10 @@
                         </span>
                         <h2 class="principle-title">安心まで届ける開発体制</h2>
                         <p class="mb-0">
-                        <p>開発後に<strong>脆弱性診断</strong>を実施。見た目や機能だけでなく、安全性まで一貫して担保し、「安心して使い続けられる」未来を届けます。</p>
+                        <p>
+                            開発後には、自社のセキュリティチームによる<strong>脆弱性診断</strong>を実施。<br>
+                            見た目や機能だけでなく、安全性まで一貫して担保できることが私たちの強みです。<br>
+                            「創って終わり」ではなく、「安心して使い続けられる」未来を届けます。</p>
                     </article>
 
                     <!-- Values -->
@@ -418,7 +427,8 @@
                             <div class="kicker">PARTNERSHIP</div>
                         </span>
                         <h2 class="principle-title">長く続く関係を築く</h2>
-                        <p class="mb-0">納品して終わりではなく、成長と変化に寄り添う伴走型の開発。改善提案とサポートを継続します。</p>
+                        <p class="mb-0">納品して終わりではなく、成長と変化に寄り添う“伴走型”の開発を大切に。<br>
+                            プロダクトの成長を共に見届けながら、技術支援・改善提案を継続的に行います。</p>
                     </article>
 
                 </div>
@@ -430,7 +440,7 @@
             <div class="" style="background:var(--blue-weak);border-top:none">
                 <section>
                 </section>
-                <h2 class="my-5">選ばれる理由</h2>
+                <h2 class="mt-5">選ばれる理由</h2>
 
                 <section id="principles" class="bg-blue-weak py-5">
                     <div class="wrap">
@@ -438,10 +448,11 @@
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                                 <span class="icon-badge mb-3"><i class="fa-solid fa-handshake" aria-hidden="true"></i>
-                                    <div class="kicker">CO-CREATION</div>
+                                    <div class="kicker">COCREATION</div>
                                 </span>
                                 <h2 class="principle-title">共創の姿勢</h2>
-                                <p class="mb-0">クライアントのビジョンを共有し、同じチームとして挑戦。成功を「価値の創出」として捉えます。</p>
+                                <p class="mb-0">単なる受託ではなく、クライアントのビジョンを共有し、同じチームとして挑む。<br>
+                                    プロジェクトの成功を「成果物の完成」ではなく「価値の創出」として捉えます。</p>
                             </article>
                             <!-- Vision -->
                             <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
@@ -449,7 +460,9 @@
                                     <div class="kicker">CONSISTENCY</div>
                                 </span>
                                 <h2 class="principle-title">一貫した技術力と体制</h2>
-                                <p class="mb-0">企画〜設計・デザイン・開発・診断までワンストップ。社内連携で品質・スピード・安心を両立します。</p>
+                                <p class="mb-0">企画から設計・デザイン・開発・診断までをワンストップで対応。<br>
+                                    社内のエンジニア・デザイナー・セキュリティチームが密に連携し、
+                                    品質・スピード・安心をすべて両立させます。</p>
                             </article>
 
                             <!-- Mission -->
@@ -459,7 +472,9 @@
                                 </span>
                                 <h2 class="principle-title">成長を支える開発文化</h2>
                                 <p class="mb-0">
-                                <p>自社開発・SESで培った知見を循環させ、プロジェクトごとに新しい価値を生み出します。</p>
+                                <p>自社開発・SESで培ったノウハウを常にアップデートし、
+                                    プロジェクトごとに新しい価値を生み出す仕組みを持っています。<br>
+                                    開発を通じて、人も、企業も、社会も前へ進むことを目指します。</p>
                             </article>
 
                         </div>
@@ -468,11 +483,11 @@
             </div>
         </section>
 
-        <section aria-label="products" class="my-5 shadow">
+        <div aria-label="products" class="my-5 shadow">
             <h2 class="h4 mb-3">実績・事例紹介</h2>
 
             <!-- row-cols-1（SP縦） / row-cols-md-3（MD以上で3列） -->
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
 
                 <!-- CareerLog -->
 
@@ -502,7 +517,7 @@
             <div class="mt-auto text-end">
                 <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </div>
-        </section>
+        </div>
         <nav aria-label="breadcrumb" class="m-3">
             <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
                 <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
