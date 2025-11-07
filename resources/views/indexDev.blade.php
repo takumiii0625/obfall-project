@@ -396,7 +396,7 @@
         --blue: #1E90FF;
         --line: #E7EEF5;
         --panel: #fff;
-        --radius: 14px;
+        --radius: 10px;
         --shadow: 0 2px 14px rgba(0, 0, 0, .06);
         --maxw: 940px
     }
