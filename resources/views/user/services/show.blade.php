@@ -24,6 +24,7 @@
             --card: #fff;
             --line: #E7EEF5;
             --radius: 14px;
+            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
             --maxw: 1120px;
         }
 
@@ -136,7 +137,8 @@
             background: var(--card);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px
+            box-shadow: var(--shadow);
+            padding: 28px
         }
 
         .kicker {
@@ -223,7 +225,7 @@
                     </div>
                 </a>
                 <nav class="nav-01">
-                    <ul>
+                    <ul class="mb-0">
                         <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
@@ -257,7 +259,7 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1>Servise</h1>
+                <h1>Service</h1>
                 <div class="sub">ITの力で、人と社会の可能性を広げる。</div>
             </div>
         </div>

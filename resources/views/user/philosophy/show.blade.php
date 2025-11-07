@@ -270,6 +270,14 @@
             color: #708297;
             margin-top: 6px
         }
+
+        @media (max-width:480px) {
+            .hero .wrap {
+                position: relative;
+                z-index: 1;
+                padding: clamp(48px, 33vw, 160px) 10px 0;
+            }
+        }
     </style>
 </head>
 
@@ -283,7 +291,7 @@
                     </div>
                 </a>
                 <nav class="nav-01">
-                    <ul>
+                    <ul class="mb-0">
                         <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
@@ -315,7 +323,7 @@
     <section class="hero">
         <div class="wrap">
             <div class="title">
-                <h1 class="">Philosophy</h1>
+                <h1>Philosophy</h1>
                 <div class="sub">「あなたの、あなたによる、あなたのための」<br>　をすべての人へ。</div>
             </div>
         </div>

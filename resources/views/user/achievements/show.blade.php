@@ -32,6 +32,7 @@
             --card: #fff;
             --line: #E7EEF5;
             --radius: 14px;
+            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
             --maxw: 1120px;
         }
 
@@ -229,6 +230,7 @@
             background: var(--card);
             border: 1px solid var(--line);
             border-radius: var(--radius);
+            box-shadow: var(--shadow);
             padding: 22px
         }
 
@@ -389,7 +391,7 @@
                     </div>
                 </a>
                 <nav class="nav-01">
-                    <ul>
+                    <ul class="mb-0">
                         <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>

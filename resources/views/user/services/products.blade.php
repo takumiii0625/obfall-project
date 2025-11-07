@@ -22,6 +22,7 @@
             --line: #E7EEF5;
             --panel: #fff;
             --radius: 14px;
+            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
             --maxw: 940px
         }
 
@@ -285,6 +286,14 @@
             color: var(--ink);
         }
 
+        .shadow {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px
+        }
+
         /* スマホ微調整 */
         @media (max-width: 767.98px) {
             .principle-card {
@@ -310,7 +319,7 @@
                     </div>
                 </a>
                 <nav class="nav-01">
-                    <ul>
+                    <ul class="mb-0">
                         <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
@@ -361,7 +370,7 @@
                     <!-- Vision -->
                     <article id="vision" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-seedling" aria-hidden="true"></i>
-                            <div class="kicker">VISION</div>
+                            <div class="kicker">EMBODY</div>
                         </span>
                         <h2 class="principle-title">人の想いを形にする</h2>
                         <p class="mb-0">誰かの「こうありたい」という想いを起点に、テクノロジーで実現へと近づけます。</p>
@@ -370,7 +379,7 @@
                     <!-- Mission -->
                     <article id="mission" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-people-group" aria-hidden="true"></i>
-                            <div class="kicker">MISSION</div>
+                            <div class="kicker">EMPATHY</div>
                         </span>
                         <h2 class="principle-title">社会に寄り添うサービスづくり</h2>
                         <p class="mb-0">便利さや効率だけでなく、人と人のつながり・安心・挑戦を支える仕組みを届けます。</p>
@@ -379,7 +388,7 @@
                     <!-- Values -->
                     <article id="values" class="card principle-card h-100 border-0 shadow-sm rounded-4 p-4">
                         <span class="icon-badge mb-3"><i class="fa-solid fa-gem" aria-hidden="true"></i>
-                            <div class="kicker">VALUES</div>
+                            <div class="kicker">COCREATE</div>
                         </span>
                         <h2 class="principle-title">共に育てるプロダクト</h2>
                         <p class="mb-0">使う人と共に磨き、社会に溶け込む“続いていく価値”を生み出します。</p>
@@ -392,45 +401,49 @@
 
         <section></section>
 
-        <div aria-label="products" class="my-5">
-            <h2 class="h4 mb-3">実績・事例紹介</h2>
+        <div aria-label="products" class="my-5 shadow">
+
+            <h2 class="h4 mb-3 ">実績・事例紹介</h2>
 
             <!-- row-cols-1（SP縦） / row-cols-md-3（MD以上で3列） -->
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row  row-cols-1 row-cols-md-3 g-4 mb-4">
 
                 <!-- digOn -->
-                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
-                    <div class="col">
-                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
-                            <img src="../image/digOn_logo.png" alt="digOn ロゴ"
-                                class="product-logo mb-2" loading="lazy">
-                            <p class="mb-0">音楽発掘をもっと身近にする音楽アプリ</p>
-                        </div>
+
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                        <img src="../image/digOn_logo.png" alt="digOn ロゴ"
+                            class="product-logo mb-2" loading="lazy">
+                        <p class="mb-0">音楽発掘をもっと身近にする音楽アプリ</p>
                     </div>
-                </a>
+                </div>
+
 
                 <!-- ストパス -->
-                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
-                    <div class="col">
-                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
-                            <img src="../image/store-pass_logo.png" alt="ストパス ロゴ"
-                                class="product-logo mb-2" loading="lazy">
-                            <p class="mb-0">ストア特化の来店・販促パスポート</p>
-                        </div>
+
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                        <img src="../image/store-pass_logo.png" alt="ストパス ロゴ"
+                            class="product-logo mb-2" loading="lazy">
+                        <p class="mb-0">ストア特化の来店・販促パスポート</p>
                     </div>
-                </a>
+                </div>
+
 
                 <!-- 農業向け業務効率化（開発中） -->
-                <a class="more text-dark" href="{{ route('achievementsProducts') }}">
-                    <div class="col">
-                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
-                            <img src="../image/dx_logo.png" alt="農業向け業務効率化 ロゴ"
-                                class="product-logo mb-2" loading="lazy">
-                            <p class="mb-0">農作業と記録の効率化を支援（開発中）</p>
-                        </div>
-                    </div>
-                </a>
 
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                        <img src="../image/dx_logo.png" alt="農業向け業務効率化 ロゴ"
+                            class="product-logo mb-2" loading="lazy">
+                        <p class="mb-0">農作業と記録の効率化を支援（開発中）</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="mt-auto text-end">
+                <a class="more" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </div>
         </div>
         <nav aria-label="breadcrumb" class="m-3">

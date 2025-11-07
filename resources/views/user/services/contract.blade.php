@@ -303,6 +303,14 @@
             color: var(--ink);
         }
 
+        .shadow {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px
+        }
+
         /* スマホ微調整 */
         @media (max-width: 767.98px) {
             .principle-card {
@@ -328,7 +336,7 @@
                     </div>
                 </a>
                 <nav class="nav-01">
-                    <ul>
+                    <ul class="mb-0">
                         <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                         <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                         <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
@@ -458,35 +466,37 @@
             </div>
         </section>
 
-        <section aria-label="products" class="my-5">
+        <section aria-label="products" class="my-5 shadow">
             <h2 class="h4 mb-3">実績・事例紹介</h2>
 
             <!-- row-cols-1（SP縦） / row-cols-md-3（MD以上で3列） -->
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
                 <!-- CareerLog -->
-                <a class="more text-dark" href="{{ route('achievementsContract') }}">
-                    <div class="col">
-                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
-                            <img src="../image/careerlog_logo.png" alt="CareerLog ロゴ"
-                                class="product-logo mb-2" loading="lazy">
-                            <p class="mb-0">CareerLog</p>
-                        </div>
+
+                <div class="col">
+                    <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                        <img src="../image/careerlog_logo.png" alt="CareerLog ロゴ"
+                            class="product-logo mb-2" loading="lazy">
+                        <p class="mb-0">CareerLog</p>
                     </div>
-                </a>
+                </div>
+
 
                 <!-- NoaChoice -->
-                <a class="more text-dark" href="{{ route('achievementsContract') }}">
-                    <div class="col">
-                        <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
-                            <img src="../image/NoaChoice_logo.jpg" alt="NoaChoice ロゴ"
-                                class="product-logo mb-2" loading="lazy">
-                            <p class="mb-0">NoaChoice</p>
-                        </div>
+
+                <div class="col mb-4">
+                    <div class="d-flex flex-column align-items-center text-center h-100 p-3 border rounded-3">
+                        <img src="../image/NoaChoice_logo.jpg" alt="NoaChoice ロゴ"
+                            class="product-logo mb-2" loading="lazy">
+                        <p class="mb-0">NoaChoice</p>
                     </div>
-                </a>
+                </div>
 
 
+                <div class="mt-auto text-end">
+                    <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
+                </div>
 
             </div>
         </section>
