@@ -438,11 +438,10 @@
 
         <section id="values">
             <div class="" style="background:var(--blue-weak);border-top:none">
-                <section>
-                </section>
+
                 <h2 class="mt-5">選ばれる理由</h2>
 
-                <section id="principles" class="bg-blue-weak py-5">
+                <div id="principles" class="bg-blue-weak py-5">
                     <div class="wrap">
                         <div class="vstack gap-4"> <!-- ← 縦に積む -->
                             <!-- Vision -->
@@ -479,7 +478,7 @@
 
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </section>
 
