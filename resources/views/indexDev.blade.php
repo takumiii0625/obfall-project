@@ -66,7 +66,8 @@
         <div class="text-container">
             <p class="fadein-scroll fadein-from-down smaller-text custom-line-height">
                 <strong class="larger-text">「あなたの、あなたによる、あなたのための」<br>
-                    を全てのひとへ</strong><br>
+                    を全てのひとへ</strong>
+                <br>
                 私たちは皆、人生の主人公です。<br>
                 働くことも人生の一部。<br>
                 OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
