@@ -322,7 +322,7 @@
         }
 
         .hero .title h1 {
-            font-size: 1.070rem;
+            font-size: 2.000rem;
             line-height: 1.3;
             margin: 0 0 .5rem;
         }
