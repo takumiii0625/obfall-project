@@ -71,7 +71,7 @@
                 私たちは皆、人生の主人公です。<br>
                 働くことも人生の一部。<br>
                 OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
-                <a href="{{ route('philosophy') }}" class="btn btn-dark shadow">
+                <a href="{{ route('philosophy') }}" class="btn btn-dark shadow mt-4">
                     企業理念画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </p>
