@@ -22,7 +22,7 @@
                 <a href="{{ route('indexDev') }}" class="text-dark text-decoration-none">
                     <div class="logo-container">
                         <img src="../image/logo_OBFall.png" class="link" onclick="scrollToTop()" />
-                        <div class="title" onclick="scrollToTop()">OBFall株式会社</div>
+                        <div class="title" onclick="scrollToTop()"></div>
                     </div>
                 </a>
                 <nav class="nav-01">

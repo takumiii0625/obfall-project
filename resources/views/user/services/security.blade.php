@@ -111,7 +111,6 @@
         }
 
         header {
-            padding: 80px 0 28px;
             background: linear-gradient(180deg, #fff 0%, #F0F6FF 100%);
             border-bottom: 1px solid var(--line)
         }
@@ -427,7 +426,7 @@
         <section id="principles" class="bg-blue-weak py-5">
             <div class="" style="background:var(--blue-weak);border-top:none">
 
-                <h2 class="my-5">選ばれる理由</h2>
+                <h2 class="mt-5">選ばれる理由</h2>
 
             </div>
             <div class="wrap">

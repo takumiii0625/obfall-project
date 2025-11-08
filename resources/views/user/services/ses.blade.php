@@ -111,7 +111,6 @@
         }
 
         header {
-            padding: 80px 0 28px;
             background: linear-gradient(180deg, #fff 0%, #F6FAFD 100%);
             border-bottom: 1px solid var(--line)
         }
@@ -390,11 +389,10 @@
         </section>
         <section id="values">
             <div class="" style="background:var(--blue-weak);border-top:none">
-                <section>
-                </section>
+
                 <h2 class="mt-5">OBFallのSESが選ばれる理由</h2>
 
-                <section id="principles" class="bg-blue-weak py-5">
+                <div id="principles" class="bg-blue-weak py-5">
                     <div class="wrap">
                         <div class="vstack gap-4"> <!-- ← 縦に積む -->
                             <!-- Vision -->
@@ -432,7 +430,7 @@
 
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </section>
 

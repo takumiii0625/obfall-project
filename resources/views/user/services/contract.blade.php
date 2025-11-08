@@ -112,7 +112,7 @@
         }
 
         header {
-            padding: 80px 0 28px;
+
             background: linear-gradient(180deg, #fff 0%, #F6FAFD 100%);
             border-bottom: 1px solid var(--line)
         }
