@@ -158,7 +158,7 @@
         }
 
         .hero {
-            --hero-img: url('../image/chou.jpg');
+            --hero-img: url('../image/achievements.jpg');
 
             position: relative;
             background-image: var(--hero-img);

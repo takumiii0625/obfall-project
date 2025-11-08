@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         .hero {
-            --hero-img: url('../image/chou.jpg');
+            --hero-img: url('../image/about_us2.jpg');
 
             position: relative;
             background-image: var(--hero-img);

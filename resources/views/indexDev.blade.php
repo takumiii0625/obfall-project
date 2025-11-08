@@ -58,11 +58,9 @@
         </nav>
         <div class="main-visual ">
             <div class="img-wrap">
-                <img src="image/chou.jpg">
-                <img src="image/siodomebiru.jpg">
-                <img src="image/office4.jpg">
-                <img src="image/office1.jpg">
-                <img src="image/office2.jpg">
+                <img src="image/about_us2.jpg">
+                <img src="image/achievements.jpg">
+                <img src="image/recruit.jpg">
             </div>
         </div>
         <div class="text-container">
@@ -98,7 +96,7 @@
                             {{-- 左：画像（トリミングなし） --}}
                             <div class="col-md-6 order-2 order-md-1">
                                 <img
-                                    src="{{ asset('image/obfall_3s.gif') }}"
+                                    src="{{ asset('image/service.jpg') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
                                     style="max-width:100%; height:auto;">
@@ -154,7 +152,7 @@
 
                             {{-- 右：画像（トリミングなし） --}}
                             <div class="col-md-6">
-                                <img src="{{ asset('image/service.png') }}"
+                                <img src="{{ asset('image/achievements.jpg') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
                                     style="max-width:100%;height:auto;">
@@ -176,13 +174,19 @@
                     <div class="container">
                         <div class="row g-4 align-items-center">
                             {{-- 左：画像（トリミングなし） --}}
-                            <div class="col-md-6 order-2 order-md-1">
-                                <img
-                                    src="{{ asset('image/achievements.png') }}"
-                                    alt="サービスのイメージ"
-                                    class="img-fluid rounded shadow-sm d-block"
-                                    style="max-width:100%; height:auto;">
+                            <div class="col-md-5 order-2 order-md-1">
+                                <div class="about-card"> <!-- 外側ラッパ：重なり全体を管理 -->
+                                    <div class="about-card__main"> <!-- 大画像：角丸でクリップ -->
+                                        <img src="{{ asset('image/about_us2.jpg') }}" alt="">
+                                    </div>
+
+                                    <div class="about-card__sub"> <!-- 小画像：右下にはみ出して重ねる -->
+                                        <img src="{{ asset('image/about_us1.jpg') }}" alt="">
+                                    </div>
+                                </div>
                             </div>
+                            <div class="col-md-1 order-2 order-md-1"></div>
+
 
                             {{-- 右：見出し・英字・内容・ボタン --}}
                             <div class="col-md-6 order-1 order-md-2">
@@ -316,7 +320,7 @@
                         <div class="row g-4 align-items-center">
                             {{-- 右：画像（トリミングなし） --}}
                             <div class="col-md-6 order-2 order-md-1">
-                                <img src="{{ asset('image/aboutus.png') }}"
+                                <img src="{{ asset('image/recruit.jpg') }}"
                                     alt="サービスのイメージ"
                                     class="img-fluid rounded shadow-sm d-block"
                                     style="max-width:100%;height:auto;">
@@ -410,6 +414,73 @@
 
     .human-rights-policy {
         color: #eef6ff
+    }
+
+    :root {
+        --radius-xl: 10px;
+        --shadow-1: 0 12px 32px rgba(0, 0, 0, .10);
+        --shadow-2: 0 14px 40px rgba(0, 0, 0, .16);
+    }
+
+    /* 全体の器（小画像がはみ出す分の余白を確保） */
+    .about-card {
+        position: relative;
+        padding-bottom: 30px;
+        /* 小画像が下にはみ出すぶんの逃げ */
+    }
+
+    /* 大きい画像 */
+    .about-card__main {
+        position: relative;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        /* 角丸内でクリップ */
+        box-shadow: var(--shadow-1);
+        aspect-ratio: 4 / 3;
+        /* 比率固定で安定 */
+    }
+
+    .about-card__main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* 小さい画像（右下にオーバーラップ） */
+    .about-card__sub {
+        position: absolute;
+        right: -50px;
+        /* ちょい外へ */
+        bottom: -16px;
+        width: min(44%, 340px);
+        /* 親幅に対する比率＋上限 */
+        aspect-ratio: 3 / 2;
+        border-radius: calc(var(--radius-xl) - 4px);
+        box-shadow: var(--shadow-2);
+        background: #fff;
+        /* フチが綺麗に見えるよう白背景 */
+    }
+
+    .about-card__sub img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: inherit;
+    }
+
+    /* モバイル微調整 */
+    @media (max-width: 767.98px) {
+        .about-card {
+            padding-bottom: 80px;
+        }
+
+        .about-card__sub {
+            right: -10px;
+            bottom: -12px;
+            width: min(62%, 260px);
+        }
     }
 </style>
 
