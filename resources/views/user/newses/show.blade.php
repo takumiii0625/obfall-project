@@ -61,7 +61,7 @@
         <div class="wrap">
             <div class="title">
                 <h1 class="">News</h1>
-                <div class="sub">最新情報</div>
+                <div class="sub"><br><br><br><br>最新情報</div>
             </div>
 
         </div>
@@ -256,7 +256,7 @@
         background-position: center;
         /* 中央寄せ */
         background-repeat: no-repeat;
-        min-height: 56vh;
+        min-height: 36vh;
         /* お好みで高さ調整 */
         color: #111;
         /* テキスト色 */

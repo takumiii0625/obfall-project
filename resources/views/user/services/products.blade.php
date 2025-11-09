@@ -40,7 +40,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -354,7 +354,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>IT × Vision</h1>
-                <div class="sub">人と社会の可能性を広げる、自社プロダクト。</div>
+                <div class="sub"><br><br><br><br>人と社会の可能性を広げる、自社プロダクト。</div>
             </div>
         </div>
     </section>

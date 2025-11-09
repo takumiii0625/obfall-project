@@ -14,16 +14,6 @@
     <title>Achievements | OBFall Inc.</title>
 
     <style>
-        /* === 基本設定 === */
-        body {
-            font-family: "Noto Sans JP", sans-serif;
-            color: #333;
-            line-height: 1.8;
-            background: #fafafa;
-            margin: 0;
-            padding: 0;
-        }
-
         :root {
             --ink: #1a1a1a;
             --muted: #657287;
@@ -36,125 +26,8 @@
             --maxw: 1120px;
         }
 
-        section {
-
-            padding: 24px 24px;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid #e0e0e0;
-            margin: 32px 0;
-        }
-
-        /* === 見出し系 === */
-        h2 {
-            font-size: 1.8rem;
-            color: #007acc;
-            margin-bottom: 8px;
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            color: #444;
-            font-weight: 500;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        h4 {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            color: #007acc;
-        }
-
-        .achievement-lead {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #222;
-        }
-
-
-
-        /* === テキスト・段落 === */
-        p {
-            margin: 0 0 16px 0;
-        }
-
-        ul {
-            margin: 12px 0 24px 20px;
-        }
-
-        ul ul {
-            margin-top: 4px;
-        }
-
-        strong {
-            color: #007acc;
-        }
-
-        /* === 画像コンテナ === */
-        .image-container {
-            margin-top: 24px;
-            text-align: center;
-        }
-
-        .image-container img {
-            width: 60%;
-            max-width: 720px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        /* === ボタンリンク === */
-        .link-button {
-            display: inline-block;
-            padding: 10px 18px;
-            background: #007acc;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
-
-        .link-button:hover {
-            background: #005fa3;
-        }
-
-        /* === 各セクション区分 === */
-        .section-products {
-            background: #ffffff;
-            border-left: 6px solid #66b3ff;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        .section-contract {
-            background: #ffffff;
-            border-left: 6px solid #00b894;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        .section-security {
-            background: #ffffff;
-            border-left: 6px solid #ff7675;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        /* === 実績アイテム === */
-        .achievement-item {
-            margin-bottom: 60px;
-        }
-
-        /* === まとめ文 === */
-        .summary {
-            font-weight: 600;
-            text-align: center;
-            margin-top: 32px;
-            color: #333;
+        .human-rights-policy {
+            color: #eef6ff
         }
 
         .hero {
@@ -167,7 +40,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -204,6 +77,12 @@
             line-height: 1.3;
             margin: 0 0 .5rem;
             color: #111;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 100px);
+            font-weight: 800;
+            color: black;
             font-family: 'Times New Roman', Times, serif;
         }
 
@@ -216,14 +95,40 @@
         .hero .lead {
             margin-top: 1rem;
             max-width: 60ch;
-
         }
 
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.8
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+
+
+
+        .lead {
             color: black;
-            font-family: 'Times New Roman', Times, serif;
+            max-width: 760px
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+            margin: 28px 0 48px
+        }
+
+        @media (min-width:900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
+            }
         }
 
         .card {
@@ -231,13 +136,7 @@
             border: 1px solid var(--line);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 22px
-        }
-
-        .card-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
-            text-align: center;
+            padding: 28px
         }
 
         .kicker {
@@ -249,44 +148,35 @@
             font-family: serif;
         }
 
-        .grid {
-            display: grid;
-            gap: 18px;
-
+        h2,
+        h3 {
+            margin: .2rem 0 .4rem
         }
 
-        @media (min-width:900px) {
-            .grid {
-                grid-template-columns: 1fr 1fr
-            }
+        p {
+            margin: .4rem 0 1rem;
+            color: var(--muted)
         }
 
-        /* === レスポンシブ === */
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 1.6rem;
-            }
 
-            h3 {
-                font-size: 1.2rem;
-            }
 
-            .link-button {
-                width: 100%;
-                text-align: center;
-            }
+        a.more {
+            color: var(--blue);
+            text-decoration: none;
+            text-align: end;
+        }
 
-            .image-container img {
-                max-width: 100%;
-            }
 
-            section {
+        .card-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            text-align: center;
+        }
 
-                padding: 10px 16px;
-            }
-
+        /* md=768px 基準 */
+        @media (max-width: 767.98px) {
             .hero {
-                --hero-img: url('../image/chou.jpg');
+                --hero-img: url('../image/achievements.jpg');
 
                 position: relative;
                 background-image: var(--hero-img);
@@ -305,7 +195,6 @@
                 font-size: 2.000rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
-
             }
 
             .hero .sub {
@@ -320,63 +209,6 @@
             }
 
             /* small 相当 */
-        }
-
-        a.more {
-            color: var(--blue);
-            text-decoration: none;
-            text-align: end;
-        }
-
-        /* ベース: 縦並び（スマホ） */
-        .achievement-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-        }
-
-        /* PC版（768px以上）で横並びに */
-        @media (min-width: 768px) {
-            .achievement-content {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-
-            .achievement-content .text {
-                flex: 1;
-            }
-
-            .achievement-content .image-container {
-                flex: 1;
-                text-align: right;
-                /* 右寄せ */
-            }
-
-            .achievement-content .image-container img {
-                max-width: 80%;
-                height: auto;
-            }
-        }
-
-        /* ロゴは常に小さめ。画面幅に応じて 96〜160px で可変 */
-        .app-logo {
-            width: clamp(96px, 18vw, 160px);
-            height: auto;
-            display: block;
-            margin: 0 0 12px;
-            object-fit: contain;
-            /* 任意: 少し落ち着いた見た目にするなら
-  opacity: .95;
-  */
-        }
-
-        /* 配置：PCでは左寄せ、スマホでは中央寄せにしたい場合 */
-        @media (max-width: 575.98px) {
-            .app-logo {
-                margin-left: auto;
-                margin-right: auto;
-            }
         }
     </style>
 </head>
@@ -426,7 +258,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>Achievements</h1>
-                <div class="sub">ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
+                <div class="sub"><br><br><br><br>ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
             </div>
         </div>
     </section>

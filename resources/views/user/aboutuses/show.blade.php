@@ -27,7 +27,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -73,7 +73,7 @@
         /* md=768px 基準 */
         @media (max-width: 767.98px) {
             .hero {
-                --hero-img: url('../image/chou.jpg');
+                --hero-img: url('../image/about_us2.jpg');
 
                 position: relative;
                 background-image: var(--hero-img);
@@ -182,7 +182,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>About US</h1>
-                <div class="sub">私たちOBFall株式会社について</div>
+                <div class="sub"><br><br><br><br>私たちOBFall株式会社について</div>
             </div>
 
         </div>

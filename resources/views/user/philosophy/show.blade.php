@@ -90,7 +90,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -111,7 +111,7 @@
         .hero .wrap {
             position: relative;
             z-index: 1;
-            padding: clamp(48px, 8vw, 120px) 16px;
+            padding: clamp(48px, 8vw, 120px) 16px 0px;
         }
 
 
@@ -324,7 +324,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>Philosophy</h1>
-                <div class="sub">「あなたの、あなたによる、あなたのための」<br>　をすべての人へ。</div>
+                <div class="sub"><br><br><br><br>「あなたの、あなたによる、あなたのための」<br>　をすべての人へ。</div>
             </div>
         </div>
     </section>

@@ -39,7 +39,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -346,7 +346,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>IT × Team</h1>
-                <div class="sub">人が輝く現場を、技術で支える。</div>
+                <div class="sub"><br><br><br><br>人が輝く現場を、技術で支える。</div>
             </div>
         </div>
     </section>

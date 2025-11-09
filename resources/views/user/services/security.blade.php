@@ -39,7 +39,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -340,7 +340,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>Security × Engineering</h1>
-                <div class="sub">安全は、後付けではなく、設計から。</div>
+                <div class="sub"><br><br><br><br>安全は、後付けではなく、設計から。</div>
             </div>
         </div>
     </section>
@@ -426,7 +426,7 @@
         <section id="principles" class="bg-blue-weak py-5">
             <div class="" style="background:var(--blue-weak);border-top:none">
 
-                <h2 class="mt-5">選ばれる理由</h2>
+                <h2 class="mb-5">選ばれる理由</h2>
 
             </div>
             <div class="wrap">

@@ -39,7 +39,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -370,7 +370,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>IT × Collaboration</h1>
-                <div class="sub">ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。</div>
+                <div class="sub"><br><br><br><br>ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。</div>
             </div>
         </div>
     </section>

@@ -170,7 +170,7 @@
             background-position: center;
             /* 中央寄せ */
             background-repeat: no-repeat;
-            min-height: 56vh;
+            min-height: 36vh;
             /* お好みで高さ調整 */
             color: #111;
             /* テキスト色 */
@@ -428,7 +428,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>Security Assessment</h1>
-                <div class="sub">安全は、後付けではなく、設計から。<br>開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</div>
+                <div class="sub"><br><br><br><br>安全は、後付けではなく、設計から。<br>開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</div>
             </div>
         </div>
     </section>
