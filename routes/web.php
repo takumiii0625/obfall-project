@@ -25,10 +25,10 @@ use App\Http\Controllers\User\UserNewsesController;
 */
 
 
-Route::get('/', [TopController::class, 'index'])->name('index');
+// Route::get('/', [TopController::class, 'index'])->name('index');
 
 
-Route::get('/dev', [TopController::class, 'indexDev'])->name('indexDev');
+Route::get('/', [TopController::class, 'indexDev'])->name('indexDev');
 
 // お知らせ詳細
 Route::get('/newses/{id}', [UserNewsesController::class, 'show'])->name('userNewsShow')->setDefaults(['description' => 'お知らせ詳細']);
