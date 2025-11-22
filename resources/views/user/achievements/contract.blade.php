@@ -62,7 +62,7 @@
         }
 
         h4 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-top: 20px;
             color: #007acc;
         }
@@ -113,13 +113,13 @@
             background: #007acc;
             color: #fff;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 10px;
             font-size: 0.95rem;
             transition: background 0.2s;
         }
 
         .link-button:hover {
-            background: #005fa3;
+            background: #E7EEF5;
         }
 
         /* === 各セクション区分 === */
@@ -453,7 +453,8 @@
                     </div>
                     <div class="text">
 
-                        <h4>CareerLog（キャリアログ）</h4>
+                        <h4><strong>CareerLog（キャリアログ）</strong></h4>
+                        <br>
                         <p>
                             キャリアログは、社会人が業界・職種の経験者に1対1で相談できるOB/OG訪問サービス。<br>
                             登録不要で今すぐOBを検索でき、実体験に基づくアドバイスで転職やキャリアの不安を解消し、自分だけの進路設計を後押しします。
@@ -473,7 +474,8 @@
                         <img src="../image/NoaChoice_logo.jpg" alt="Store-Passアプリ画面" />
                     </div>
                     <div class="text">
-                        <h4>NoaChoice（ノアチョイス）</h4>
+                        <h4><strong>NoaChoice（ノアチョイス）</strong></h4>
+                        <br>
                         <p>
                             結婚式準備の“探す・比べる・決める”をオンラインで完結できるブライダルECサイトです。<br>
                             レス・タキシード・和装・ジュエリー・ペーパーアイテム・引出物まで、厳選アイテムを適正価格でお届け。<br>
@@ -524,7 +526,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

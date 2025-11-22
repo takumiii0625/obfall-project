@@ -74,10 +74,6 @@
             padding: 0 20px
         }
 
-        section {
-            padding: 20px 0;
-            border-top: 1px solid var(--divider)
-        }
 
 
         .hero {
@@ -111,13 +107,14 @@
         .hero .wrap {
             position: relative;
             z-index: 1;
-            padding: clamp(48px, 8vw, 120px) 16px 0px;
+            padding: clamp(48px, 13vw, 120px) 16px 0px;
         }
 
 
         .hero .title h1 {
             line-height: 1.3;
-            margin: 0 0 .5rem;
+            margin: 80px 0 .5rem;
+            letter-spacing: 0.08em;
         }
 
         .hero .sub {
@@ -329,9 +326,10 @@
         </div>
     </section>
 
+
     <!-- ===== Vision ===== -->
     <section id="vision" style="background:var(--blue-weak);border-top:none">
-        <div class="wrap">
+        <div class="wrap pt-4">
             <div class="card" style="background:#fff">
                 <div class="kicker">Vision</div>
                 <h2 style="color:var(--ink)">「あなたの、あなたによる、あなたのための」をすべての人へ。</h2>
@@ -341,9 +339,10 @@
         </div>
     </section>
 
-    <!-- ===== Mission ===== -->
+
+    <!--=====Mission=====-->
     <section id="mission" style="background:var(--blue-weak);border-top:none">
-        <div class="wrap">
+        <div class="wrap p-4">
             <div class="card" style="background:#fff">
                 <div class="kicker">Mission</div>
                 <h2 style="color:var(--ink)">働くすべての人が、自分自身のために、自由にそして熱意を持って働ける社会をつくっていきます。</h2>
@@ -354,7 +353,7 @@
 
     <!-- ===== Core Values ===== -->
     <section id="values">
-        <div class="wrap">
+        <div class="wrap pt-4">
             <div class="kicker">　Core Values</div>
             <h2>　3つの柱</h2>
             <div class="values">
@@ -376,7 +375,7 @@
 
     <!-- ===== Message ===== -->
     <section id="message">
-        <div class="wrap">
+        <div class="wrap pt-4">
             <div class="message">
                 <div class="kicker">Message</div>
                 <h3 style="margin-top:.2rem">人と社会が、ともに成長できる世界へ。</h3>
@@ -388,7 +387,7 @@
 
     <!-- ===== Origin ===== -->
     <section id="origin">
-        <div class="wrap">
+        <div class="wrap pt-4">
             <div class="origin">
                 <div class="bar">
                     <div class="kicker">Origin of Our Philosophy</div>
@@ -431,7 +430,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

@@ -77,8 +77,8 @@
 
         .hero .title h1 {
             line-height: 1.3;
-            margin: 0 0 .5rem;
-            color: #111;
+            margin: 80px 0 .5rem;
+            letter-spacing: 0.08em;
         }
 
         h1 {
@@ -260,7 +260,7 @@
         <div class="wrap">
             <div class="title">
                 <h1>Service</h1>
-                <div class="sub"><br><br><br><br>ITの力で、人と社会の可能性を広げる。</div>
+                <div class="sub"><br><br><br><br>ITの力で、人と社会の可能性を広げる。<br>　</div>
             </div>
         </div>
     </section>
@@ -276,6 +276,7 @@
                 <div class="kicker">Products</div>
                 <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
                 <h3 class="card-title">IT × Vision</h3>
+                <br>
                 <p>人と社会の可能性を広げる、自社プロダクト。</p>
                 <a class="more" href="{{ route('products') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
@@ -285,6 +286,7 @@
                 <div class="kicker">Contract Development</div>
                 <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
                 <h3 class="card-title">IT × Collaboration</h3>
+                <br>
                 <p>ともにつくり、ともに前へ。</p>
                 <a class="more" href="{{ route('contract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
@@ -294,6 +296,7 @@
                 <div class="kicker">Team Support</div>
                 <div><i class="bi bi-lightbulb-fill"></i>SES</div>
                 <h3 class="card-title">IT × Team</h3>
+                <br>
                 <p>人が輝く現場を、技術で支える。</p>
                 <a class="more" href="{{ route('ses') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
@@ -303,6 +306,7 @@
                 <div class="kicker">Security</div>
                 <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
                 <h3 class="card-title">Security × Engineering</h3>
+                <br>
                 <p>安全は、後付けではなく、設計から。</p>
                 <a class="more" href="{{ route('security') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
             </article>
@@ -340,7 +344,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

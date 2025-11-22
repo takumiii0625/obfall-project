@@ -74,8 +74,8 @@
 
         .hero .title h1 {
             line-height: 1.3;
-            margin: 0 0 .5rem;
-            color: #111;
+            margin: 80px 0 .5rem;
+            letter-spacing: 0.08em;
         }
 
         h1 {
@@ -257,7 +257,6 @@
         .icon-badge {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             width: 48px;
             height: 48px;
             border-radius: 9999px;
@@ -347,7 +346,7 @@
     <main class="wrap">
 
         <section aria-label="overview">
-            <p>私たちは、**「開発を理解するセキュリティ専門チーム」**として、
+            <p>私たちは、<strong>「開発を理解するセキュリティ専門チーム」</strong>として、
                 Webアプリ・モバイルアプリ・APIなどの脆弱性診断を提供しています。<br>
                 開発現場の構造を理解したうえで“攻撃者の視点”からリスクを特定し、
                 再現性のある改善提案を通じて、プロダクトを安全に前進させます。</p>
@@ -513,7 +512,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

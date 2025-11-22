@@ -75,8 +75,8 @@
 
         .hero .title h1 {
             line-height: 1.3;
-            margin: 0 0 .5rem;
-            color: #111;
+            margin: 80px 0 .5rem;
+            letter-spacing: 0.08em;
         }
 
         h1 {
@@ -150,7 +150,8 @@
 
         h2,
         h3 {
-            margin: .2rem 0 .4rem
+            margin: .2rem 0 .4rem;
+            font-size: calc(1.3rem + .6vw);
         }
 
         p {
@@ -264,11 +265,12 @@
     </section>
     <main class="wrap">
         <section aria-label="overview">
+            <br>
             <p>
                 私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
                 自社開発・受託開発・脆弱性診断・SESの4つの領域で、
                 社会や現場の課題を“仕組み”として解決してきました。<br>
-                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br>
+                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。
                 どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
             </p>
         </section>
@@ -339,7 +341,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

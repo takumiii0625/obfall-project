@@ -62,7 +62,7 @@
         }
 
         h4 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-top: 20px;
             color: #007acc;
         }
@@ -112,14 +112,26 @@
             background: #007acc;
             color: #fff;
             text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .non-link-button {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #999999;
+            color: #fff;
+            text-decoration: none;
             border-radius: 4px;
             font-size: 0.95rem;
             transition: background 0.2s;
         }
 
         .link-button:hover {
-            background: #005fa3;
+            background: #E7EEF5;
         }
+
 
         /* === 各セクション区分 === */
         .section-products {
@@ -436,7 +448,7 @@
     <main class="wrap">
         <section aria-label="overview">
             <p>
-                OBFallの自社開発は、<strong>社会の“まだ満たされていないニーズ”</strong>に焦点をあて、
+                OBFallの自社開発は、社会の“まだ満たされていないニーズに焦点をあて、
                 「テクノロジーで人生をより豊かにする」という理念を実践する取り組みです。<br>
                 便利さよりも、“人がより自分らしく生きられる仕組み”を目指し、
                 発想から企画、開発、運用まですべて自社で行っています。 </p>
@@ -454,7 +466,8 @@
                     </div>
                     <div class="text">
 
-                        <h4>digOn（ディグオン）</h4>
+                        <h4><strong>digOn（ディグオン）</strong></h4>
+                        <br>
                         <p>
                             音楽と人の感性をつなぐ、新しい発見体験。<br>
                             音楽との出会いをもっと自由に、もっと感覚的に。<br>
@@ -476,7 +489,8 @@
                         <img src="../image/store-pass_logo.png" alt="Store-Passアプリ画面" />
                     </div>
                     <div class="text">
-                        <h4>ストパス（Store-Pass）</h4>
+                        <h4><strong>ストパス（Store-Pass）</strong></h4>
+                        <br>
                         <p>
                             店舗とユーザーをつなぐ共通特典アプリ。<br>
                             月額無料で、ユーザーは加盟店舗全体で特典を利用可能。<br>
@@ -502,13 +516,13 @@
                         <img src="../image/dx_logo.png" alt="農家向け業務効率化システムアプリ画面" />
                     </div>
                     <div class="text">
-                        <h4>農家向け業務効率化システム</h4>
+                        <h4><strong>未来共創DX支援事業</strong></h4>
+                        <br>
                         <p>
-                            地域と農業現場に寄り添う、未来をともに作るシステム。<br>
-                            地方農家の方々と共同で設計・開発を進める、業務効率化プラットフォーム。<br>
-                            現場の課題を直接ヒアリングしながら、“使える”を最優先にした仕組みを構築しています。
+                            地域と人に寄り添うパートナーとして、デジタルの力で課題を解決し、お客様と共に新たな価値を生み出すことを目指しています。<br>飲食・小売・農業など、多様な現場と対話を重ね、「現場のリアルな声」を大切にした、”本当に使える”仕組みづくりを進めています。<br><br>
+                            現在は、農家の方々の販売・業務効率化を支援するECプラットフォームの開発を推進中です。
                         </p>
-                        <p><a href="" target="_blank" class="link-button">（開発中）</a></p>
+                        <p href="" target="_blank" class="non-link-button">（開発中）</p>
                     </div>
                 </div>
             </article>
@@ -550,7 +564,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

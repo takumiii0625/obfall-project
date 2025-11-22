@@ -554,7 +554,7 @@ nav li:hover {
     padding: 10px;
     font-weight: bold;
     position: absolute;
-    bottom: 0;
+    bottom: 100px;
     left: 0;
     right: 0;
     transition: 1s;
@@ -567,6 +567,92 @@ nav li:hover {
     color: #f7f6fdf3;
     font-size: 44px;
 }
+
+@media (max-width: 1368px) {
+
+    .top p {
+        font-size: large;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        text-align: center;
+        line-height: 2.5;
+
+
+    }
+
+    .top p strong {
+        color: #f7f6fdf3;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .top p {
+        font-size: large;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        text-align: center;
+        line-height: 2.5;
+
+
+    }
+
+    .top p strong {
+        color: #f7f6fdf3;
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .top p {
+        font-size: large;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        text-align: center;
+        line-height: 2.5;
+
+    }
+}
+
+@media (max-width: 720px) {
+
+    .top p {
+        font-size: large;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        text-align: center;
+        line-height: 2.5;
+
+    }
+}
+
+
 
 
 /* Our Service */
@@ -754,7 +840,7 @@ nav li:hover {
 
 
 .about ul {
-    width: 45%;
+    width: 80%;
     display: inline-block;
 }
 
@@ -1082,6 +1168,16 @@ footer .devwrap {
 
     }
 
+    @media (max-width: 720px) {
+
+        .top p strong {
+            color: #f7f6fdf3;
+            font-size: 24px;
+            width: 100%;
+            display: block;
+
+        }
+    }
 
 
 
@@ -1387,7 +1483,7 @@ footer .devwrap {
 
     .top p strong {
         color: #f7f6fdf3;
-        font-size: 16px;
+        font-size: 18px;
         width: 100%;
         display: block;
 
@@ -1397,6 +1493,18 @@ footer .devwrap {
 
     .top p {
         font-size: 10px;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        text-align: center;
+        line-height: 2.5;
+
+
     }
 
     h1 span {
@@ -1441,6 +1549,17 @@ footer .devwrap {
         font-weight: bold;
         text-align: center;
         padding: 10px 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .top p strong {
+        color: #f7f6fdf3;
+        font-size: 16px;
+        width: 100%;
+        display: block;
+
+
     }
 }
 

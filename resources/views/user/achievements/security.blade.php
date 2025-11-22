@@ -62,7 +62,7 @@
         }
 
         h4 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-top: 20px;
             color: #007acc;
         }
@@ -112,7 +112,7 @@
             background: #007acc;
             color: #fff;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 10px;
             font-size: 0.95rem;
             transition: background 0.2s;
         }
@@ -436,8 +436,7 @@
         <section aria-label="overview">
             <p>
                 OBFallでは、開発現場を理解したエンジニアが脆弱性診断を実施しています。<br>
-                システムの構造や業務要件を踏まえたうえで、
-                「攻撃者の視点」と「開発者の視点」の両面から現実的なリスクを検証。<br>
+                システムの構造や業務要件を踏まえたうえで、「攻撃者の視点」と「開発者の視点」の両面から現実的なリスクを検証。<br>
                 単なる報告にとどまらず、修正提案や再発防止まで一貫してサポートしています。
             </p>
         </section>
@@ -455,14 +454,18 @@
                     </div>
                     <div class="text">
 
-                        <h4>実績紹介</h4>
+                        <h4><strong>実績紹介</strong></h4>
+                        <br>
                         <p>
-                            • 医療系予約システム（Laravel / AWS）<br>
-                            　個人情報を扱うWebシステムの診断を実施。<br>
-                            　セッション管理や認証の不備を早期に検出し、改善まで支援。<br>
-                            • 不動産マッチングプラットフォーム（Laravel / Nuxt.js）<br>
-                            　権限管理・API認証まわりの診断を実施。<br>
-                            　再発防止のためのコーディングガイドライン策定をサポート。
+                            • 開発言語<br>
+                            　JavaScript (Vue.js / React / TypeScript)、Java（Spring Boot）、PHP（Laravel）、Dart（Flutter）<br>
+                            • 診断種別<br>
+                            　Webアプリケーション診断<br>
+                            • 診断手法<br>
+                            　ツール(Burp Suite Professional)による自動診断<br>
+                            　診断作業者による手動診断<br>
+                            • 診断規模<br>
+                            　約100画面、約500機能<br>
                         </p>
 
                     </div>
@@ -476,8 +479,8 @@
             <div class="">
                 <div class="origin">
                     <div class="bar">
-                        <div class="kicker">At a glance</div>
-                        <h3>一言まとめ</h3>
+
+
                         <p>診断は“終わり”ではなく“成長のはじまり”。<br>
                             開発を理解するセキュリティチームが、
                             安心して使い続けられるプロダクトの実現を支えています。</p>
@@ -518,7 +521,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

@@ -117,8 +117,8 @@
 
         .hero .title h1 {
             line-height: 1.3;
-            margin: 0 0 .5rem;
-            color: #111;
+            margin: 80px 0 .5rem;
+            letter-spacing: 0.08em;
         }
 
         h1 {
@@ -182,17 +182,19 @@
         <div class="wrap">
             <div class="title">
                 <h1>About US</h1>
-                <div class="sub"><br><br><br><br>私たちOBFall株式会社について</div>
+                <div class="sub"><br><br><br><br>私たちOBFall株式会社について<br>　</div>
             </div>
-
         </div>
     </section>
+
     <main class="py-5">
+
 
         <div class="about" id="company">
             <div class="wrap">
 
-                <div class="about-content-inner-wrap text-center">
+                <div class="text-center">
+                    <h2 class="h4 mb-3 text-container">会社情報</h2>
                     <ul class="p-0">
                         <li>
                             <p class="about-head">会社名</p>
@@ -281,7 +283,7 @@
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
                 <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>

@@ -68,11 +68,11 @@
                 <strong class="larger-text">「あなたの、あなたによる、あなたのための」<br>
                     を全てのひとへ</strong>
                 <br>
-                私たちは皆、人生の主人公です。<br>
+                私たちは皆、人生の主人公です。
                 働くことも人生の一部。<br>
                 OBFall株式会社は、<br>従来にない新しい会社の形を実現します。<br>
-                <a href="{{ route('philosophy') }}" class="btn btn-dark shadow mt-4">
-                    企業理念画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                <a href="{{ route('philosophy') }}" class="top-link-button shadow mt-4">
+                    企業理念はこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </p>
 
@@ -82,15 +82,10 @@
 
     <main>
         <div id="about" class="service pt-4">
-
+            <h1 class="fadein-scroll fadein-from-left m-0 text-start">
+                <div class="heading-chip">SERVICE</div>
+            </h1>
             <ul>
-                <section class="shinkansen-bg">
-                    <div class="container ps-0"> <!-- 左パディングを0 -->
-                        <h1 class="fadein-scroll fadein-from-left m-0 text-start">
-                            <div class="heading-chip">SERVICE</div>
-                        </h1>
-                    </div>
-                </section>
                 <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
@@ -116,7 +111,7 @@
                                 </p>
 
                                 {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="{{ route('userServicesShow') }}" class="btn btn-dark shadow">
+                                <a href="{{ route('userServicesShow') }}" class="link-button shadow">
                                     サービス詳細画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -124,16 +119,10 @@
                     </div>
                 </section>
             </ul>
-
+            <h1 class="fadein-scroll fadein-from-right m-0 text-end">
+                <div class="heading-chip--flip">ACHIEVEMENTS</div>
+            </h1>
             <ul>
-                <section class="shinkansen-bg">
-                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
-                        <h1 class="fadein-scroll fadein-from-right m-0 text-end">
-                            <div class="heading-chip--flip">ACHIEVEMENTS</div>
-                        </h1>
-                    </div>
-                </section>
-
                 <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
@@ -146,7 +135,7 @@
                                     ITの可能性を、実績で証明する。<br>
                                     自社開発・受託開発・SES・脆弱性診断の4つの領域で、<br> “つくる・支える・守る”を軸に、課題解決に挑んでいます。
                                 </p>
-                                <a href="{{ route('achievements') }}" class="btn btn-dark shadow" target="_blank" rel="noopener noreferrer">
+                                <a href="{{ route('achievements') }}" class="link-button shadow" target="_blank" rel="noopener noreferrer">
                                     実績・事例紹介 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -162,15 +151,10 @@
                     </div>
                 </section>
             </ul>
-
+            <h1 class="fadein-scroll fadein-from-left m-0 text-start">
+                <div class="heading-chip">ABOUT US</div>
+            </h1>
             <ul>
-                <section class="shinkansen-bg">
-                    <div class="container ps-0"> <!-- 左パディングを0 -->
-                        <h1 class="fadein-scroll fadein-from-left m-0 text-start">
-                            <div class="heading-chip">ABOUT US</div>
-                        </h1>
-                    </div>
-                </section>
                 <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
@@ -203,7 +187,7 @@
                                 </p>
 
                                 {{-- 遷移ボタン（お好みでどちらか） --}}
-                                <a href="{{ route('aboutus') }}" class="btn btn-dark shadow">
+                                <a href="{{ route('aboutus') }}" class="link-button shadow">
                                     会社概要画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -211,15 +195,10 @@
                     </div>
                 </section>
             </ul>
-
+            <h1 class="fadein-scroll fadein-from-right m-0 text-end">
+                <div class="heading-chip--flip">NEWS</div>
+            </h1>
             <ul>
-                <section class="shinkansen-bg">
-                    <div class="container ps-0"> <!-- 左パディングを0 -->
-                        <h1 class="fadein-scroll fadein-from-right m-0 text-end">
-                            <div class="heading-chip--flip">NEWS</div>
-                        </h1>
-                    </div>
-                </section>
                 <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
@@ -235,7 +214,7 @@
                                         <!-- 左：新着情報ボタン（SPは全幅、PCは左寄せ） -->
                                         <div class="col-12 col-md-3">
                                             <div class="d-grid d-md-block">
-                                                <a href="{{ route('userNewsIndex') }}" class="btn btn-dark shadow">
+                                                <a href="{{ route('userNewsIndex') }}" class="link-button shadow">
                                                     新着情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                                 </a>
                                             </div>
@@ -288,7 +267,7 @@
                                                 <!-- もっと見る
                                                 <div class="d-flex flex-column justify-content-center w-100">
                                                     <button id="toggleNewsBtn"
-                                                        class="text-muted text-end small btn btn-link btn-sm text-primary text-decoration-none p-0">
+                                                        class="text-muted text-end small btn-link btn-sm text-primary text-decoration-none p-0">
                                                         もっと見る >
                                                     </button>
                                                 </div> -->
@@ -306,16 +285,10 @@
                     </div>
                 </section>
             </ul>
-
+            <h1 class="fadein-scroll fadein-from-left m-0 text-start">
+                <div class="heading-chip">RECRUIT</div>
+            </h1>
             <ul>
-                <section class="shinkansen-bg">
-                    <div class="container pe-0"> <!-- 右端に寄せるなら右パディング0 -->
-                        <h1 class="fadein-scroll fadein-from-left m-0 text-start">
-                            <div class="heading-chip">RECRUIT</div>
-                        </h1>
-                    </div>
-                </section>
-
                 <section class="py-1 py-md-5">
                     <div class="container">
                         <div class="row g-4 align-items-center">
@@ -336,7 +309,7 @@
                                     私たちは、働くことを人生の一部として誇れる舞台をつくります。<br>
                                     OBFallでの挑戦が、あなたの成長と物語を彩りますように。
                                 </p>
-                                <a href="https://obfall-recruit.com/" class="btn btn-dark shadow" target="_blank">
+                                <a href="https://obfall-recruit.com/" class="link-button shadow" target="_blank">
                                     採用情報 <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -379,8 +352,8 @@
 
             <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
-                <a href="{{ route('contact') }}" class="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                    お問い合わせ画面へ <i class="fa-solid fa-circle-arrow-right ms-1"></i>
+                <a href="{{ route('contact') }}" class="link-button" target="_blank" rel="noopener noreferrer">
+                    お問い合わせはこちら <i class="fa-solid fa-circle-arrow-right ms-1"></i>
                 </a>
             </div>
         </div>
@@ -405,6 +378,47 @@
         --shadow: 0 2px 14px rgba(0, 0, 0, .06);
         --maxw: 940px
     }
+
+    .top-link-button {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #101317;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .link-button {
+        display: inline-block;
+        padding: 18px 18px;
+        background: #101317;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .link-button:hover {
+        /* 薄い黒 */
+        background: #424649;
+        color: #fff;
+        /* ←ここで文字色を指定 */
+    }
+
+    .link-button i {
+        transition: color 0.2s;
+
+        /* アイコン色も滑らかに */
+    }
+
+    .link-button:hover i {
+        color: #fff;
+        /* ←矢印だけこの色にしたい場合 */
+    }
+
 
     .shadow {
 
@@ -453,8 +467,8 @@
         position: absolute;
         right: -50px;
         /* ちょい外へ */
-        bottom: -16px;
-        width: min(44%, 340px);
+        bottom: -46px;
+        width: min(65%, 500px);
         /* 親幅に対する比率＋上限 */
         aspect-ratio: 3 / 2;
         border-radius: calc(var(--radius-xl) - 4px);
