@@ -235,7 +235,7 @@
                         </li>
                         <li>
                             <p class="about-head">設立</p>
-                            <p class="about-data">2022年8月4日<br>
+                            <p class="about-data">2022年8月2日<br>
                             </p>
                         </li>
                         <li>
