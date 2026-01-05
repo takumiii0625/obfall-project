@@ -1703,3 +1703,61 @@ footer .logo {
         height: 48px;
     }
 }
+
+:root {
+    --ink: #101317;
+    --muted: #6a7689;
+    --blue: #1E90FF;
+    --line: #E7EEF5;
+    --panel: #fff;
+    --radius: 10px;
+    --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+    --maxw: 940px
+}
+
+.top-link-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #101317;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 18px 18px;
+    background: #101317;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.link-button:hover {
+    /* 薄い黒 */
+    background: #424649;
+    color: #fff;
+    /* ←ここで文字色を指定 */
+}
+
+.top-link-button:hover {
+    /* 薄い黒 */
+    background: #424649;
+    color: #fff;
+    /* ←ここで文字色を指定 */
+}
+
+.link-button i {
+    transition: color 0.2s;
+
+    /* アイコン色も滑らかに */
+}
+
+.link-button:hover i {
+    color: #fff;
+    /* ←矢印だけこの色にしたい場合 */
+}
