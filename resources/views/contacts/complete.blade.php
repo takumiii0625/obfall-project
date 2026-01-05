@@ -124,7 +124,7 @@
         <h1 class="text-center mt-2 mb-5">お問い合わせありがとうございました。</h1>
 
         <div class="text-center">
-            <a href="{{ route('index') }}" class="btn btn-primary ">Topに戻る</a>
+            <a href="{{ route('indexDev') }}" class="btn btn-primary ">Topに戻る</a>
         </div>
     </div>
     <div class="mb-5"></div>

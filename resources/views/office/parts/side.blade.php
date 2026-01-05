@@ -17,7 +17,7 @@
         {{-- ホーム --}}
 
         <li class="menu-item">
-            <a href="{{ route('index') }}" class="menu-link">
+            <a href="{{ route('indexDev') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home"></i>
                 <div class="text-truncate">ホームページ</div>
             </a>
