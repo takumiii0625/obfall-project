@@ -12,18 +12,18 @@
 
     <title>Philosophy | OBFall Inc.</title>
     <style>
-        /* ====== Minimal Design Tokens ====== */
+        /* ====== Premium Design Tokens ====== */
         :root {
-            --bg: #ffffff;
-            --ink: #1A1A1A;
-            --ink-2: #3a3a3a;
-            --muted: #6b7785;
-            --blue: #1E90FF;
-            --blue-weak: #F6FAFD;
+            --bg: #f8fafc;
+            --ink: #1a1a1a;
+            --ink-2: #1e3a5f;
+            --muted: #5a6978;
+            --blue: #2c5282;
+            --blue-weak: #eef4f8;
             --card: #ffffff;
-            --divider: #E7EEF5;
-            --radius: 16px;
-            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+            --divider: #dde5ed;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(30, 58, 95, .10);
             --maxw: 1120px;
         }
 
@@ -55,8 +55,9 @@
 
         h2 {
             font-size: clamp(18px, 2.6vw, 26px);
-            font-weight: 700;
-            color: var(--blue)
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.03em;
         }
 
         h3 {
@@ -219,13 +220,13 @@
         }
 
         .kicker {
-            letter-spacing: .12em;
+            letter-spacing: .15em;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--blue);
-            font-size: 13px;
-            margin-bottom: .6rem;
-            font-family: serif;
+            font-size: 12px;
+            margin-bottom: .8rem;
+            font-family: 'Times New Roman', Times, serif;
         }
 
 

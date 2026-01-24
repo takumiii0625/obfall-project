@@ -294,13 +294,11 @@
         </div>
 
     </main>
-    <section class="ending" aria-label="closing">
+    <section class="ending" aria-label="closing" style="padding: 120px 0; background-color: #eef4f8; text-align: center;">
         <div class="wrap">
-            <p style="font-style:italic;font-size:12px;margin-bottom:.3rem">of you, by you, for all.</p>
-            <p class="muted small" style="margin-top:0">あなたの、あなたによる、あなたのための。</p>
-            <p class="muted small" style="margin-top:0">その想いから、すべての人の未来へ。</p>
-
-            <!-- CTAを置くならここに： <a href="/contact" class="btn">Contact</a> -->
+            <p style="font-style:italic;font-size:14px;margin-bottom:.5rem; color: #2c5282; letter-spacing: 0.15em;">of you, by you, for all.</p>
+            <p class="muted" style="margin-top:0; font-size: 15px; color: #5a6978; letter-spacing: 0.05em;">あなたの、あなたによる、あなたのための。</p>
+            <p class="muted" style="margin-top:0; font-size: 15px; color: #5a6978; letter-spacing: 0.05em;">その想いから、すべての人の未来へ。</p>
         </div>
     </section>
     <x-footer />

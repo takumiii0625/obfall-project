@@ -18,13 +18,13 @@
     <style>
         :root {
             --ink: #1a1a1a;
-            --muted: #657287;
-            --blue: #1E90FF;
-            --bg: #fff;
+            --muted: #5a6978;
+            --blue: #2c5282;
+            --bg: #f8fafc;
             --card: #fff;
-            --line: #E7EEF5;
-            --radius: 14px;
-            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+            --line: #dde5ed;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(30, 58, 95, .10);
             --maxw: 1120px;
         }
 
@@ -143,11 +143,10 @@
 
         .kicker {
             font-size: 12px;
-            letter-spacing: .12em;
+            letter-spacing: .15em;
             color: var(--blue);
-            font-weight: 700;
-
-            font-family: serif;
+            font-weight: 600;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         h2,

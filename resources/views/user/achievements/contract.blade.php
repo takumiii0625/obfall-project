@@ -26,12 +26,12 @@
 
         :root {
             --ink: #1a1a1a;
-            --muted: #657287;
-            --blue: #1E90FF;
-            --bg: #fff;
+            --muted: #5a6978;
+            --blue: #2c5282;
+            --bg: #f8fafc;
             --card: #fff;
-            --line: #E7EEF5;
-            --radius: 14px;
+            --line: #dde5ed;
+            --radius: 12px;
             --maxw: 1120px;
         }
 

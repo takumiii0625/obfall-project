@@ -1,5 +1,43 @@
 @charset "UTF-8";
 
+/* ============================================
+   Premium Color Palette - 高級感カラーパレット
+   ============================================ */
+:root {
+    /* Primary Colors */
+    --premium-black: #1a1a1a;
+    --premium-dark: #1e3a5f;
+    --premium-gray: #5a6978;
+    --premium-muted: #8a9bab;
+
+    /* Accent - 高級感のあるディープブルー系 */
+    --premium-accent: #2c5282;
+    --premium-accent-light: #4a7ab5;
+    --premium-accent-dark: #1a365d;
+
+    /* Background */
+    --premium-bg: #f8fafc;
+    --premium-bg-alt: #eef4f8;
+    --premium-white: #ffffff;
+
+    /* Borders */
+    --premium-border: #dde5ed;
+    --premium-border-dark: #c5d1dc;
+
+    /* Shadows */
+    --premium-shadow-sm: 0 2px 8px rgba(30, 58, 95, 0.06);
+    --premium-shadow-md: 0 4px 20px rgba(30, 58, 95, 0.10);
+    --premium-shadow-lg: 0 8px 40px rgba(30, 58, 95, 0.14);
+
+    /* Spacing - 余白の基準値 */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 32px;
+    --space-lg: 64px;
+    --space-xl: 120px;
+    --space-2xl: 180px;
+}
+
 /* reset */
 body,
 h1,
@@ -68,6 +106,8 @@ a {
 
 body {
     font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    background-color: var(--premium-bg);
+    color: var(--premium-black);
 }
 
 * {
@@ -155,8 +195,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(93, 195, 246, 0.393);
-    /* グレーの半透明色 */
+    background: rgba(44, 82, 130, 0.20);
+    /* プレミアムディープブルー半透明 */
     z-index: 1;
 }
 
@@ -227,7 +267,7 @@ body {
     bottom: 40px;
     cursor: pointer;
     padding: 0px;
-    background-color: #006e98;
+    background-color: var(--premium-accent);
     color: white;
     transition: all .3s ease;
     opacity: 0;
@@ -271,8 +311,7 @@ a {
 }
 
 a:hover {
-    color: #006e98;
-    /* あるいは任意の色 */
+    color: var(--premium-accent-light);
 }
 
 .sub {
@@ -287,29 +326,24 @@ a:hover {
 }
 
 body {
-    background-color: #fdfefe;
-
-    /* ↓背景グリッド↓ */
-    /* background-image: linear-gradient(0deg, transparent calc(100% - 1px), #f5ffff calc(100% - 1px)),
-        linear-gradient(90deg, transparent calc(100% - 1px), #f5f2fe calc(100% - 1px));
-    background-size: 23px 23px;
-    background-repeat: repeat;
-    background-position: center center; */
+    background-color: var(--premium-bg);
 }
 
 
 h1 {
     font-size: 32px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 56px;
+    font-weight: 600;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xl);
     text-align: center;
+    letter-spacing: 0.08em;
+    color: var(--premium-black);
 }
 
 h1 span {
-    border-bottom: 2px solid #006e98;
-
+    border-bottom: 2px solid var(--premium-accent);
     text-align: center;
+    padding-bottom: 8px;
 }
 
 .other {
@@ -321,7 +355,7 @@ h1 span {
 
 
 .other:hover {
-    color: #006e98;
+    color: var(--premium-accent);
     transition: 0.1s;
 }
 
@@ -350,7 +384,7 @@ h1 span {
 .fa-arrow-up-right-from-square {
     font-size: 1.2em;
     content: "f08e";
-    color: #006e98;
+    color: var(--premium-accent);
     margin-left: 5px;
 }
 
@@ -464,13 +498,14 @@ h1 span {
 
 
 header {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--premium-white);
     width: 100%;
-    height: 80px;
+    height: 90px;
     position: fixed;
     z-index: 3;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--premium-border);
 
     opacity: 0;
     transition: 1s;
@@ -515,7 +550,7 @@ header nav li {
 }
 
 nav li:hover {
-    color: #006e98;
+    color: var(--premium-accent);
     transition: color 0.1s;
 }
 
@@ -657,13 +692,13 @@ nav li:hover {
 
 /* Our Service */
 .service {
-    padding: 100px 0;
+    padding: var(--space-2xl) 0;
 }
 
 .service li {
     height: 25vw;
     min-height: 340px;
-    margin-bottom: 56px;
+    margin-bottom: var(--space-xl);
 
     display: flex;
     align-items: center;
@@ -682,10 +717,11 @@ nav li:hover {
     width: 50%;
     max-width: 600px;
     height: 340px;
-    padding: 40px;
-    background-color: #f4fbfff6;
-    border: 2px solid #f1f5f700;
+    padding: var(--space-lg);
+    background-color: var(--premium-white);
+    border: 1px solid var(--premium-border);
     transition-delay: 0.38s;
+    box-shadow: var(--premium-shadow-sm);
 }
 
 .service-item1 a img {
@@ -706,8 +742,9 @@ nav li:hover {
 
 .service .catch {
     font-size: 41px;
-    font-weight: bold;
-    color: #3d4cd1;
+    font-weight: 600;
+    color: var(--premium-accent);
+    letter-spacing: 0.02em;
 
     font-family: 'Times New Roman', Times, serif;
 }
@@ -719,7 +756,7 @@ nav li:hover {
 }
 
 .service a:hover .fa-arrow-up-right-from-square {
-    color: #006e98;
+    color: var(--premium-accent);
     opacity: 1;
     transform: translate(15px, 0);
     transition: 0.2s;
@@ -750,8 +787,10 @@ nav li:hover {
     /* background-image: url(image/bg01.jpg); */
     -o-object-fit: cover;
     object-fit: cover;
-    height: 650px;
-    padding: 100px 0;
+    height: auto;
+    min-height: 650px;
+    padding: var(--space-2xl) 0;
+    background-color: var(--premium-bg-alt);
 }
 
 .vision h2 {
@@ -759,7 +798,9 @@ nav li:hover {
     text-align: center;
     font-size: 24px;
     /* 相対値に設定した方がいいかもしれない */
-    margin: 54px 0;
+    margin: var(--space-xl) 0;
+    letter-spacing: 0.05em;
+    color: var(--premium-dark);
 
     transition-delay: 0.5s;
 }
@@ -770,8 +811,8 @@ nav li:hover {
 }
 
 .vision ul li {
-    padding: 0 30px;
-    border-right: 1px solid gainsboro;
+    padding: 0 var(--space-lg);
+    border-right: 1px solid var(--premium-border);
 }
 
 .vision ul li:last-child {
@@ -780,10 +821,11 @@ nav li:hover {
 
 .vision ul li .catch {
     font-size: 2rem;
-    color: #006e98;
-    font-weight: bold;
+    color: var(--premium-accent);
+    font-weight: 600;
     text-align: center;
-    margin: 24px;
+    margin: var(--space-md);
+    letter-spacing: 0.03em;
 }
 
 .vision ul li .sub {
@@ -794,7 +836,8 @@ nav li:hover {
 
 /* News */
 .news {
-    padding: 120px 0;
+    padding: var(--space-2xl) 0;
+    background-color: var(--premium-white);
 }
 
 .news li {
@@ -851,21 +894,23 @@ nav li:hover {
 }
 
 .about-head {
-    border-bottom: 1px solid #006e98;
+    border-bottom: 1px solid var(--premium-accent);
     width: 28%;
-    padding: 1em 0;
+    padding: 1.5em 0;
     margin-right: 3px;
+    font-weight: 500;
+    color: var(--premium-dark);
 }
 
 .about-data {
     width: 70%;
-    color: #000000e6;
-    border-bottom: 1px solid gainsboro;
-    padding: 1em 0;
+    color: var(--premium-gray);
+    border-bottom: 1px solid var(--premium-border);
+    padding: 1.5em 0;
 }
 
 .map-link {
-    color: #006e98;
+    color: var(--premium-accent);
     display: block;
     margin-top: 5px;
 }
@@ -875,7 +920,7 @@ nav li:hover {
 }
 
 .map-link:hover i {
-    color: #006e98;
+    color: var(--premium-accent);
 }
 
 
@@ -892,7 +937,8 @@ nav li:hover {
 
 /* Recruit */
 .achievements {
-    padding: 120px 0;
+    padding: var(--space-2xl) 0;
+    background-color: var(--premium-bg-alt);
 }
 
 .achievements h2 {
@@ -903,7 +949,7 @@ nav li:hover {
 }
 
 .achievements h2 span {
-    color: #006e98;
+    color: var(--premium-accent);
 }
 
 .achievements-jobs {
@@ -924,16 +970,19 @@ nav li:hover {
 .jobs a {
     text-align: center;
     width: 30%;
-    padding: 15px 0;
-    margin: 0 10px;
-    border: 1px solid gainsboro;
-    font-weight: bold;
+    padding: 18px 0;
+    margin: 0 12px;
+    border: 1px solid var(--premium-border);
+    font-weight: 500;
+    background-color: var(--premium-white);
+    transition: all 0.3s ease;
 }
 
 .jobs a:hover {
-    background-color: #006e98;
+    background-color: var(--premium-accent);
+    border-color: var(--premium-accent);
     color: white;
-    transition: 0.1s;
+    box-shadow: var(--premium-shadow-md);
 }
 
 .jobs a:hover i {
@@ -954,7 +1003,7 @@ nav li:hover {
 /* footer */
 footer {
 
-    background-color: #6bcedb;
+    background-color: var(--premium-dark);
     width: 100%;
 
     margin-top: 0;
@@ -968,7 +1017,7 @@ footer .wrap {
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
-    background-color: #6bcedb;
+    background-color: var(--premium-dark);
 }
 
 footer .devwrap {
@@ -1016,15 +1065,16 @@ footer .devwrap {
 .footer-service a {
     color: white;
     font-size: 0.9em;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: 1px solid gray;
+    font-weight: 500;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     margin-left: 20px;
+    transition: all 0.3s ease;
 }
 
 .footer-service a:hover {
-    background-color: #006e98;
-    transition: 0.15s;
+    background-color: var(--premium-accent);
+    border-color: var(--premium-accent);
 }
 
 .footer-service a:hover i {
@@ -1224,7 +1274,7 @@ footer .devwrap {
 
     .nav-02 ul li {
         margin-bottom: 32px;
-        color: #006e98;
+        color: var(--premium-accent);
     }
 
     .nav-02-active {
@@ -1508,7 +1558,7 @@ footer .devwrap {
     }
 
     h1 span {
-        border-bottom: 2px solid #006e98;
+        border-bottom: 2px solid var(--premium-accent);
         text-align: center;
         font-size: large;
     }
@@ -1533,7 +1583,7 @@ footer .devwrap {
 
     .service .catch {
         font-size: 25px;
-        color: #3d4cd1;
+        color: var(--premium-accent);
     }
 
     .achievements {
@@ -1627,21 +1677,22 @@ footer {
 
 /* カード */
 .pillars>li {
-    background: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 16px;
-    padding: 18px 18px 20px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    background: var(--premium-white);
+    border: 1px solid var(--premium-border);
+    border-radius: 12px;
+    padding: var(--space-md) var(--space-md) var(--space-md);
+    box-shadow: var(--premium-shadow-sm);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
     transition: transform .25s ease, box-shadow .25s ease;
 }
 
 @media (hover:hover) {
     .pillars>li:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, .1);
+        transform: translateY(-5px);
+        box-shadow: var(--premium-shadow-lg);
+        border-color: var(--premium-accent-light);
     }
 }
 
@@ -1653,8 +1704,8 @@ footer {
 }
 
 .pillars .subtitle {
-    color: #6c757d;
-    margin: 0 0 .5rem;
+    color: var(--premium-muted);
+    margin: 0 0 .75rem;
     font-size: .95rem;
 }
 
@@ -1704,50 +1755,52 @@ footer .logo {
 }
 
 :root {
-    --ink: #101317;
-    --muted: #6a7689;
-    --blue: #1E90FF;
-    --line: #E7EEF5;
-    --panel: #fff;
+    --ink: var(--premium-black);
+    --muted: var(--premium-muted);
+    --blue: var(--premium-accent);
+    --line: var(--premium-border);
+    --panel: var(--premium-white);
     --radius: 10px;
-    --shadow: 0 2px 14px rgba(0, 0, 0, .06);
-    --maxw: 940px
+    --shadow: var(--premium-shadow-sm);
+    --maxw: 1000px
 }
 
 .top-link-button {
     display: inline-block;
-    padding: 10px 18px;
-    background: #101317;
+    padding: 14px 24px;
+    background: var(--premium-black);
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 0.95rem;
-    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
 }
 
 .link-button {
     display: inline-block;
-    padding: 18px 18px;
-    background: #101317;
+    padding: 20px 28px;
+    background: var(--premium-black);
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 0.95rem;
-    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
 }
 
 .link-button:hover {
-    /* 薄い黒 */
-    background: #424649;
+    background: var(--premium-accent);
     color: #fff;
-    /* ←ここで文字色を指定 */
+    box-shadow: var(--premium-shadow-md);
 }
 
 .top-link-button:hover {
-    /* 薄い黒 */
-    background: #424649;
+    background: var(--premium-accent);
     color: #fff;
-    /* ←ここで文字色を指定 */
+    box-shadow: var(--premium-shadow-md);
 }
 
 .link-button i {
@@ -1759,4 +1812,502 @@ footer .logo {
 .link-button:hover i {
     color: #fff;
     /* ←矢印だけこの色にしたい場合 */
+}
+
+/* ============================================
+   ホバーエフェクト - ユーザビリティ向上
+   ============================================ */
+
+/* ヘッダーナビゲーションリンク */
+header nav li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--premium-accent);
+    transition: width 0.3s ease;
+}
+
+header nav li a:hover {
+    color: var(--premium-accent);
+}
+
+header nav li a:hover::after {
+    width: 100%;
+}
+
+/* ロゴホバー */
+.logo-container {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+
+/* フッターロゴホバー */
+footer .logo {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+footer .logo:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+/* ボタンホバー強化 */
+.link-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.link-button:hover {
+    background: var(--premium-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 110, 152, 0.3);
+}
+
+.link-button:hover::before {
+    left: 100%;
+}
+
+.link-button:hover i {
+    transform: translateX(4px);
+}
+
+.link-button i {
+    transition: transform 0.3s ease, color 0.2s;
+}
+
+/* トップリンクボタンホバー強化 */
+.top-link-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.top-link-button:hover {
+    background: var(--premium-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 110, 152, 0.4);
+}
+
+.top-link-button i {
+    transition: transform 0.3s ease;
+}
+
+.top-link-button:hover i {
+    transform: translateX(4px);
+}
+
+/* セクション画像ホバー */
+.service .img-fluid {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service .img-fluid:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* セクションカード（.row）ホバー */
+.service .row {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service .row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ニュースアイテムホバー */
+.news-item {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 8px;
+    padding: 8px;
+    margin: -8px;
+}
+
+.news-item:hover {
+    background-color: rgba(0, 110, 152, 0.05);
+    transform: translateX(5px);
+}
+
+.news-item a {
+    transition: color 0.3s ease;
+}
+
+.news-item:hover .fw-semibold {
+    color: var(--premium-accent);
+}
+
+.news-item .ratio img {
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover .ratio img {
+    transform: scale(1.05);
+}
+
+/* About カードホバー */
+.about-card {
+    transition: transform 0.4s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card__main img {
+    transition: transform 0.5s ease;
+}
+
+.about-card:hover .about-card__main img {
+    transform: scale(1.05);
+}
+
+.about-card__sub {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-card:hover .about-card__sub {
+    transform: translate(-5px, -5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* フッターリンクホバー */
+.human-rights-policy {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.human-rights-policy:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* モバイルナビゲーションホバー */
+.nav-02 ul li a {
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: block;
+}
+
+.nav-02 ul li a:hover {
+    color: var(--premium-accent);
+    padding-left: 10px;
+}
+
+/* セクション見出しホバー */
+.heading-chip,
+.heading-chip--flip {
+    transition: transform 0.3s ease;
+}
+
+.heading-chip:hover,
+.heading-chip--flip:hover {
+    transform: scale(1.02);
+}
+
+/* maintitleホバー */
+.maintitle {
+    transition: color 0.3s ease;
+}
+
+.service .row:hover .maintitle {
+    color: var(--premium-accent);
+}
+
+/* ============================================
+   各ページ共通ホバーエフェクト
+   ============================================ */
+
+/* カードホバー（Service, Philosophy ページ等） */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(30, 144, 255, 0.3);
+}
+
+/* バリューカードホバー（Philosophy ページ） */
+.value {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.value:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--premium-accent);
+}
+
+.value h4 {
+    transition: color 0.3s ease;
+}
+
+.value:hover h4 {
+    color: var(--premium-accent);
+}
+
+/* 「詳しく見る」リンクホバー */
+a.more {
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+a.more:hover {
+    color: var(--premium-accent);
+    transform: translateX(5px);
+}
+
+a.more i {
+    transition: transform 0.3s ease;
+}
+
+a.more:hover i {
+    transform: translateX(4px);
+}
+
+/* パンくずリストホバー */
+.breadcrumb-item a {
+    transition: color 0.3s ease;
+    color: var(--premium-accent);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--premium-accent);
+    text-decoration: underline;
+}
+
+/* Bootstrapボタンホバー強化 */
+.btn-outline-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+}
+
+/* Kickerラベルホバー */
+.kicker {
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.card:hover .kicker,
+.value:hover .kicker {
+    letter-spacing: 0.15em;
+}
+
+/* メッセージボックスホバー（Philosophy ページ） */
+.message {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Origin セクションホバー */
+.origin {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.origin:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.origin .bar {
+    transition: border-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.origin:hover .bar {
+    border-left-color: var(--premium-accent);
+    padding-left: 20px;
+}
+
+/* フォーム要素ホバー・フォーカス（Contact ページ） */
+.form-control {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:hover {
+    border-color: var(--premium-accent);
+}
+
+.form-control:focus {
+    border-color: var(--premium-accent);
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.15);
+}
+
+/* About ページ リスト項目ホバー */
+.about li {
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.about li:hover {
+    background-color: rgba(0, 110, 152, 0.03);
+}
+
+.about-head {
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.about li:hover .about-head {
+    border-bottom-color: var(--premium-accent);
+    color: var(--premium-accent);
+}
+
+/* Bootstrap Iconホバー */
+.bi {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .bi,
+a:hover .bi {
+    transform: scale(1.1);
+    color: var(--premium-accent);
+}
+
+/* 画像ホバー（汎用） */
+.img-fluid {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+a:hover .img-fluid,
+.card:hover .img-fluid {
+    transform: scale(1.02);
+}
+
+/* ヒーローセクション内テキストホバー */
+.hero .title h1 {
+    transition: letter-spacing 0.5s ease;
+}
+
+.hero:hover .title h1 {
+    letter-spacing: 0.12em;
+}
+
+/* ============================================
+   News ページ ホバーエフェクト
+   ============================================ */
+
+/* ニュースリストアイテムホバー */
+.list-group-item {
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: rgba(30, 144, 255, 0.05);
+    transform: translateX(8px);
+    box-shadow: -4px 0 0 0 var(--premium-accent);
+}
+
+.list-group-item .fw-semibold {
+    transition: color 0.3s ease;
+}
+
+.list-group-item:hover .fw-semibold {
+    color: var(--premium-accent);
+}
+
+/* ニュースサムネイル画像ホバー */
+.list-group-item .ratio img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover .ratio img {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 矢印アイコンホバー */
+.go-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.list-group-item:hover .go-icon {
+    transform: translateX(5px);
+    color: var(--premium-accent) !important;
+}
+
+/* ページネーションホバー */
+.pagination .page-link {
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--premium-accent);
+    border-color: var(--premium-accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);
+}
+
+.pagination .page-item.active .page-link {
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
+}
+
+/* ニュース詳細ページ - 「一覧に戻る」ボタンホバー */
+.btn-outline-primary i {
+    transition: transform 0.3s ease;
+}
+
+.btn-outline-primary:hover i {
+    transform: translateX(-4px);
+}
+
+/* ニュース詳細ページ - 記事カードホバー */
+article.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ニュース詳細画像ホバー */
+figure img.img-fluid {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+figure:hover img.img-fluid {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }

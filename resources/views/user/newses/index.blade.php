@@ -131,16 +131,16 @@
 
 <style>
     :root {
-        --bg: #ffffff;
-        --ink: #1A1A1A;
-        --ink-2: #3a3a3a;
-        --muted: #6b7785;
-        --blue: #1E90FF;
-        --blue-weak: #F6FAFD;
+        --bg: #f8fafc;
+        --ink: #1a1a1a;
+        --ink-2: #1e3a5f;
+        --muted: #5a6978;
+        --blue: #2c5282;
+        --blue-weak: #eef4f8;
         --card: #ffffff;
-        --divider: #E7EEF5;
-        --radius: 16px;
-        --shadow: 0 2px 14px rgba(0, 0, 0, .06);
+        --divider: #dde5ed;
+        --radius: 12px;
+        --shadow: 0 4px 20px rgba(30, 58, 95, .10);
         --maxw: 1120px;
     }
 
