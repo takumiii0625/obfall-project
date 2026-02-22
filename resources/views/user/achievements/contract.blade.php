@@ -11,363 +11,183 @@
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <title>Achievements | OBFall Inc.</title>
+    <title>受託開発実績 | OBFall Inc.</title>
 
     <style>
-        /* === 基本設定 === */
-        body {
-            font-family: "Noto Sans JP", sans-serif;
-            color: #333;
-            line-height: 1.8;
-            background: #fafafa;
-            margin: 0;
-            padding: 0;
-        }
-
         :root {
             --ink: #1a1a1a;
             --muted: #5a6978;
-            --blue: #2c5282;
-            --bg: #f8fafc;
+            --blue: #0dcaf0;
+            --blue-light: rgba(13,202,240,.08);
+            --bg: #fff;
+            --bg-alt: #f8fafc;
             --card: #fff;
-            --line: #dde5ed;
-            --radius: 12px;
-            --maxw: 1120px;
+            --line: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,.06);
+            --shadow-hover: 0 12px 40px rgba(0,0,0,.10);
+            --maxw: 1100px;
+            --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
         }
 
-        section {
+        .human-rights-policy { color: #eef6ff }
 
-            padding: 24px 24px;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.8;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid #e0e0e0;
-            margin: 32px 0;
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        /* === 見出し系 === */
-        h2 {
-            font-size: 1.8rem;
-            color: #007acc;
-            margin-bottom: 8px;
-        }
+        /* ── セクション ── */
+        .sec { padding: 80px 0; }
+        .sec--alt { background: var(--bg-alt); }
 
-        h3 {
-            font-size: 1.4rem;
-            color: #444;
-            font-weight: 500;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        h4 {
-            font-size: 1.4rem;
-            margin-top: 20px;
-            color: #007acc;
-        }
-
-        .achievement-lead {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #222;
-        }
-
-
-
-        /* === テキスト・段落 === */
-        p {
-            margin: 0 0 16px 0;
-        }
-
-        ul {
-            margin: 12px 0 24px 20px;
-        }
-
-        ul ul {
-            margin-top: 4px;
-        }
-
-        strong {
-            color: #007acc;
-        }
-
-        /* === 画像コンテナ === */
-        .image-container {
-            margin-top: 24px;
-            text-align: center;
-        }
-
-        .image-container img {
-            width: 60%;
+        /* ── リード文 ── */
+        .lead-text {
+            font-size: clamp(1rem, 1.8vw, 1.18rem);
             max-width: 720px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-radius: 20px;
-        }
-
-        /* === ボタンリンク === */
-        .link-button:hover {
-            background: #E7EEF5;
-        }
-
-        /* === 各セクション区分 === */
-        .section-products {
-            background: #ffffff;
-            border-left: 6px solid #66b3ff;
-            padding-top: 40px;
-            padding-bottom: 40px;
-
-        }
-
-        .section-contract {
-            background: #ffffff;
-            border-left: 6px solid #66b3ff;
-            padding-top: 40px;
-            padding-bottom: 40px;
-
-            margin-right: 20px;
-        }
-
-        .section-security {
-            background: #ffffff;
-            border-left: 6px solid #66b3ff;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        /* === 実績アイテム === */
-        .achievement-item {
-            margin-bottom: 60px;
-        }
-
-        /* === まとめ文 === */
-        .summary {
-            font-weight: 600;
-            text-align: center;
-            margin-top: 32px;
-            color: #333;
-        }
-
-        .hero {
-            --hero-img: url('../image/chou.jpg');
-
-            position: relative;
-            background-image: var(--hero-img);
-            background-size: cover;
-            /* 画面いっぱいにフィット */
-            background-position: center;
-            /* 中央寄せ */
-            background-repeat: no-repeat;
-            min-height: 36vh;
-            /* お好みで高さ調整 */
-            color: #111;
-            /* テキスト色 */
-        }
-
-        /* 白フィルター（上に薄く被せる） */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.45);
-            /* 透明度はお好みで 0.3〜0.6 */
-            pointer-events: none;
-            /* クリック干渉を防ぐ */
-        }
-
-        /* テキストを最前面に */
-        .hero .wrap {
-            position: relative;
-            z-index: 1;
-            padding: clamp(48px, 13vw, 120px) 16px 0;
-        }
-
-        @media (max-width:480px) {
-            .hero .wrap {
-                position: relative;
-                z-index: 1;
-                padding: clamp(48px, 33vw, 160px) 10px 0;
-            }
-        }
-
-
-        .hero .title h1 {
-            line-height: 1.3;
-            margin: 0 0 .5rem;
-            color: #111;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .hero .sub {
-            font-weight: 600;
-            letter-spacing: .06em;
-            opacity: .9;
-        }
-
-        .hero .lead {
-            margin-top: 1rem;
-            max-width: 60ch;
-
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px
-        }
-
-        .card-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
+            line-height: 2;
+            color: #444;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .kicker {
-            font-size: 12px;
-            letter-spacing: .12em;
+        /* ── セクション見出し ── */
+        .sec-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .sec-heading__kicker {
+            display: block;
+            font-size: .75rem;
+            letter-spacing: .14em;
             color: var(--blue);
             font-weight: 700;
-
-            font-family: serif;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .sec-heading__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
         }
 
-        .grid {
-            display: grid;
-            gap: 18px;
-
+        /* ── 実績カード ── */
+        .achievement-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
         }
 
-        @media (min-width:900px) {
-            .grid {
-                grid-template-columns: 1fr 1fr
-            }
-        }
-
-        /* === レスポンシブ === */
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .link-button {
-                width: 100%;
-                text-align: center;
-            }
-
-            .image-container img {
-                max-width: 100%;
-            }
-
-            section {
-
-                padding: 10px 16px;
-            }
-
-            .hero {
-                --hero-img: url('../image/chou.jpg');
-
-                position: relative;
-                background-image: var(--hero-img);
-                background-size: cover;
-                /* 画面いっぱいにフィット */
-                background-position: center;
-                /* 中央寄せ */
-                background-repeat: no-repeat;
-                min-height: 46vh;
-                /* お好みで高さ調整 */
-                color: #111;
-                /* テキスト色 */
-            }
-
-            .hero .title h1 {
-                font-size: 2.000rem;
-                line-height: 1.3;
-                margin: 0 0 .5rem;
-
-            }
-
-            .hero .sub {
-                font-size: 0.875rem;
-                font-weight: 600;
-                letter-spacing: .06em;
-                opacity: .9;
-            }
-
-            .lead {
-                font-size: 0.875rem;
-            }
-
-            /* small 相当 */
-        }
-
-        a.more {
-            color: var(--blue);
-            text-decoration: none;
-            text-align: end;
-        }
-
-        /* ベース: 縦並び（スマホ） */
-        .achievement-content {
+        .achievement-card__inner {
             display: flex;
             flex-direction: column;
-            align-items: center;
-
+            gap: 0;
         }
-
-        /* PC版（768px以上）で横並びに */
         @media (min-width: 768px) {
-            .achievement-content {
+            .achievement-card__inner {
                 flex-direction: row;
-                align-items: flex-start;
             }
-
-            .achievement-content .text {
-                flex: 1;
-            }
-
-            .achievement-content .image-container {
-                flex: 1;
-                text-align: right;
-                /* 右寄せ */
-            }
-
-            .achievement-content .image-container img {
-                max-width: 80%;
-                height: auto;
+            .achievement-card__inner--reverse {
+                flex-direction: row-reverse;
             }
         }
 
-        /* ロゴは常に小さめ。画面幅に応じて 96〜160px で可変 */
-        .app-logo {
-            width: clamp(96px, 18vw, 160px);
+        .achievement-card__visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: var(--bg-alt);
+            min-height: 200px;
+        }
+        @media (min-width: 768px) {
+            .achievement-card__visual {
+                flex: 0 0 320px;
+            }
+        }
+
+        .achievement-card__logo {
+            max-width: 160px;
             height: auto;
-            display: block;
-            margin: 0 0 12px;
             object-fit: contain;
-            /* 任意: 少し落ち着いた見た目にするなら
-  opacity: .95;
-  */
+            border-radius: 12px;
         }
 
-        /* 配置：PCでは左寄せ、スマホでは中央寄せにしたい場合 */
-        @media (max-width: 575.98px) {
-            .app-logo {
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .achievement-card__body {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .achievement-card__name {
+            font-family: var(--font-heading);
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            margin: 0 0 12px;
+            line-height: 1.4;
+        }
+
+        .achievement-card__desc {
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 1.9;
+            margin: 0 0 24px;
+        }
+
+        .achievement-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: gap .25s ease;
+        }
+        .achievement-card__link:hover { gap: 10px; }
+
+        /* ── カード間のスペース ── */
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        /* ── パンくず ── */
+        .breadcrumb-sec {
+            padding: 32px 0 48px;
+        }
+
+        /* ── スマホ対応 ── */
+        @media (max-width: 767.98px) {
+            .sec { padding: 48px 0; }
+            .wrap { padding: 0 16px; }
+            .lead-text { text-align: left; font-size: .95rem; }
+            .sec-heading { margin-bottom: 32px; }
+            .achievement-card__body { padding: 28px 20px; }
+            .achievement-card__visual { padding: 28px 20px; min-height: 160px; }
+            .achievement-card__logo { max-width: 120px; }
+            .achievement-list { gap: 24px; }
+            .breadcrumb-sec { padding: 24px 0 32px; }
         }
     </style>
 </head>
@@ -377,97 +197,97 @@
         <x-header />
         <nav class="nav-02">
             <ul>
-
                 <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
                 <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
-
             </ul>
         </nav>
     </div>
 
+    <x-page-hero title="Contract Development" sub="ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。" variant="connect" />
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
+    {{-- リード文 --}}
+    <section class="sec">
         <div class="wrap">
-            <div class="title">
-                <h1>Contract Development</h1>
-                <div class="sub"><br><br><br><br>ともにつくり、ともに前へ。<br>クライアントの想いを汲み取り、共に課題を解決するパートナーとして。</div>
-            </div>
-        </div>
-    </section>
-    <main class="wrap">
-        <section aria-label="overview">
-            <p>
+            <p class="lead-text">
                 OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。<br>
-                Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、
+                Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、<br class="d-none d-md-inline">
                 企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。<br>
                 クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
             </p>
-        </section>
+        </div>
+    </section>
 
-        <!-- 💼 受託開発 -->
-        <section id="contract" class="section-contract">
-            <!-- CareerLog -->
-            <article class="achievement-item">
-                <div class="achievement-content">
-                    <!-- image: CareerLogのメイン画面 -->
-                    <div class="image-container">
-                        <img src="../image/careerlog_logo.png" alt="CareerLog画面" />
+    {{-- 実績一覧 --}}
+    <section class="sec sec--alt">
+        <div class="wrap">
+            <div class="sec-heading">
+                <span class="sec-heading__kicker">Projects</span>
+                <h2 class="sec-heading__title">プロジェクト紹介</h2>
+            </div>
+
+            <div class="achievement-list">
+
+                {{-- CareerLog --}}
+                <article class="achievement-card">
+                    <div class="achievement-card__inner">
+                        <div class="achievement-card__visual">
+                            <img src="../image/careerlog_logo.png" alt="CareerLog ロゴ"
+                                class="achievement-card__logo" loading="lazy">
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__name">CareerLog（キャリアログ）</h3>
+                            <p class="achievement-card__desc">
+                                キャリアログは、社会人が業界・職種の経験者に1対1で相談できるOB/OG訪問サービス。
+                                登録不要で今すぐOBを検索でき、実体験に基づくアドバイスで転職やキャリアの不安を解消し、自分だけの進路設計を後押しします。
+                            </p>
+                            <a class="achievement-card__link" href="https://career-log.com/" target="_blank">
+                                CareerLog公式サイト <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="text">
+                </article>
 
-                        <h4><strong>CareerLog（キャリアログ）</strong></h4>
-                        <br>
-                        <p>
-                            キャリアログは、社会人が業界・職種の経験者に1対1で相談できるOB/OG訪問サービス。<br>
-                            登録不要で今すぐOBを検索でき、実体験に基づくアドバイスで転職やキャリアの不安を解消し、自分だけの進路設計を後押しします。
-                        </p>
-
-                        <p><a href="https://career-log.com/" target="_blank" class="link-button">CareerLog公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
+                {{-- NoaChoice --}}
+                <article class="achievement-card">
+                    <div class="achievement-card__inner achievement-card__inner--reverse">
+                        <div class="achievement-card__visual">
+                            <img src="../image/NoaChoice_logo.jpg" alt="NoaChoice ロゴ"
+                                class="achievement-card__logo" loading="lazy">
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__name">NoaChoice（ノアチョイス）</h3>
+                            <p class="achievement-card__desc">
+                                結婚式準備の"探す・比べる・決める"をオンラインで完結できるブライダルECサイトです。
+                                ドレス・タキシード・和装・ジュエリー・ペーパーアイテム・引出物まで、厳選アイテムを適正価格でお届け。
+                                サイズガイドと試着キット、パーソナルサポートで、初めての方でも安心してお選びいただけます。
+                            </p>
+                            <a class="achievement-card__link" href="https://noa-choice.com/" target="_blank">
+                                NoaChoice公式サイト <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <hr>
+            </div>
+        </div>
+    </section>
 
-            <!-- Store-Pass -->
-            <article class="achievement-item">
-                <div class="achievement-content">
-                    <div class="image-container">
-                        <img src="../image/NoaChoice_logo.jpg" alt="Store-Passアプリ画面" />
-                    </div>
-                    <div class="text">
-                        <h4><strong>NoaChoice（ノアチョイス）</strong></h4>
-                        <br>
-                        <p>
-                            結婚式準備の“探す・比べる・決める”をオンラインで完結できるブライダルECサイトです。<br>
-                            レス・タキシード・和装・ジュエリー・ペーパーアイテム・引出物まで、厳選アイテムを適正価格でお届け。<br>
-                            サイズガイドと試着キット、パーソナルサポートで、初めての方でも安心してお選びいただけます。
-                        </p>
+    {{-- パンくず --}}
+    <div class="breadcrumb-sec">
+        <div class="wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+                    <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('achievements') }}">実績・事例紹介</a></li>
+                    <li class="breadcrumb-item">受託開発</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 
-                        <p><a href="https://noa-choice.com/" target="_blank" class="link-button">NoaChoice公式サイト　<i class="bi bi-arrow-right-circle-fill"></i></a></p>
-                    </div>
-
-
-                </div>
-            </article>
-            <hr>
-        </section>
-
-        <section></section>
-        <nav aria-label="breadcrumb" class="m-3">
-            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
-
-                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('achievements') }}">実績・事例紹介</a></li>
-                <li class="breadcrumb-item">受託開発</a></li>
-            </ol>
-        </nav>
-
-    </main>
     <x-footer />
     <script src="{{ asset('js/main.js') }}" defer></script>
 </body>

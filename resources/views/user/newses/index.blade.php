@@ -32,15 +32,7 @@
 
 
     </div>
-    <section class="hero">
-        <div class="wrap">
-            <div class="title">
-                <h1 class="">News</h1>
-                <div class="sub"><br><br><br><br>最新情報一覧</div>
-            </div>
-
-        </div>
-    </section>
+    <x-page-hero title="News" sub="最新情報一覧" variant="wave" />
     <main class="py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -135,7 +127,7 @@
         --ink: #1a1a1a;
         --ink-2: #1e3a5f;
         --muted: #5a6978;
-        --blue: #2c5282;
+        --blue: #0dcaf0;
         --blue-weak: #eef4f8;
         --card: #ffffff;
         --divider: #dde5ed;
@@ -163,12 +155,6 @@
         margin: 0 0 .5em
     }
 
-    h1 {
-        font-size: clamp(28px, 4vw, 40px);
-        font-weight: 800;
-        color: black;
-        font-family: 'Times New Roman', Times, serif;
-    }
 
     h2 {
         font-size: clamp(18px, 2.6vw, 26px);
@@ -208,98 +194,4 @@
         color: #eef6ff
     }
 
-    .hero {
-        --hero-img: url('../image/chou.jpg');
-
-        position: relative;
-        background-image: var(--hero-img);
-        background-size: cover;
-        /* 画面いっぱいにフィット */
-        background-position: center;
-        /* 中央寄せ */
-        background-repeat: no-repeat;
-        min-height: 36vh;
-        /* お好みで高さ調整 */
-        color: #111;
-        /* テキスト色 */
-    }
-
-    /* 白フィルター（上に薄く被せる） */
-    .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.45);
-        /* 透明度はお好みで 0.3〜0.6 */
-        pointer-events: none;
-        /* クリック干渉を防ぐ */
-    }
-
-    /* テキストを最前面に */
-    .hero .wrap {
-        position: relative;
-        z-index: 1;
-        padding: clamp(48px, 8vw, 120px) 16px;
-    }
-
-
-    .hero .title h1 {
-        line-height: 1.3;
-        margin: 0 0 .5rem;
-    }
-
-    .hero .sub {
-        font-weight: 600;
-        letter-spacing: .06em;
-        opacity: .9;
-    }
-
-    .hero .lead {
-        margin-top: 1rem;
-        max-width: 60ch;
-    }
-
-    /* md=768px 基準 */
-    @media (max-width: 767.98px) {
-        .hero {
-            --hero-img: url('../image/chou.jpg');
-
-            position: relative;
-            background-image: var(--hero-img);
-            background-size: cover;
-            /* 画面いっぱいにフィット */
-            background-position: center;
-            /* 中央寄せ */
-            background-repeat: no-repeat;
-            min-height: 46vh;
-            /* お好みで高さ調整 */
-            color: #111;
-            /* テキスト色 */
-        }
-
-        .hero .wrap {
-            position: relative;
-            z-index: 1;
-            padding: clamp(48px, 8vw, 160px) 10px;
-        }
-
-        .hero .title h1 {
-            font-size: 2.000rem;
-            line-height: 1.3;
-            margin: 0 0 .5rem;
-        }
-
-        .hero .sub {
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: .06em;
-            opacity: .9;
-        }
-
-        .lead {
-            font-size: 0.875rem;
-        }
-
-        /* small 相当 */
-    }
 </style>

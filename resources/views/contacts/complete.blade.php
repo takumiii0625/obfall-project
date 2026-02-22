@@ -5,102 +5,120 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <!-- Bootstrap 5 CDN (例) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <title>Philosophy | OBFall Inc.</title>
+    <title>送信完了 | OBFall Inc.</title>
     <style>
-        /* ====== Minimal Design Tokens ====== */
         :root {
-            --bg: #ffffff;
-            --ink: #1A1A1A;
-            --ink-2: #3a3a3a;
-            --muted: #6b7785;
-            --blue: #1E90FF;
-            --blue-weak: #F6FAFD;
-            --card: #ffffff;
-            --divider: #E7EEF5;
+            --ink: #1a1a1a;
+            --muted: #5a6978;
+            --blue: #0dcaf0;
+            --blue-light: rgba(13,202,240,.08);
+            --bg: #fff;
+            --bg-alt: #f8fafc;
+            --card: #fff;
+            --line: #e2e8f0;
             --radius: 16px;
-            --shadow: 0 2px 14px rgba(0, 0, 0, .06);
-            --maxw: 1120px;
+            --shadow: 0 4px 24px rgba(0,0,0,.06);
+            --maxw: 1100px;
+            --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
         }
 
-        .human-rights-policy {
-            color: #eef6ff
-        }
+        .human-rights-policy { color: #eef6ff }
 
-        html,
-        body {
+        html, body {
+            margin: 0;
             background: var(--bg);
             color: var(--ink);
-            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", Segoe UI, Roboto, Ubuntu, "Helvetica Neue", "Helvetica", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.8;
-        }
-
-        h1,
-        h2,
-        h3 {
-            line-height: 1.35;
-            margin: 0 0 .5em
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        h2 {
-            font-size: clamp(18px, 2.6vw, 26px);
-            font-weight: 700;
-            color: var(--blue)
-        }
-
-        h3 {
-            font-size: clamp(16px, 2.2vw, 22px);
-            font-weight: 700
-        }
-
-        p {
-            margin: .6em 0
         }
 
         .wrap {
             max-width: var(--maxw);
             margin: 0 auto;
-            padding: 0 20px
+            padding: 0 24px;
         }
 
-        section {
-            padding: 80px 0;
-            border-top: 1px solid var(--divider)
-        }
+        /* ── セクション ── */
+        .sec { padding: 80px 0; }
 
-        .container {
-            padding-top: 140px;
+        /* ── 完了カード ── */
+        .complete-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
         }
-
-        .form-group {
-            padding: 10px;
-        }
-
-        .alert-danger {
-            margin-top: 15px;
-            padding: 5px;
-        }
-
         @media (max-width: 767.98px) {
-            .container {
-                padding-top: 100px;
-            }
+            .complete-card { padding: 40px 24px; }
+        }
 
-            .form-group {
-                padding: 10px;
-            }
+        .complete-card__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            color: var(--blue);
+            font-size: 2rem;
+            margin-bottom: 28px;
+        }
 
+        .complete-card__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            margin: 0 0 16px;
+            line-height: 1.5;
+        }
+
+        .complete-card__text {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            line-height: 2;
+            color: #444;
+            margin: 0 0 36px;
+        }
+
+        .complete-card__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            text-decoration: none;
+            font-size: .95rem;
+            font-weight: 600;
+            padding: 12px 36px;
+            border-radius: 99px;
+            transition: background .25s ease, transform .2s ease;
+        }
+        .complete-card__btn:hover {
+            background: #1e3a5f;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ── パンくず ── */
+        .breadcrumb-sec {
+            padding: 32px 0 48px;
+        }
+
+        /* ── スマホ対応 ── */
+        @media (max-width: 767.98px) {
+            .sec { padding: 48px 0; }
+            .wrap { padding: 0 16px; }
+            .complete-card__icon { width: 56px; height: 56px; font-size: 1.5rem; margin-bottom: 20px; }
+            .complete-card__text { margin-bottom: 28px; }
+            .complete-card__btn { padding: 10px 28px; font-size: .9rem; }
+            .breadcrumb-sec { padding: 24px 0 32px; }
         }
     </style>
 </head>
@@ -110,34 +128,54 @@
         <x-header />
         <nav class="nav-02">
             <ul>
-
                 <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
                 <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
-
             </ul>
         </nav>
     </div>
-    <div class="container">
-        <h1 class="text-center mt-2 mb-5">お問い合わせありがとうございました。</h1>
 
-        <div class="text-center">
-            <a href="{{ route('indexDev') }}" class="btn btn-primary ">Topに戻る</a>
+    <x-page-hero title="Thank You" sub="お問い合わせありがとうございました。" variant="mail" />
+
+    <section class="sec">
+        <div class="wrap">
+            <div class="complete-card">
+                <div class="complete-card__icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h1 class="complete-card__title">送信が完了しました</h1>
+                <p class="complete-card__text">
+                    お問い合わせいただきありがとうございます。<br>
+                    内容を確認のうえ、担当者よりご連絡いたします。
+                </p>
+                <a href="{{ route('indexDev') }}" class="complete-card__btn">
+                    Topに戻る <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- パンくず --}}
+    <div class="breadcrumb-sec">
+        <div class="wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+                    <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('contact') }}">お問い合わせ</a></li>
+                    <li class="breadcrumb-item">送信完了</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    <div class="mb-5"></div>
-    </div>
+
     <footer>
         <div class="devwrap d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
-            <!-- PC:左 / SP:一番上（ロゴ＋ページトップへ） -->
             <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center order-1 order-md-1">
                 <img src="./image/logo_OBFall_white.png"
                     class="link logo" onclick="scrollToTop()" alt="OBFall株式会社ロゴ">
             </div>
-
-            <!-- PC:中央 / SP:一番下（住所など） -->
             <div class="footer-left col-12 col-md-4 order-3 order-md-2 text-center text-md-start">
                 <p>
                     〒105-0022<br>
@@ -148,10 +186,7 @@
                     </a>
                 </p>
             </div>
-
-            <!-- PC:右 / SP:2番目（お問い合わせボタン） -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center order-2 order-md-3">
-
             </div>
         </div>
     </footer>

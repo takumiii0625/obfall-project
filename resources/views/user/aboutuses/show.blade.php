@@ -17,42 +17,8 @@
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        .hero {
-            --hero-img: url('../image/about_us2.jpg');
-
-            position: relative;
-            background-image: var(--hero-img);
-            background-size: cover;
-            /* 画面いっぱいにフィット */
-            background-position: center;
-            /* 中央寄せ */
-            background-repeat: no-repeat;
-            min-height: 36vh;
-            /* お好みで高さ調整 */
-            color: #111;
-            /* テキスト色 */
-        }
-
         .human-rights-policy {
             color: #eef6ff
-        }
-
-        /* 白フィルター（上に薄く被せる） */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.45);
-            /* 透明度はお好みで 0.3〜0.6 */
-            pointer-events: none;
-            /* クリック干渉を防ぐ */
-        }
-
-        /* テキストを最前面に */
-        .hero .wrap {
-            position: relative;
-            z-index: 1;
-            padding: clamp(48px, 13vw, 120px) 16px 0;
         }
 
         .sub_aboutus {
@@ -61,77 +27,12 @@
             margin: 0 0 .5rem;
         }
 
-
-        @media (max-width:480px) {
-            .hero .wrap {
-                position: relative;
-                z-index: 1;
-                padding: clamp(48px, 33vw, 160px) 10px 0;
-            }
-        }
-
-        /* md=768px 基準 */
         @media (max-width: 767.98px) {
-            .hero {
-                --hero-img: url('../image/about_us2.jpg');
-
-                position: relative;
-                background-image: var(--hero-img);
-                background-size: cover;
-                /* 画面いっぱいにフィット */
-                background-position: center;
-                /* 中央寄せ */
-                background-repeat: no-repeat;
-                min-height: 46vh;
-                /* お好みで高さ調整 */
-                color: #111;
-                /* テキスト色 */
-            }
-
-
-            .hero .title h1 {
-                font-size: 2.000rem;
-                line-height: 1.3;
-                margin: 0 0 .5rem;
-            }
-
             .sub_aboutus {
                 font-size: 1.070rem;
                 line-height: 1.3;
                 margin: 0 0 .5rem;
             }
-
-            .hero .sub {
-                font-size: 0.875rem;
-                font-weight: 600;
-                letter-spacing: .06em;
-                opacity: .9;
-            }
-
-            .lead {
-                font-size: 0.875rem;
-            }
-
-            /* small 相当 */
-        }
-
-        .hero .title h1 {
-            line-height: 1.3;
-            margin: 80px 0 .5rem;
-            letter-spacing: 0.08em;
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-        .hero .lead {
-            margin-top: 1rem;
-            max-width: 60ch;
         }
     </style>
 </head>
@@ -152,15 +53,7 @@
         </nav>
 
     </div>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-        <div class="wrap">
-            <div class="title">
-                <h1>About US</h1>
-                <div class="sub"><br><br><br><br>私たちOBFall株式会社について<br>　</div>
-            </div>
-        </div>
-    </section>
+    <x-page-hero title="About US" sub="私たちOBFall株式会社について" variant="structure" />
 
     <main class="py-5">
 

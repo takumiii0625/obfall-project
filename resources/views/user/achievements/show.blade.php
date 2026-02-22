@@ -17,199 +17,149 @@
         :root {
             --ink: #1a1a1a;
             --muted: #5a6978;
-            --blue: #2c5282;
-            --bg: #f8fafc;
+            --blue: #0dcaf0;
+            --blue-light: rgba(13,202,240,.08);
+            --bg: #fff;
+            --bg-alt: #f8fafc;
             --card: #fff;
-            --line: #dde5ed;
-            --radius: 12px;
-            --shadow: 0 4px 20px rgba(30, 58, 95, .10);
-            --maxw: 1120px;
+            --line: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,.06);
+            --shadow-hover: 0 12px 40px rgba(0,0,0,.10);
+            --maxw: 1100px;
+            --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
         }
 
-        .human-rights-policy {
-            color: #eef6ff
-        }
-
-        .hero {
-            --hero-img: url('../image/achievements.jpg');
-
-            position: relative;
-            background-image: var(--hero-img);
-            background-size: cover;
-            /* 画面いっぱいにフィット */
-            background-position: center;
-            /* 中央寄せ */
-            background-repeat: no-repeat;
-            min-height: 36vh;
-            /* お好みで高さ調整 */
-            color: #111;
-            /* テキスト色 */
-        }
-
-        /* 白フィルター（上に薄く被せる） */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.45);
-            /* 透明度はお好みで 0.3〜0.6 */
-            pointer-events: none;
-            /* クリック干渉を防ぐ */
-        }
-
-        /* テキストを最前面に */
-        .hero .wrap {
-            position: relative;
-            z-index: 1;
-            padding: clamp(48px, 13vw, 120px) 16px 0;
-        }
-
-        @media (max-width:480px) {
-            .hero .wrap {
-                position: relative;
-                z-index: 1;
-                padding: clamp(48px, 33vw, 160px) 10px 0;
-            }
-        }
-
-
-        .hero .title h1 {
-            line-height: 1.3;
-            margin: 80px 0 .5rem;
-            letter-spacing: 0.08em;
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .hero .sub {
-            font-weight: 600;
-            letter-spacing: .06em;
-            opacity: .9;
-        }
-
-        .hero .lead {
-            margin-top: 1rem;
-            max-width: 60ch;
-        }
+        .human-rights-policy { color: #eef6ff }
 
         body {
             margin: 0;
             background: var(--bg);
             color: var(--ink);
-            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", Segoe UI, Roboto, Arial, sans-serif;
-            line-height: 1.8
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.8;
         }
 
         .wrap {
             max-width: var(--maxw);
             margin: 0 auto;
-            padding: 0 20px
+            padding: 0 24px;
         }
 
+        /* ── セクション ── */
+        .sec { padding: 80px 0; }
+        .sec--alt { background: var(--bg-alt); }
 
-
-
-        .lead {
-            color: black;
-            max-width: 760px
-        }
-
-        .grid {
-            display: grid;
-            gap: 18px;
-            margin: 28px 0 48px
-        }
-
-        @media (min-width:900px) {
-            .grid {
-                grid-template-columns: 1fr 1fr
-            }
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 28px
-        }
-
-        .kicker {
-            font-size: 12px;
-            letter-spacing: .12em;
-            color: var(--blue);
-            font-weight: 700;
-
-            font-family: serif;
-        }
-
-        h2,
-        h3 {
-            margin: .2rem 0 .4rem;
-            font-size: calc(1.3rem + .6vw);
-        }
-
-        p {
-            margin: .4rem 0 1rem;
-            color: var(--muted)
-        }
-
-
-
-        a.more {
-            color: var(--blue);
-            text-decoration: none;
-            text-align: end;
-        }
-
-
-        .card-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
+        /* ── リード文 ── */
+        .lead-text {
+            font-size: clamp(1rem, 1.8vw, 1.18rem);
+            max-width: 720px;
+            line-height: 2;
+            color: #444;
+            margin: 0 auto;
             text-align: center;
         }
 
-        /* md=768px 基準 */
+        /* ── カードグリッド ── */
+        .srv-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+            .srv-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ── カード ── */
+        .srv-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 40px 36px 32px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s ease, box-shadow .3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+        .srv-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .srv-card__num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(13,202,240,.12);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .srv-card__kicker {
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .srv-card__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            margin: 0 0 4px;
+            line-height: 1.4;
+        }
+
+        .srv-card__en {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-family: var(--font-heading);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .srv-card__desc {
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 1.9;
+            margin: 0;
+            flex: 1;
+        }
+
+        .srv-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 600;
+            margin-top: 24px;
+            align-self: flex-end;
+            transition: gap .25s ease;
+        }
+        .srv-card:hover .srv-card__link { gap: 10px; }
+
+        /* ── パンくず ── */
+        .breadcrumb-sec {
+            padding: 32px 0 48px;
+        }
+
+        /* ── スマホ対応 ── */
         @media (max-width: 767.98px) {
-            .hero {
-                --hero-img: url('../image/achievements.jpg');
-
-                position: relative;
-                background-image: var(--hero-img);
-                background-size: cover;
-                /* 画面いっぱいにフィット */
-                background-position: center;
-                /* 中央寄せ */
-                background-repeat: no-repeat;
-                min-height: 46vh;
-                /* お好みで高さ調整 */
-                color: #111;
-                /* テキスト色 */
-            }
-
-            .hero .title h1 {
-                font-size: 2.000rem;
-                line-height: 1.3;
-                margin: 0 0 .5rem;
-            }
-
-            .hero .sub {
-                font-size: 0.875rem;
-                font-weight: 600;
-                letter-spacing: .06em;
-                opacity: .9;
-            }
-
-            .lead {
-                font-size: 0.875rem;
-            }
-
-            /* small 相当 */
+            .sec { padding: 48px 0; }
+            .wrap { padding: 0 16px; }
+            .lead-text { text-align: left; font-size: .95rem; }
+            .srv-card { padding: 28px 20px 24px; }
+            .srv-card__num { font-size: 2.2rem; }
+            .srv-card__link { margin-top: 16px; }
+            .srv-grid { gap: 20px; }
+            .breadcrumb-sec { padding: 24px 0 32px; }
         }
     </style>
 </head>
@@ -219,81 +169,81 @@
         <x-header />
         <nav class="nav-02">
             <ul>
-
                 <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
                 <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
-
             </ul>
         </nav>
     </div>
 
+    <x-page-hero title="Achievements" sub="ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。" variant="chart" />
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
+    {{-- リード文 --}}
+    <section class="sec">
         <div class="wrap">
-            <div class="title">
-                <h1>Achievements</h1>
-                <div class="sub"><br><br><br><br>ITの力で、人と社会の可能性を広げる。<br>OBFallの挑戦と成果。</div>
+            <p class="lead-text">
+                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、<br class="d-none d-md-inline">
+                自社開発・受託開発・脆弱性診断の3つの領域で、<br class="d-none d-md-inline">
+                社会や現場の課題を"仕組み"として解決してきました。<br>
+                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。<br class="d-none d-md-inline">
+                どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
+            </p>
+        </div>
+    </section>
+
+    {{-- 実績カード一覧 --}}
+    <section class="sec sec--alt">
+        <div class="wrap">
+            <div class="srv-grid">
+
+                {{-- 01 自社開発 --}}
+                <article class="srv-card">
+                    <div class="srv-card__num">01</div>
+                    <div class="srv-card__kicker">Products</div>
+                    <h2 class="srv-card__title">自社開発</h2>
+                    <div class="srv-card__en">IT &times; Vision</div>
+                    <p class="srv-card__desc">人と社会の可能性を広げる、自社プロダクト。OBFallの想いを、サービスというかたちで届けます。</p>
+                    <a class="srv-card__link" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right"></i></a>
+                </article>
+
+                {{-- 02 受託開発 --}}
+                <article class="srv-card">
+                    <div class="srv-card__num">02</div>
+                    <div class="srv-card__kicker">Contract Development</div>
+                    <h2 class="srv-card__title">受託開発</h2>
+                    <div class="srv-card__en">IT &times; Collaboration</div>
+                    <p class="srv-card__desc">ともにつくり、ともに前へ。クライアントの想いを汲み取り、共に課題を解決するパートナーとして伴走します。</p>
+                    <a class="srv-card__link" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right"></i></a>
+                </article>
+
+                {{-- 03 脆弱性診断 --}}
+                <article class="srv-card">
+                    <div class="srv-card__num">03</div>
+                    <div class="srv-card__kicker">Security Assessment</div>
+                    <h2 class="srv-card__title">脆弱性診断</h2>
+                    <div class="srv-card__en">Security &times; Engineering</div>
+                    <p class="srv-card__desc">安全は、後付けではなく、設計から。開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</p>
+                    <a class="srv-card__link" href="{{ route('achievementsSecurity') }}">詳しく見る <i class="bi bi-arrow-right"></i></a>
+                </article>
+
             </div>
         </div>
     </section>
-    <main class="wrap">
-        <section aria-label="overview">
-            <br>
-            <p>
-                私たちは、「テクノロジーで人生をより豊かにする」という理念のもと、
-                自社開発・受託開発・脆弱性診断・SESの4つの領域で、
-                社会や現場の課題を“仕組み”として解決してきました。<br>
-                ここで紹介するのは、私たちの手で形にしてきたプロジェクトたち。
-                どれも、「人」や「社会」に新しい選択肢を生み出すための挑戦です。
-            </p>
-        </section>
 
-        <section aria-label="service-cards" class="grid">
-            <!-- 自社開発 -->
-            <article class="card">
-                <div class="kicker">Products</div>
-                <div><i class="bi bi-lightbulb-fill"></i>自社開発</div>
-                <h3 class="card-title">IT × Vision</h3>
-                <p>人と社会の可能性を広げる、自社プロダクト。<br>
-                    OBFallの想いを、サービスというかたちで届けます。</p>
-                <a class="more" href="{{ route('achievementsProducts') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
+    {{-- パンくず --}}
+    <div class="breadcrumb-sec">
+        <div class="wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+                    <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                    <li class="breadcrumb-item">実績・事例紹介</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 
-            <!-- 受託開発 -->
-            <article class="card">
-                <div class="kicker">Contract Development</div>
-                <div><i class="bi bi-lightbulb-fill"></i>受託開発</div>
-                <h3 class="card-title">IT × Collaboration</h3>
-                <p>ともにつくり、ともに前へ。<br>
-                    クライアントの想いを汲み取り、共に課題を解決するパートナーとして伴走します。
-                </p>
-                <a class="more" href="{{ route('achievementsContract') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
-
-            <!-- 脆弱性診断 -->
-            <article class="card">
-                <div class="kicker">Security Assessment</div>
-                <div><i class="bi bi-lightbulb-fill"></i>脆弱性診断</div>
-                <h3 class="card-title">Security × Engineering</h3>
-                <p>安全は、後付けではなく、設計から。<br>
-                    開発と診断をワンストップで行い、信頼できるプロダクトづくりを支えます。</p>
-                <a class="more" href="{{ route('achievementsSecurity') }}">詳しく見る <i class="bi bi-arrow-right-circle-fill"></i></a>
-            </article>
-        </section>
-
-        <nav aria-label="breadcrumb" class="m-3">
-            <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
-
-                <li class="breadcrumb-item"><a style="color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));" href="{{ route('indexDev') }}">トップ</a></li>
-                <li class="breadcrumb-item">実績・事例紹介</a></li>
-            </ol>
-        </nav>
-
-    </main>
     <x-footer />
     <script src="{{ asset('js/main.js') }}" defer></script>
 </body>

@@ -5,276 +5,238 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <!-- Bootstrap 5 CDN (例) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1c70550d95.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Philosophy | OBFall Inc.</title>
     <style>
-        /* ====== Premium Design Tokens ====== */
         :root {
-            --bg: #f8fafc;
             --ink: #1a1a1a;
-            --ink-2: #1e3a5f;
             --muted: #5a6978;
-            --blue: #2c5282;
-            --blue-weak: #eef4f8;
-            --card: #ffffff;
-            --divider: #dde5ed;
-            --radius: 12px;
-            --shadow: 0 4px 20px rgba(30, 58, 95, .10);
-            --maxw: 1120px;
+            --blue: #0dcaf0;
+            --blue-light: rgba(13,202,240,.08);
+            --bg: #fff;
+            --bg-alt: #f8fafc;
+            --card: #fff;
+            --line: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,.06);
+            --shadow-hover: 0 12px 40px rgba(0,0,0,.10);
+            --maxw: 1100px;
+            --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
         }
 
-        .human-rights-policy {
-            color: #eef6ff
-        }
+        .human-rights-policy { color: #eef6ff }
 
-        html,
-        body {
+        html, body {
+            margin: 0;
             background: var(--bg);
             color: var(--ink);
-            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", Segoe UI, Roboto, Ubuntu, "Helvetica Neue", "Helvetica", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.8;
-        }
-
-        h1,
-        h2,
-        h3 {
-            line-height: 1.35;
-            margin: 0 0 .5em
-        }
-
-        h1 {
-            font-size: clamp(28px, 4vw, 100px);
-            font-weight: 800;
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        h2 {
-            font-size: clamp(18px, 2.6vw, 26px);
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: 0.03em;
-        }
-
-        h3 {
-            font-size: clamp(16px, 2.2vw, 22px);
-            font-weight: 700
-        }
-
-        p {
-            margin: .6em 0
         }
 
         .wrap {
             max-width: var(--maxw);
             margin: 0 auto;
-            padding: 0 20px
+            padding: 0 24px;
         }
 
+        /* ── セクション ── */
+        .sec { padding: 80px 0; }
+        .sec--alt { background: var(--bg-alt); }
 
-
-        .hero {
-            --hero-img: url('../image/chou.jpg');
-
-            position: relative;
-            background-image: var(--hero-img);
-            background-size: cover;
-            /* 画面いっぱいにフィット */
-            background-position: center;
-            /* 中央寄せ */
-            background-repeat: no-repeat;
-            min-height: 36vh;
-            /* お好みで高さ調整 */
-            color: #111;
-            /* テキスト色 */
-        }
-
-        /* 白フィルター（上に薄く被せる） */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.45);
-            /* 透明度はお好みで 0.3〜0.6 */
-            pointer-events: none;
-            /* クリック干渉を防ぐ */
-        }
-
-        /* テキストを最前面に */
-        .hero .wrap {
-            position: relative;
-            z-index: 1;
-            padding: clamp(48px, 13vw, 120px) 16px 0px;
-        }
-
-
-        .hero .title h1 {
-            line-height: 1.3;
-            margin: 80px 0 .5rem;
-            letter-spacing: 0.08em;
-        }
-
-        .hero .sub {
-            font-weight: 600;
-            letter-spacing: .06em;
-            opacity: .9;
-        }
-
-        .hero .lead {
-            margin-top: 1rem;
-            max-width: 60ch;
-        }
-
-        /* md=768px 基準 */
-        @media (max-width: 767.98px) {
-            .hero {
-                --hero-img: url('../image/chou.jpg');
-
-                position: relative;
-                background-image: var(--hero-img);
-                background-size: cover;
-                /* 画面いっぱいにフィット */
-                background-position: center;
-                /* 中央寄せ */
-                background-repeat: no-repeat;
-                min-height: 46vh;
-                /* お好みで高さ調整 */
-                color: #111;
-                /* テキスト色 */
-            }
-
-            .hero .wrap {
-                position: relative;
-                z-index: 1;
-                padding: clamp(48px, 8vw, 160px) 10px;
-            }
-
-            .hero .title h1 {
-                font-size: 2.000rem;
-                line-height: 1.3;
-                margin: 0 0 .5rem;
-            }
-
-            .hero .sub {
-                font-size: 0.875rem;
-                font-weight: 600;
-                letter-spacing: .06em;
-                opacity: .9;
-            }
-
-            .lead {
-                font-size: 0.875rem;
-            }
-
-            /* small 相当 */
-        }
-
-        .grid {
-            display: grid;
-            gap: 28px
-        }
-
-        @media (min-width:960px) {
-            .grid-2 {
-                grid-template-columns: 1.1fr 1.4fr
-            }
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--divider);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 28px
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        .values {
-            display: grid;
-            gap: 20px
-        }
-
-        @media (min-width:860px) {
-            .values {
-                grid-template-columns: repeat(3, 1fr)
-            }
-        }
-
-        .value {
-            padding: 24px;
-            border: 1px solid var(--divider);
-            border-radius: 14px;
-            background: #fff
-        }
-
-        .value h4 {
-            margin: 0 0 .4rem;
-            font-size: 18px
-        }
-
-        .kicker {
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--blue);
-            font-size: 12px;
-            margin-bottom: .8rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-
-
-        .message {
-            background: #fff;
-            border: 1px solid var(--divider);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 36px
-        }
-
-        .origin {
-            background: var(--blue-weak);
-            border: 1px solid var(--divider);
-            border-radius: var(--radius);
-            padding: 28px
-        }
-
-        .origin .bar {
-            border-left: 4px solid var(--blue);
-            padding-left: 16px
-        }
-
-        .ending {
+        /* ── セクション見出し ── */
+        .sec-heading {
             text-align: center;
-            color: var(--muted)
+            margin-bottom: 48px;
+        }
+        .sec-heading__kicker {
+            display: block;
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .sec-heading__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
         }
 
-        .vis-img {
-            aspect-ratio: 16/10;
-            background: #e9f2fc;
-            border: 1px dashed #bcd3f5;
-            border-radius: 12px
+        /* ── ステートメントカード（Vision / Mission） ── */
+        .statement {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .statement__kicker {
+            display: block;
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .statement__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+        .statement__body {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            line-height: 2;
+            color: #444;
+            margin: 0;
         }
 
-        .vis-caption {
-            font-size: 12px;
-            color: #708297;
-            margin-top: 6px
+        /* ── 3つの柱カード ── */
+        .value-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+            .value-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        @media (max-width:480px) {
-            .hero .wrap {
-                position: relative;
-                z-index: 1;
-                padding: clamp(48px, 33vw, 160px) 10px 0;
-            }
+        .value-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 36px 32px 32px;
+            box-shadow: var(--shadow);
+            transition: transform .3s ease, box-shadow .3s ease;
+            text-align: center;
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-card__num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(13,202,240,.12);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .value-card__kicker {
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .value-card__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.15rem, 2vw, 1.35rem);
+            font-weight: 700;
+            margin: 0 0 12px;
+            line-height: 1.5;
+        }
+
+        .value-card__desc {
+            color: var(--muted);
+            font-size: .92rem;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        /* ── メッセージ ── */
+        .message-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .message-box__kicker {
+            display: block;
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .message-box__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+        .message-box__text {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            line-height: 2;
+            color: #444;
+            margin: 0;
+        }
+
+        /* ── 由来セクション ── */
+        .origin-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            padding: 40px;
+            border-left: 4px solid var(--blue);
+        }
+        .origin-box__kicker {
+            display: block;
+            font-size: .75rem;
+            letter-spacing: .14em;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .origin-box__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 700;
+            margin: 0 0 16px;
+            line-height: 1.5;
+        }
+        .origin-box__text {
+            color: #444;
+            font-size: .95rem;
+            line-height: 2;
+            margin: 0;
+        }
+
+        /* ── パンくず ── */
+        .breadcrumb-sec {
+            padding: 32px 0 48px;
+        }
+
+        /* ── スマホ対応 ── */
+        @media (max-width: 767.98px) {
+            .sec { padding: 48px 0; }
+            .wrap { padding: 0 16px; }
+            .sec-heading { margin-bottom: 32px; }
+            .statement__body { text-align: left; font-size: .95rem; }
+            .value-card { padding: 28px 20px 24px; }
+            .value-card__num { font-size: 2rem; }
+            .value-grid { gap: 20px; }
+            .message-box { padding: 32px 20px; }
+            .message-box__title { font-size: 1.2rem; }
+            .origin-box { padding: 28px 20px; }
+            .breadcrumb-sec { padding: 24px 0 32px; }
         }
     </style>
 </head>
@@ -284,105 +246,121 @@
         <x-header />
         <nav class="nav-02">
             <ul>
-
                 <li class="link text-dark "><a href="{{ route('philosophy') }}" class="text-dark text-decoration-none">PHILOSOPHY</a></li>
                 <li class="link text-dark "><a href="{{ route('userServicesShow') }}" class="text-dark text-decoration-none">SERVICE</a></li>
                 <li class="link text-dark "><a href="{{ route('achievements') }}" class="text-dark text-decoration-none">ACHIEVEMENTS</a></li>
                 <li class="link text-dark "><a href="{{ route('aboutus') }}" class="text-dark text-decoration-none">ABOUT US</a></li>
                 <li class="link text-dark "><a href="{{ route('contact') }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">CONTACT</a></li>
-
             </ul>
         </nav>
     </div>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
+
+    <x-page-hero title="Philosophy" sub="「あなたの、あなたによる、あなたのための」<br>をすべての人へ。" variant="neural" />
+
+    {{-- Vision --}}
+    <section class="sec">
         <div class="wrap">
-            <div class="title">
-                <h1>Philosophy</h1>
-                <div class="sub"><br><br><br><br>「あなたの、あなたによる、あなたのための」<br>　をすべての人へ。</div>
+            <div class="statement">
+                <span class="statement__kicker">Vision</span>
+                <h2 class="statement__title">「あなたの、あなたによる、あなたのための」をすべての人へ。</h2>
+                <p class="statement__body">
+                    テクノロジーの力で、人と社会の可能性を広げ、<br class="d-none d-md-inline">
+                    誰もが自分らしく生き、挑戦できる未来を目指します。
+                </p>
             </div>
         </div>
     </section>
 
-
-    <!-- ===== Vision ===== -->
-    <section id="vision" style="background:var(--blue-weak);border-top:none">
-        <div class="wrap pt-4">
-            <div class="card" style="background:#fff">
-                <div class="kicker">Vision</div>
-                <h2 style="color:var(--ink)">「あなたの、あなたによる、あなたのための」をすべての人へ。</h2>
-                <p>テクノロジーの力で、人と社会の可能性を広げ、
-                    誰もが自分らしく生き、挑戦できる未来を目指します。</p>
+    {{-- Mission --}}
+    <section class="sec sec--alt">
+        <div class="wrap">
+            <div class="statement">
+                <span class="statement__kicker">Mission</span>
+                <h2 class="statement__title">働くすべての人が、自分自身のために、<br class="d-none d-md-inline">自由にそして熱意を持って働ける社会をつくっていきます。</h2>
+                <p class="statement__body">
+                    その実現のために、私たちはテクノロジーを通じて、挑戦する人と組織を支え、<br class="d-none d-md-inline">
+                    "つくる・支える・守る"という3つの軸で、社会に新しい価値を届け続けます。
+                </p>
             </div>
         </div>
     </section>
 
+    {{-- Core Values --}}
+    <section class="sec">
+        <div class="wrap">
+            <div class="sec-heading">
+                <span class="sec-heading__kicker">Core Values</span>
+                <h2 class="sec-heading__title">3つの柱</h2>
+            </div>
 
-    <!--=====Mission=====-->
-    <section id="mission" style="background:var(--blue-weak);border-top:none">
-        <div class="wrap p-4">
-            <div class="card" style="background:#fff">
-                <div class="kicker">Mission</div>
-                <h2 style="color:var(--ink)">働くすべての人が、自分自身のために、自由にそして熱意を持って働ける社会をつくっていきます。</h2>
-                <p>その実現のために、私たちはテクノロジーを通じて、挑戦する人と組織を支え、“つくる・支える・守る”という3つの軸で、社会に新しい価値を届け続けます。</p>
+            <div class="value-grid">
+
+                <article class="value-card">
+                    <div class="value-card__num">01</div>
+                    <div class="value-card__kicker">Principle</div>
+                    <h3 class="value-card__title">理念採用</h3>
+                    <p class="value-card__desc">共感を軸に、人と組織をつなぐ。理念に共鳴する仲間とともに、価値ある未来を創ります。</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-card__num">02</div>
+                    <div class="value-card__kicker">Satisfaction</div>
+                    <h3 class="value-card__title">ES＝CS</h3>
+                    <p class="value-card__desc">働く人の幸福が、顧客の満足を生む。社員満足と顧客満足の両立を通じて、持続的な成長を目指します。</p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-card__num">03</div>
+                    <div class="value-card__kicker">Growth &amp; Challenge</div>
+                    <h3 class="value-card__title">成長と挑戦</h3>
+                    <p class="value-card__desc">一人ひとりが自らの成長に挑み、変化を恐れず前へ。挑戦を後押しする文化を大切にします。</p>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <!-- ===== Core Values ===== -->
-    <section id="values">
-        <div class="wrap pt-4">
-            <div class="kicker">　Core Values</div>
-            <h2>　3つの柱</h2>
-            <div class="values">
-                <div class="value">
-                    <h4>理念採用</h4>
-                    <p class="muted">共感を軸に、人と組織をつなぐ。理念に共鳴する仲間とともに、価値ある未来を創ります。</p>
-                </div>
-                <div class="value">
-                    <h4>ES＝CS</h4>
-                    <p class="muted">働く人の幸福が、顧客の満足を生む。社員満足と顧客満足の両立を通じて、持続的な成長を目指します。</p>
-                </div>
-                <div class="value">
-                    <h4>Growth &amp; Challenge</h4>
-                    <p class="muted">一人ひとりが自らの成長に挑み、変化を恐れず前へ。挑戦を後押しする文化を大切にします。</p>
-                </div>
+    {{-- Message --}}
+    <section class="sec sec--alt">
+        <div class="wrap">
+            <div class="message-box">
+                <span class="message-box__kicker">Message</span>
+                <h2 class="message-box__title">人と社会が、ともに成長できる世界へ。</h2>
+                <p class="message-box__text">
+                    OBFallは、ITの力で"人"と"社会"が共に成長できる世界を目指しています。<br>
+                    働くことが、あなたの人生を豊かにする体験であってほしい。<br class="d-none d-md-inline">
+                    その想いを胸に、私たちは挑戦を続けていきます。
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- ===== Message ===== -->
-    <section id="message">
-        <div class="wrap pt-4">
-            <div class="message">
-                <div class="kicker">Message</div>
-                <h3 style="margin-top:.2rem">人と社会が、ともに成長できる世界へ。</h3>
-                <p>OBFallは、ITの力で“人”と“社会”が共に成長できる世界を目指しています。働くことが、あなたの人生を豊かにする体験であってほしい。その想いを胸に、私たちは挑戦を続けていきます。</p>
+    {{-- Origin --}}
+    <section class="sec">
+        <div class="wrap">
+            <div class="origin-box">
+                <span class="origin-box__kicker">Origin of Our Philosophy</span>
+                <h3 class="origin-box__title">理念と社名の由来</h3>
+                <p class="origin-box__text">
+                    「あなたの、あなたによる、あなたのための」という言葉は、アメリカ第16代大統領エイブラハム・リンカーンの演説に由来しています。
+                    社名 <strong>OBFall</strong> は、その演説に登場する "of the people, by the people, for the people" に、<strong>"すべての人へ（all）"</strong> という想いを込めて名づけました。
+                    OBFallは、テクノロジーの力で、すべての人に可能性を届ける企業でありたいと考えています。
+                </p>
             </div>
         </div>
     </section>
 
-
-    <!-- ===== Origin ===== -->
-    <section id="origin">
-        <div class="wrap pt-4">
-            <div class="origin">
-                <div class="bar">
-                    <div class="kicker">Origin of Our Philosophy</div>
-                    <h3>理念と社名の由来</h3>
-                    <p>「あなたの、あなたによる、あなたのための」という言葉は、アメリカ第16代大統領エイブラハム・リンカーンの演説に由来しています。社名 <strong>OBFall</strong> は、その演説に登場する “of the people, by the people, for the people” に、<strong>“すべての人へ（all）”</strong> という想いを込めて名づけました。OBFallは、テクノロジーの力で、すべての人に可能性を届ける企業でありたいと考えています。</p>
-                </div>
-            </div>
+    {{-- パンくず --}}
+    <div class="breadcrumb-sec">
+        <div class="wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
+                    <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
+                    <li class="breadcrumb-item">企業理念</li>
+                </ol>
+            </nav>
         </div>
-    </section>
-    <nav aria-label="breadcrumb" class="m-3">
-        <ol class="breadcrumb" style="--bs-breadcrumb-divider:'＞'; font-size: clamp(.875rem, 1.8vw, 1rem);">
-
-            <li class="breadcrumb-item"><a href="{{ route('indexDev') }}">トップ</a></li>
-            <li class="breadcrumb-item">企業理念</a></li>
-        </ol>
-    </nav>
-
+    </div>
 
     <x-footer />
     <script src="{{ asset('js/main.js') }}" defer></script>
