@@ -60,6 +60,15 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
   勝手に決めない
 - 日本語で報告する。完了時は「作成ファイル一覧 / 現行との差分 / 次に再利用できる部品」を短く
 
+## デプロイ（Vercel）
+
+- チーム `obf-all`（takumiii0625's projects、Pro）/ プロジェクト `obfall-project`（Root Directory = `web`、Framework = Next.js）。本番 URL: https://obfall-project.vercel.app（独自ドメイン切替はフェーズ4）
+- GitHub `takumiii0625/obfall-project` の `main` への push で本番デプロイ。CLI で再デプロイするときは `cd web && npx vercel redeploy <直近の本番デプロイURL> --scope obf-all`（`vercel deploy` を web/ から実行すると Root Directory 不一致で失敗する）
+- Storage: Neon `obfall-db`（Marketplace、DATABASE_URL 等は自動注入）、Blob `obfall-uploads`（public、BLOB_READ_WRITE_TOKEN 自動注入）
+- 本番 DB へのマイグレーション: `npx vercel env pull .env.production.local --environment production` → `DATABASE_URL=<DATABASE_URL_UNPOOLED の値> npx drizzle-kit migrate`（pooler ではなく unpooled を使う）
+- 手動で入れた環境変数: AUTH_SECRET（Production / Preview 別値）、APP_URL。未設定: RESEND_API_KEY、CONTACT_MAIL_FROM / CONTACT_MAIL_TO、NEXT_PUBLIC_TURNSTILE_SITE_KEY / TURNSTILE_SECRET_KEY（未設定の間、問い合わせメールは本番で送信失敗する）
+- `.env.local` は `vercel link` / `vercel env pull` で上書き追記されることがある。DATABASE_URL（ローカル pg）と AUTH_SECRET が残っているか確認する
+
 ## コマンド
 
 - 開発: `cd web && npm run dev`（http://localhost:3000）。事前に `web/.env.local` の DATABASE_URL（ローカル: `postgresql://<user>@localhost:5432/obfall_dev`）と PostgreSQL の起動が必要
