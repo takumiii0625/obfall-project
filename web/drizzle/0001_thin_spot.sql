@@ -1,0 +1,1 @@
+ALTER TABLE "admins" ADD COLUMN "login_failed_count" smallint DEFAULT 0 NOT NULL;

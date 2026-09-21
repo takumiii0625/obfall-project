@@ -1,0 +1,320 @@
+/* contacts/contact.blade.php + contacts/confirm.blade.php の <style> の移植（.page-contact 配下のみ）
+   両画面の :root / html,body / .wrap / .sec / .breadcrumb-sec は同一。
+   .human-rights-policy は globals.css に共通化済み */
+
+.page-contact {
+    /* :root の上書き分 */
+    --ink: #1a1a1a;
+    --muted: #5a6978;
+    --blue: #0dcaf0;
+    --blue-light: rgba(13, 202, 240, .08);
+    --bg: #fff;
+    --bg-alt: #f8fafc;
+    --card: #fff;
+    --line: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, .06);
+    --maxw: 1100px;
+    --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
+
+    /* html, body の指定分 */
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+:where(.page-contact) .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── セクション ── */
+:where(.page-contact) .sec {
+    padding: 80px 0;
+}
+
+:where(.page-contact) .sec--alt {
+    background: var(--bg-alt);
+}
+
+/* ── リード文 ── */
+:where(.page-contact) .lead-text {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    max-width: 720px;
+    line-height: 2;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── フォームカード ── */
+:where(.page-contact) .form-card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 767.98px) {
+    :where(.page-contact) .form-card {
+        padding: 28px 20px;
+    }
+}
+
+:where(.page-contact) .form-card .form-group {
+    padding: 12px 0;
+}
+
+:where(.page-contact) .form-card .col-form-label {
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+:where(.page-contact) .form-card .badge {
+    background: #e53e3e;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+:where(.page-contact) .form-card .form-control {
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    font-size: .95rem;
+    transition: border-color .2s;
+}
+
+:where(.page-contact) .form-card .form-control:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(13, 202, 240, .1);
+}
+
+:where(.page-contact) .form-card .alert-danger {
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: .85rem;
+    border-radius: 8px;
+}
+
+/* ── 送信ボタン ── */
+:where(.page-contact) .form-card .btn-primary,
+:where(.page-contact) .form-submit .btn-primary {
+    background: var(--blue);
+    border: none;
+    border-radius: 99px;
+    padding: 12px 36px;
+    font-size: .95rem;
+    font-weight: 600;
+    transition: background .25s ease, transform .2s ease;
+}
+
+:where(.page-contact) .form-card .btn-primary:hover,
+:where(.page-contact) .form-submit .btn-primary:hover {
+    background: #1e3a5f;
+    transform: translateY(-2px);
+}
+
+:where(.page-contact) .form-submit {
+    text-align: center;
+    margin-top: 28px;
+}
+
+/* ── プライバシーポリシー ── */
+:where(.page-contact) .privacy-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    padding: 36px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-size: .88rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+:where(.page-contact) .privacy-box h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 16px;
+}
+
+:where(.page-contact) .privacy-agree {
+    max-width: 760px;
+    margin: 24px auto 0;
+    text-align: center;
+}
+
+:where(.page-contact) .privacy-agree .form-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+:where(.page-contact) .privacy-agree .form-check-input {
+    width: 18px;
+    height: 18px;
+}
+
+/* ── 確認カード（confirm.blade.php） ── */
+:where(.page-contact) .confirm-card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 767.98px) {
+    :where(.page-contact) .confirm-card {
+        padding: 28px 20px;
+    }
+}
+
+:where(.page-contact) .confirm-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+:where(.page-contact) .confirm-item:last-of-type {
+    border-bottom: none;
+}
+
+:where(.page-contact) .confirm-item__label {
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+:where(.page-contact) .confirm-item__label .badge {
+    background: #e53e3e;
+    color: #fff;
+    font-size: .65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+:where(.page-contact) .confirm-item__value {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ── ボタン ── */
+:where(.page-contact) .confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+:where(.page-contact) .confirm-actions .btn-primary {
+    background: var(--blue);
+    border: none;
+    border-radius: 99px;
+    padding: 12px 36px;
+    font-size: .95rem;
+    font-weight: 600;
+    transition: background .25s ease, transform .2s ease;
+}
+
+:where(.page-contact) .confirm-actions .btn-primary:hover {
+    background: #1e3a5f;
+    transform: translateY(-2px);
+}
+
+/* 現行は <a>。React では <button type="button"> のためボタン既定スタイルを打ち消す */
+:where(.page-contact) .confirm-actions .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: 2px solid var(--line);
+    border-radius: 99px;
+    background: transparent;
+    line-height: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color .25s ease, color .25s ease;
+}
+
+:where(.page-contact) .confirm-actions .btn-back:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* ── パンくず ── */
+:where(.page-contact) .breadcrumb-sec {
+    padding: 32px 0 48px;
+}
+
+/* ── スマホ対応 ── */
+@media (max-width: 767.98px) {
+    :where(.page-contact) .sec {
+        padding: 48px 0;
+    }
+
+    :where(.page-contact) .wrap {
+        padding: 0 16px;
+    }
+
+    :where(.page-contact) .lead-text {
+        text-align: left;
+        font-size: .95rem;
+    }
+
+    :where(.page-contact) .privacy-box {
+        padding: 24px 16px;
+        max-height: 300px;
+    }
+
+    :where(.page-contact) .form-submit {
+        margin-top: 20px;
+    }
+
+    :where(.page-contact) .confirm-actions {
+        gap: 12px;
+    }
+
+    :where(.page-contact) .confirm-actions .btn-primary {
+        padding: 10px 28px;
+        font-size: .9rem;
+    }
+
+    :where(.page-contact) .confirm-actions .btn-back {
+        padding: 10px 20px;
+        font-size: .9rem;
+    }
+
+    :where(.page-contact) .breadcrumb-sec {
+        padding: 24px 0 32px;
+    }
+}
+
+/* ── ハニーポット（移行で追加。画面外に置き、支援技術からも隠す） ── */
+:where(.page-contact) .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

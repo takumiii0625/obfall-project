@@ -1,0 +1,185 @@
+/* human-rights-policy.blade.php <head> 内の <style> をそのまま移植。
+   このページは (standalone) ルートレイアウト配下で、Bootstrap / app-base.css を
+   読み込まないため、現行と同じく要素セレクタのまま書いてよい。 */
+
+:root {
+  --brand: #4aa3df;
+  /* light blue theme */
+  --brand-ink: #0d3b66;
+  --ink: #1f2937;
+  --muted: #4b5563;
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --ok: #0b8a2d;
+  --warn: #b45309;
+  --border: #e5eef7;
+  --focus: #2563eb;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg), #fff);
+  line-height: 1.7;
+}
+
+header {
+  background: linear-gradient(135deg, var(--brand) 0%, #8bc6f5 100%);
+  color: #fff;
+  padding: 48px 20px;
+}
+
+header .container {
+  max-width: 980px;
+  margin: 0 auto
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 3.6vw, 40px);
+  letter-spacing: .02em;
+}
+
+header p {
+  margin: 0;
+  color: #eef6ff
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 56px
+}
+
+.note {
+  background: #e8f4ff;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #0b3b63;
+  margin-bottom: 24px;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  margin: 18px 0 26px;
+  box-shadow: 0 6px 18px rgba(22, 57, 94, .04);
+}
+
+h2 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  margin: 0 0 12px;
+  color: var(--brand-ink);
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+p {
+  margin: 12px 0
+}
+
+ul {
+  margin: 8px 0 16px 1.2em
+}
+
+li {
+  margin: 6px 0
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media(min-width:840px) {
+  .grid {
+    grid-template-columns: 1fr
+  }
+}
+
+.badge {
+  display: inline-block;
+  background: #dff5e8;
+  color: var(--ok);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: .8rem;
+  margin-left: 6px;
+}
+
+.contact-card {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fbfdff;
+}
+
+.contact-card a {
+  color: var(--brand-ink);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.disclaimer {
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s transform ease, .2s opacity ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: .95
+}
+
+.kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: #eef6ff;
+  border: 1px solid var(--border);
+  padding: 0 6px;
+  border-radius: 6px;
+}
+
+footer {
+  max-width: 980px;
+  margin: 24px auto 48px;
+  padding: 0 16px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* focus styles */
+a,
+button {
+  outline-offset: 3px
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--focus)
+}

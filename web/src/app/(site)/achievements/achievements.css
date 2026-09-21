@@ -1,0 +1,428 @@
+/* user/achievements/{show,products,contract,security}.blade.php <head> 内の <style> の移植
+   （.page-achievements 配下のみ）。
+
+   4画面の <style> は :root / body / .wrap / .sec / .lead-text / .sec-heading / .breadcrumb-sec /
+   スマホ対応 が同一のため 1 ファイルに統合し、画面ごとの差分は末尾の「画面別の差分」にまとめる。
+   - show      … .srv-grid（3列）/ .srv-card（3領域カード）
+   - products  … .achievement-card（ロゴ 160px、__badge、__inner--reverse）
+   - contract  … .achievement-card（ロゴ 160px、__inner--reverse）
+   - security  … .achievement-card（写真 240px、__name 下余白 20px）+ .spec-grid + .closing-text */
+
+.page-achievements {
+    /* :root の上書き分 */
+    --ink: #1a1a1a;
+    --muted: #5a6978;
+    --blue: #0dcaf0;
+    --blue-light: rgba(13, 202, 240, .08);
+    --bg: #fff;
+    --bg-alt: #f8fafc;
+    --card: #fff;
+    --line: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, .06);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, .10);
+    --maxw: 1100px;
+    --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
+
+    /* body の指定分 */
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+:where(.page-achievements) .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── セクション ── */
+:where(.page-achievements) .sec {
+    padding: 80px 0;
+}
+
+:where(.page-achievements) .sec--alt {
+    background: var(--bg-alt);
+}
+
+/* ── リード文 ── */
+:where(.page-achievements) .lead-text {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    max-width: 720px;
+    line-height: 2;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── セクション見出し ── */
+:where(.page-achievements) .sec-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+:where(.page-achievements) .sec-heading__kicker {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+:where(.page-achievements) .sec-heading__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ── 3領域カードグリッド（show） ── */
+:where(.page-achievements) .srv-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    :where(.page-achievements) .srv-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+:where(.page-achievements) .srv-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 40px 36px 32px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+:where(.page-achievements) .srv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+:where(.page-achievements) .srv-card__num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(13, 202, 240, .12);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+:where(.page-achievements) .srv-card__kicker {
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+:where(.page-achievements) .srv-card__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    margin: 0 0 4px;
+    line-height: 1.4;
+}
+
+:where(.page-achievements) .srv-card__en {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+:where(.page-achievements) .srv-card__desc {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.9;
+    margin: 0;
+    flex: 1;
+}
+
+:where(.page-achievements) .srv-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: 24px;
+    align-self: flex-end;
+    transition: gap .25s ease;
+}
+
+:where(.page-achievements) .srv-card:hover .srv-card__link {
+    gap: 10px;
+}
+
+/* ── 実績カード（products / contract / security） ── */
+:where(.page-achievements) .achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+:where(.page-achievements) .achievement-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+:where(.page-achievements) .achievement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+:where(.page-achievements) .achievement-card__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+@media (min-width: 768px) {
+    :where(.page-achievements) .achievement-card__inner {
+        flex-direction: row;
+    }
+
+    :where(.page-achievements) .achievement-card__inner--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+:where(.page-achievements) .achievement-card__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: var(--bg-alt);
+    min-height: 200px;
+}
+
+@media (min-width: 768px) {
+    :where(.page-achievements) .achievement-card__visual {
+        flex: 0 0 320px;
+    }
+}
+
+/* ロゴ（products / contract） */
+:where(.page-achievements) .achievement-card__logo {
+    max-width: 160px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* 写真（security） */
+:where(.page-achievements) .achievement-card__img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+:where(.page-achievements) .achievement-card__body {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+:where(.page-achievements) .achievement-card__name {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+    line-height: 1.4;
+}
+
+:where(.page-achievements) .achievement-card__desc {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.9;
+    margin: 0 0 24px;
+}
+
+:where(.page-achievements) .achievement-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: gap .25s ease;
+}
+
+:where(.page-achievements) .achievement-card__link:hover {
+    gap: 10px;
+}
+
+:where(.page-achievements) .achievement-card__badge {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 16px;
+    align-self: flex-start;
+}
+
+/* ── スペック一覧（security） ── */
+:where(.page-achievements) .spec-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+}
+
+@media (min-width: 600px) {
+    :where(.page-achievements) .spec-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+:where(.page-achievements) .spec-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+}
+
+:where(.page-achievements) .spec-item__label {
+    font-size: .75rem;
+    letter-spacing: .1em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+:where(.page-achievements) .spec-item__value {
+    color: var(--ink);
+    font-size: .95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── まとめ文（security） ── */
+:where(.page-achievements) .closing-text {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    max-width: 720px;
+    line-height: 2;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ── パンくず ── */
+:where(.page-achievements) .breadcrumb-sec {
+    padding: 32px 0 48px;
+}
+
+/* ── 画面別の差分 ── */
+/* security: カード名の下余白が 20px、説明文の下余白なし */
+:where(.page-achievements-security) .achievement-card__name {
+    margin-bottom: 20px;
+}
+
+:where(.page-achievements-security) .achievement-card__desc {
+    margin-bottom: 0;
+}
+
+/* ── スマホ対応 ── */
+@media (max-width: 767.98px) {
+    :where(.page-achievements) .sec {
+        padding: 48px 0;
+    }
+
+    :where(.page-achievements) .wrap {
+        padding: 0 16px;
+    }
+
+    :where(.page-achievements) .lead-text {
+        text-align: left;
+        font-size: .95rem;
+    }
+
+    :where(.page-achievements) .sec-heading {
+        margin-bottom: 32px;
+    }
+
+    :where(.page-achievements) .srv-card {
+        padding: 28px 20px 24px;
+    }
+
+    :where(.page-achievements) .srv-card__num {
+        font-size: 2.2rem;
+    }
+
+    :where(.page-achievements) .srv-card__link {
+        margin-top: 16px;
+    }
+
+    :where(.page-achievements) .srv-grid {
+        gap: 20px;
+    }
+
+    :where(.page-achievements) .achievement-card__body {
+        padding: 28px 20px;
+    }
+
+    :where(.page-achievements) .achievement-card__visual {
+        padding: 28px 20px;
+        min-height: 160px;
+    }
+
+    :where(.page-achievements) .achievement-card__logo {
+        max-width: 120px;
+    }
+
+    :where(.page-achievements) .achievement-card__img {
+        max-width: 180px;
+    }
+
+    :where(.page-achievements) .achievement-list {
+        gap: 24px;
+    }
+
+    :where(.page-achievements) .spec-grid {
+        gap: 12px;
+    }
+
+    :where(.page-achievements) .spec-item {
+        padding: 18px 16px;
+    }
+
+    :where(.page-achievements) .closing-text {
+        text-align: left;
+        font-size: .95rem;
+    }
+
+    :where(.page-achievements) .breadcrumb-sec {
+        padding: 24px 0 32px;
+    }
+}

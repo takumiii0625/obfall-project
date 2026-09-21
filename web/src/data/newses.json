@@ -1,0 +1,47 @@
+[
+  {
+    "id": 5,
+    "title": "汐留オフィス移転のお知らせ",
+    "content": "本社を汐留芝離宮ビルディング21Fへ移転いたしました。今後ともよろしくお願いいたします。",
+    "news_image_url_1": "image/office1.jpg",
+    "status": 1,
+    "deleted_at": null,
+    "created_at": "2026-09-01 10:00:00"
+  },
+  {
+    "id": 4,
+    "title": "夏季休業のお知らせ（8月13日〜8月16日）",
+    "content": "誠に勝手ながら、下記の期間を夏季休業とさせていただきます。",
+    "news_image_url_1": "image/office2.jpg",
+    "status": 1,
+    "deleted_at": null,
+    "created_at": "2026-08-01 09:30:00"
+  },
+  {
+    "id": 3,
+    "title": "受託開発実績「NoaChoice」を公開しました",
+    "content": "受託開発の実績ページに NoaChoice を追加しました。",
+    "news_image_url_1": "image/NoaChoice_logo.jpg",
+    "status": 1,
+    "deleted_at": null,
+    "created_at": "2026-07-15 14:00:00"
+  },
+  {
+    "id": 2,
+    "title": "コーポレートサイトをリニューアルしました。長いタイトルの表示確認用にテキストを長めにしています。長いタイトルの表示確認用にテキストを長めにしています。",
+    "content": "コーポレートサイトを全面リニューアルしました。",
+    "news_image_url_1": "image/S__57663526.jpg",
+    "status": 1,
+    "deleted_at": null,
+    "created_at": "2026-06-20 11:00:00"
+  },
+  {
+    "id": 1,
+    "title": "OBFall株式会社を設立しました",
+    "content": "OBFall株式会社を設立いたしました。",
+    "news_image_url_1": "image/office3.jpg",
+    "status": 1,
+    "deleted_at": null,
+    "created_at": "2026-04-01 09:00:00"
+  }
+]

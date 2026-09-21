@@ -1,0 +1,80 @@
+/* プライバシーポリシー独立ページ（.page-privacy-policy 配下のみ）
+   現行に対応する画面は無い（privacy_policy.blade.php は空ファイル）ため、
+   contacts/contact.blade.php の <style> のうち .wrap / .sec / .privacy-box を流用する。
+   独立ページなので .privacy-box の max-height（400px スクロール枠）だけは外している。 */
+
+.page-privacy-policy {
+    --ink: #1a1a1a;
+    --muted: #5a6978;
+    --blue: #0dcaf0;
+    --blue-light: rgba(13, 202, 240, .08);
+    --bg: #fff;
+    --bg-alt: #f8fafc;
+    --card: #fff;
+    --line: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, .06);
+    --maxw: 1100px;
+    --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
+
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+:where(.page-privacy-policy) .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+:where(.page-privacy-policy) .sec {
+    padding: 80px 0;
+}
+
+:where(.page-privacy-policy) .sec--alt {
+    background: var(--bg-alt);
+}
+
+:where(.page-privacy-policy) .privacy-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    padding: 36px;
+    font-size: .88rem;
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+:where(.page-privacy-policy) .privacy-box h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 16px;
+}
+
+:where(.page-privacy-policy) .breadcrumb-sec {
+    padding: 32px 0 48px;
+}
+
+@media (max-width: 767.98px) {
+    :where(.page-privacy-policy) .sec {
+        padding: 48px 0;
+    }
+
+    :where(.page-privacy-policy) .wrap {
+        padding: 0 16px;
+    }
+
+    :where(.page-privacy-policy) .privacy-box {
+        padding: 24px 16px;
+    }
+
+    :where(.page-privacy-policy) .breadcrumb-sec {
+        padding: 24px 0 32px;
+    }
+}

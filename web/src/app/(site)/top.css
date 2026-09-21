@@ -1,0 +1,273 @@
+/* indexDev.blade.php 末尾の <style> の移植（.page-top 配下のみ）
+   ※ .human-rights-policy は globals.css に共通化済み
+   ※ app.css 由来のトップ用ルール（hero-section / heading-chip / anim-* 等）は app-base.css 側 */
+
+.page-top {
+    /* :root の上書き分 */
+    --radius-xl: 10px;
+    --shadow-1: 0 12px 32px rgba(0, 0, 0, .10);
+    --shadow-2: 0 14px 40px rgba(0, 0, 0, .16);
+}
+
+:where(.page-top) .shadow {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+:where(.page-top) .about-card {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+:where(.page-top) .about-card__main {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    aspect-ratio: 4 / 3;
+}
+
+:where(.page-top) .about-card__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+:where(.page-top) .about-card__sub {
+    position: absolute;
+    right: -50px;
+    bottom: -46px;
+    width: min(65%, 500px);
+    aspect-ratio: 3 / 2;
+    border-radius: calc(var(--radius-xl) - 4px);
+    box-shadow: var(--shadow-2);
+    background: #fff;
+}
+
+:where(.page-top) .about-card__sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+}
+
+@media (max-width: 767.98px) {
+    :where(.page-top) .about-card {
+        padding-bottom: 80px;
+    }
+
+    :where(.page-top) .about-card__sub {
+        right: -10px;
+        bottom: -12px;
+        width: min(62%, 260px);
+    }
+}
+
+/* セクション余白 */
+:where(.page-top) .section-spacing {
+    padding: 40px 0 60px;
+}
+
+@media (min-width: 768px) {
+    :where(.page-top) .section-spacing {
+        padding: 80px 0 100px;
+    }
+}
+
+:where(.page-top) .section-block {
+    display: flex;
+    align-items: center;
+    min-height: 340px;
+}
+
+:where(.page-top) .section-block>section {
+    width: 100%;
+}
+
+/* レーダーパルス */
+:where(.page-top) .hero-radar {
+    animation: hero-radar-expand 4s ease-out infinite;
+}
+
+:where(.page-top) .hero-radar--2 {
+    animation-delay: 1.33s;
+}
+
+:where(.page-top) .hero-radar--3 {
+    animation-delay: 2.66s;
+}
+
+@keyframes hero-radar-expand {
+    0% {
+        r: 0;
+        opacity: 0.3;
+        stroke-width: 2;
+    }
+
+    100% {
+        r: 300;
+        opacity: 0;
+        stroke-width: 0.5;
+    }
+}
+
+/* ノード発光 */
+:where(.page-top) .hero-node {
+    animation: hero-node-glow 3s ease-in-out infinite;
+}
+
+:where(.page-top) .hero-node:nth-child(2n) {
+    animation-delay: 0.4s;
+}
+
+:where(.page-top) .hero-node:nth-child(3n) {
+    animation-delay: 0.8s;
+}
+
+:where(.page-top) .hero-node:nth-child(5n) {
+    animation-delay: 1.2s;
+}
+
+:where(.page-top) .hero-node:nth-child(7n) {
+    animation-delay: 1.6s;
+}
+
+@keyframes hero-node-glow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+:where(.page-top) .hero-node--lg {
+    animation: hero-node-glow-lg 2.5s ease-in-out infinite;
+}
+
+@keyframes hero-node-glow-lg {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* コードテキスト浮遊 */
+:where(.page-top) .hero-code {
+    animation: hero-code-float 10s ease-in-out infinite;
+}
+
+:where(.page-top) .hero-code:nth-of-type(2) {
+    animation-delay: 2.5s;
+}
+
+:where(.page-top) .hero-code:nth-of-type(3) {
+    animation-delay: 5s;
+}
+
+:where(.page-top) .hero-code:nth-of-type(4) {
+    animation-delay: 7.5s;
+}
+
+@keyframes hero-code-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* 回路トレース */
+:where(.page-top) .hero-circuit polyline {
+    stroke-dasharray: 8 12;
+    animation: hero-trace 3s linear infinite;
+}
+
+:where(.page-top) .hero-circuit polyline:nth-child(2) {
+    animation-delay: 0.75s;
+    animation-direction: reverse;
+}
+
+:where(.page-top) .hero-circuit polyline:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+:where(.page-top) .hero-circuit polyline:nth-child(4) {
+    animation-delay: 2.25s;
+    animation-direction: reverse;
+}
+
+@keyframes hero-trace {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -40;
+    }
+}
+
+/* ネットワーク線の呼吸 */
+:where(.page-top) .hero-line {
+    animation: hero-line-breathe 5s ease-in-out infinite;
+}
+
+:where(.page-top) .hero-line:nth-child(2n) {
+    animation-delay: 0.5s;
+}
+
+:where(.page-top) .hero-line:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+:where(.page-top) .hero-line:nth-child(5n) {
+    animation-delay: 2s;
+}
+
+@keyframes hero-line-breathe {
+
+    0%,
+    100% {
+        opacity: 0.08;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Ending セクション */
+:where(.page-top) .ending {
+    padding: 140px 0;
+    background-color: var(--premium-bg-alt);
+    text-align: center;
+}
+
+:where(.page-top) .ending__tagline {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: .5rem;
+    color: var(--premium-accent);
+    letter-spacing: 0.15em;
+}
+
+:where(.page-top) .ending__message {
+    margin-top: 0;
+    font-size: 15px;
+    color: var(--premium-gray);
+    letter-spacing: 0.05em;
+}

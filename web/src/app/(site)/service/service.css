@@ -1,0 +1,494 @@
+/* user/services/{show,products,contract,ses,security}.blade.php <head> 内の <style> の移植
+   （.page-service 配下のみ）。
+
+   5画面の <style> は :root / body / .wrap / .sec / .lead-text / .sec-heading / .value-card /
+   .product-card / .product-more / .breadcrumb-sec / スマホ対応 がほぼ同一のため 1 ファイルに統合し、
+   画面ごとの差分は末尾の「画面別の差分」にまとめる。
+   - show      … .srv-grid / .srv-card（4事業カード）
+   - products  … .value-card が中央揃え・kicker 余白 20px、.product-grid 3列
+   - contract  … .product-grid 2列
+   - ses       … .message-box
+   - security  … .target-list / .target-item */
+
+.page-service {
+    /* :root の上書き分 */
+    --ink: #1a1a1a;
+    --muted: #5a6978;
+    --blue: #0dcaf0;
+    --blue-light: rgba(13, 202, 240, .08);
+    --bg: #fff;
+    --bg-alt: #f8fafc;
+    --card: #fff;
+    --line: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, .06);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, .10);
+    --maxw: 1100px;
+    --font-heading: "Times New Roman", "Noto Serif JP", Georgia, serif;
+
+    /* body の指定分 */
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+:where(.page-service) .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── セクション ── */
+:where(.page-service) .sec {
+    padding: 80px 0;
+}
+
+:where(.page-service) .sec--alt {
+    background: var(--bg-alt);
+}
+
+/* ── リード文 ── */
+:where(.page-service) .lead-text {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    max-width: 720px;
+    line-height: 2;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ── セクション見出し ── */
+:where(.page-service) .sec-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+:where(.page-service) .sec-heading__kicker {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+:where(.page-service) .sec-heading__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ── サービスカードグリッド（show） ── */
+:where(.page-service) .srv-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    :where(.page-service) .srv-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+:where(.page-service) .srv-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 40px 36px 32px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+:where(.page-service) .srv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+:where(.page-service) .srv-card__num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(13, 202, 240, .12);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+:where(.page-service) .srv-card__kicker {
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+:where(.page-service) .srv-card__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    margin: 0 0 4px;
+    line-height: 1.4;
+}
+
+:where(.page-service) .srv-card__en {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+:where(.page-service) .srv-card__desc {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.9;
+    margin: 0;
+    flex: 1;
+}
+
+:where(.page-service) .srv-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-top: 24px;
+    align-self: flex-end;
+    transition: gap .25s ease;
+}
+
+:where(.page-service) .srv-card:hover .srv-card__link {
+    gap: 10px;
+}
+
+/* ── 価値カード ── */
+:where(.page-service) .value-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    :where(.page-service) .value-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    :where(.page-service) .value-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    :where(.page-service) .value-grid--4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+:where(.page-service) .value-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px 32px 32px;
+    box-shadow: var(--shadow);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+:where(.page-service) .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+:where(.page-service) .value-card__num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(13, 202, 240, .12);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+:where(.page-service) .value-card__kicker {
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+:where(.page-service) .value-card__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+:where(.page-service) .value-card__desc {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* ── プロダクト一覧（products: 3列 / contract: 2列） ── */
+:where(.page-service) .product-grid {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    :where(.page-service) .product-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    :where(.page-service) .product-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+:where(.page-service) .product-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px 28px 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+:where(.page-service) .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+:where(.page-service) .product-card__logo {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+:where(.page-service) .product-card__name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+:where(.page-service) .product-card__desc {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.8;
+    margin: 0;
+    flex: 1;
+}
+
+:where(.page-service) .product-card__badge {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-top: 16px;
+}
+
+/* ── 実績リンク ── */
+:where(.page-service) .product-more {
+    text-align: center;
+    margin-top: 48px;
+}
+
+:where(.page-service) .product-more__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: 2px solid var(--blue);
+    border-radius: 99px;
+    transition: background .25s ease, color .25s ease, gap .25s ease;
+}
+
+:where(.page-service) .product-more__link:hover {
+    background: var(--blue);
+    color: #fff;
+    gap: 12px;
+}
+
+/* ── メッセージ（ses） ── */
+:where(.page-service) .message-box {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+:where(.page-service) .message-box__kicker {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: .14em;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+:where(.page-service) .message-box__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+:where(.page-service) .message-box__text {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    line-height: 2;
+    color: #444;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ── 診断対象リスト（security） ── */
+:where(.page-service) .target-list {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    :where(.page-service) .target-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    :where(.page-service) .target-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+:where(.page-service) .target-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+:where(.page-service) .target-item i {
+    color: var(--blue);
+    font-size: 1rem;
+}
+
+/* ── パンくず ── */
+:where(.page-service) .breadcrumb-sec {
+    padding: 32px 0 48px;
+}
+
+/* ── 画面別の差分 ── */
+/* products: 価値カードが中央揃え、kicker の下余白が 20px */
+:where(.page-service-products) .value-card {
+    text-align: center;
+}
+
+:where(.page-service-products) .value-card__kicker {
+    margin-bottom: 20px;
+}
+
+/* ── スマホ対応 ── */
+@media (max-width: 767.98px) {
+    :where(.page-service) .sec {
+        padding: 48px 0;
+    }
+
+    :where(.page-service) .wrap {
+        padding: 0 16px;
+    }
+
+    :where(.page-service) .lead-text {
+        text-align: left;
+        font-size: .95rem;
+    }
+
+    :where(.page-service) .sec-heading {
+        margin-bottom: 32px;
+    }
+
+    :where(.page-service) .srv-card {
+        padding: 28px 20px 24px;
+    }
+
+    :where(.page-service) .srv-card__num {
+        font-size: 2.2rem;
+    }
+
+    :where(.page-service) .srv-card__link {
+        margin-top: 16px;
+    }
+
+    :where(.page-service) .srv-grid {
+        gap: 20px;
+    }
+
+    :where(.page-service) .value-card {
+        padding: 28px 20px 24px;
+    }
+
+    :where(.page-service) .value-card__num {
+        font-size: 2rem;
+    }
+
+    :where(.page-service) .value-grid {
+        gap: 20px;
+    }
+
+    :where(.page-service) .product-card {
+        padding: 28px 20px 24px;
+    }
+
+    :where(.page-service) .product-grid {
+        gap: 20px;
+    }
+
+    :where(.page-service) .product-more {
+        margin-top: 32px;
+    }
+
+    :where(.page-service) .message-box__title {
+        font-size: 1.2rem;
+    }
+
+    :where(.page-service) .target-item {
+        padding: 16px 18px;
+        font-size: .88rem;
+    }
+
+    :where(.page-service) .breadcrumb-sec {
+        padding: 24px 0 32px;
+    }
+}

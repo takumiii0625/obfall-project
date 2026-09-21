@@ -1,0 +1,67 @@
+# OBFALL-PROJECT
+
+Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移行中。
+移行方針・決定事項は docs/MIGRATION.md、現行の画面仕様・工数は docs/migration-assessment.md を参照。
+
+## ディレクトリ
+
+- `./` 現行 Laravel（参照専用。変更しない）
+- `./web/` 移行先 Next.js（App Router、TypeScript、Bootstrap 5）
+- `./docs/` 移行方針・評価書・消費量記録
+
+## 移行先（web/）の構成
+
+- ページ: `web/src/app/(site)/<path>/page.tsx`（共通ヘッダー/フッター + globals.css を使う通常ページ）
+  - `(site)/layout.tsx` がルートレイアウト（globals.css / Font Awesome Kit を読込）
+  - `(standalone)/` は共通 CSS を一切読み込まない独立ページ用の別ルートレイアウト（人権方針のみ）
+- 共通部品: `web/src/components/`（Header / Footer / PageHero / Breadcrumb / PrivacyPolicyText 等）
+  - トップ専用: `web/src/components/top/`（HeroSection / SectionShapes / CharAnim / TopEffects）
+- デザイントークン・グローバルCSS: `web/src/app/globals.css`（`--premium-*` 変数）
+- DB: `web/src/db/schema.ts`（Drizzle スキーマ。列名は現行 MySQL と同一）、`web/src/db/index.ts`（`db()` 読み取り / `dbWrite()` 書き込み。DATABASE_URL のホストで Neon と ローカル pg を自動切替）
+  - マイグレーション: `web/drizzle/`（`npm run db:generate` → `npm run db:migrate`）。シード: `npm run db:seed`（ローカル専用。TRUNCATE を伴う）
+  - データアクセスは `web/src/lib/<table>.ts`（例: `lib/newses.ts`）に集約し、ページから直接 Drizzle を呼ばない
+  - 日付整形は `web/src/lib/dates.ts`（JST）。ISR の秒数と再検証は `web/src/lib/revalidate.ts`
+- モックデータ: `web/src/data/`（現在はシードの入力元としてのみ使用）
+- メール: `web/src/lib/mail/contact-mail.ts`（本文・件名。純粋関数）、`web/src/lib/mail/send.ts`（Resend。API キー無しなら開発時ドライラン）
+- スパム対策: `web/src/lib/turnstile.ts`（サーバー検証。鍵無しなら開発はスキップ・本番は失敗）、`web/src/components/Turnstile.tsx`（ウィジェット）、ハニーポットは ContactForm 内
+- 環境変数の一覧と用途は `web/.env.example` を正とする。新しい変数を足したら必ず追記する
+- 管理画面（office）: `web/src/app/(admin)/`（独自ルートレイアウト。Sneat テンプレートの CSS は `web/public/backend/` にコピー済みで `<link>` で読む。公開側の globals.css は読まない）
+  - `(guest)/` が未ログイン画面（ログイン / 初期設定 / PW 忘れ / PW 設定 / 各完了）、`(office)/` がログイン後画面（サイドメニュー + ヘッダー付き）
+  - Sneat の JS（jQuery / menu.js / main.js 等）は `components/office/OfficeScripts.tsx` がハイドレーション後に順序どおり読み込む。素の `<script>` や `next/script` で足すとハイドレーション不一致になるので使わない
+  - ログイン成功時は Server Action の `redirect()` ではなく LoginForm が `window.location` でフルページ遷移する（Sneat JS を確実に実行させるため）。ログイン後レイアウト内の遷移は `<Link>` / `redirect()` でよい
+  - 認証系フォームの部品: `components/office/OfficeFormRow / OfficeAlert / OfficeCompleteCard`、state 型は `lib/office-form-state.ts`、Zod は `lib/office-auth-schema.ts`
+  - PW 再設定: 署名付き URL は `lib/signed-url.ts`（HMAC、鍵は AUTH_SECRET、72h）、トークンは `admins.remember_token`。メール2通は `lib/mail/office-mail.ts`（HTML + text）。初期設定のメール DNS 検証は `lib/email-dns.ts`
+  - 画像ストレージ: `lib/storage.ts`（Vercel Blob。`BLOB_READ_WRITE_TOKEN` 未設定なら開発は `public/uploads/` に保存し `uploads/<name>` を返す）。DB には Blob の完全 URL か `uploads/...` を保存し、表示は `resolveImageUrl` に通す
+  - お知らせ CRUD: 一覧 `(office)/admins/newses`（検索・件数・ページは URL クエリ。戻るリンクは `back` パラメータで一覧クエリを持ち回る。URL 生成は `lib/office-news-links.ts`）、登録 `(office)/newses/create/input`、編集 `(office)/newses/[id]/edit/input`
+    - 入力→確認→実行は `components/office/NewsForm.tsx` 1 コンポーネント（画像は File のまま state に持ち、実行時に Server Action へ送る）。Zod は `lib/news-schema.ts`、画像の検証・アップロード・後始末は `lib/news-images.ts`
+    - 保存・削除後は必ず `revalidateNewsPages(id)`（`lib/revalidate.ts`）を呼ぶ
+    - Server Action のボディ上限は next.config.ts の `experimental.serverActions.bodySizeLimit`（30mb）
+  - 自社開発 CRUD: 一覧 `(office)/inhouse_developments`、詳細 `[id]`、登録 `create/input`、編集 `[id]/edit/input`。お知らせと同じ構成（`lib/development-schema.ts` / `lib/developments.ts` / `lib/office-development-links.ts` / `components/office/DevelopmentForm.tsx`）。画像は1枚で、公開側は DB を読まないため再検証は不要
+  - 一覧の削除ボタン（`components/office/DeleteRowButton.tsx`）と公開ステータス・件数・ページャーの部品は両 CRUD で共用
+  - 認証: Auth.js（Credentials、JWT Cookie、120分スライド）。`web/src/auth.ts`（照合・ロック判定）、`web/src/auth.config.ts`（DB 非依存部分。proxy と共有）、`web/src/proxy.ts`（ルートガード）
+  - ログイン後ページは必ず `requireActiveAdmin()`（`web/src/lib/office-session.ts`）を呼ぶ（退職・削除済み管理者の強制ログアウト）
+  - 管理者テーブルの操作は `web/src/lib/admins.ts`、パスワードは `web/src/lib/password.ts`（bcryptjs、`$2y$` 互換）
+  - ローカルの管理者: `test@co.jp`（初期管理者 → /init/input）、`dev@example.com`（有効）。パスワードはどちらも `!Pass0120`（シード）
+- バリデーション: `web/src/lib/contact-schema.ts`（Zod。クライアント・Server Action で同一スキーマを共有）
+- Server Action: 画面ディレクトリ内の `actions.ts`（例: `app/(site)/contact/actions.ts`）。`"use server"` ファイルからは async 関数以外を export できないため、state 型・初期値・定数は隣の `*-state.ts` に置く
+- 画像: `web/public/image/`（現行 `public/image/` から必要分のみコピー）
+
+## 作業ルール
+
+- 現行 Laravel 側のコード・ファイルは変更しない
+- 画面を移行するときは、対応する現行 Blade（`resources/views/...`）と
+  docs/migration-assessment.md §2 の該当行だけを読む。評価書全体は読まない
+- 読み込み除外: vendor/, node_modules/, public/backend/vendor/, public/js/app.js,
+  public/css/app.css, public/uploads/, storage/, bootstrap/cache/
+- 本番環境・本番DB・.env には触れない
+- 見た目は現行と一致させることを優先。現行の不具合を見つけたら直さず「確認事項」として報告
+- 静的ページはサーバーコンポーネント、フォームはクライアントコンポーネント + Server Actions
+- 未確定の技術選定（ORM / 認証 / メール / ストレージ）は MIGRATION.md の「未定」欄を確認し、
+  勝手に決めない
+- 日本語で報告する。完了時は「作成ファイル一覧 / 現行との差分 / 次に再利用できる部品」を短く
+
+## コマンド
+
+- 開発: `cd web && npm run dev`（http://localhost:3000）。事前に `web/.env.local` の DATABASE_URL（ローカル: `postgresql://<user>@localhost:5432/obfall_dev`）と PostgreSQL の起動が必要
+- 型チェック: `cd web && npx tsc --noEmit`
+- Lint: `cd web && npm run lint`
