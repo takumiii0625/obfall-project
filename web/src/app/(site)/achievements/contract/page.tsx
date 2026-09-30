@@ -3,35 +3,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
-import SectionHeading from "@/components/SectionHeading";
-import AchievementCard, { type AchievementCardItem } from "@/components/AchievementCard";
 import "../achievements.css";
 
 export const metadata: Metadata = {
   title: "受託開発実績 | OBFall Inc.",
 };
 
-const PROJECTS: AchievementCardItem[] = [
-  {
-    image: "/image/careerlog_logo.png",
-    alt: "CareerLog ロゴ",
-    name: "CareerLog（キャリアログ）",
-    desc: "キャリアログは、社会人が業界・職種の経験者に1対1で相談できるOB/OG訪問サービス。 登録不要で今すぐOBを検索でき、実体験に基づくアドバイスで転職やキャリアの不安を解消し、自分だけの進路設計を後押しします。",
-    link: { href: "https://career-log.com/", label: "CareerLog公式サイト" },
-  },
-  {
-    image: "/image/NoaChoice_logo.jpg",
-    alt: "NoaChoice ロゴ",
-    name: "NoaChoice（ノアチョイス）",
-    desc: "結婚式準備の\"探す・比べる・決める\"をオンラインで完結できるブライダルECサイトです。 ドレス・タキシード・和装・ジュエリー・ペーパーアイテム・引出物まで、厳選アイテムを適正価格でお届け。 サイズガイドと試着キット、パーソナルサポートで、初めての方でも安心してお選びいただけます。",
-    link: { href: "https://noa-choice.com/", label: "NoaChoice公式サイト" },
-    reverse: true,
-  },
-];
-
 /**
  * 受託開発実績 GET /achievements/contract（§2.1 #11）
  * 現行: resources/views/user/achievements/contract.blade.php（クロージャルート、サーバー処理なし）
+ * 2026-09-30: 現行にあった個別プロジェクト（CareerLog / NoaChoice）の紹介セクションは会社の意向で削除
  */
 export default function AchievementsContractPage() {
   return (
@@ -62,18 +43,6 @@ export default function AchievementsContractPage() {
             <br />
             クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
           </p>
-        </div>
-      </section>
-
-      {/* 実績一覧 */}
-      <section className="sec sec--alt">
-        <div className="wrap">
-          <SectionHeading kicker="Projects" title="プロジェクト紹介" />
-          <div className="achievement-list">
-            {PROJECTS.map((p) => (
-              <AchievementCard key={p.name} {...p} />
-            ))}
-          </div>
         </div>
       </section>
 

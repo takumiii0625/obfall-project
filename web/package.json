@@ -10,7 +10,9 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx --env-file=.env.local src/db/seed.ts",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "migrate:images": "tsx --env-file=.env.local scripts/migrate-legacy-images.ts",
+    "migrate:data": "tsx --env-file=.env.local scripts/migrate-legacy-data.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

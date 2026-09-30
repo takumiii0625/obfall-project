@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# リポジトリ直下のスクリーンショット（認証情報を含むことがあるため）
+/スクリーンショット*.png

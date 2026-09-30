@@ -4,7 +4,9 @@ import "server-only";
  * Cloudflare Turnstile のサーバー側検証。
  *
  * - TURNSTILE_SECRET_KEY があれば siteverify で検証
- * - 無い場合: 開発環境ではスキップ（警告ログ）、本番では失敗扱い（fail closed）
+ * - 無い場合: 環境を問わず検証をスキップする（警告ログのみ）。Turnstile は現行 Laravel に無い新規追加のため、
+ *   キー未設定の間は現行どおり「ハニーポットのみ」で運用し、キーを設定すれば有効になる（2026-09-30 ユーザー指示）
+ *   ※ サイトキーだけ設定してシークレットを入れ忘れると、ウィジェットは出るのに検証されない状態になるので必ず2つ揃えて設定する
  *
  * ローカル確認用のテストキー（Cloudflare 公式のダミー。常に成功）:
  *   NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
@@ -23,10 +25,7 @@ export async function verifyTurnstile(token: string | null | undefined, remoteIp
   const secret = process.env.TURNSTILE_SECRET_KEY;
 
   if (!secret) {
-    if (process.env.NODE_ENV === "production") {
-      return { ok: false, codes: ["not-configured"] };
-    }
-    console.warn("[turnstile] TURNSTILE_SECRET_KEY 未設定のため検証をスキップします（開発環境のみ）");
+    console.warn("[turnstile] TURNSTILE_SECRET_KEY 未設定のため検証をスキップします（ハニーポットのみで運用）");
     return { ok: true, skipped: true };
   }
 

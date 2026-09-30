@@ -1,0 +1,10 @@
+# 公開ページは全て許可。管理画面（office）と管理用フォームだけクロール対象外
+# 管理画面のレイアウト（src/app/(admin)/layout.tsx）にも noindex を設定済み
+User-agent: *
+Disallow: /office/
+Disallow: /admins/
+Disallow: /init/
+Disallow: /onetime/
+Disallow: /newses/create/
+Disallow: /newses/*/edit/
+Disallow: /inhouse_developments/

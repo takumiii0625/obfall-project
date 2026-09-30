@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import ValueCard, { type ValueCardItem } from "@/components/ValueCard";
-import ProductCard, { type ProductCardItem } from "@/components/ProductCard";
 import "../service.css";
 
 export const metadata: Metadata = {
@@ -61,14 +59,10 @@ const WHY_US: ValueCardItem[] = [
   },
 ];
 
-const WORKS: ProductCardItem[] = [
-  { logo: "/image/careerlog_logo.png", alt: "CareerLog ロゴ", name: "CareerLog", desc: "社会人向けOB/OG訪問サービス" },
-  { logo: "/image/NoaChoice_logo.jpg", alt: "NoaChoice ロゴ", name: "NoaChoice", desc: "ブライダルECサイト" },
-];
-
 /**
  * 受託開発サービス紹介 GET /service/contract（§2.1 #6）
  * 現行: resources/views/user/services/contract.blade.php（クロージャルート、サーバー処理なし）
+ * 2026-09-30: 現行にあった「実績・事例紹介」（CareerLog / NoaChoice のカード + 実績ページへのリンク）は会社の意向で削除
  */
 export default function ServiceContractPage() {
   return (
@@ -122,24 +116,6 @@ export default function ServiceContractPage() {
             {WHY_US.map((v) => (
               <ValueCard key={v.num} {...v} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 実績紹介 */}
-      <section className="sec sec--alt">
-        <div className="wrap">
-          <SectionHeading kicker="Works" title="実績・事例紹介" />
-          <div className="product-grid product-grid--2">
-            {WORKS.map((w) => (
-              <ProductCard key={w.name} {...w} />
-            ))}
-          </div>
-
-          <div className="product-more">
-            <Link className="product-more__link" href="/achievements/contract">
-              実績を詳しく見る <i className="bi bi-arrow-right"></i>
-            </Link>
           </div>
         </div>
       </section>

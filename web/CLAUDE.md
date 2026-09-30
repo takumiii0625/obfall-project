@@ -23,7 +23,7 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
   - 日付整形は `web/src/lib/dates.ts`（JST）。ISR の秒数と再検証は `web/src/lib/revalidate.ts`
 - モックデータ: `web/src/data/`（現在はシードの入力元としてのみ使用）
 - メール: `web/src/lib/mail/contact-mail.ts`（本文・件名。純粋関数）、`web/src/lib/mail/send.ts`（Resend。API キー無しなら開発時ドライラン）
-- スパム対策: `web/src/lib/turnstile.ts`（サーバー検証。鍵無しなら開発はスキップ・本番は失敗）、`web/src/components/Turnstile.tsx`（ウィジェット）、ハニーポットは ContactForm 内
+- スパム対策: `web/src/lib/turnstile.ts`（サーバー検証。鍵無しなら環境を問わずスキップし、ハニーポットのみで運用。キー2つを設定すると有効化）、`web/src/components/Turnstile.tsx`（ウィジェット）、ハニーポットは ContactForm 内
 - 環境変数の一覧と用途は `web/.env.example` を正とする。新しい変数を足したら必ず追記する
 - 管理画面（office）: `web/src/app/(admin)/`（独自ルートレイアウト。Sneat テンプレートの CSS は `web/public/backend/` にコピー済みで `<link>` で読む。公開側の globals.css は読まない）
   - `(guest)/` が未ログイン画面（ログイン / 初期設定 / PW 忘れ / PW 設定 / 各完了）、`(office)/` がログイン後画面（サイドメニュー + ヘッダー付き）
@@ -66,8 +66,16 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - GitHub `takumiii0625/obfall-project` の `main` への push で本番デプロイ。CLI で再デプロイするときは `cd web && npx vercel redeploy <直近の本番デプロイURL> --scope obf-all`（`vercel deploy` を web/ から実行すると Root Directory 不一致で失敗する）
 - Storage: Neon `obfall-db`（Marketplace、DATABASE_URL 等は自動注入）、Blob `obfall-uploads`（public、BLOB_READ_WRITE_TOKEN 自動注入）
 - 本番 DB へのマイグレーション: `npx vercel env pull .env.production.local --environment production` → `DATABASE_URL=<DATABASE_URL_UNPOOLED の値> npx drizzle-kit migrate`（pooler ではなく unpooled を使う）
-- 手動で入れた環境変数: AUTH_SECRET（Production / Preview 別値）、APP_URL。未設定: RESEND_API_KEY、CONTACT_MAIL_FROM / CONTACT_MAIL_TO、NEXT_PUBLIC_TURNSTILE_SITE_KEY / TURNSTILE_SECRET_KEY（未設定の間、問い合わせメールは本番で送信失敗する）
+- 手動で入れた環境変数: AUTH_SECRET（Production / Preview 別値）、APP_URL、RESEND_API_KEY、CONTACT_MAIL_FROM / CONTACT_MAIL_TO（2026-09-26。現行踏襲で h.katono@obfall.co.jp）。未設定: NEXT_PUBLIC_TURNSTILE_SITE_KEY / TURNSTILE_SECRET_KEY（未設定の間は Turnstile を省略しハニーポットのみ。キー発行後に2つ揃えて追加）
+- 独自ドメイン: obfall.com / www.obfall.com を 2026-09-30 にプロジェクトへ追加済み（DNS はムームードメイン。A 76.76.21.21 / www CNAME cname.vercel-dns.com を入れた時点で切替。切替後に APP_URL を https://obfall.com へ変更）
 - `.env.local` は `vercel link` / `vercel env pull` で上書き追記されることがある。DATABASE_URL（ローカル pg）と AUTH_SECRET が残っているか確認する
+
+## データ移行（フェーズ4 セッション14）
+
+- 現行データは「複製」で移し、現行 MySQL / ロリポップ側には触れない（削除・停止は切替後に最後に行う）
+- 画像: `cd web && npm run migrate:images`（`--dry-run` 可）。`../public/uploads/` の 11 件を Blob の `legacy/<名前>` に上書きアップロードし、`web/scripts/legacy-image-map.json`（`uploads/<元名>` → Blob URL）を更新する。2026-09-28 に実行済み
+- データ: `cd web && npm run migrate:data -- --file=<ダンプ.sql> [--dry-run] [--tz=+09:00] [--tables=...]`。phpMyAdmin / mysqldump の INSERT を解析し、画像列を対応表で Blob URL に置換、DATETIME は `--tz`（既定 JST）の壁時計値として timestamptz に変換、id を保って UPSERT（再実行可。ダンプに無い行は消さない）、最後に identity を進める。Neon へは `ALLOW_MIGRATE_ON_NEON=1` と unpooled の DATABASE_URL を付けて実行する
+- ダンプ入手: ロリポップの phpMyAdmin で newses / inhouse_developments / admins を SQL 形式でエクスポート（会社側の作業）。切替直前にもう一度取得して流し直す
 
 ## コマンド
 
