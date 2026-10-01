@@ -5,8 +5,9 @@ import ArrowIcon from "./ArrowIcon";
  * リデザイン版の共通フッター（design/stitch/aboutus.html のフッターを参考）。
  * 文言は既存 components/Footer.tsx（現行 footer.blade.php）のもの + 「© OBFall Inc.」のみ。
  * リンクの開き方（人権方針・問い合わせは別タブ）は既存フッターに合わせる。
+ * 問い合わせ系の画面は既存どおり「お問い合わせはこちら」ボタンを出さない（showContactButton={false}）。
  */
-export default function Footer() {
+export default function Footer({ showContactButton = true }: { showContactButton?: boolean } = {}) {
   return (
     <footer className="mt-space-3xl w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       <div className="wrap py-space-2xl">
@@ -33,15 +34,17 @@ export default function Footer() {
             >
               人権に関する基本方針と社内相談窓口
             </Link>
-            <Link
-              href="/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-space-sm rounded-full bg-on-surface px-space-lg py-space-sm text-sm font-medium text-on-secondary transition-all hover:bg-secondary"
-            >
-              <span>お問い合わせはこちら</span>
-              <ArrowIcon className="h-[18px] w-[18px]" />
-            </Link>
+            {showContactButton ? (
+              <Link
+                href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-space-sm rounded-full bg-on-surface px-space-lg py-space-sm text-sm font-medium text-on-secondary transition-all hover:bg-secondary"
+              >
+                <span>お問い合わせはこちら</span>
+                <ArrowIcon className="h-[18px] w-[18px]" />
+              </Link>
+            ) : null}
           </div>
         </div>
 

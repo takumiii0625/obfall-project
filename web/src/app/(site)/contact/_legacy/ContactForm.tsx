@@ -11,7 +11,7 @@ import {
   type ContactField,
   type ContactFormValues,
 } from "@/lib/contact-schema";
-import { submitContact } from "./actions";
+import { submitContact } from "../actions";
 
 type Step = "input" | "confirm";
 

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
-import "./philosophy.css";
+import "../philosophy.css";
 
 export const metadata: Metadata = {
   title: "Philosophy | OBFall Inc.",

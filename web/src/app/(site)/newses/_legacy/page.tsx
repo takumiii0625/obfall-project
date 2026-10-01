@@ -6,7 +6,7 @@ import Pagination from "@/components/Pagination";
 import Breadcrumb from "@/components/Breadcrumb";
 import { countPublishedNewses, getPublishedNewses, NEWS_PER_PAGE } from "@/lib/newses";
 import { paginate } from "@/lib/pagination";
-import "./newses.css";
+import "../newses.css";
 
 /**
  * お知らせ一覧 GET /newses

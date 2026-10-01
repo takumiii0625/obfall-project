@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import CurrentYear from "./CurrentYear";
-import "./human-rights-policy.css";
+import "../human-rights-policy.css";
 
 const TITLE = "人権方針・社内相談窓口 | OBFall株式会社";
 const DESCRIPTION = "当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。";

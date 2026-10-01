@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import AchievementCard, { type AchievementCardItem } from "@/components/AchievementCard";
-import "../achievements.css";
+import "../../achievements.css";
 
 export const metadata: Metadata = {
   title: "自社開発実績 | OBFall Inc.",

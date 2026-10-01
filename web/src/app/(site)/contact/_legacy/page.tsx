@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import ContactForm from "./ContactForm";
-import "./contact.css";
+import "../contact.css";
 
 export const metadata: Metadata = {
   title: "Contact | OBFall Inc.",
