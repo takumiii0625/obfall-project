@@ -46,6 +46,17 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - Server Action: 画面ディレクトリ内の `actions.ts`（例: `app/(site)/contact/actions.ts`）。`"use server"` ファイルからは async 関数以外を export できないため、state 型・初期値・定数は隣の `*-state.ts` に置く
 - 画像: `web/public/image/`（現行 `public/image/` から必要分のみコピー）
 
+## リデザイン（redesign ブランチ。フェーズ1 = 土台 + トップ）
+
+- 参考: `design/stitch/*.html`（Stitch 生成）と `design/stitch/DESIGN.md`。HTML と DESIGN.md が食い違えば HTML を正とする。Stitch のコードは貼らず React 部品として作り直す
+- 文言は既存ページ（現行から移行済みのもの）を正とする。Stitch にだけある文言（CORPORATE EDITORIAL 等）は使わない
+- スタイル: Tailwind CSS v4（`postcss.config.mjs` + `src/app/(redesign)/redesign.css` の `@theme`）。走査対象は `(redesign)` 配下と `components/redesign` のみ。Bootstrap・ページ固有 CSS は新デザインのページでは使わない
+- ルート: `src/app/(redesign)/`（独自ルートレイアウト。next/font で Shippori Mincho B1 / Zen Kaku Gothic New / EB Garamond を供給）。旧トップは `src/app/(site)/_legacy-top/`（`_` 付きで非ルーティング）に退避し、他の既存ページは `(site)` のまま
+- 共通部品: `components/redesign/`（Header = 現在地に青い下線、Footer、PageHero（パンくず・英字ラベル・タイトル）、Breadcrumb、TextLink「○○ →」、Butterfly、ArrowIcon）
+- 便利クラス: `wrap`（1180px 中央寄せ + 左右マージン）、`font-serif-jp` / `font-sans-jp` / `font-latin`、`p-space-*` / `px-margin`
+- はみ出す装飾を持つセクションは `overflow-clip`（`overflow-hidden` だと scrollIntoView で横にずれる）
+- アニメーションはフェーズ1では入れない。装飾は DESIGN.md のグラスモーフィズム等を採用せず、蝶・bleed word・翅の線のみ
+
 ## 作業ルール
 
 - 現行 Laravel 側のコード・ファイルは変更しない

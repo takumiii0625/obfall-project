@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>受託開発 | OBFall 株式会社</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<!-- Google Fonts: Shippori Mincho B1, Zen Kaku Gothic New, EB Garamond -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Shippori+Mincho+B1:wght@400;500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overscroll-behavior: none;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+    }
+    .font-serif-jp {
+      font-family: 'Shippori Mincho B1', serif;
+    }
+    .font-latin {
+      font-family: 'EB Garamond', serif;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          surface: '#ffffff',
+          'surface-dim': '#f4f9fd',
+          'on-surface': '#0c1b2a',
+          'on-surface-variant': '#415266',
+          primary: '#009fe8',
+          'primary-dark': '#0062a4',
+          'deep-navy': '#04172e',
+          outline: '#cde4f7',
+          'outline-subtle': '#e2eef9',
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-[#fafcff] text-[#0c1b2a] antialiased font-normal selection:bg-cyan-100 selection:text-cyan-900">
+
+<!-- HEADER: 厳守：人型アイコンやINQUIRYボタンは配置しない純粋ナビゲーション -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-[0_1px_8px_rgba(4,23,46,0.05)] border-b border-[#e2eef9]">
+  <div class="h-20 max-w-[1280px] mx-auto px-6 md:px-12 flex items-center justify-between">
+    <a class="flex items-center gap-2 group" href="#">
+      <span class="font-serif-jp text-2xl font-bold tracking-tight text-[#0c1b2a] group-hover:text-[#009fe8] transition-colors">OBFall</span>
+      <span class="w-1.5 h-1.5 rounded-full bg-[#009fe8]"></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 font-latin font-medium text-sm tracking-[0.16em]">
+      <a class="text-[#415266] hover:text-[#0c1b2a] transition-colors py-1" href="#">PHILOSOPHY</a>
+      <a aria-current="page" class="text-[#009fe8] font-bold py-1 border-b-2 border-[#009fe8]" href="#">SERVICE</a>
+      <a class="text-[#415266] hover:text-[#0c1b2a] transition-colors py-1" href="#">ACHIEVEMENTS</a>
+      <a class="text-[#415266] hover:text-[#0c1b2a] transition-colors py-1" href="#">ABOUT US</a>
+      <a class="text-[#415266] hover:text-[#0c1b2a] transition-colors py-1" href="#">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main class="w-full pt-20">
+
+  <!-- PAGE HERO HEADER: 深い青のグラデーション帯 + 蝶の翅脈ライン（トップのHEROより小さい高さ） -->
+  <section class="relative w-full bg-gradient-to-r from-[#021024] via-[#04244d] to-[#0077b6] text-white py-16 md:py-20 px-6 md:px-12 overflow-hidden shadow-inner">
+    <!-- 繊細な翅脈ライン SVG 背景 -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-end overflow-hidden">
+      <svg class="w-[600px] h-[600px] stroke-white text-transparent transform translate-x-20 -translate-y-8" fill="none" stroke-width="0.8" viewBox="0 0 500 500">
+        <path d="M50,250 C120,180 200,120 380,80 M380,80 C440,70 480,110 470,160 C460,210 390,300 280,380 C180,450 100,430 70,390 C40,350 40,280 50,250 Z"></path>
+        <path d="M50,250 C150,230 280,210 450,140"></path>
+        <path d="M180,225 C230,170 320,130 410,105"></path>
+        <path d="M240,218 C300,260 380,280 440,230"></path>
+        <path d="M150,230 C200,300 270,340 370,330"></path>
+      </svg>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      <!-- パンくずリスト: トップ > サービス > 受託開発 -->
+      <nav class="flex items-center gap-2 text-xs md:text-sm font-sans text-cyan-200/80 mb-6">
+        <a href="#" class="hover:text-white transition-colors">トップ</a>
+        <span class="text-cyan-400/50">&gt;</span>
+        <a href="#" class="hover:text-white transition-colors">サービス</a>
+        <span class="text-cyan-400/50">&gt;</span>
+        <span class="text-white font-medium">受託開発</span>
+      </nav>
+
+      <!-- ページタイトル（原文：IT × Collaboration） -->
+      <div class="space-y-3">
+        <span class="font-latin text-xs md:text-sm uppercase tracking-[0.25em] text-cyan-300 font-semibold block">SERVICE</span>
+        <h1 class="font-serif-jp text-3xl md:text-5xl font-medium tracking-wide text-white">IT × Collaboration</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO SECTION: リード ＆ 本文（非対称エディトリアルレイアウト） -->
+  <section class="relative w-full bg-white px-6 md:px-12 py-16 md:py-24 border-b border-[#e2eef9] overflow-hidden">
+    <!-- 背景に裁ち落とされる極大英字 -->
+    <div class="absolute -top-10 -right-20 pointer-events-none select-none opacity-[0.03] z-0">
+      <span class="font-latin text-[180px] md:text-[240px] font-bold text-[#04172e] leading-none block">COLLABORATION</span>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
+        
+        <!-- リード（左列：大きく印象的な明朝体） -->
+        <div class="lg:col-span-5 border-l-2 border-[#009fe8] pl-6 md:pl-8 py-2">
+          <p class="font-serif-jp text-2xl md:text-3xl text-[#0c1b2a] font-medium leading-relaxed mb-4">
+            ともにつくり、ともに前へ。
+          </p>
+          <p class="font-serif-jp text-base md:text-lg text-[#0077b6] leading-relaxed">
+            クライアントの想いを汲み取り、共に課題を解決するパートナーとして。
+          </p>
+        </div>
+
+        <!-- 本文（右列：端正なグリッドレイアウト） -->
+        <div class="lg:col-span-7 bg-[#f7fbff] p-8 md:p-10 rounded-sm border border-[#e2eef9] shadow-sm">
+          <p class="text-base md:text-lg text-[#415266] leading-loose space-y-4">
+            OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。<br><br>
+            Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。<br><br>
+            クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- セクション境界をまたぐ線画の蝶 -->
+    <div class="absolute right-12 -bottom-6 w-16 h-16 pointer-events-none opacity-40 z-20">
+      <svg class="w-full h-full stroke-[#009fe8] fill-none" stroke-width="0.8" viewBox="0 0 100 100">
+        <path d="M50,50 C40,25 15,10 5,20 C-5,30 5,60 25,65 C40,70 48,55 50,50 Z"></path>
+        <path d="M50,50 C60,25 85,10 95,20 C105,30 95,60 75,65 C60,70 52,55 50,50 Z"></path>
+        <path d="M50,50 C42,60 25,80 15,75 C5,70 10,55 25,55"></path>
+        <path d="M50,50 C58,60 75,80 85,75 C95,70 90,55 75,55"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SECTION 1: Our Approach / 受託開発で大切にしていること（非対称エディトリアルレイアウト） -->
+  <section class="relative w-full bg-[#f4f9fd] px-6 md:px-12 py-20 md:py-28 border-b border-[#e2eef9] overflow-hidden">
+    <!-- 裁ち落とし背景英字 -->
+    <div class="absolute top-0 -left-12 pointer-events-none select-none opacity-[0.035] z-0">
+      <span class="font-latin text-[160px] md:text-[230px] font-bold text-[#0c1b2a] leading-none block">APPROACH</span>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      
+      <!-- セクションヘッダー（左寄せ） -->
+      <div class="max-w-2xl mb-16">
+        <span class="font-latin text-sm uppercase tracking-[0.2em] text-[#009fe8] font-bold mb-2 block">Our Approach</span>
+        <h2 class="font-serif-jp text-3xl md:text-4xl text-[#0c1b2a] font-medium tracking-wide">
+          受託開発で大切にしていること
+        </h2>
+        <div class="w-12 h-0.5 bg-[#009fe8] mt-4"></div>
+      </div>
+
+      <!-- 4項目の非対称レイアウト（均等並列を排除：大・中・交互スタッガード配置） -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+        
+        <!-- 01 / Insight (7カラム：ゆったりとした主軸カード) -->
+        <div class="md:col-span-7 bg-white p-8 md:p-12 border-t-2 border-[#009fe8] shadow-[0_4px_20px_rgba(4,23,46,0.04)] relative">
+          <div class="font-latin text-3xl md:text-4xl font-light text-[#009fe8]/40 mb-3 tracking-wider">01 / Insight</div>
+          <h3 class="font-serif-jp text-2xl md:text-3xl text-[#0c1b2a] font-medium mb-4">本質をともに見つめる</h3>
+          <p class="text-base md:text-lg text-[#415266] leading-relaxed">
+            課題を「作ること」ではなく「解決すること」として捉え、共に考え抜く。クライアントの想いや事業の背景を深く理解し、長期的な成長を見据えた開発を行います。
+          </p>
+        </div>
+
+        <!-- 02 / Synthesis (5カラム：引き締まった右側カード) -->
+        <div class="md:col-span-5 bg-white/80 p-8 md:p-10 border border-[#e2eef9] shadow-sm md:translate-y-8">
+          <div class="font-latin text-2xl md:text-3xl font-light text-[#009fe8]/40 mb-3 tracking-wider">02 / Synthesis</div>
+          <h3 class="font-serif-jp text-xl md:text-2xl text-[#0c1b2a] font-medium mb-4">デザインと技術の融合</h3>
+          <p class="text-base text-[#415266] leading-relaxed">
+            使いやすさ・伝わりやすさ・拡張性を意識し、想いをかたちに。UI/UX・機能性・パフォーマンスのすべてで"心地よく使われる体験"を設計します。
+          </p>
+        </div>
+
+        <!-- 03 / Reliability (5カラム：左側にオフセット配置) -->
+        <div class="md:col-span-5 bg-white/80 p-8 md:p-10 border border-[#e2eef9] shadow-sm">
+          <div class="font-latin text-2xl md:text-3xl font-light text-[#009fe8]/40 mb-3 tracking-wider">03 / Reliability</div>
+          <h3 class="font-serif-jp text-xl md:text-2xl text-[#0c1b2a] font-medium mb-4">安心まで届ける開発体制</h3>
+          <p class="text-base text-[#415266] leading-relaxed">
+            開発後には、自社のセキュリティチームによる脆弱性診断を実施。見た目や機能だけでなく、安全性まで一貫して担保できることが私たちの強みです。「創って終わり」ではなく、「安心して使い続けられる」未来を届けます。
+          </p>
+        </div>
+
+        <!-- 04 / Partnership (7カラム：右側に広く構えるアンカーカード) -->
+        <div class="md:col-span-7 bg-white p-8 md:p-12 border-t-2 border-[#04244d] shadow-[0_4px_20px_rgba(4,23,46,0.04)] md:-translate-y-4">
+          <div class="font-latin text-3xl md:text-4xl font-light text-[#009fe8]/40 mb-3 tracking-wider">04 / Partnership</div>
+          <h3 class="font-serif-jp text-2xl md:text-3xl text-[#0c1b2a] font-medium mb-4">長く続く関係を築く</h3>
+          <p class="text-base md:text-lg text-[#415266] leading-relaxed">
+            納品して終わりではなく、成長と変化に寄り添う"伴走型"の開発を大切に。プロダクトの成長を共に見届けながら、技術支援・改善提案を継続的に行います。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- セクション境界をまたぐ線画の蝶 -->
+    <div class="absolute left-8 -bottom-7 w-16 h-16 pointer-events-none opacity-40 z-20 transform -rotate-12">
+      <svg class="w-full h-full stroke-[#0077b6] fill-none" stroke-width="0.8" viewBox="0 0 100 100">
+        <path d="M50,50 C40,25 15,10 5,20 C-5,30 5,60 25,65 C40,70 48,55 50,50 Z"></path>
+        <path d="M50,50 C60,25 85,10 95,20 C105,30 95,60 75,65 C60,70 52,55 50,50 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Why Us / 選ばれる理由（非対称エディトリアルレイアウト：右重心・段差構成） -->
+  <section class="relative w-full bg-white px-6 md:px-12 py-20 md:py-28 border-b border-[#e2eef9] overflow-hidden">
+    <!-- 裁ち落とし背景英字 -->
+    <div class="absolute top-1/2 -right-16 -translate-y-1/2 pointer-events-none select-none opacity-[0.03] z-0">
+      <span class="font-latin text-[180px] md:text-[250px] font-bold text-[#0c1b2a] leading-none block">WHY US</span>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      
+      <!-- セクションヘッダー（右寄せ非対称） -->
+      <div class="max-w-2xl ml-auto text-left md:text-right mb-16">
+        <span class="font-latin text-sm uppercase tracking-[0.2em] text-[#009fe8] font-bold mb-2 block">Why Us</span>
+        <h2 class="font-serif-jp text-3xl md:text-4xl text-[#0c1b2a] font-medium tracking-wide">
+          選ばれる理由
+        </h2>
+        <div class="w-12 h-0.5 bg-[#009fe8] mt-4 ml-0 md:ml-auto"></div>
+      </div>
+
+      <!-- 3項目の非対称レイアウト（均等3分割カードを排し、1列フルワイド + 2列アシンメトリー構造） -->
+      <div class="space-y-8">
+        
+        <!-- 01 / Cocreation（100%幅のプレミアムハイライト） -->
+        <div class="bg-gradient-to-br from-[#f8fcff] to-[#edf6fc] p-8 md:p-12 border-l-4 border-[#009fe8] shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+            <div class="lg:col-span-4">
+              <span class="font-latin text-2xl md:text-3xl font-light text-[#009fe8]/50 block mb-1 tracking-wider">01 / Cocreation</span>
+              <h3 class="font-serif-jp text-2xl md:text-3xl text-[#0c1b2a] font-medium">共創の姿勢</h3>
+            </div>
+            <div class="lg:col-span-8">
+              <p class="text-base md:text-lg text-[#415266] leading-relaxed">
+                単なる受託ではなく、クライアントのビジョンを共有し、同じチームとして挑む。プロジェクトの成功を「成果物の完成」ではなく「価値の創出」として捉えます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 & 03: 非対称スプリット（7:5比率によるリズミカルな対比） -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- 02 / Consistency（7カラム） -->
+          <div class="lg:col-span-7 bg-[#fafcff] p-8 md:p-10 border border-[#e2eef9] shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="font-latin text-2xl md:text-3xl font-light text-[#009fe8]/50 block mb-2 tracking-wider">02 / Consistency</span>
+              <h3 class="font-serif-jp text-xl md:text-2xl text-[#0c1b2a] font-medium mb-4">一貫した技術力と体制</h3>
+              <p class="text-base md:text-lg text-[#415266] leading-relaxed">
+                企画から設計・デザイン・開発・診断までをワンストップで対応。社内のエンジニア・デザイナー・セキュリティチームが密に連携し、品質・スピード・安心をすべて両立させます。
+              </p>
+            </div>
+          </div>
+
+          <!-- 03 / Empowerment（5カラム） -->
+          <div class="lg:col-span-5 bg-[#f4f9fd] p-8 md:p-10 border-t-2 border-[#0077b6] shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="font-latin text-2xl md:text-3xl font-light text-[#009fe8]/50 block mb-2 tracking-wider">03 / Empowerment</span>
+              <h3 class="font-serif-jp text-xl md:text-2xl text-[#0c1b2a] font-medium mb-4">成長を支える開発文化</h3>
+              <p class="text-base text-[#415266] leading-relaxed">
+                自社開発・SESで培ったノウハウを常にアップデートし、プロジェクトごとに新しい価値を生み出す仕組みを持っています。開発を通じて、人も、企業も、社会も前へ進むことを目指します。
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- セクション境界をまたぐ線画の蝶 -->
+    <div class="absolute right-24 -bottom-6 w-16 h-16 pointer-events-none opacity-40 z-20">
+      <svg class="w-full h-full stroke-[#009fe8] fill-none" stroke-width="0.8" viewBox="0 0 100 100">
+        <path d="M50,50 C40,25 15,10 5,20 C-5,30 5,60 25,65 C40,70 48,55 50,50 Z"></path>
+        <path d="M50,50 C60,25 85,10 95,20 C105,30 95,60 75,65 C60,70 52,55 50,50 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Works / 実績・事例紹介（ロゴ画像2つはプレースホルダー枠） -->
+  <section class="relative w-full bg-[#f8fbfe] px-6 md:px-12 py-20 md:py-28 overflow-hidden">
+    <!-- 裁ち落とし背景英字 -->
+    <div class="absolute -top-10 left-1/4 pointer-events-none select-none opacity-[0.03] z-0">
+      <span class="font-latin text-[180px] md:text-[240px] font-bold text-[#0c1b2a] leading-none block">WORKS</span>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      
+      <!-- セクションヘッダー（左寄せ） -->
+      <div class="max-w-2xl mb-14">
+        <span class="font-latin text-sm uppercase tracking-[0.2em] text-[#009fe8] font-bold mb-2 block">Works</span>
+        <h2 class="font-serif-jp text-3xl md:text-4xl text-[#0c1b2a] font-medium tracking-wide">
+          実績・事例紹介
+        </h2>
+        <div class="w-12 h-0.5 bg-[#009fe8] mt-4"></div>
+      </div>
+
+      <!-- 実績事例の非対称グリッド（厳守：写真は生成せず、ロゴ画像はプレースホルダー枠） -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
+        
+        <!-- 事例1: CareerLog (7カラム) -->
+        <div class="md:col-span-7 bg-white p-8 md:p-10 border border-[#e2eef9] shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <!-- ロゴ画像プレースホルダー枠 -->
+            <div class="w-full sm:w-48 h-28 bg-[#edf5fc] border border-[#d2e7f7] flex flex-col items-center justify-center p-4 text-center shrink-0">
+              <span class="material-symbols-outlined text-[#009fe8] text-2xl mb-1">domain</span>
+              <span class="font-serif-jp text-xs font-semibold text-[#0077b6] tracking-wider">ロゴ画像</span>
+              <span class="font-latin text-sm font-bold text-[#0c1b2a] mt-0.5">CareerLog</span>
+            </div>
+            <!-- テキスト情報 -->
+            <div class="space-y-2">
+              <h3 class="font-serif-jp text-2xl text-[#0c1b2a] font-medium">CareerLog</h3>
+              <p class="text-base text-[#415266] leading-relaxed">
+                社会人向けOB/OG訪問サービス
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 事例2: NoaChoice (5カラム：非対称の横幅・配置) -->
+        <div class="md:col-span-5 bg-white p-8 md:p-10 border border-[#e2eef9] shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <!-- ロゴ画像プレースホルダー枠 -->
+            <div class="w-full sm:w-36 h-28 bg-[#edf5fc] border border-[#d2e7f7] flex flex-col items-center justify-center p-4 text-center shrink-0">
+              <span class="material-symbols-outlined text-[#009fe8] text-2xl mb-1">shopping_bag</span>
+              <span class="font-serif-jp text-xs font-semibold text-[#0077b6] tracking-wider">ロゴ画像</span>
+              <span class="font-latin text-sm font-bold text-[#0c1b2a] mt-0.5">NoaChoice</span>
+            </div>
+            <!-- テキスト情報 -->
+            <div class="space-y-2">
+              <h3 class="font-serif-jp text-2xl text-[#0c1b2a] font-medium">NoaChoice</h3>
+              <p class="text-base text-[#415266] leading-relaxed">
+                ブライダルECサイト
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- リンク：実績を詳しく見る -->
+      <div class="pt-4">
+        <a class="group inline-flex items-center gap-2 font-serif-jp text-sm text-[#009fe8] hover:text-[#0077b6] font-medium transition-colors tracking-widest" href="#">
+          <span class="">実績を詳しく見る</span>
+          <span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_right_alt</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER: トップページと共通の真正フッター仕様 -->
+<footer class="w-full bg-[#e8f1f8] text-[#0c1b2a] px-6 md:px-12 py-12 border-t border-[#d5e7f5]">
+  <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <!-- Corporate Details -->
+    <div class="flex flex-col space-y-1.5">
+      <div class="flex items-center gap-1.5">
+        <span class="font-serif-jp text-2xl font-bold tracking-tight text-[#0c1b2a]">OBFall</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#009fe8]"></span>
+      </div>
+      <span class="text-sm text-[#415266] font-normal">
+        〒105-0022 東京都港区海岸1-2-3 汐留芝離宮ビルディング 21F
+      </span>
+      <span class="font-latin text-sm text-[#415266] font-medium tracking-wider">
+        TEL:03-5403-5904
+      </span>
+    </div>
+    <!-- Official Links -->
+    <div class="flex flex-wrap items-center gap-4 text-sm"><a class="text-[#415266] hover:text-[#009fe8] transition-colors" href="#">人権に関する基本方針と社内相談窓口</a><a class="bg-[#04244d] hover:bg-[#0077b6] text-white px-6 py-2 rounded-sm text-sm font-medium transition-colors inline-flex items-center justify-center" href="#">お問い合わせはこちら</a></div>
+  </div>
+  <div class="max-w-[1280px] mx-auto mt-8 pt-6 border-t border-[#d5e7f5]/60 flex items-center justify-between text-xs text-[#63758a]"><span class="">© OBFall Inc.</span></div>
+</footer>
+
+
+
+
+
+
+</body></html>
