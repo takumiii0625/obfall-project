@@ -152,6 +152,8 @@ export default function HumanRightsPolicyPage() {
                 改定履歴
               </SectionHead>
               <p className="text-sm tracking-wide text-on-surface-variant">制定：2025年10月1日／最終改定：2025年10月6日</p>
+              {/* 既存はフッターにあった一文。共通フッターに置き換えたため本文として残す（2026-10-02 の指示） */}
+              <p className="mt-4 text-sm text-on-surface-variant">このページは一般公開用の情報提供を目的としています。</p>
             </section>
           </div>
         </div>

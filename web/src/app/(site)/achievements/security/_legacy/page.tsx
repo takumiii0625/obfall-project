@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import AchievementCard from "@/components/AchievementCard";
-import "../achievements.css";
+import "../../achievements.css";
 
 export const metadata: Metadata = {
   title: "脆弱性診断実績 | OBFall Inc.",

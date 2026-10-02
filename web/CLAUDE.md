@@ -52,11 +52,11 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - 文言は既存ページ（現行から移行済みのもの）を正とする。Stitch にだけある文言（CORPORATE EDITORIAL 等）は使わない
 - スタイル: Tailwind CSS v4（`postcss.config.mjs` + `src/app/(redesign)/redesign.css` の `@theme`）。走査対象は `(redesign)` 配下と `components/redesign` のみ。Bootstrap・ページ固有 CSS は新デザインのページでは使わない
 - ルート: `src/app/(redesign)/`（独自ルートレイアウト。next/font で Shippori Mincho B1 / Zen Kaku Gothic New / EB Garamond を供給）
-  - 新デザイン済み（フェーズ1・2）: `/`、`/service`、`/service/contract`、`/achievements`、`/achievements/products`、`/philosophy`、`/aboutus`、`/contact`（入力・確認）、`/newses`、`/human-rights-policy`
+  - 新デザイン済み（フェーズ1〜3）: `/`、`/service` と詳細 4 画面、`/achievements` と詳細 3 画面、`/philosophy`、`/aboutus`、`/contact`（入力・確認）、`/newses`、`/human-rights-policy`
   - 旧デザインのページは `(site)` / `(standalone)` のまま動く。置き換えた旧ページは各ディレクトリの `_legacy/`（`_` 付きで非ルーティング）に退避し、相対 import のパスだけ直してある。トップだけは `(site)/_legacy-top/`
   - 問い合わせの Server Action は既存 `(site)/contact/actions.ts` を新 ContactForm からも使う
-  - Stitch に HTML が無いページ（service/products・ses・security、achievements/contract・security、newses/[id]、privacy-policy、complete）は未着手
-- 共通部品: `components/redesign/`（Header = 現在地に青い下線、Footer（`showContactButton`）、PageHero（パンくず・英字ラベル・タイトル。和文は `jpTitle`）、Breadcrumb、TextLink「○○ →」、CardLink「詳しく見る」、LeadStatement（縦線 + 明朝の一文 + 本文）、SectionTitle（kicker + タイトル + 線）、BleedWord、Butterfly、ArrowIcon）
+  - Stitch に HTML が無いページは既存の新デザインページの構成を流用して組む（service 詳細 = service/contract の構成、achievements 詳細 = achievements/products の構成）。残り: newses/[id]、privacy-policy、complete
+- 共通部品: `components/redesign/`（Header = 現在地に青い下線、Footer（`showContactButton`）、PageHero（パンくず・英字ラベル・タイトル。和文は `jpTitle`）、Breadcrumb、TextLink「○○ →」、CardLink「詳しく見る」、LeadStatement（縦線 + 明朝の一文 + 本文。`bodyCard` で本文をカード化）、SectionTitle（kicker + タイトル + 線）、ValueCard（01 / Kicker + タイトル + 説明）、BleedWord、Butterfly、ArrowIcon）
 - 便利クラス: `wrap`（1180px 中央寄せ + 左右マージン）、`font-serif-jp` / `font-sans-jp` / `font-latin`、`p-space-*` / `px-margin`
 - はみ出す装飾を持つセクションは `overflow-clip`（`overflow-hidden` だと scrollIntoView で横にずれる）
 - アニメーションはフェーズ1では入れない。装飾は DESIGN.md のグラスモーフィズム等を採用せず、蝶・bleed word・翅の線のみ

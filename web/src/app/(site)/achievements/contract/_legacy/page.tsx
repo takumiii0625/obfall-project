@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
-import "../achievements.css";
+import "../../achievements.css";
 
 export const metadata: Metadata = {
   title: "受託開発実績 | OBFall Inc.",

@@ -7,7 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import ValueCard, { type ValueCardItem } from "@/components/ValueCard";
 import ProductCard, { type ProductCardItem } from "@/components/ProductCard";
-import "../service.css";
+import "../../service.css";
 
 export const metadata: Metadata = {
   title: "自社開発（Products） | OBFall Inc.",

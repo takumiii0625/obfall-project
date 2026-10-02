@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import ValueCard, { type ValueCardItem } from "@/components/ValueCard";
-import "../service.css";
+import "../../service.css";
 
 export const metadata: Metadata = {
   title: "SES（技術支援） | OBFall Inc.",

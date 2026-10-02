@@ -5,6 +5,7 @@ import PageHero from "@/components/redesign/PageHero";
 import SectionTitle from "@/components/redesign/SectionTitle";
 import BleedWord from "@/components/redesign/BleedWord";
 import Butterfly from "@/components/redesign/Butterfly";
+import ValueCard from "@/components/redesign/ValueCard";
 
 export const metadata: Metadata = {
   title: "受託開発（Contract Development） | OBFall Inc.",
@@ -144,24 +145,5 @@ export default function ServiceContractPage() {
       </main>
       <Footer />
     </>
-  );
-}
-
-function ValueCard({
-  num,
-  kicker,
-  title,
-  desc,
-  size = "md",
-  className = "",
-}: (typeof APPROACH)[number] & { size?: "md" | "lg"; className?: string }) {
-  return (
-    <article className={`relative p-space-lg shadow-sm lg:p-space-xl ${className}`}>
-      <div className={`mb-3 font-latin font-normal tracking-wider text-primary-container/50 ${size === "lg" ? "text-3xl" : "text-2xl"}`}>
-        {num} / {kicker}
-      </div>
-      <h3 className={`mb-4 font-serif-jp font-bold text-on-surface ${size === "lg" ? "text-2xl" : "text-xl"}`}>{title}</h3>
-      <p className="text-sm leading-relaxed text-on-surface-variant lg:text-base">{desc}</p>
-    </article>
   );
 }

@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Google マップの URL（既存 (site)/aboutus/_legacy/page.tsx と同じ。現行 Blade のエンコード済み文字列）。
- * ※ 現行はビル名が「汐染芝離宮」（正: 汐留芝離宮）。確認事項として報告済みのため現行どおり。
+ * Google マップの URL（現行 Blade のエンコード済み文字列）。
+ * 現行はビル名が「汐染芝離宮」だったが、2026-10-02 の指示で「汐留芝離宮」に修正。
  */
 const MAP_QUERY =
-  "%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B5%B7%E5%B2%B81-2-3%20%E6%B1%90%E6%9F%93%E8%8A%9D%E9%9B%A2%E5%AE%AE%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2021F";
+  "%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B5%B7%E5%B2%B81-2-3%20%E6%B1%90%E7%95%99%E8%8A%9D%E9%9B%A2%E5%AE%AE%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2021F";
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&hl=ja&z=16&output=embed`;
 const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${MAP_QUERY}`;
 
