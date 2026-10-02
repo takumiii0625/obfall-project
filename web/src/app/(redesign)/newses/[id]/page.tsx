@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import Header from "@/components/redesign/Header";
@@ -14,10 +15,18 @@ export async function generateStaticParams() {
   return ids.map((id) => ({ id: String(id) }));
 }
 
+/** <title> は「記事タイトル | OBFall株式会社」（2026-10-02 の指示）。記事が無い場合は既定のまま（本体でリダイレクトする） */
+export async function generateMetadata({ params }: PageProps<"/newses/[id]">): Promise<Metadata> {
+  const { id } = await params;
+  const news = await getNewsById(Number(id));
+  if (!news) return {};
+  return { title: `${news.title} | OBFall株式会社` };
+}
+
 /**
  * お知らせ詳細 GET /newses/{id}（リデザイン版。newses 一覧の構成を流用）
  * データ取得・リダイレクト・ISR は既存 (site)/newses/[id]/_legacy/page.tsx と同じ。
- * 現行どおり status を見ない（§7.1 の 9）。<title> も現行どおり既定のまま。
+ * 現行どおり status を見ない（§7.1 の 9）。
  */
 export default async function NewsShowPage({ params }: PageProps<"/newses/[id]">) {
   const { id } = await params;
