@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import { getNewsById, getPublishedNewsIds } from "@/lib/newses";
-import "./news-show.css";
+import "../news-show.css";
 
 // ISR。Next.js のセグメント設定はリテラルでなければならないため直書き（値は lib/revalidate.ts の NEWS_REVALIDATE_SECONDS と合わせる）
 export const revalidate = 600;

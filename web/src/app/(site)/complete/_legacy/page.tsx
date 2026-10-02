@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
-import "./complete.css";
+import "../complete.css";
 
 export const metadata: Metadata = {
   title: "送信完了 | OBFall Inc.",

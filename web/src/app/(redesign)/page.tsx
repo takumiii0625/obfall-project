@@ -153,15 +153,15 @@ export default async function Home() {
                 >
                   <path d="M 10 80 Q 130 10, 250 70 T 490 50" stroke="currentColor" strokeDasharray="6 8" strokeWidth="2" />
                 </svg>
-                <div className="relative flex items-center justify-between gap-4 py-space-xl">
-                  <div className="flex -rotate-2 flex-col items-center rounded-xl bg-surface-container-lowest px-6 py-8 shadow-sm">
-                    <span className="font-serif-jp text-[26px] font-bold text-primary sm:text-[30px]">つくる</span>
+                <div className="relative flex items-center justify-between gap-2 py-space-xl sm:gap-4">
+                  <div className="flex -rotate-2 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
+                    <span className="font-serif-jp text-[20px] font-bold whitespace-nowrap text-primary sm:text-[30px]">つくる</span>
                   </div>
-                  <div className="flex translate-y-6 rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-6 py-10 shadow-md">
-                    <span className="font-serif-jp text-[28px] font-bold text-secondary sm:text-[32px]">支える</span>
+                  <div className="flex translate-y-6 rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-8 shadow-md sm:px-6 sm:py-10">
+                    <span className="font-serif-jp text-[22px] font-bold whitespace-nowrap text-secondary sm:text-[32px]">支える</span>
                   </div>
-                  <div className="flex -translate-y-4 -rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-6 py-8 shadow-sm">
-                    <span className="font-serif-jp text-[26px] font-bold text-on-surface sm:text-[30px]">守る</span>
+                  <div className="flex -translate-y-4 -rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
+                    <span className="font-serif-jp text-[20px] font-bold whitespace-nowrap text-on-surface sm:text-[30px]">守る</span>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import PrivacyPolicyText from "@/components/PrivacyPolicyText";
-import "./privacy-policy.css";
+import "../privacy-policy.css";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー | OBFall株式会社",
