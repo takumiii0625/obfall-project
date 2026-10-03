@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import { countPublishedNewses, getPublishedNewses, NEWS_PER_PAGE } from "@/lib/newses";
 import { buildPaginationElements, paginate } from "@/lib/pagination";
 
@@ -21,7 +22,7 @@ export default async function NewsesPage({ searchParams }: PageProps<"/newses">)
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "最新情報" }]} label="NEWS" title="News" />
+        <PageHero label="NEWS" title="News" />
 
         <section className="w-full py-space-2xl lg:py-space-3xl">
           <div className="wrap">
@@ -70,6 +71,8 @@ export default async function NewsesPage({ searchParams }: PageProps<"/newses">)
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "最新情報" }]} />
       </main>
       <Footer />
     </>

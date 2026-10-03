@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import ArrowIcon from "@/components/redesign/ArrowIcon";
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function AboutUsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "会社概要" }]} label="ABOUT US" title="About US" />
+        <PageHero label="ABOUT US" title="About US" />
 
         <div className="wrap pt-space-2xl pb-space-3xl">
           <div className="flex flex-col">
@@ -90,6 +91,8 @@ export default function AboutUsPage() {
             </dl>
           </div>
         </div>
+
+        <Breadcrumb items={[{ label: "会社概要" }]} />
       </main>
       <Footer />
     </>

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import { getNewsById, getPublishedNewsIds } from "@/lib/newses";
 
 // ISR。Next.js のセグメント設定はリテラルでなければならないため直書き（値は lib/revalidate.ts の NEWS_REVALIDATE_SECONDS と合わせる）
@@ -39,7 +40,7 @@ export default async function NewsShowPage({ params }: PageProps<"/newses/[id]">
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "最新情報", href: "/newses" }, { label: news.title || "最新情報" }]} label="NEWS" title="News" />
+        <PageHero label="NEWS" title="News" />
 
         <section className="w-full py-space-2xl lg:py-space-3xl">
           <div className="wrap">
@@ -75,6 +76,8 @@ export default async function NewsShowPage({ params }: PageProps<"/newses/[id]">
             </article>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "最新情報", href: "/newses" }, { label: news.title || "最新情報" }]} />
       </main>
       <Footer />
     </>

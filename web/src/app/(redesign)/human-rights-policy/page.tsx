@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 
 const TITLE = "人権方針・社内相談窓口 | OBFall株式会社";
 const DESCRIPTION = "当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。";
@@ -51,7 +52,7 @@ export default function HumanRightsPolicyPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "人権に関する基本方針と社内相談窓口" }]} title="人権に関する基本方針と社内相談窓口" jpTitle />
+        <PageHero title="人権に関する基本方針と社内相談窓口" jpTitle />
 
         <div className="w-full bg-surface py-space-2xl">
           <div className="mx-auto flex w-full max-w-[800px] flex-col gap-space-2xl px-margin-mobile md:px-margin">
@@ -157,6 +158,8 @@ export default function HumanRightsPolicyPage() {
             </section>
           </div>
         </div>
+
+        <Breadcrumb items={[{ label: "人権に関する基本方針と社内相談窓口" }]} />
       </main>
       <Footer />
     </>

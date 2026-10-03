@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import SectionTitle from "@/components/redesign/SectionTitle";
 import BleedWord from "@/components/redesign/BleedWord";
@@ -84,7 +85,7 @@ export default function ServiceSecurityPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "脆弱性診断" }]} label="SECURITY" title="Security × Engineering" />
+        <PageHero label="SECURITY" title="Security × Engineering" />
 
         <LeadStatement
           statement="安全は、後付けではなく、設計から。"
@@ -150,6 +151,8 @@ export default function ServiceSecurityPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "サービス", href: "/service" }, { label: "脆弱性診断" }]} />
       </main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import SectionTitle from "@/components/redesign/SectionTitle";
 
@@ -25,7 +26,7 @@ export default function AchievementsSecurityPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "脆弱性診断" }]} label="ACHIEVEMENTS" title="Security Assessment" />
+        <PageHero label="ACHIEVEMENTS" title="Security Assessment" />
 
         <LeadStatement
           statement={
@@ -89,6 +90,8 @@ export default function AchievementsSecurityPage() {
             <div className="mx-auto mt-space-lg h-[1.5px] w-16 bg-primary-container" aria-hidden="true" />
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "脆弱性診断" }]} />
       </main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import SectionTitle from "@/components/redesign/SectionTitle";
 import BleedWord from "@/components/redesign/BleedWord";
 import Butterfly from "@/components/redesign/Butterfly";
@@ -71,7 +72,7 @@ export default function ServiceContractPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "受託開発" }]} label="CONTRACT DEVELOPMENT" title="IT × Collaboration" />
+        <PageHero label="CONTRACT DEVELOPMENT" title="IT × Collaboration" />
 
         {/* リード */}
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-lowest py-space-2xl lg:py-space-3xl">
@@ -142,6 +143,8 @@ export default function ServiceContractPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "サービス", href: "/service" }, { label: "受託開発" }]} />
       </main>
       <Footer />
     </>

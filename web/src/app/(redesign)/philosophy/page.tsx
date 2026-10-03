@@ -3,7 +3,8 @@ import type { ReactNode } from "react";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
-import Butterfly from "@/components/redesign/Butterfly";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
+import ButterflyVenation from "@/components/redesign/ButterflyVenation";
 
 export const metadata: Metadata = {
   title: "Philosophy | OBFall Inc.",
@@ -18,7 +19,7 @@ export default function PhilosophyPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "企業理念" }]} label="PHILOSOPHY" title="Philosophy" />
+        <PageHero label="PHILOSOPHY" title="Philosophy" />
 
         {/* 理念の一文 */}
         <section className="w-full bg-surface-container-low py-space-2xl">
@@ -122,17 +123,19 @@ export default function PhilosophyPage() {
                   <p>「あなたの、あなたによる、あなたのための」という言葉は、アメリカ第16代大統領エイブラハム・リンカーンの演説に由来しています。</p>
                   <p>
                     社名 <strong className="font-bold text-on-surface">OBFall</strong> は、その演説に登場する &quot;of the people, by the people, for the
-                    people&quot; に、<strong className="font-bold text-on-surface">&quot;すべての人へ（all）&quot;</strong> という想いを込めて名づけました。
+                    people&quot; に、<strong className="font-bold whitespace-nowrap text-on-surface">&quot;すべての人へ（all）&quot;</strong> という想いを込めて名づけました。
                   </p>
                   <p>OBFallは、テクノロジーの力で、すべての人に可能性を届ける企業でありたいと考えています。</p>
                 </div>
               </div>
               <div className="relative flex w-full items-center justify-center text-primary-container lg:w-64" aria-hidden="true">
-                <Butterfly className="h-40 w-40" strokeWidth={0.4} />
+                <ButterflyVenation className="h-auto w-full max-w-[280px]" strokeScale={4} viewBox="-60 70 1320 730" preserveAspectRatio="xMidYMid meet" />
               </div>
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "企業理念" }]} />
       </main>
       <Footer />
     </>

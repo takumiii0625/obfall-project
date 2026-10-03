@@ -19,6 +19,9 @@ type Props = {
   heroInput: ReactNode;
   /** 確認ステップのタイトル帯 */
   heroConfirm: ReactNode;
+  /** 各ステップのパンくず（サーバーで描画した Breadcrumb。本文の最後に置く） */
+  breadcrumbInput: ReactNode;
+  breadcrumbConfirm: ReactNode;
   /** Turnstile のサイトキー（未設定ならウィジェットを出さない） */
   turnstileSiteKey?: string;
 };
@@ -35,7 +38,7 @@ const ERROR_CLASS = "mt-1 text-sm text-error";
  * ロジックは既存 (site)/contact/_legacy/ContactForm.tsx と同じ（Zod 共有スキーマ・Server Action・Turnstile・ハニーポット）。
  * 確認ステップは HTML が無いため入力画面と同じ部品で構成（仮置き）。
  */
-export default function ContactForm({ heroInput, heroConfirm, turnstileSiteKey }: Props) {
+export default function ContactForm({ heroInput, heroConfirm, breadcrumbInput, breadcrumbConfirm, turnstileSiteKey }: Props) {
   const [step, setStep] = useState<Step>("input");
   const [values, setValues] = useState<ContactFormValues>(EMPTY_CONTACT_VALUES);
   const [errors, setErrors] = useState<ContactErrors>({});
@@ -147,6 +150,7 @@ export default function ContactForm({ heroInput, heroConfirm, turnstileSiteKey }
             </form>
           </div>
         </div>
+        {breadcrumbConfirm}
       </>
     );
   }
@@ -262,6 +266,7 @@ export default function ContactForm({ heroInput, heroConfirm, turnstileSiteKey }
           </form>
         </div>
       </div>
+      {breadcrumbInput}
     </>
   );
 }

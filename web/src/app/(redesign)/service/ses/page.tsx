@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import SectionTitle from "@/components/redesign/SectionTitle";
 import BleedWord from "@/components/redesign/BleedWord";
@@ -56,7 +57,7 @@ export default function ServiceSesPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "SES" }]} label="TEAM SUPPORT" title="IT × Team" />
+        <PageHero label="TEAM SUPPORT" title="IT × Team" />
 
         <LeadStatement
           statement="人が輝く現場を、技術で支える。"
@@ -117,6 +118,8 @@ export default function ServiceSesPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "サービス", href: "/service" }, { label: "SES" }]} />
       </main>
       <Footer />
     </>

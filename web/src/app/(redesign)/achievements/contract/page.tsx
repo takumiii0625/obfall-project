@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import TextLink from "@/components/redesign/TextLink";
 
@@ -19,7 +20,6 @@ export default function AchievementsContractPage() {
       <Header />
       <main className="w-full bg-surface pt-20">
         <PageHero
-          breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "受託開発" }]}
           label="ACHIEVEMENTS"
           title="Contract Development"
         />
@@ -54,6 +54,8 @@ export default function AchievementsContractPage() {
             </TextLink>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "受託開発" }]} />
       </main>
       <Footer />
     </>

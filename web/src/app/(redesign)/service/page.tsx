@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import CardLink from "@/components/redesign/CardLink";
 
@@ -27,7 +28,7 @@ export default function ServicePage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス" }]} label="SERVICE" title="Service" />
+        <PageHero label="SERVICE" title="Service" />
 
         <LeadStatement
           statement="ITの力で、人と社会の可能性を広げる。"
@@ -57,6 +58,8 @@ export default function ServicePage() {
             <WideCard {...s4} numColor="text-secondary" chipColor="bg-surface-container text-tertiary" />
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "サービス" }]} />
       </main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import Butterfly from "@/components/redesign/Butterfly";
+import ButterflyVenation from "@/components/redesign/ButterflyVenation";
 import TextLink from "@/components/redesign/TextLink";
 import RevealOnScroll from "@/components/redesign/RevealOnScroll";
 import { getTopNewses } from "@/lib/newses";
@@ -62,19 +63,7 @@ export default async function Home() {
         <section className="relative -mt-20 flex min-h-[90svh] w-full items-center md:min-h-svh justify-center overflow-clip bg-gradient-to-br from-[#003254] via-[#004e8c] to-[#00a6ff] px-margin-mobile pt-20 text-on-primary md:px-margin">
           {/* 翅の葉脈のような線（HTML の Butterfly Venation） */}
           <div className="pointer-events-none absolute inset-0 opacity-25 mix-blend-screen" aria-hidden="true">
-            <svg className="h-full w-full scale-110" fill="none" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 600,450 C 420,180 200,80 50,160 C -40,210 20,430 180,520 C 320,600 480,510 600,450 Z" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" />
-              <path d="M 600,450 C 500,280 320,200 120,230" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8" />
-              <path d="M 520,380 C 410,290 280,260 140,310" stroke="rgba(255,255,255,0.4)" strokeWidth="0.7" />
-              <path d="M 450,420 C 360,370 260,360 160,430" stroke="rgba(255,255,255,0.4)" strokeWidth="0.7" />
-              <path d="M 600,450 C 470,550 310,680 140,640 C 60,620 90,520 220,480" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8" />
-              <path d="M 600,450 C 780,180 1000,80 1150,160 C 1240,210 1180,430 1020,520 C 880,600 720,510 600,450 Z" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" />
-              <path d="M 600,450 C 700,280 880,200 1080,230" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8" />
-              <path d="M 680,380 C 790,290 920,260 1060,310" stroke="rgba(255,255,255,0.4)" strokeWidth="0.7" />
-              <path d="M 750,420 C 840,370 940,360 1040,430" stroke="rgba(255,255,255,0.4)" strokeWidth="0.7" />
-              <path d="M 600,450 C 730,550 890,680 1060,640 C 1140,620 1110,520 980,480" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8" />
-              <path d="M 600,120 L 600,780" stroke="rgba(255,255,255,0.2)" strokeDasharray="3 6" strokeWidth="1" />
-            </svg>
+            <ButterflyVenation className="h-full w-full scale-110 text-white" />
           </div>
 
           <div className="relative z-10 mx-auto flex w-full max-w-[1180px] flex-col justify-between py-space-3xl">

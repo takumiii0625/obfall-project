@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -19,8 +20,10 @@ export default function ContactPage() {
       <Header />
       <main className="w-full bg-surface pt-20">
         <ContactForm
-          heroInput={<PageHero breadcrumbs={[{ label: "お問い合わせ" }]} label="CONTACT" title="Contact" />}
-          heroConfirm={<PageHero breadcrumbs={[{ label: "お問い合わせ", href: "/contact" }, { label: "確認" }]} label="CONFIRM" title="Confirm" />}
+          heroInput={<PageHero label="CONTACT" title="Contact" />}
+          breadcrumbInput={<Breadcrumb items={[{ label: "お問い合わせ" }]} />}
+          heroConfirm={<PageHero label="CONFIRM" title="Confirm" />}
+          breadcrumbConfirm={<Breadcrumb items={[{ label: "お問い合わせ", href: "/contact" }, { label: "確認" }]} />}
           turnstileSiteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
         />
       </main>

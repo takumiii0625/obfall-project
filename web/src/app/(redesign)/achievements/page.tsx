@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import LeadStatement from "@/components/redesign/LeadStatement";
 import CardLink from "@/components/redesign/CardLink";
 
@@ -50,7 +51,7 @@ export default function AchievementsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "実績・事例紹介" }]} label="ACHIEVEMENTS" title="Achievements" />
+        <PageHero label="ACHIEVEMENTS" title="Achievements" />
 
         <LeadStatement
           statement={
@@ -120,6 +121,8 @@ export default function AchievementsPage() {
             </div>
           </div>
         </section>
+
+        <Breadcrumb items={[{ label: "実績・事例紹介" }]} />
       </main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
+import Breadcrumb from "@/components/redesign/Breadcrumb";
 import PrivacyPolicyText from "@/components/redesign/PrivacyPolicyText";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function PrivacyPolicyPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "プライバシーポリシー" }]} label="PRIVACY POLICY" title="Privacy Policy" />
+        <PageHero label="PRIVACY POLICY" title="Privacy Policy" />
 
         <div className="w-full bg-surface py-space-2xl lg:py-space-3xl">
           <div className="mx-auto w-full max-w-[800px] px-margin-mobile md:px-margin">
@@ -31,6 +32,8 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
         </div>
+
+        <Breadcrumb items={[{ label: "プライバシーポリシー" }]} />
       </main>
       <Footer />
     </>
