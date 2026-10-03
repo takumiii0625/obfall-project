@@ -19,6 +19,15 @@ import { getTopNewses } from "@/lib/newses";
  */
 export const revalidate = 600;
 
+/**
+ * ヒーロー以外のセクションも PC 幅（lg 以上）では画面 1 枚分の高さにする（現行トップの「スライドのように切り替わる」印象に寄せる）。
+ * - 最小の高さだけを指定し、中身が多ければ伸びる。大きなモニターで間延びしないよう 960px を上限にする
+ * - 中身は上下中央。固定ヘッダー（80px）に隠れる分だけ上の余白を足し、ヘッダーの下の見える範囲の中央に置く
+ * - scroll-snap やスクロールの乗っ取りは入れない
+ */
+const FULL_HEIGHT = "lg:min-h-[min(100svh,960px)]";
+const FULL_CENTER = "lg:flex lg:flex-col lg:justify-center lg:pt-44";
+
 /** セクション背景に敷く大きな英字（HTML の Bleed Background Text） */
 function BleedWord({ children, className }: { children: string; className: string }) {
   return (
@@ -98,7 +107,7 @@ export default async function Home() {
         </section>
 
         {/* ── SERVICE ── */}
-        <section className="relative w-full overflow-clip bg-surface-container-lowest py-space-3xl text-on-surface">
+        <section className={`relative w-full overflow-clip bg-surface-container-lowest py-space-3xl text-on-surface ${FULL_HEIGHT} ${FULL_CENTER}`}>
           <BleedWord className="top-1/2 -left-20 -translate-y-1/2 text-[170px] tracking-tighter text-surface-container/60 sm:text-[230px] lg:text-[320px]">
             SERVICE
           </BleedWord>
@@ -143,7 +152,7 @@ export default async function Home() {
         </section>
 
         {/* ── ACHIEVEMENTS ── */}
-        <section className="relative w-full overflow-clip bg-surface-container-low py-space-3xl text-on-surface">
+        <section className={`relative w-full overflow-clip bg-surface-container-low py-space-3xl text-on-surface ${FULL_HEIGHT} ${FULL_CENTER}`}>
           <BleedWord className="top-1/2 -right-24 -translate-y-1/2 text-[140px] tracking-tighter text-surface-container-high/50 sm:text-[210px] lg:text-[290px]">
             ACHIEVEMENTS
           </BleedWord>
@@ -200,8 +209,8 @@ export default async function Home() {
         </section>
 
         {/* ── ABOUT US ── */}
-        <section className="relative w-full overflow-clip bg-surface-container-lowest py-space-3xl text-on-surface">
-          <BleedWord className="top-12 left-1/2 -translate-x-1/2 text-[160px] tracking-tight whitespace-nowrap text-surface-container/50 sm:text-[240px] lg:text-[340px]">
+        <section className={`relative w-full overflow-clip bg-surface-container-lowest py-space-3xl text-on-surface ${FULL_HEIGHT} ${FULL_CENTER}`}>
+          <BleedWord className="top-12 left-1/2 -translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 text-[160px] tracking-tight whitespace-nowrap text-surface-container/50 sm:text-[240px] lg:text-[340px]">
             ABOUT US
           </BleedWord>
 
@@ -245,10 +254,10 @@ export default async function Home() {
 
         {/* ── NEWS / RECRUIT ── */}
         <section className="relative w-full bg-surface text-on-surface">
-          <div className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2">
+          <div className={`grid min-h-[600px] grid-cols-1 lg:grid-cols-2 ${FULL_HEIGHT}`}>
             {/* NEWS */}
-            <div className="relative flex flex-col justify-between overflow-clip bg-surface-container-low px-margin-mobile py-space-3xl shadow-[inset_-8px_0_16px_rgba(0,0,0,0.02)] md:px-margin">
-              <BleedWord className="-top-6 -left-10 text-[120px] tracking-tighter text-surface-container-high/40 sm:text-[180px] lg:text-[220px]">
+            <div className={`relative flex flex-col justify-between overflow-clip bg-surface-container-low px-margin-mobile py-space-3xl shadow-[inset_-8px_0_16px_rgba(0,0,0,0.02)] md:px-margin ${FULL_CENTER}`}>
+              <BleedWord className="-top-6 -left-10 lg:top-20 text-[120px] tracking-tighter text-surface-container-high/40 sm:text-[180px] lg:text-[220px]">
                 NEWS
               </BleedWord>
               <div className="reveal relative z-10 space-y-space-2xl">
@@ -291,8 +300,8 @@ export default async function Home() {
             </div>
 
             {/* RECRUIT */}
-            <div className="relative flex flex-col justify-between overflow-clip bg-surface-container-lowest px-margin-mobile py-space-3xl shadow-[inset_8px_0_16px_rgba(0,0,0,0.02)] md:px-margin">
-              <BleedWord className="-top-6 -right-10 text-[120px] tracking-tighter text-surface-container-low/80 sm:text-[180px] lg:text-[220px]">
+            <div className={`relative flex flex-col justify-between overflow-clip bg-surface-container-lowest px-margin-mobile py-space-3xl shadow-[inset_8px_0_16px_rgba(0,0,0,0.02)] md:px-margin ${FULL_CENTER}`}>
+              <BleedWord className="-top-6 -right-10 lg:top-20 text-[120px] tracking-tighter text-surface-container-low/80 sm:text-[180px] lg:text-[220px]">
                 RECRUIT
               </BleedWord>
               <div className="reveal relative z-10 space-y-space-xl">
@@ -325,7 +334,7 @@ export default async function Home() {
         </section>
 
         {/* ── エンディング ── */}
-        <section className="relative w-full bg-surface-container-lowest px-margin-mobile py-space-3xl text-center text-on-surface md:px-margin" aria-label="closing">
+        <section className={`relative w-full bg-surface-container-lowest px-margin-mobile py-space-3xl text-center text-on-surface md:px-margin ${FULL_HEIGHT} ${FULL_CENTER}`} aria-label="closing">
           <div className="reveal mx-auto max-w-[840px] space-y-space-lg py-space-xl">
             <p className="font-latin text-[32px] leading-tight font-normal tracking-tight text-primary sm:text-[44px] lg:text-[54px]">
               of you, by you, for all.
