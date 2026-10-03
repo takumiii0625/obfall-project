@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition, type ReactNode } from "react";
-import PrivacyPolicyText from "@/components/PrivacyPolicyText";
+import PrivacyPolicyText from "@/components/redesign/PrivacyPolicyText";
 import Turnstile from "@/components/Turnstile";
 import {
   EMPTY_CONTACT_VALUES,
@@ -196,7 +196,7 @@ export default function ContactForm({ heroInput, heroConfirm, turnstileSiteKey }
                 type="tel"
                 id="tel"
                 name="tel"
-                placeholder="例: 03-1234-5678"
+                placeholder="例：03-1234-5678"
                 value={values.tel}
                 onChange={(e) => update("tel", e.target.value)}
                 className={INPUT_CLASS}

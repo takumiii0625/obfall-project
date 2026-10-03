@@ -82,14 +82,11 @@ export default function PhilosophyPage() {
                     共感を軸に、人と組織をつなぐ。理念に共鳴する仲間とともに、価値ある未来を創ります。
                   </p>
                 </div>
-                <div className="hidden h-24 w-24 shrink-0 items-center justify-center rounded-full bg-primary-fixed/30 lg:flex" aria-hidden="true">
-                  <span className="font-latin text-[36px] font-bold text-primary">01</span>
-                </div>
               </article>
-              <ValueCard num="02" kicker="Satisfaction" title="ES＝CS" numColor="text-primary-fixed" className="bg-surface-container-lowest shadow-[0_8px_24px_rgba(0,159,232,0.07)] lg:col-span-6">
+              <ValueCard num="02" kicker="Satisfaction" title="ES＝CS" className="bg-surface-container-lowest shadow-[0_8px_24px_rgba(0,159,232,0.07)] lg:col-span-6">
                 働く人の幸福が、顧客の満足を生む。社員満足と顧客満足の両立を通じて、持続的な成長を目指します。
               </ValueCard>
-              <ValueCard num="03" kicker="Growth & Challenge" title="成長と挑戦" numColor="text-secondary-fixed" className="bg-surface-container-high/40 shadow-[0_8px_24px_rgba(0,159,232,0.05)] lg:col-span-6">
+              <ValueCard num="03" kicker="Growth & Challenge" title="成長と挑戦" className="bg-surface-container-high/40 shadow-[0_8px_24px_rgba(0,159,232,0.05)] lg:col-span-6">
                 一人ひとりが自らの成長に挑み、変化を恐れず前へ。挑戦を後押しする文化を大切にします。
               </ValueCard>
             </div>
@@ -131,7 +128,7 @@ export default function PhilosophyPage() {
                 </div>
               </div>
               <div className="relative flex w-full items-center justify-center text-primary-container lg:w-64" aria-hidden="true">
-                <Butterfly className="h-40 w-40 opacity-60" fill="rgba(234,237,255,0.9)" body="#006494" />
+                <Butterfly className="h-40 w-40" strokeWidth={0.4} />
               </div>
             </div>
           </div>
@@ -157,29 +154,22 @@ function ValueCard({
   num,
   kicker,
   title,
-  numColor,
   className = "",
   children,
 }: {
   num: string;
   kicker: string;
   title: string;
-  numColor: string;
   className?: string;
   children: ReactNode;
 }) {
   return (
-    <article className={`flex flex-col justify-between rounded-xl p-space-xl ${className}`}>
-      <div>
-        <span className="mb-space-xs block font-latin text-xl tracking-wider text-primary">
-          {num} / {kicker}
-        </span>
-        <h3 className="mb-space-md font-serif-jp text-[22px] font-bold text-on-surface">{title}</h3>
-        <p className="text-sm leading-relaxed text-on-surface-variant">{children}</p>
-      </div>
-      <div className="flex justify-end pt-8" aria-hidden="true">
-        <span className={`font-latin text-[28px] font-bold ${numColor}`}>{num}</span>
-      </div>
+    <article className={`rounded-xl p-space-xl ${className}`}>
+      <span className="mb-space-xs block font-latin text-xl tracking-wider text-primary">
+        {num} / {kicker}
+      </span>
+      <h3 className="mb-space-md font-serif-jp text-[22px] font-bold text-on-surface">{title}</h3>
+      <p className="text-sm leading-relaxed text-on-surface-variant">{children}</p>
     </article>
   );
 }

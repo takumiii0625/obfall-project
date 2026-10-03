@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
-import PrivacyPolicyText from "@/components/PrivacyPolicyText";
+import PrivacyPolicyText from "@/components/redesign/PrivacyPolicyText";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー | OBFall株式会社",
+  title: "プライバシーポリシー | OBFall Inc.",
 };
 
 /**

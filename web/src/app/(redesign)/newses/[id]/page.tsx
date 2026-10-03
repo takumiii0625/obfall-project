@@ -15,12 +15,12 @@ export async function generateStaticParams() {
   return ids.map((id) => ({ id: String(id) }));
 }
 
-/** <title> は「記事タイトル | OBFall株式会社」（2026-10-02 の指示）。記事が無い場合は既定のまま（本体でリダイレクトする） */
+/** <title> は「記事タイトル | OBFall Inc.」（他のページと同じ形）。記事が無い場合は既定のまま（本体でリダイレクトする） */
 export async function generateMetadata({ params }: PageProps<"/newses/[id]">): Promise<Metadata> {
   const { id } = await params;
   const news = await getNewsById(Number(id));
   if (!news) return {};
-  return { title: `${news.title} | OBFall株式会社` };
+  return { title: `${news.title} | OBFall Inc.` };
 }
 
 /**

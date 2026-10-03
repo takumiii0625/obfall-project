@@ -13,8 +13,7 @@ export const metadata: Metadata = {
  * Google マップの URL（現行 Blade のエンコード済み文字列）。
  * 現行はビル名が「汐染芝離宮」だったが、2026-10-02 の指示で「汐留芝離宮」に修正。
  */
-const MAP_QUERY =
-  "%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B5%B7%E5%B2%B81-2-3%20%E6%B1%90%E7%95%99%E8%8A%9D%E9%9B%A2%E5%AE%AE%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2021F";
+const MAP_QUERY = encodeURIComponent("東京都港区海岸1-2-3 汐留芝離宮ビルディング");
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&hl=ja&z=16&output=embed`;
 const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${MAP_QUERY}`;
 
@@ -31,7 +30,7 @@ export default function AboutUsPage() {
         <PageHero breadcrumbs={[{ label: "会社概要" }]} label="ABOUT US" title="About US" />
 
         <div className="wrap pt-space-2xl pb-space-3xl">
-          <div className="flex max-w-4xl flex-col">
+          <div className="flex flex-col">
             <div className="mb-space-2xl flex items-center border-l-[3px] border-primary-container pl-space-md">
               <h2 className="font-serif-jp text-[22px] font-bold tracking-tight text-on-surface lg:text-[26px]">私たちOBFall株式会社について</h2>
             </div>
@@ -53,7 +52,7 @@ export default function AboutUsPage() {
                     汐留芝離宮ビルディング 21F
                   </span>
                   <div className="relative w-full overflow-clip rounded border border-outline-variant/40 bg-surface-container-low">
-                    <div className="aspect-video w-full">
+                    <div className="aspect-video w-full lg:aspect-[21/9]">
                       <iframe
                         src={MAP_EMBED_URL}
                         loading="lazy"

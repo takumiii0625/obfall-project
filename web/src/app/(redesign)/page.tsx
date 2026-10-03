@@ -70,9 +70,14 @@ export default async function Home() {
 
           <div className="relative z-10 mx-auto flex w-full max-w-[1180px] flex-col justify-between py-space-3xl">
             <div className="my-auto max-w-3xl space-y-space-xl">
-              <h1 className="font-serif-jp text-[36px] leading-[1.3] font-bold tracking-tight text-on-primary sm:text-[46px] lg:text-[58px]">
-                <span className="block">「あなたの、あなたによる、あなたのための」</span>
-                <span className="mt-2 block text-[26px] font-normal tracking-widest text-primary-fixed sm:text-[34px] lg:text-[42px]">を全てのひとへ</span>
+              {/* 3 行に固定する。各行は折り返さず、収まらない幅では読点の位置（inline-block の境目）でのみ折り返す */}
+              <h1 className="font-serif-jp text-[36px] leading-[1.3] font-bold tracking-tight text-wrap text-on-primary sm:text-[46px] lg:text-[58px]">
+                <span className="block">
+                  <span className="inline-block whitespace-nowrap">「あなたの、</span>
+                  <span className="inline-block whitespace-nowrap">あなたによる、</span>
+                </span>
+                <span className="block whitespace-nowrap">あなたのための」</span>
+                <span className="mt-2 block whitespace-nowrap text-[26px] font-normal tracking-widest text-primary-fixed sm:text-[34px] lg:text-[42px]">を全てのひとへ</span>
               </h1>
               <p className="max-w-xl text-[15px] leading-[2.1] tracking-wide text-surface-container-low opacity-95 sm:text-[17px]">
                 私たちは皆、人生の主人公です。働くことも人生の一部。
@@ -210,7 +215,7 @@ export default async function Home() {
                 <p className="text-[15px] leading-[2.2] text-on-surface-variant sm:text-[16px]">
                   会社情報をご紹介いたします。
                   <br className="hidden lg:inline" />
-                  OBFall株式会社は、ITの力で社会課題の解決を図り、 人と社会の可能性を広げる企業として成長を続けてまいります。
+                  OBFall株式会社は、ITの力で社会課題の解決を図り、人と社会の可能性を広げる企業として成長を続けてまいります。
                 </p>
                 <div className="pt-space-sm">
                   <TextLink href="/aboutus">会社概要画面へ</TextLink>

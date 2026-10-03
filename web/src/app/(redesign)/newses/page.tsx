@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
 import { countPublishedNewses, getPublishedNewses, NEWS_PER_PAGE } from "@/lib/newses";
 import { buildPaginationElements, paginate } from "@/lib/pagination";
+
+export const metadata: Metadata = {
+  title: "News | OBFall Inc.",
+};
 
 /**
  * お知らせ一覧 GET /newses（リデザイン版。design/stitch/news.html を参考）
@@ -30,7 +35,7 @@ export default async function NewsesPage({ searchParams }: PageProps<"/newses">)
               <h2 className="font-serif-jp text-2xl font-bold tracking-wide text-on-surface">最新情報一覧</h2>
             </div>
 
-            <div className="max-w-4xl">
+            <div>
               <div className="border-b border-outline-variant/40 pb-3 text-right text-xs text-on-surface-variant">
                 該当件数 : {pager.total.toLocaleString("ja-JP")}件
               </div>
