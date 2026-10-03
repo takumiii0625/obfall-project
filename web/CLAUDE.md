@@ -60,7 +60,7 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - 共通部品: `components/redesign/`（Header = 旧ロゴのマーク `public/image/logo_icon.png` + 「OBFall」。青い点は無し。現在地に青い下線、Footer（`showContactButton`）、PageHero（パンくず・英字ラベル・タイトル。和文は `jpTitle`）、Breadcrumb、TextLink「○○ →」、CardLink「詳しく見る」、LeadStatement（縦線 + 明朝の一文 + 本文。`bodyCard` で本文をカード化）、SectionTitle（kicker + タイトル + 線）、ValueCard（01 / Kicker + タイトル + 説明）、BleedWord、Butterfly、ArrowIcon）
 - 便利クラス: `wrap`（1180px 中央寄せ + 左右マージン）、`font-serif-jp` / `font-sans-jp` / `font-latin`、`p-space-*` / `px-margin`
 - はみ出す装飾を持つセクションは `overflow-clip`（`overflow-hidden` だと scrollIntoView で横にずれる）
-- アニメーションはフェーズ1では入れない。装飾は DESIGN.md のグラスモーフィズム等を採用せず、蝶・bleed word・翅の線のみ
+- 演出: トップのみ `components/redesign/RevealOnScroll.tsx`（旧 TopEffects の IntersectionObserver を流用）+ `.reveal` でセクションをフェードイン。CSS は `html.js-reveal .reveal` にだけ効くので JS 無効時は常に表示。ヒーローは `min-h-[90svh] md:min-h-svh`。scroll-snap やスクロールの乗っ取りは入れない。装飾は DESIGN.md のグラスモーフィズム等を採用せず、蝶・bleed word・翅の線のみ
 
 ## 作業ルール
 

@@ -111,3 +111,34 @@
     padding-inline: var(--spacing-margin);
   }
 }
+
+/* ---------------------------------------------------------------
+   スクロールで現れるフェードイン（components/redesign/RevealOnScroll.tsx）
+   旧トップの .anim-fade-up（30px 下から 0.8s ease）と同じ控えめな動き。
+   JS がマウントして <html> に js-reveal を付けるまでは隠さない（JS 無効時は常に表示）。
+   --------------------------------------------------------------- */
+@layer components {
+  html.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  /* 遷移は「現れる」側だけに付ける（JS マウント時に隠す動作はフェードさせない） */
+  html.js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+  /* 同じセクション内の 2 つ目以降は少し遅らせる（旧 .section-block の時間差） */
+  html.js-reveal .reveal.reveal--delay {
+    transition-delay: 0.15s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js-reveal .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

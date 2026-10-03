@@ -3,6 +3,7 @@ import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import Butterfly from "@/components/redesign/Butterfly";
 import TextLink from "@/components/redesign/TextLink";
+import RevealOnScroll from "@/components/redesign/RevealOnScroll";
 import { getTopNewses } from "@/lib/newses";
 
 /**
@@ -10,7 +11,8 @@ import { getTopNewses } from "@/lib/newses";
  *
  * - 文言は既存トップ（src/app/(site)/_legacy-top/page.tsx と components/top/HeroSection.tsx）のものを正とする
  * - お知らせは既存と同じく DB（newses）から公開中の先頭3件。ISR（NEWS_REVALIDATE_SECONDS）+ 保存時のオンデマンド再検証
- * - アニメーションは入れない（フェーズ1）
+ * - スクロールで各セクションがフェードイン（RevealOnScroll + `.reveal`。旧トップの IntersectionObserver を流用）。
+ *   ヒーローは旧トップと同じく画面の高さいっぱい（PC 100svh / 768px 以下 90svh。最小高さのみで中身が多ければ伸びる）
  * - 装飾は HTML を正とし、蝶のモチーフと背景の大きな英字（bleed word）を再現。DESIGN.md のグラスモーフィズム等は採用しない
  * - はみ出す装飾を持つセクションは overflow-hidden ではなく overflow-clip にする（hidden だとスクロールコンテナになり、
  *   アンカー遷移や scrollIntoView で中身が横にずれることがある）
@@ -44,10 +46,11 @@ export default async function Home() {
   return (
     <>
       <Header />
+      <RevealOnScroll />
 
       <main className="w-full overflow-clip bg-background pt-20">
         {/* ── HERO ── */}
-        <section className="relative -mt-20 flex min-h-[92vh] w-full items-center justify-center overflow-clip bg-gradient-to-br from-[#003254] via-[#004e8c] to-[#00a6ff] px-margin-mobile pt-20 text-on-primary md:px-margin">
+        <section className="relative -mt-20 flex min-h-[90svh] w-full items-center md:min-h-svh justify-center overflow-clip bg-gradient-to-br from-[#003254] via-[#004e8c] to-[#00a6ff] px-margin-mobile pt-20 text-on-primary md:px-margin">
           {/* 翅の葉脈のような線（HTML の Butterfly Venation） */}
           <div className="pointer-events-none absolute inset-0 opacity-25 mix-blend-screen" aria-hidden="true">
             <svg className="h-full w-full scale-110" fill="none" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +100,7 @@ export default async function Home() {
 
           <div className="wrap relative z-10">
             <div className="grid grid-cols-1 items-start gap-space-2xl lg:grid-cols-12">
-              <div className="space-y-space-lg lg:col-span-5">
+              <div className="reveal space-y-space-lg lg:col-span-5">
                 <div className="space-y-space-md">
                   <h2 className="font-serif-jp text-[30px] leading-[1.4] font-bold text-on-surface sm:text-[38px]">
                     ITの力で、
@@ -114,7 +117,7 @@ export default async function Home() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-space-lg pt-4 sm:grid-cols-2 lg:col-span-7">
+              <div className="reveal reveal--delay grid grid-cols-1 gap-space-lg pt-4 sm:grid-cols-2 lg:col-span-7">
                 {SERVICES.map((s) => (
                   <div
                     key={s.num}
@@ -143,7 +146,7 @@ export default async function Home() {
           <div className="wrap relative z-10">
             <div className="grid grid-cols-1 items-center gap-space-2xl lg:grid-cols-12">
               {/* つくる・支える・守る */}
-              <div className="relative order-2 lg:order-1 lg:col-span-6">
+              <div className="reveal reveal--delay relative order-2 lg:order-1 lg:col-span-6">
                 <svg
                   className="pointer-events-none absolute top-1/2 left-0 h-32 w-full -translate-y-1/2 text-secondary opacity-40"
                   fill="none"
@@ -166,7 +169,7 @@ export default async function Home() {
                 </div>
               </div>
 
-              <div className="order-1 space-y-space-lg lg:order-2 lg:col-span-6 lg:pl-space-xl">
+              <div className="reveal order-1 space-y-space-lg lg:order-2 lg:col-span-6 lg:pl-space-xl">
                 <div className="space-y-space-md">
                   <h2 className="font-serif-jp text-[30px] leading-[1.4] font-bold text-on-surface sm:text-[38px]">
                     ITの可能性を、
@@ -199,7 +202,7 @@ export default async function Home() {
 
           <div className="wrap relative z-10">
             <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
-              <div className="space-y-space-lg lg:col-span-5">
+              <div className="reveal space-y-space-lg lg:col-span-5">
                 <div className="space-y-space-sm">
                   <h2 className="font-serif-jp text-[32px] font-bold text-on-surface sm:text-[40px]">会社概要</h2>
                   <AccentBar />
@@ -215,7 +218,7 @@ export default async function Home() {
               </div>
 
               {/* 写真 2 枚（既存トップの about_us2 / about_us1） */}
-              <div className="relative mt-8 flex justify-center lg:col-span-7 lg:mt-0 lg:justify-end">
+              <div className="reveal reveal--delay relative mt-8 flex justify-center lg:col-span-7 lg:mt-0 lg:justify-end">
                 <div className="grid w-full max-w-[520px] grid-cols-1 gap-space-md sm:grid-cols-2">
                   <figure className="aspect-[4/3] overflow-clip rounded-xl bg-surface-container shadow-lg">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -243,7 +246,7 @@ export default async function Home() {
               <BleedWord className="-top-6 -left-10 text-[120px] tracking-tighter text-surface-container-high/40 sm:text-[180px] lg:text-[220px]">
                 NEWS
               </BleedWord>
-              <div className="relative z-10 space-y-space-2xl">
+              <div className="reveal relative z-10 space-y-space-2xl">
                 <div className="space-y-space-md">
                   <h2 className="font-serif-jp text-[28px] font-bold text-on-surface sm:text-[34px]">新着情報</h2>
                   <AccentBar className="w-10 bg-outline-variant" />
@@ -287,7 +290,7 @@ export default async function Home() {
               <BleedWord className="-top-6 -right-10 text-[120px] tracking-tighter text-surface-container-low/80 sm:text-[180px] lg:text-[220px]">
                 RECRUIT
               </BleedWord>
-              <div className="relative z-10 space-y-space-xl">
+              <div className="reveal relative z-10 space-y-space-xl">
                 <div className="space-y-space-md">
                   <h2 className="font-serif-jp text-[28px] leading-[1.4] font-bold text-on-surface sm:text-[34px]">
                     あなたの、あなたによる、
@@ -318,7 +321,7 @@ export default async function Home() {
 
         {/* ── エンディング ── */}
         <section className="relative w-full bg-surface-container-lowest px-margin-mobile py-space-3xl text-center text-on-surface md:px-margin" aria-label="closing">
-          <div className="mx-auto max-w-[840px] space-y-space-lg py-space-xl">
+          <div className="reveal mx-auto max-w-[840px] space-y-space-lg py-space-xl">
             <p className="font-latin text-[32px] leading-tight font-normal tracking-tight text-primary sm:text-[44px] lg:text-[54px]">
               of you, by you, for all.
             </p>
