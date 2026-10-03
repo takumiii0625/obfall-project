@@ -105,6 +105,14 @@
     text-wrap: pretty;
     overflow-wrap: break-word;
   }
+  /* トップページだけページ全体のスクロールバーを隠す（スクロール自体はそのまま使える）。
+     トップの <main> に付けた data-hide-scrollbar を目印にする */
+  html:has(main[data-hide-scrollbar]) {
+    scrollbar-width: none;
+  }
+  html:has(main[data-hide-scrollbar])::-webkit-scrollbar {
+    display: none;
+  }
   /* 見出しは各行の長さを揃え、末尾の 1〜2 文字だけが次の行に落ちるのを防ぐ */
   h1,
   h2,

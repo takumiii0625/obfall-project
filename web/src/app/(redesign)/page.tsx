@@ -57,7 +57,7 @@ export default async function Home() {
       <Header />
       <RevealOnScroll />
 
-      <main className="w-full overflow-clip bg-background pt-20">
+      <main data-hide-scrollbar className="w-full overflow-clip bg-background pt-20">
         {/* ── HERO ── */}
         <section className="relative -mt-20 flex min-h-[90svh] w-full items-center md:min-h-svh justify-center overflow-clip bg-gradient-to-br from-[#003254] via-[#004e8c] to-[#00a6ff] px-margin-mobile pt-20 text-on-primary md:px-margin">
           {/* 翅の葉脈のような線（HTML の Butterfly Venation） */}
