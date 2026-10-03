@@ -70,6 +70,7 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - 読み込み除外: vendor/, node_modules/, public/backend/vendor/, public/js/app.js,
   public/css/app.css, public/uploads/, storage/, bootstrap/cache/
 - 本番環境・本番DB・.env には触れない
+- プレビュー環境と本番環境は DB と Blob を共有しているため、どちらの管理画面でも書き込み操作（登録・編集・削除・画像のアップロード）はしない。動作確認は必ずローカルの環境で行う
 - 見た目は現行と一致させることを優先。現行の不具合を見つけたら直さず「確認事項」として報告
 - 静的ページはサーバーコンポーネント、フォームはクライアントコンポーネント + Server Actions
 - 未確定の技術選定（ORM / 認証 / メール / ストレージ）は MIGRATION.md の「未定」欄を確認し、
