@@ -30,7 +30,7 @@ export default function CompletePage() {
             <h1 className="mb-space-md font-serif-jp text-[24px] font-bold text-on-surface lg:text-[30px]">送信が完了しました</h1>
             <p className="mb-space-xl text-base leading-loose text-on-surface-variant">
               お問い合わせいただきありがとうございます。
-              <br />
+              <br className="hidden lg:inline" />
               内容を確認のうえ、担当者よりご連絡いたします。
             </p>
             <Link

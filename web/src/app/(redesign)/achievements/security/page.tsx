@@ -25,7 +25,7 @@ export default function AchievementsSecurityPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "脆弱性診断" }]} label="SECURITY ASSESSMENT" title="Security Assessment" />
+        <PageHero breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "脆弱性診断" }]} label="ACHIEVEMENTS" title="Security Assessment" />
 
         <LeadStatement
           statement={
@@ -33,18 +33,18 @@ export default function AchievementsSecurityPage() {
               安全は、後付けではなく、設計から。
               <br />
               開発と診断をワンストップで行い、
-              <br />
+              <br className="hidden lg:inline" />
               信頼できるプロダクトづくりを支えます。
             </>
           }
           body={
             <p>
               OBFallでは、開発現場を理解したエンジニアが脆弱性診断を実施しています。
-              <br />
+              <br className="hidden lg:inline" />
               システムの構造や業務要件を踏まえたうえで、
               <br className="hidden lg:inline" />
               「攻撃者の視点」と「開発者の視点」の両面から現実的なリスクを検証。
-              <br />
+              <br className="hidden lg:inline" />
               単なる報告にとどまらず、修正提案や再発防止まで一貫してサポートしています。
             </p>
           }
@@ -81,7 +81,7 @@ export default function AchievementsSecurityPage() {
           <div className="mx-auto max-w-[840px]">
             <p className="font-serif-jp text-[18px] leading-[2] font-medium tracking-wide text-on-surface lg:text-[22px]">
               診断は&quot;終わり&quot;ではなく&quot;成長のはじまり&quot;。
-              <br />
+              <br className="hidden lg:inline" />
               開発を理解するセキュリティチームが、
               <br className="hidden lg:inline" />
               安心して使い続けられるプロダクトの実現を支えています。

@@ -62,7 +62,7 @@ export default function AchievementsProductsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "自社開発" }]} label="PRODUCTS" title="Products" />
+        <PageHero breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "自社開発" }]} label="ACHIEVEMENTS" title="Products" />
 
         <LeadStatement
           statement={
@@ -77,7 +77,7 @@ export default function AchievementsProductsPage() {
               OBFallの自社開発は、社会の&quot;まだ満たされていないニーズ&quot;に焦点をあて、
               <br className="hidden lg:inline" />
               「テクノロジーで人生をより豊かにする」という理念を実践する取り組みです。
-              <br />
+              <br className="hidden lg:inline" />
               便利さよりも、&quot;人がより自分らしく生きられる仕組み&quot;を目指し、
               <br className="hidden lg:inline" />
               発想から企画、開発、運用まですべて自社で行っています。
@@ -164,7 +164,7 @@ function ProductBody({ lines }: { lines: string[] }) {
     <p className="text-sm leading-[1.85] text-on-surface-variant">
       {lines.map((line, i) => (
         <span key={i}>
-          {i > 0 ? <br /> : null}
+          {i > 0 ? <br className="hidden lg:inline" /> : null}
           {line}
         </span>
       ))}

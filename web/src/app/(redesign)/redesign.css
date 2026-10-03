@@ -98,6 +98,19 @@
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     overscroll-behavior: none;
+    /* 和文を文節単位で折り返し、末尾に 1〜2 文字だけの行を作りにくくする。
+       未対応ブラウザでは宣言ごと無視され、通常の折り返しになる。
+       文節が枠より長いときは overflow-wrap で折り返して横はみ出しを防ぐ */
+    word-break: auto-phrase;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+  /* 見出しは各行の長さを揃え、末尾の 1〜2 文字だけが次の行に落ちるのを防ぐ */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
   }
 }
 

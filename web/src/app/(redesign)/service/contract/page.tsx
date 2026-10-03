@@ -71,7 +71,7 @@ export default function ServiceContractPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "受託開発" }]} label="SERVICE" title="IT × Collaboration" />
+        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "受託開発" }]} label="CONTRACT DEVELOPMENT" title="IT × Collaboration" />
 
         {/* リード */}
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-lowest py-space-2xl lg:py-space-3xl">
@@ -87,11 +87,11 @@ export default function ServiceContractPage() {
               <div className="rounded-sm border border-surface-container-high bg-surface-container-low p-space-lg shadow-sm lg:col-span-7 lg:p-space-xl">
                 <p className="text-sm leading-loose text-on-surface-variant lg:text-base">
                   OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。
-                  <br />
+                  <br className="hidden lg:inline" />
                   Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、
                   <br className="hidden lg:inline" />
                   企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。
-                  <br />
+                  <br className="hidden lg:inline" />
                   クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
                 </p>
               </div>
@@ -120,12 +120,12 @@ export default function ServiceContractPage() {
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-lowest py-space-2xl lg:py-space-3xl">
           <BleedWord className="top-6 left-6 text-[120px] font-bold text-on-surface opacity-[0.03] lg:text-[180px]">WHY US</BleedWord>
           <div className="wrap relative z-10">
-            <SectionTitle kicker="Why Us" title="選ばれる理由" align="right" className="mb-space-2xl" />
+            <SectionTitle kicker="Why Us" title="選ばれる理由" className="mb-space-2xl" />
             <div className="space-y-space-lg">
               <article className="border-l-4 border-primary-container bg-gradient-to-br from-surface-container-low to-surface-container-lowest p-space-lg shadow-sm lg:p-space-xl">
                 <div className="grid grid-cols-1 items-baseline gap-space-md lg:grid-cols-12 lg:gap-space-lg">
                   <div className="lg:col-span-4">
-                    <span className="mb-1 block font-latin text-2xl font-normal tracking-wider text-primary-container/50">
+                    <span className="mb-1 block font-latin text-2xl font-normal tracking-wider text-primary">
                       {w1.num} / {w1.kicker}
                     </span>
                     <h3 className="font-serif-jp text-2xl font-bold text-on-surface">{w1.title}</h3>

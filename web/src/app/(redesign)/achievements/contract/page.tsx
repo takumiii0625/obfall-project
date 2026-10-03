@@ -3,6 +3,7 @@ import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
 import LeadStatement from "@/components/redesign/LeadStatement";
+import TextLink from "@/components/redesign/TextLink";
 
 export const metadata: Metadata = {
   title: "受託開発実績 | OBFall Inc.",
@@ -19,7 +20,7 @@ export default function AchievementsContractPage() {
       <main className="w-full bg-surface pt-20">
         <PageHero
           breadcrumbs={[{ label: "実績・事例紹介", href: "/achievements" }, { label: "受託開発" }]}
-          label="CONTRACT DEVELOPMENT"
+          label="ACHIEVEMENTS"
           title="Contract Development"
         />
 
@@ -34,15 +35,25 @@ export default function AchievementsContractPage() {
           body={
             <p>
               OBFallの受託開発は、「作る」ことを目的とせず、「価値を生み出す」ことを目的とする開発です。
-              <br />
+              <br className="hidden lg:inline" />
               Webサービス、アプリケーション、業務システムなど多様な開発に対応しながら、
               <br className="hidden lg:inline" />
               企画から設計・デザイン・実装・セキュリティ診断まで一貫した体制で提供しています。
-              <br />
+              <br className="hidden lg:inline" />
               クライアントと同じ目線で課題を見つめ、長く続く価値を共に育てていきます。
             </p>
           }
         />
+
+        {/* 関連ページへのリンク（文言は既存ページのもの: トップの「サービス詳細画面へ」「実績・事例紹介」） */}
+        <section className="w-full border-t border-surface-container-high bg-surface-container-lowest py-space-2xl">
+          <div className="wrap flex flex-col items-start gap-space-lg sm:flex-row sm:gap-space-2xl">
+            <TextLink href="/service/contract">サービス詳細画面へ</TextLink>
+            <TextLink href="/achievements" tone="secondary">
+              実績・事例紹介
+            </TextLink>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

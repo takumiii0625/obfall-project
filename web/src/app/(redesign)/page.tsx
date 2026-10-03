@@ -76,7 +76,7 @@ export default async function Home() {
               </h1>
               <p className="max-w-xl text-[15px] leading-[2.1] tracking-wide text-surface-container-low opacity-95 sm:text-[17px]">
                 私たちは皆、人生の主人公です。働くことも人生の一部。
-                <br />
+                <br className="hidden lg:inline" />
                 OBFall株式会社は、従来にない新しい会社の形を実現します。
               </p>
               <div className="pt-space-md">
@@ -180,7 +180,7 @@ export default async function Home() {
                 </div>
                 <p className="text-[15px] leading-[2.1] text-on-surface-variant sm:text-[16px]">
                   自社開発・受託開発・SES・脆弱性診断の4つの領域で、
-                  <br className="hidden sm:inline" />
+                  <br className="hidden lg:inline" />
                   &quot;つくる・支える・守る&quot;を軸に、課題解決に挑んでいます。
                 </p>
                 <div className="pt-space-sm">
@@ -209,7 +209,7 @@ export default async function Home() {
                 </div>
                 <p className="text-[15px] leading-[2.2] text-on-surface-variant sm:text-[16px]">
                   会社情報をご紹介いたします。
-                  <br />
+                  <br className="hidden lg:inline" />
                   OBFall株式会社は、ITの力で社会課題の解決を図り、 人と社会の可能性を広げる企業として成長を続けてまいります。
                 </p>
                 <div className="pt-space-sm">
@@ -301,7 +301,7 @@ export default async function Home() {
                 </div>
                 <p className="max-w-lg text-[15px] leading-[2.1] text-on-surface-variant sm:text-[16px]">
                   私たちは、働くことを人生の一部として誇れる舞台をつくります。
-                  <br />
+                  <br className="hidden lg:inline" />
                   OBFallでの挑戦が、あなたの成長と物語を彩りますように。
                 </p>
                 <div className="pt-space-sm">
@@ -327,7 +327,7 @@ export default async function Home() {
             </p>
             <p className="font-serif-jp text-[16px] leading-[2.2] font-medium tracking-wide text-on-surface sm:text-[19px]">
               あなたの、あなたによる、あなたのための。
-              <br className="hidden sm:inline" />
+              <br className="hidden lg:inline" />
               その想いから、すべての人の未来へ。
             </p>
             <div className="mx-auto mt-space-lg h-[1.5px] w-16 bg-primary-container" aria-hidden="true" />

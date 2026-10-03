@@ -56,7 +56,7 @@ export default function ServiceSesPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "SES" }]} label="SERVICE" title="IT × Team" />
+        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "SES" }]} label="TEAM SUPPORT" title="IT × Team" />
 
         <LeadStatement
           statement="人が輝く現場を、技術で支える。"
@@ -64,7 +64,7 @@ export default function ServiceSesPage() {
           body={
             <p>
               エンジニアが力を発揮できる環境を整え、技術とチームの両面から現場を支援。
-              <br />
+              <br className="hidden lg:inline" />
               「人」と「組織」がともに成長する関係を築くことが、OBFallのSESです。
             </p>
           }
@@ -86,7 +86,7 @@ export default function ServiceSesPage() {
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-lowest py-space-2xl lg:py-space-3xl">
           <BleedWord className="top-6 left-6 text-[120px] font-bold text-on-surface opacity-[0.03] lg:text-[180px]">WHY US</BleedWord>
           <div className="wrap relative z-10">
-            <SectionTitle kicker="Why Us" title="OBFallのSESが選ばれる理由" align="right" className="mb-space-2xl" />
+            <SectionTitle kicker="Why Us" title="OBFallのSESが選ばれる理由" className="mb-space-2xl" />
             <div className="grid grid-cols-1 gap-space-lg lg:grid-cols-3">
               {WHY_US.map((v, i) => (
                 <ValueCard
@@ -103,11 +103,15 @@ export default function ServiceSesPage() {
         <section className="w-full bg-surface-container-low/40 py-space-2xl lg:py-space-3xl">
           <div className="wrap">
             <div className="rounded-xl bg-surface-container-lowest p-space-xl shadow-[0_8px_30px_rgba(0,159,232,0.06)]">
-              <span className="mb-space-md block font-latin text-xl tracking-widest text-primary">Message</span>
-              <h2 className="mb-space-xl font-serif-jp text-[26px] leading-snug font-bold text-on-surface lg:text-[34px]">メッセージ</h2>
-              <p className="max-w-3xl text-base leading-relaxed text-on-surface-variant">
+              {/* 見出し「メッセージ」は英字ラベルと並べた小さなラベル扱いにし、本文 1 行目を大きく見せる */}
+              <h2 className="mb-space-md flex flex-wrap items-baseline gap-x-space-md gap-y-space-xs text-primary">
+                <span className="font-latin text-xl font-normal tracking-widest">Message</span>
+                <span className="text-sm font-medium tracking-[0.2em]">メッセージ</span>
+              </h2>
+              <p className="mb-space-lg font-serif-jp text-[22px] leading-snug font-bold text-on-surface lg:text-[34px]">
                 SESを、&quot;人を送るビジネス&quot;から&quot;人が活きる仕組み&quot;へ。
-                <br />
+              </p>
+              <p className="max-w-3xl text-base leading-relaxed text-on-surface-variant">
                 OBFallは、ITの力で働く人と企業の関係をより良くデザインしていきます。
               </p>
             </div>

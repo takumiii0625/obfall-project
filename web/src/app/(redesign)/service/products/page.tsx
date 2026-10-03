@@ -33,7 +33,7 @@ export default function ServiceProductsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "自社開発" }]} label="SERVICE" title="IT × Vision" />
+        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "自社開発" }]} label="PRODUCTS" title="IT × Vision" />
 
         <LeadStatement
           statement="人と社会の可能性を広げる、自社プロダクト。"

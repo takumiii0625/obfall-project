@@ -34,7 +34,7 @@ export default function ServicePage() {
           body={
             <p>
               自社開発・受託開発・脆弱性診断・SESの4つの事業を通じて、
-              <br className="hidden sm:inline" />
+              <br className="hidden lg:inline" />
               テクノロジーで人生をより豊かにします。
             </p>
           }

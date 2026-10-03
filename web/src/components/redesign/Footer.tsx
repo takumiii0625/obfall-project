@@ -9,7 +9,7 @@ import ArrowIcon from "./ArrowIcon";
  */
 export default function Footer({ showContactButton = true }: { showContactButton?: boolean } = {}) {
   return (
-    <footer className="mt-space-3xl w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <footer className="w-full border-t border-surface-container-high bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       <div className="wrap py-space-2xl">
         <div className="flex flex-col items-start justify-between gap-space-xl border-b border-surface-container-highest pb-space-xl lg:flex-row lg:items-center">
           <div className="space-y-space-sm">

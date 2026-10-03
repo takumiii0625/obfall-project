@@ -84,7 +84,7 @@ export default function ServiceSecurityPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "脆弱性診断" }]} label="SERVICE" title="Security × Engineering" />
+        <PageHero breadcrumbs={[{ label: "サービス", href: "/service" }, { label: "脆弱性診断" }]} label="SECURITY" title="Security × Engineering" />
 
         <LeadStatement
           statement="安全は、後付けではなく、設計から。"
@@ -94,7 +94,7 @@ export default function ServiceSecurityPage() {
               私たちは、「開発を理解するセキュリティ専門チーム」として、
               <br className="hidden lg:inline" />
               Webアプリ・モバイルアプリ・APIなどの脆弱性診断を提供しています。
-              <br />
+              <br className="hidden lg:inline" />
               開発現場の構造を理解したうえで&quot;攻撃者の視点&quot;からリスクを特定し、
               <br className="hidden lg:inline" />
               再現性のある改善提案を通じて、プロダクトを安全に前進させます。
@@ -138,7 +138,7 @@ export default function ServiceSecurityPage() {
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-low py-space-2xl lg:py-space-3xl">
           <BleedWord className="top-8 right-4 text-[120px] font-bold text-on-surface opacity-[0.03] lg:text-[180px]">WHY US</BleedWord>
           <div className="wrap relative z-10">
-            <SectionTitle kicker="Why Us" title="選ばれる理由" align="right" className="mb-space-2xl" />
+            <SectionTitle kicker="Why Us" title="選ばれる理由" className="mb-space-2xl" />
             <div className="grid grid-cols-1 gap-space-lg lg:grid-cols-2">
               {WHY_US.map((v, i) => (
                 <ValueCard
