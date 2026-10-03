@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false, noarchive: true },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/image/favicon.png" },
 };
 
 /** 現行 office/parts/app.blade.php の viewport（拡大禁止） */

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 /**
@@ -8,6 +9,12 @@ import type { ReactNode } from "react";
  * ルートレイアウト（ルートグループ）に分けて再現する。
  * ここには何も import しない（各ページが自分の CSS だけを読み込む）。
  */
+// canonical は本番ドメイン（obfall.com）を正とする。"./" は各ページのパスに解決される
+export const metadata: Metadata = {
+  metadataBase: new URL("https://obfall.com"),
+  alternates: { canonical: "./" },
+};
+
 export default function StandaloneLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
