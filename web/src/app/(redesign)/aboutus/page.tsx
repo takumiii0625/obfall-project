@@ -28,7 +28,7 @@ export default function AboutUsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="ABOUT US" title="About US" />
+        <PageHero title="About US" />
 
         <div className="wrap pt-space-2xl pb-space-3xl">
           <div className="flex flex-col">

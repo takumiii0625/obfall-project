@@ -57,7 +57,7 @@ export default function ServiceSesPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="TEAM SUPPORT" title="IT × Team" />
+        <PageHero label="SERVICE / TEAM SUPPORT" title="IT × Team" />
 
         <LeadStatement
           statement="人が輝く現場を、技術で支える。"

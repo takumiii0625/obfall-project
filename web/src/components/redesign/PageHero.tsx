@@ -1,5 +1,8 @@
 type Props = {
-  /** 英字ラベル（例: "SERVICE"）。省略可 */
+  /**
+   * 英字ラベル。段数で階層を表す: 1 階層目のページは付けず（タイトル 1 段）、
+   * 2 階層目のページは親ページ名を付ける（例: "ACHIEVEMENTS"、"SERVICE / PRODUCTS"）
+   */
   label?: string;
   /** ページタイトル */
   title: string;
@@ -26,7 +29,7 @@ export default function PageHero({ label, title, jpTitle = false }: Props) {
       </div>
       <div className="wrap relative z-10">
         <div className="max-w-3xl space-y-space-xs">
-          {label ? <p className="font-latin text-sm uppercase tracking-[0.25em] text-primary-fixed-dim">{label}</p> : null}
+          {label ? <p className="font-latin text-xs uppercase tracking-[0.2em] text-primary-fixed-dim sm:text-sm sm:tracking-[0.25em]">{label}</p> : null}
           <h1
             className={
               jpTitle

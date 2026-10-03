@@ -19,7 +19,7 @@ export default function PhilosophyPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="PHILOSOPHY" title="Philosophy" />
+        <PageHero title="Philosophy" />
 
         {/* 理念の一文 */}
         <section className="w-full bg-surface-container-low py-space-2xl">

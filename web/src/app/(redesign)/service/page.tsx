@@ -28,7 +28,7 @@ export default function ServicePage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="SERVICE" title="Service" />
+        <PageHero title="Service" />
 
         <LeadStatement
           statement="ITの力で、人と社会の可能性を広げる。"

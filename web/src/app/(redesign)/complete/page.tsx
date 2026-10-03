@@ -19,7 +19,7 @@ export default function CompletePage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="THANK YOU" title="Thank You" />
+        <PageHero label="CONTACT" title="Thank You" />
 
         <div className="wrap py-space-2xl lg:py-space-3xl">
           <div className="mx-auto flex w-full max-w-[720px] flex-col items-center rounded-xl bg-surface-container-lowest px-space-lg py-space-2xl text-center shadow-sm md:px-space-xl">

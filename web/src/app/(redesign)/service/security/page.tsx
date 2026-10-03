@@ -85,7 +85,7 @@ export default function ServiceSecurityPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="SECURITY" title="Security × Engineering" />
+        <PageHero label="SERVICE / SECURITY" title="Security × Engineering" />
 
         <LeadStatement
           statement="安全は、後付けではなく、設計から。"

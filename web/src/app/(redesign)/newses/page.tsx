@@ -22,7 +22,7 @@ export default async function NewsesPage({ searchParams }: PageProps<"/newses">)
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="NEWS" title="News" />
+        <PageHero title="News" />
 
         <section className="w-full py-space-2xl lg:py-space-3xl">
           <div className="wrap">

@@ -72,7 +72,7 @@ export default function ServiceContractPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="CONTRACT DEVELOPMENT" title="IT × Collaboration" />
+        <PageHero label="SERVICE / CONTRACT DEVELOPMENT" title="IT × Collaboration" />
 
         {/* リード */}
         <section className="relative w-full overflow-clip border-b border-surface-container-high bg-surface-container-lowest py-space-2xl lg:py-space-3xl">

@@ -34,7 +34,7 @@ export default function ServiceProductsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="PRODUCTS" title="IT × Vision" />
+        <PageHero label="SERVICE / PRODUCTS" title="IT × Vision" />
 
         <LeadStatement
           statement="人と社会の可能性を広げる、自社プロダクト。"

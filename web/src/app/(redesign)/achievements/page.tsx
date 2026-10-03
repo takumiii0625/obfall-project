@@ -51,7 +51,7 @@ export default function AchievementsPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero label="ACHIEVEMENTS" title="Achievements" />
+        <PageHero title="Achievements" />
 
         <LeadStatement
           statement={
