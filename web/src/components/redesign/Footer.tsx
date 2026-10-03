@@ -13,9 +13,11 @@ export default function Footer({ showContactButton = true }: { showContactButton
       <div className="wrap py-space-2xl">
         <div className="flex flex-col items-start justify-between gap-space-xl border-b border-surface-container-highest pb-space-xl lg:flex-row lg:items-center">
           <div className="space-y-space-sm">
-            <Link href="/" className="inline-flex items-center gap-space-xs" aria-label="OBFall株式会社 トップ">
+            <Link href="/" className="inline-flex items-center gap-space-sm" aria-label="OBFall株式会社 トップ">
+              {/* ヘッダーと同じロゴ（マーク + OBFall）。青い点は置かない */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/logo_icon.png" alt="" width={50} height={44} className="h-5 w-auto" aria-hidden="true" />
               <span className="font-latin text-[22px] font-bold tracking-tight text-on-surface">OBFall</span>
-              <span className="inline-block h-2.5 w-2.5 translate-y-0.5 rounded-full bg-primary-container" aria-hidden="true" />
             </Link>
             <p className="text-sm leading-relaxed text-on-surface-variant">
               〒105-0022

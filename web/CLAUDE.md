@@ -57,7 +57,7 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
   - 問い合わせの Server Action は既存 `(site)/contact/actions.ts` を新 ContactForm からも使う
   - Stitch に HTML が無いページは既存の新デザインページの構成を流用して組んだ（service 詳細 = service/contract、achievements 詳細 = achievements/products、newses/[id] = newses、privacy-policy = human-rights-policy の本文幅、complete = contact）
   - 375px 幅で全ページの横はみ出しゼロを確認済み（2026-10-02）。狭い幅で崩れやすい箇所はトップの「つくる・支える・守る」カード（sm 未満で余白と文字を縮小）
-- 共通部品: `components/redesign/`（Header = 現在地に青い下線、Footer（`showContactButton`）、PageHero（パンくず・英字ラベル・タイトル。和文は `jpTitle`）、Breadcrumb、TextLink「○○ →」、CardLink「詳しく見る」、LeadStatement（縦線 + 明朝の一文 + 本文。`bodyCard` で本文をカード化）、SectionTitle（kicker + タイトル + 線）、ValueCard（01 / Kicker + タイトル + 説明）、BleedWord、Butterfly、ArrowIcon）
+- 共通部品: `components/redesign/`（Header = 旧ロゴのマーク `public/image/logo_icon.png` + 「OBFall」。青い点は無し。現在地に青い下線、Footer（`showContactButton`）、PageHero（パンくず・英字ラベル・タイトル。和文は `jpTitle`）、Breadcrumb、TextLink「○○ →」、CardLink「詳しく見る」、LeadStatement（縦線 + 明朝の一文 + 本文。`bodyCard` で本文をカード化）、SectionTitle（kicker + タイトル + 線）、ValueCard（01 / Kicker + タイトル + 説明）、BleedWord、Butterfly、ArrowIcon）
 - 便利クラス: `wrap`（1180px 中央寄せ + 左右マージン）、`font-serif-jp` / `font-sans-jp` / `font-latin`、`p-space-*` / `px-margin`
 - はみ出す装飾を持つセクションは `overflow-clip`（`overflow-hidden` だと scrollIntoView で横にずれる）
 - アニメーションはフェーズ1では入れない。装飾は DESIGN.md のグラスモーフィズム等を採用せず、蝶・bleed word・翅の線のみ

@@ -7,7 +7,7 @@ import { NAV_ITEMS } from "@/components/nav-items";
 
 /**
  * リデザイン版の共通ヘッダー（design/stitch/service.html のヘッダーを参考）。
- * - ロゴ「OBFall」+ 水色の点、メニュー 5 項目（項目と遷移先は既存 nav-items.ts と同じ）
+ * - ロゴ = 旧ロゴのマーク（logo_icon.png）+「OBFall」、メニュー 5 項目（項目と遷移先は既存 nav-items.ts と同じ）
  * - 表示中のページのメニューに青い下線（aria-current="page"）
  * - ボタン・人型アイコンは置かない
  * - 1024px 未満はメニューをハンバーガーで開閉する（HTML には SP 用の表現が無いため最小限の実装。仮置き）
@@ -21,9 +21,11 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-surface/85 shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-xl">
       <div className="wrap flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-space-xs" aria-label="OBFall株式会社 トップ">
+        <Link href="/" className="flex items-center gap-space-sm" aria-label="OBFall株式会社 トップ">
+          {/* 旧ヘッダーのロゴ画像（logo_OBFall.png）左端のマークを切り出したもの。青い点は置かない（2026-10-03 の指示） */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/image/logo_icon.png" alt="" width={50} height={44} className="h-6 w-auto" aria-hidden="true" />
           <span className="font-latin text-2xl font-bold tracking-tight text-on-surface">OBFall</span>
-          <span className="mb-1 h-2 w-2 rounded-full bg-primary-container" aria-hidden="true" />
         </Link>
 
         <nav className="hidden items-center gap-space-lg lg:flex lg:gap-space-xl" aria-label="グローバルナビゲーション">
