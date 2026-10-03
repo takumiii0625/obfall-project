@@ -31,7 +31,7 @@ const latin = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "OBFall Inc.",
+  title: "OBFall株式会社",
   icons: { icon: "/image/favicon.png" },
   openGraph: {
     images: ["https://obfall.com/image/logo_OBFall2.png"],

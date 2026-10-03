@@ -5,7 +5,7 @@ import PageHero from "@/components/redesign/PageHero";
 import PrivacyPolicyText from "@/components/redesign/PrivacyPolicyText";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー | OBFall Inc.",
+  title: "プライバシーポリシー | OBFall株式会社",
 };
 
 /**

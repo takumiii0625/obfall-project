@@ -1,14 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
 import { countPublishedNewses, getPublishedNewses, NEWS_PER_PAGE } from "@/lib/newses";
 import { buildPaginationElements, paginate } from "@/lib/pagination";
-
-export const metadata: Metadata = {
-  title: "News | OBFall Inc.",
-};
 
 /**
  * お知らせ一覧 GET /newses（リデザイン版。design/stitch/news.html を参考）

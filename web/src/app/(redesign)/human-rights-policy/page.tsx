@@ -4,7 +4,7 @@ import Header from "@/components/redesign/Header";
 import Footer from "@/components/redesign/Footer";
 import PageHero from "@/components/redesign/PageHero";
 
-const TITLE = "人権方針・社内相談窓口 | OBFall Inc.";
+const TITLE = "人権方針・社内相談窓口 | OBFall株式会社";
 const DESCRIPTION = "当社の人権に関する基本方針と、ハラスメント等の人権侵害に関する相談・通報窓口のご案内です。";
 
 export const metadata: Metadata = {
