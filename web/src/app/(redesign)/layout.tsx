@@ -31,6 +31,9 @@ const latin = EB_Garamond({
 });
 
 export const metadata: Metadata = {
+  // canonical は本番ドメイン（obfall.com）を正とする。"./" は各ページのパスに解決される
+  metadataBase: new URL("https://obfall.com"),
+  alternates: { canonical: "./" },
   title: "OBFall株式会社",
   icons: { icon: "/image/favicon.png" },
   openGraph: {

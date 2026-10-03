@@ -41,7 +41,7 @@ const PRODUCTS = [
     link: { href: "https://store-pass.com", label: "Store-Pass公式サイト" },
   },
   {
-    image: "/image/dx_logo.png",
+    image: "/image/dx_logo.webp",
     alt: "農業向け業務効率化 ロゴ",
     name: "未来共創DX支援事業",
     badge: "開発中",

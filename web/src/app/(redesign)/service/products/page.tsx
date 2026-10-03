@@ -23,7 +23,7 @@ const VALUES: ValueCardItem[] = [
 const PRODUCTS = [
   { logo: "/image/digOn_logo.png", alt: "digOn ロゴ", name: "digOn", desc: "音楽発掘をもっと身近にする音楽アプリ" },
   { logo: "/image/store-pass_logo.png", alt: "ストパス ロゴ", name: "ストパス", desc: "ストア特化の来店・販促パスポート" },
-  { logo: "/image/dx_logo.png", alt: "農業向け業務効率化 ロゴ", name: "農業DX", desc: "農作業と記録の効率化を支援", badge: "開発中" },
+  { logo: "/image/dx_logo.webp", alt: "農業向け業務効率化 ロゴ", name: "農業DX", desc: "農作業と記録の効率化を支援", badge: "開発中" },
 ];
 
 /**
