@@ -31,8 +31,11 @@ export const NEWS_PER_PAGE = 10;
 /** 現行 indexDev.blade.php の $visibleCount */
 export const TOP_NEWS_VISIBLE_COUNT = 3;
 
-/** 現行の既定サムネイル。※ public/image/ に実ファイルは存在しない（§4.2） */
-const NO_IMAGE_URL = "/image/noimg-square.jpg";
+/**
+ * 既定サムネイル（淡い背景 + 蝶のモチーフ）。
+ * 現行は /image/noimg-square.jpg を参照していたが実ファイルが無く画像が欠けていたため、リデザインで用意した
+ */
+const NO_IMAGE_URL = "/image/noimg-square.svg";
 
 /**
  * 現行の asset() 判定を移植:

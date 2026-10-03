@@ -1,0 +1,165 @@
+/*
+ * リデザイン（redesign ブランチ）用のグローバル CSS。Tailwind CSS v4。
+ *
+ * - (redesign) ルートレイアウトだけが読み込む。既存の (site) / (admin) の CSS（Bootstrap・ページ固有 CSS）とは独立
+ * - クラスの走査対象は (redesign) 配下と components/redesign に限定し、既存ページのクラス名を拾わない
+ * - デザイントークンは design/stitch/DESIGN.md を元にし、HTML（design/stitch/*.html）と食い違う箇所は HTML を正とする
+ *   - 角丸: HTML の設定（DEFAULT 0.25rem / lg 0.5rem / xl 0.75rem / full）は Tailwind v4 の既定値と同じなので上書きしない
+ *   - 書体: HTML で実際に使われている Shippori Mincho B1（和文見出し）/ Zen Kaku Gothic New（和文本文）/ EB Garamond（英字）。
+ *     実体は next/font（layout.tsx）が CSS 変数で供給する
+ *   - 装飾（グラスモーフィズム・光るぼかし・ネットワークの点と線・半透明の円）は採用しない
+ */
+@import "tailwindcss" source(none);
+@source "./";
+@source "../../components/redesign";
+
+@theme {
+  /* --- 色（DESIGN.md colors。HTML の tailwind.config と同一） --- */
+  --color-surface: #faf8ff;
+  --color-surface-dim: #d2d9f4;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #3e4851;
+  --color-inverse-surface: #283044;
+  --color-inverse-on-surface: #eef0ff;
+  --color-outline: #6f7882;
+  --color-outline-variant: #bec8d2;
+  --color-surface-tint: #006494;
+  --color-primary: #006494;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #009fe8;
+  --color-on-primary-container: #00324d;
+  --color-inverse-primary: #8ecdff;
+  --color-secondary: #1261a3;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #7ab7ff;
+  --color-on-secondary-container: #00477d;
+  --color-tertiary: #006687;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #00a2d3;
+  --color-on-tertiary-container: #003345;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #cbe6ff;
+  --color-primary-fixed-dim: #8ecdff;
+  --color-on-primary-fixed: #001e30;
+  --color-on-primary-fixed-variant: #004b71;
+  --color-secondary-fixed: #d2e4ff;
+  --color-secondary-fixed-dim: #a1c9ff;
+  --color-on-secondary-fixed: #001c37;
+  --color-on-secondary-fixed-variant: #00487f;
+  --color-tertiary-fixed: #c0e8ff;
+  --color-tertiary-fixed-dim: #71d2ff;
+  --color-on-tertiary-fixed: #001e2b;
+  --color-on-tertiary-fixed-variant: #004d66;
+  --color-background: #faf8ff;
+  --color-on-background: #131b2e;
+  --color-surface-variant: #dae2fd;
+
+  /* --- 書体（next/font が供給する CSS 変数。layout.tsx 参照） --- */
+  --font-serif-jp: var(--font-shippori-mincho), "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans-jp: var(--font-zen-kaku-gothic), "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-latin: var(--font-eb-garamond), Georgia, serif;
+
+  /* --- 余白（DESIGN.md spacing。`p-space-xl` / `px-margin` のように使う） --- */
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 2.5rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-space-2xl: 4rem;
+  --spacing-space-3xl: 6rem;
+
+  /* --- コンテンツ幅（DESIGN.md「Max Content Bounds」） --- */
+  --container-content: 1180px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans-jp);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+    /* 和文を文節単位で折り返し、末尾に 1〜2 文字だけの行を作りにくくする。
+       未対応ブラウザでは宣言ごと無視され、通常の折り返しになる。
+       文節が枠より長いときは overflow-wrap で折り返して横はみ出しを防ぐ */
+    word-break: auto-phrase;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+  /* トップページだけページ全体のスクロールバーを隠す（スクロール自体はそのまま使える）。
+     トップの <main> に付けた data-hide-scrollbar を目印にする */
+  html:has(main[data-hide-scrollbar]) {
+    scrollbar-width: none;
+  }
+  html:has(main[data-hide-scrollbar])::-webkit-scrollbar {
+    display: none;
+  }
+  /* 見出しは各行の長さを揃え、末尾の 1〜2 文字だけが次の行に落ちるのを防ぐ */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+}
+
+@utility wrap {
+  /* 1180px 中央寄せ + 左右マージン（DESIGN.md / HTML の max-w-[1180px] mx-auto px-margin-mobile md:px-margin） */
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: var(--spacing-margin-mobile);
+  @media (width >= 48rem) {
+    padding-inline: var(--spacing-margin);
+  }
+}
+
+/* ---------------------------------------------------------------
+   スクロールで現れるフェードイン（components/redesign/RevealOnScroll.tsx）
+   旧トップの .anim-fade-up（30px 下から 0.8s ease）と同じ控えめな動き。
+   JS がマウントして <html> に js-reveal を付けるまでは隠さない（JS 無効時は常に表示）。
+   --------------------------------------------------------------- */
+@layer components {
+  html.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  /* 遷移は「現れる」側だけに付ける（JS マウント時に隠す動作はフェードさせない） */
+  html.js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+  /* 同じセクション内の 2 つ目以降は少し遅らせる（旧 .section-block の時間差） */
+  html.js-reveal .reveal.reveal--delay {
+    transition-delay: 0.15s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js-reveal .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

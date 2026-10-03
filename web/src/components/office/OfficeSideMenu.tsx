@@ -49,6 +49,9 @@ export default function OfficeSideMenu() {
 
         {/* ログアウト */}
         <li className="menu-item">
+          {/* ログアウトは Route Handler（route.ts）へのフルページ遷移なので <Link> にしない。
+              公開側の 404 用キャッチオールがあるため lint がページへのリンクと誤認する */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a href="/office/logout" className="menu-link">
             <i className="menu-icon tf-icons bx bx-log-out"></i>
             <div className="text-truncate">ログアウト</div>
