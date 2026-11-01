@@ -4,7 +4,6 @@ import Footer from "@/components/redesign/Footer";
 import Butterfly from "@/components/redesign/Butterfly";
 import ButterflyVenation from "@/components/redesign/ButterflyVenation";
 import TextLink from "@/components/redesign/TextLink";
-import RevealOnScroll from "@/components/redesign/RevealOnScroll";
 import { getTopNewses } from "@/lib/newses";
 
 /**
@@ -12,9 +11,12 @@ import { getTopNewses } from "@/lib/newses";
  *
  * - 文言は既存トップ（src/app/(site)/_legacy-top/page.tsx と components/top/HeroSection.tsx）のものを正とする
  * - お知らせは既存と同じく DB（newses）から公開中の先頭3件。ISR（NEWS_REVALIDATE_SECONDS）+ 保存時のオンデマンド再検証
- * - スクロールで各セクションがフェードイン（RevealOnScroll + `.reveal`。旧トップの IntersectionObserver を流用）。
+ * - スクロールで各セクションがフェードイン（ルートレイアウトの RevealOnScroll + 手で付けた `.reveal`。main の data-reveal-manual で自動付与は無効）。
  *   ヒーローは旧トップと同じく画面の高さいっぱい（PC 100svh / 768px 以下 90svh。最小高さのみで中身が多ければ伸びる）
  * - 装飾は HTML を正とし、蝶のモチーフと背景の大きな英字（bleed word）を再現。DESIGN.md のグラスモーフィズム等は採用しない
+ * - 動き（2026-11-01 追加）: ヒーローの読み込み時アニメーション、背景英字と翅の線のゆるい揺らぎ、
+ *   サービスカードの順番フェードイン、見出し下の線の伸び、「つくる・支える・守る」の浮遊。CSS は redesign.css 末尾
+ * - セクション境界の蝶は後ろ（境界で下半分が切れる）。動きは付けない（2026-11-01 に試したが無しに決定。Butterfly の animated で再度付けられる）
  * - はみ出す装飾を持つセクションは overflow-hidden ではなく overflow-clip にする（hidden だとスクロールコンテナになり、
  *   アンカー遷移や scrollIntoView で中身が横にずれることがある）
  */
@@ -33,21 +35,21 @@ const FULL_CENTER = "lg:flex lg:flex-col lg:justify-center lg:pt-44";
 function BleedWord({ children, className }: { children: string; className: string }) {
   return (
     <div className={`pointer-events-none absolute z-0 select-none ${className}`} aria-hidden="true">
-      <span className="inline-block font-latin leading-none font-normal">{children}</span>
+      <span className="bleed-drift inline-block font-latin leading-none font-normal">{children}</span>
     </div>
   );
 }
 
 /** 見出し下のアクセント線 */
 function AccentBar({ className = "bg-primary" }: { className?: string }) {
-  return <div className={`h-[2px] w-12 ${className}`} aria-hidden="true" />;
+  return <div className={`accent-grow h-[2px] w-12 ${className}`} aria-hidden="true" />;
 }
 
 const SERVICES = [
-  { num: "01", name: "自社開発", bg: "bg-surface-container-low", offset: "lg:translate-y-0" },
-  { num: "02", name: "受託開発", bg: "bg-surface", offset: "lg:translate-y-8" },
-  { num: "03", name: "脆弱性診断", bg: "bg-surface", offset: "lg:-translate-y-4" },
-  { num: "04", name: "SES", bg: "bg-surface-container-low", offset: "lg:translate-y-4" },
+  { num: "01", name: "自社開発", href: "/service/products", bg: "bg-surface-container-low", offset: "lg:translate-y-0" },
+  { num: "02", name: "受託開発", href: "/service/contract", bg: "bg-surface", offset: "lg:translate-y-8" },
+  { num: "03", name: "脆弱性診断", href: "/service/security", bg: "bg-surface", offset: "lg:-translate-y-4" },
+  { num: "04", name: "SES", href: "/service/ses", bg: "bg-surface-container-low", offset: "lg:translate-y-4" },
 ];
 
 export default async function Home() {
@@ -56,20 +58,19 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <RevealOnScroll />
 
-      <main data-hide-scrollbar className="w-full overflow-clip bg-background pt-20">
+      <main data-hide-scrollbar data-reveal-manual className="w-full overflow-clip bg-background pt-20">
         {/* ── HERO ── */}
         <section className="relative -mt-20 flex min-h-[90svh] w-full items-center md:min-h-svh justify-center overflow-clip bg-gradient-to-br from-[#003254] via-[#004e8c] to-[#00a6ff] px-margin-mobile pt-20 text-on-primary md:px-margin">
           {/* 翅の葉脈のような線（HTML の Butterfly Venation） */}
           <div className="pointer-events-none absolute inset-0 opacity-25 mix-blend-screen" aria-hidden="true">
-            <ButterflyVenation className="h-full w-full scale-110 text-white" />
+            <ButterflyVenation className="venation-drift h-full w-full scale-110 text-white" />
           </div>
 
           <div className="relative z-10 mx-auto flex w-full max-w-[1180px] flex-col justify-between py-space-3xl">
             <div className="my-auto max-w-3xl space-y-space-xl">
               {/* 3 行に固定する。各行は折り返さず、収まらない幅では読点の位置（inline-block の境目）でのみ折り返す */}
-              <h1 className="font-serif-jp text-[36px] leading-[1.3] font-bold tracking-tight text-wrap text-on-primary sm:text-[46px] lg:text-[58px]">
+              <h1 className="hero-in font-serif-jp text-[36px] leading-[1.3] font-bold tracking-tight text-wrap text-on-primary sm:text-[46px] lg:text-[58px]">
                 <span className="block">
                   <span className="inline-block whitespace-nowrap">「あなたの、</span>
                   <span className="inline-block whitespace-nowrap">あなたによる、</span>
@@ -77,12 +78,12 @@ export default async function Home() {
                 <span className="block whitespace-nowrap">あなたのための」</span>
                 <span className="mt-2 block whitespace-nowrap text-[26px] font-normal tracking-widest text-primary-fixed sm:text-[34px] lg:text-[42px]">を全てのひとへ</span>
               </h1>
-              <p className="max-w-xl text-[15px] leading-[2.1] tracking-wide text-surface-container-low opacity-95 sm:text-[17px]">
+              <p style={{ animationDelay: "0.35s" }} className="hero-in max-w-xl text-[15px] leading-[2.1] tracking-wide text-surface-container-low opacity-95 sm:text-[17px]">
                 私たちは皆、人生の主人公です。働くことも人生の一部。
                 <br className="hidden lg:inline" />
                 OBFall株式会社は、従来にない新しい会社の形を実現します。
               </p>
-              <div className="pt-space-md">
+              <div style={{ animationDelay: "0.6s" }} className="hero-in pt-space-md">
                 <TextLink href="/philosophy" tone="inverse">
                   企業理念はこちら
                 </TextLink>
@@ -120,15 +121,18 @@ export default async function Home() {
                 </div>
               </div>
 
-              <div className="reveal reveal--delay grid grid-cols-1 gap-space-lg pt-4 sm:grid-cols-2 lg:col-span-7">
-                {SERVICES.map((s) => (
-                  <div
-                    key={s.num}
-                    className={`rounded-xl p-space-xl shadow-sm transition-all duration-300 hover:shadow-md ${s.bg} ${s.offset}`}
-                  >
-                    <div className="mb-space-sm font-latin text-[13px] font-bold tracking-widest text-tertiary-container">{s.num}</div>
-                    <h3 className="mb-space-xs font-serif-jp text-[20px] font-bold text-on-surface">{s.name}</h3>
-                    <div className="h-px w-8 bg-primary-container/40" aria-hidden="true" />
+              <div className="grid grid-cols-1 gap-space-lg pt-4 sm:grid-cols-2 lg:col-span-7">
+                {SERVICES.map((s, i) => (
+                  // カードを 1 枚ずつ順にフェードイン（遅延は 0.12 秒刻み）
+                  <div key={s.num} className="reveal" style={{ transitionDelay: `${0.1 + i * 0.12}s` }}>
+                    <Link
+                      href={s.href}
+                      className={`group block h-full rounded-xl p-space-xl shadow-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${s.bg} ${s.offset}`}
+                    >
+                      <div className="mb-space-sm font-latin text-[13px] font-bold tracking-widest text-tertiary-container">{s.num}</div>
+                      <h3 className="mb-space-xs font-serif-jp text-[20px] font-bold text-on-surface transition-colors duration-300 group-hover:text-primary">{s.name}</h3>
+                      <div className="h-px w-8 bg-primary-container/40 transition-all duration-300 group-hover:w-12 group-hover:bg-primary" aria-hidden="true" />
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -160,13 +164,13 @@ export default async function Home() {
                   <path d="M 10 80 Q 130 10, 250 70 T 490 50" stroke="currentColor" strokeDasharray="6 8" strokeWidth="2" />
                 </svg>
                 <div className="relative flex items-center justify-between gap-2 py-space-xl sm:gap-4">
-                  <div className="flex -rotate-2 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
+                  <div className="float-soft flex -rotate-2 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
                     <span className="font-serif-jp text-[20px] font-bold whitespace-nowrap text-primary sm:text-[30px]">つくる</span>
                   </div>
-                  <div className="flex translate-y-6 rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-8 shadow-md sm:px-6 sm:py-10">
+                  <div style={{ animationDelay: "-1.7s" }} className="float-soft flex translate-y-6 rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-8 shadow-md sm:px-6 sm:py-10">
                     <span className="font-serif-jp text-[22px] font-bold whitespace-nowrap text-secondary sm:text-[32px]">支える</span>
                   </div>
-                  <div className="flex -translate-y-4 -rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
+                  <div style={{ animationDelay: "-3.3s" }} className="float-soft flex -translate-y-4 -rotate-1 flex-col items-center rounded-xl bg-surface-container-lowest px-3 py-6 shadow-sm sm:px-6 sm:py-8">
                     <span className="font-serif-jp text-[20px] font-bold whitespace-nowrap text-on-surface sm:text-[30px]">守る</span>
                   </div>
                 </div>
@@ -223,11 +227,11 @@ export default async function Home() {
               {/* 写真 2 枚（既存トップの about_us2 / about_us1） */}
               <div className="reveal reveal--delay relative mt-8 flex justify-center lg:col-span-7 lg:mt-0 lg:justify-end">
                 <div className="grid w-full max-w-[520px] grid-cols-1 gap-space-md sm:grid-cols-2">
-                  <figure className="aspect-[4/3] overflow-clip rounded-xl bg-surface-container shadow-lg">
+                  <figure className="zoom-on-hover aspect-[4/3] overflow-clip rounded-xl bg-surface-container shadow-lg">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/image/about_us2.jpg" alt="オフィスの様子" className="h-full w-full object-cover" loading="lazy" />
                   </figure>
-                  <figure className="aspect-[4/3] overflow-clip rounded-xl bg-surface-container-high shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                  <figure className="zoom-on-hover aspect-[4/3] overflow-clip rounded-xl bg-surface-container-high shadow-lg transition-transform duration-300 hover:-translate-y-1">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/image/about_us1.jpg" alt="チームの様子" className="h-full w-full object-cover" loading="lazy" />
                   </figure>
@@ -263,7 +267,7 @@ export default async function Home() {
                   <ul className="divide-y divide-surface-container-highest">
                     {newsList.map((item) => (
                       <li key={item.id}>
-                        <Link href={`/newses/${item.id}`} className="group flex items-center gap-space-md py-space-md">
+                        <Link href={`/newses/${item.id}`} className="group zoom-on-hover flex items-center gap-space-md py-space-md">
                           <span className="h-[72px] w-[72px] shrink-0 overflow-clip rounded-lg bg-surface-container shadow-sm">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={item.thumb} alt="" className="h-full w-full object-cover" loading="lazy" />

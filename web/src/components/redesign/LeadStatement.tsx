@@ -19,7 +19,7 @@ export default function LeadStatement({ statement, body, bodyCard = false }: Pro
       <div className="wrap">
         <div className={`grid grid-cols-1 items-center gap-space-xl lg:gap-space-2xl ${body ? "lg:grid-cols-12" : ""}`}>
           <div className={`relative pl-space-lg lg:pl-space-xl ${body ? "lg:col-span-7" : ""}`}>
-            <div className="absolute top-1 bottom-1 left-0 w-[3px] rounded-full bg-primary-container" aria-hidden="true" />
+            <div className="accent-grow-y absolute top-1 bottom-1 left-0 w-[3px] rounded-full bg-primary-container" aria-hidden="true" />
             <h2 className="font-serif-jp text-[22px] leading-snug font-bold text-on-surface lg:text-[28px]">{statement}</h2>
           </div>
           {body ? (

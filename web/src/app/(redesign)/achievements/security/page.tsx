@@ -18,6 +18,14 @@ const SPECS = [
   { label: "診断規模", value: "約100画面、約500機能" },
 ];
 
+/** 診断作業者（ホワイトハッカー）の経歴・実績（文言は 2026-11-01 の会社支給） */
+const CAREERS = [
+  "大手IT企業、セキュリティ企業出身",
+  "3大メガバンクでの案件実績あり",
+  "大手ECカートSaaSの大規模案件あり",
+  "その他、中小〜大手までの幅広い対応実績100案件以上",
+];
+
 /**
  * 脆弱性診断実績 GET /achievements/security（リデザイン版。achievements/products の横長カードを流用）
  */
@@ -40,16 +48,39 @@ export default function AchievementsSecurityPage() {
           }
           body={
             <p>
-              OBFallでは、開発現場を理解したエンジニアが脆弱性診断を実施しています。
+              OBFallでは、現役のホワイトハッカーが脆弱性診断を実施しています。
               <br className="hidden lg:inline" />
               システムの構造や業務要件を踏まえたうえで、
               <br className="hidden lg:inline" />
               「攻撃者の視点」と「開発者の視点」の両面から現実的なリスクを検証。
               <br className="hidden lg:inline" />
-              単なる報告にとどまらず、修正提案や再発防止まで一貫してサポートしています。
+              また、開発現場を理解したエンジニアが多数在籍しており、
+              <br className="hidden lg:inline" />
+              単なる報告にとどまらず、修正提案や改修、再発防止まで一貫してサポートしています。
             </p>
           }
         />
+
+        {/* 診断作業者紹介（2026-11-01 追加） */}
+        <section className="w-full bg-surface-container-lowest py-space-2xl lg:py-space-3xl">
+          <div className="wrap flex flex-col gap-space-2xl">
+            <SectionTitle kicker="Our Assessors" title="診断作業者紹介（ホワイトハッカー）" />
+            <ul className="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+              {CAREERS.map((c, i) => (
+                <li key={c} className="flex items-start gap-space-md rounded-xl border border-surface-container-high bg-surface-container-low/60 p-space-lg">
+                  <span className="font-latin text-sm font-semibold tracking-[0.15em] text-primary-container">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="font-medium leading-relaxed text-on-surface">{c}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="rounded-xl border-l-4 border-primary-container bg-surface-container-low/60 p-space-lg">
+              <p className="mb-1 text-sm font-medium text-primary">診断種別</p>
+              <p className="leading-relaxed text-on-surface-variant">
+                WEBアプリケーション診断（REST API、GraphQL等のAPI診断含む）に加えて、NW診断も対応可能です。
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* 実績紹介 */}
         <section className="w-full bg-surface-container-low/60 py-space-2xl lg:py-space-3xl">
@@ -57,7 +88,7 @@ export default function AchievementsSecurityPage() {
             <SectionTitle kicker="Assessment Results" title="実績紹介" />
             <article className="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm lg:p-space-xl">
               <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
-                <figure className="relative aspect-[4/3] w-full overflow-clip rounded-lg bg-surface-container-low lg:col-span-5">
+                <figure className="zoom-on-hover relative aspect-[4/3] w-full overflow-clip rounded-lg bg-surface-container-low lg:col-span-5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/image/security.jpg" alt="脆弱性診断" className="h-full w-full object-cover" loading="lazy" />
                 </figure>

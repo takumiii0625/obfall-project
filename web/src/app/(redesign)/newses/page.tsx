@@ -44,7 +44,7 @@ export default async function NewsesPage({ searchParams }: PageProps<"/newses">)
                 <ul className="divide-y divide-outline-variant/40 border-b border-outline-variant/40">
                   {newsList.map((item) => (
                     <li key={item.id}>
-                      <Link href={`/newses/${item.id}`} className="group flex items-center gap-space-md py-space-md transition-colors hover:bg-surface-container-low">
+                      <Link href={`/newses/${item.id}`} className="group zoom-on-hover flex items-center gap-space-md py-space-md transition-colors hover:bg-surface-container-low">
                         <span className="h-20 w-20 shrink-0 overflow-clip rounded-lg bg-surface-container shadow-sm">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={item.thumb} alt="" className="h-full w-full object-cover" loading="lazy" />

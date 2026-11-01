@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArrowIcon from "./ArrowIcon";
+import ScrollTopLogo from "./ScrollTopLogo";
 
 /**
  * リデザイン版の共通フッター（design/stitch/aboutus.html のフッターを参考）。
@@ -13,12 +14,8 @@ export default function Footer({ showContactButton = true }: { showContactButton
       <div className="wrap py-space-2xl">
         <div className="flex flex-col items-start justify-between gap-space-xl border-b border-surface-container-highest pb-space-xl lg:flex-row lg:items-center">
           <div className="space-y-space-sm">
-            <Link href="/" className="inline-flex items-center gap-space-sm" aria-label="OBFall株式会社 トップ">
-              {/* ヘッダーと同じロゴ（マーク + OBFall）。青い点は置かない */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/logo_icon.png" alt="" width={50} height={44} className="h-5 w-auto" aria-hidden="true" />
-              <span className="font-latin text-[22px] font-bold tracking-tight text-on-surface">OBFall</span>
-            </Link>
+            {/* 社名ロゴ（public/image/logo_company.png）。押すとページ最上部へスクロール */}
+            <ScrollTopLogo />
             <p className="text-sm leading-relaxed text-on-surface-variant">
               〒105-0022
               <br />

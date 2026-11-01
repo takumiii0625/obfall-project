@@ -13,12 +13,12 @@ type Props = {
  * カード内のリンク「詳しく見る」「○○公式サイト」など（design/stitch の各カード末尾。矢印はインライン SVG）。
  */
 export default function CardLink({ href, children, newTab, className = "" }: Props) {
-  const cls = `inline-flex items-center gap-1.5 font-serif-jp text-sm tracking-widest text-primary transition-colors hover:text-tertiary ${className}`;
+  const cls = `group inline-flex items-center gap-1.5 font-serif-jp text-sm tracking-widest text-primary transition-colors hover:text-tertiary ${className}`;
   const props = newTab ? { target: "_blank", rel: "noopener noreferrer" } : {};
   const inner = (
     <>
       <span>{children}</span>
-      <ArrowIcon className="h-[18px] w-[18px]" />
+      <ArrowIcon className="h-[18px] w-[18px] transition-transform duration-300 ease-out group-hover:translate-x-1" />
     </>
   );
   return /^https?:\/\//.test(href) ? (

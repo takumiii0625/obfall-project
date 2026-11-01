@@ -105,12 +105,13 @@
     text-wrap: pretty;
     overflow-wrap: break-word;
   }
-  /* トップページだけページ全体のスクロールバーを隠す（スクロール自体はそのまま使える）。
-     トップの <main> に付けた data-hide-scrollbar を目印にする */
-  html:has(main[data-hide-scrollbar]) {
+  /* 公開側の全ページでページ全体のスクロールバーを隠す（スクロール自体はそのまま使える）。
+     以前はトップのみ（main[data-hide-scrollbar]）だったが、2026-11-01 に全ページへ広げた。
+     このファイルは (redesign) のレイアウトでしか読まないので、管理画面には影響しない */
+  html {
     scrollbar-width: none;
   }
-  html:has(main[data-hide-scrollbar])::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     display: none;
   }
   /* 見出しは各行の長さを揃え、末尾の 1〜2 文字だけが次の行に落ちるのを防ぐ */
@@ -160,6 +161,241 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
+   トップの動き（2026-11-01 追加。「全体的に少し動きが欲しい」）
+   - 蝶: 羽ばたき（.bf-flap の翅）+ ふわふわ漂う（.bf-float）。セクション境界の蝶は境界の後ろで見え隠れする（.bf-float-edge）
+   - ヒーロー: 読み込み時に見出し・本文・リンクが順に下から現れる（.hero-in。CSS のみなので JS 無効でも最後は表示）
+   - ヒーローの翅の線がゆっくり揺らぐ（.venation-drift）
+   - 背景の大きな英字がゆっくり横に流れる（.bleed-drift）
+   - 見出し下の線がフェードインに合わせて左から伸びる（.accent-grow）
+   - 「つくる・支える・守る」のカードが浮遊（.float-soft）
+   いずれも Tailwind の translate / rotate（個別プロパティ）とは別の transform を使うので、既存の位置ずらしと干渉しない。
+   動きを減らす設定では全て止める。
+   --------------------------------------------------------------- */
+@layer components {
+  @keyframes bf-flap {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(0.55); }
+  }
+  @keyframes bf-float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(6px, -10px) rotate(4deg); }
+    66% { transform: translate(-5px, -4px) rotate(-3deg); }
+  }
+  /* 境界の蝶: 切れ目（セクションの下端）より上へ飛び出したり、下へ潜って隠れたりする */
+  @keyframes bf-float-edge {
+    0%, 100% { transform: translate(0, 4px) rotate(0deg); }
+    25% { transform: translate(14px, -22px) rotate(6deg); }
+    50% { transform: translate(-6px, -34px) rotate(-4deg); }
+    75% { transform: translate(-16px, -10px) rotate(-8deg); }
+  }
+  @keyframes hero-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes venation-drift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-2%, 1.5%) scale(1.06); }
+  }
+  @keyframes bleed-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-60px); }
+  }
+  @keyframes float-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .bf-flap {
+    transform-box: view-box;
+    transform-origin: 32px 32px;
+    animation: bf-flap 1.6s ease-in-out infinite;
+  }
+  .bf-float {
+    animation: bf-float 7s ease-in-out infinite;
+  }
+  .bf-float-edge {
+    animation: bf-float-edge 9s ease-in-out infinite;
+  }
+  .hero-in {
+    animation: hero-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .venation-drift {
+    animation: venation-drift 18s ease-in-out infinite alternate;
+  }
+  .bleed-drift {
+    animation: bleed-drift 22s ease-in-out infinite alternate;
+  }
+  .float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+
+  html.js-reveal .reveal .accent-grow {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  html.js-reveal .reveal.is-visible .accent-grow {
+    transform: scaleX(1);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bf-flap,
+    .bf-float,
+    .bf-float-edge,
+    .hero-in,
+    .venation-drift,
+    .bleed-drift,
+    .float-soft {
+      animation: none;
+    }
+    html.js-reveal .reveal .accent-grow {
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
+   横に自動で流れるカルーセル（service/products の実績・事例紹介。2026-11-01）
+   .marquee__track に同じ並びを 2 回入れ、-50% まで動かしてループ。左右端はフェードで溶かす
+   --------------------------------------------------------------- */
+@layer components {
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - var(--spacing-space-lg) / 2)); }
+  }
+  .marquee {
+    overflow: clip;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+  .marquee__track {
+    animation: marquee 40s linear infinite;
+  }
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto;
+      mask-image: none;
+    }
+    .marquee__track {
+      animation: none;
+      padding-inline: var(--spacing-margin-mobile);
+    }
+    .marquee__dup {
+      display: none;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
+   サイト全体の控えめな動き（2026-11-01）
+   - 自動フェードイン（RevealOnScroll の .reveal-auto）: 24px 下から、ゆっくり減速して止まる。カードは --reveal-delay で時間差
+   - ページ表示時: <main> がふわっと現れる（不透明度のみ。位置は動かさない）
+   - タイトル帯（PageHero）: 英字ラベル → タイトル → 一文 の順に現れ、背景の線がゆっくり揺らぐ
+   - 見出しの線: SectionTitle / LeadStatement の線が、現れるときに伸びる（.accent-grow / .accent-grow-y）
+   - 写真: カーソルを乗せるとゆっくり少しだけ拡大（枠からはみ出さないよう overflow-clip の枠内のみ）
+   動きを減らす設定では全て止める。
+   --------------------------------------------------------------- */
+@layer components {
+  html.js-reveal .reveal.reveal-auto {
+    transform: translateY(24px);
+  }
+  html.js-reveal .reveal.reveal-auto.is-visible {
+    transform: translateY(0);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+  }
+
+  @keyframes page-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-in-1 { animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+  .hero-in-2 { animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both; }
+  .hero-in-3 { animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
+
+  html.js-reveal .reveal .accent-grow-y {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  html.js-reveal .reveal.is-visible .accent-grow-y {
+    transform: scaleY(1);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+  }
+
+  .zoom-on-hover img {
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .zoom-on-hover:hover img {
+    transform: scale(1.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.js-reveal .reveal.reveal-auto,
+    html.js-reveal .reveal .accent-grow-y {
+      transform: none;
+      transition: none;
+    }
+    .hero-in-1,
+    .hero-in-2,
+    .hero-in-3 {
+      animation: none;
+    }
+    .zoom-on-hover:hover img {
+      transform: none;
+    }
+  }
+}
+
+/* ページ表示時に <main> がふわっと現れる（不透明度のみ。ページ遷移ごとに <main> が作り直されるので毎回効く） */
+@layer components {
+  main {
+    animation: page-in 0.6s ease both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    main {
+      animation: none;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
+   開いた直後に見えている内容も動かす（2026-11-01。トップ以外）
+   タイトル帯の動き（〜0.3 秒）に続いて、帯の下の内容が 0.4 秒から 0.1 秒刻みで下から現れる。
+   CSS だけで動かすので、JS の読み込みを待たずに再生され、ちらつかない。
+   画面外の要素は RevealOnScroll が .intro-off を付けてこの動きを止め、スクロール時のフェードインに任せる。
+   fill-mode は backwards（再生後はこの指定が残らず、.reveal の非表示が効く）
+   --------------------------------------------------------------- */
+@layer components {
+  main:not([data-reveal-manual]) > :not(:first-child) > .wrap > *,
+  main:not([data-reveal-manual]) > .wrap:not(:first-child) > * {
+    animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards;
+  }
+  main:not([data-reveal-manual]) > :not(:first-child) > .wrap > :nth-child(2),
+  main:not([data-reveal-manual]) > .wrap:not(:first-child) > :nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  main:not([data-reveal-manual]) > :not(:first-child) > .wrap > :nth-child(n + 3),
+  main:not([data-reveal-manual]) > .wrap:not(:first-child) > :nth-child(n + 3) {
+    animation-delay: 0.6s;
+  }
+  .intro-off {
+    animation: none !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    main:not([data-reveal-manual]) > :not(:first-child) > .wrap > *,
+    main:not([data-reveal-manual]) > .wrap:not(:first-child) > * {
+      animation: none;
     }
   }
 }

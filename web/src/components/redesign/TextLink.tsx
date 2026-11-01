@@ -26,7 +26,7 @@ export default function TextLink({ href, children, tone = "primary", newTab, cla
   const props = newTab ? { target: "_blank", rel: "noopener noreferrer" } : {};
   const inner = (
     <span className="relative pb-1">
-      {children} →
+      {children} <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
       <span className={`absolute bottom-0 left-0 h-[1.5px] w-full origin-left transition-transform duration-300 group-hover:scale-x-110 ${t.bar}`} />
     </span>
   );

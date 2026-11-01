@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Shippori_Mincho_B1, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./redesign.css";
+import RevealOnScroll from "@/components/redesign/RevealOnScroll";
 
 /**
  * リデザイン（redesign ブランチ）用ルートレイアウト。
@@ -44,7 +45,11 @@ export const metadata: Metadata = {
 export default function RedesignRootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja" className={`${serifJp.variable} ${sansJp.variable} ${latin.variable}`}>
-      <body>{children}</body>
+      <body>
+        {/* 全ページ共通のスクロールでのフェードイン（ページ遷移ごとに対象を取り直す） */}
+        <RevealOnScroll />
+        {children}
+      </body>
     </html>
   );
 }

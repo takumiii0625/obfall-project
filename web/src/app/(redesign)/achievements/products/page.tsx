@@ -41,6 +41,19 @@ const PRODUCTS = [
     link: { href: "https://store-pass.com", label: "Store-Pass公式サイト" },
   },
   {
+    // 2026-11-01 追加。文言は会社支給（最後の文は「提案し」で途切れていたため「提案します。」で結んでいる）
+    image: "/image/encore_logo.webp",
+    alt: "ENCORE ロゴ",
+    name: "ENCORE",
+    lead: "コミュニティ特化型の名刺管理×商談創出アプリ。",
+    body: [
+      "名刺を「整理して終わり」にせず、次の商談につなげる。",
+      "当日、会話ができなかった潜在層へのアプローチを可能としています。",
+      "「お困りごと／お役に立てること」からAIが自動解析し、次に会うべき相手を、その明確な理由とともに提案します。",
+    ],
+    link: { href: "https://www.encore-biz.com/", label: "ENCORE公式サイト" },
+  },
+  {
     image: "/image/dx_logo.webp",
     alt: "農業向け業務効率化 ロゴ",
     name: "未来共創DX支援事業",
@@ -58,7 +71,7 @@ const PRODUCTS = [
  * HTML のロゴ枠はプレースホルダーだが、既存ページにロゴ画像があるためそれを表示する。
  */
 export default function AchievementsProductsPage() {
-  const [p1, p2, p3] = PRODUCTS;
+  const [p1, ...rest] = PRODUCTS;
   return (
     <>
       <Header />
@@ -114,9 +127,9 @@ export default function AchievementsProductsPage() {
                 </div>
               </article>
 
-              {/* 02 / 03 */}
-              <div className="grid grid-cols-1 gap-space-lg lg:grid-cols-2">
-                {[p2, p3].map((p) => (
+              {/* 02 以降（ストパス / ENCORE / 未来共創DX）を 3 列で */}
+              <div className="grid grid-cols-1 gap-space-lg md:grid-cols-2 lg:grid-cols-3">
+                {rest.map((p) => (
                   <article key={p.name} className="flex flex-col justify-between rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
                     <div className="flex flex-col gap-space-lg">
                       <LogoFrame image={p.image} alt={p.alt} className="aspect-[16/8]" />
@@ -126,9 +139,11 @@ export default function AchievementsProductsPage() {
                         ) : null}
                         <h3 className="pt-1 font-serif-jp text-[22px] font-bold text-on-surface">{p.name}</h3>
                         {p.lead ? <p className="pt-1 text-sm leading-normal font-semibold text-primary">{p.lead}</p> : null}
-                        <div className="pt-space-xs">
-                          <ProductBody lines={p.body} />
-                        </div>
+                        {p.body.length > 0 ? (
+                          <div className="pt-space-xs">
+                            <ProductBody lines={p.body} />
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                     {p.link ? (

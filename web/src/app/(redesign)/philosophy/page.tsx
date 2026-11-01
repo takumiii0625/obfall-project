@@ -19,20 +19,17 @@ export default function PhilosophyPage() {
     <>
       <Header />
       <main className="w-full bg-surface pt-20">
-        <PageHero title="Philosophy" />
-
-        {/* 理念の一文 */}
-        <section className="w-full bg-surface-container-low py-space-2xl">
-          <div className="wrap">
-            <div className="flex items-start gap-space-lg">
-              <div className="mt-2 h-16 w-1.5 shrink-0 rounded-full bg-primary-container" aria-hidden="true" />
-              <div className="font-serif-jp text-[24px] leading-tight font-bold tracking-normal text-on-surface lg:text-[34px]">
-                <p>「あなたの、あなたによる、あなたのための」</p>
-                <p className="mt-2 text-primary">をすべての人へ。</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 理念の一文は旧ページと同じくタイトル帯の中に小さめに 1 回だけ（Vision と重複させない。2026-11-01） */}
+        <PageHero
+          title="Philosophy"
+          sub={
+            <>
+              「あなたの、あなたによる、あなたのための」
+              <br />
+              をすべての人へ。
+            </>
+          }
+        />
 
         {/* Vision */}
         <section className="w-full py-space-2xl lg:py-space-3xl">
@@ -74,18 +71,20 @@ export default function PhilosophyPage() {
               <h2 className="font-serif-jp text-[28px] font-bold text-on-surface lg:text-[36px]">3つの柱</h2>
               <div className="mt-space-sm h-[2px] w-12 bg-primary-container" aria-hidden="true" />
             </div>
+            {/* EH＝CH を大きく、理念採用・成長と挑戦を小さく（2026-11-01 の指示で順番と ES＝CS → EH＝CH を変更） */}
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <article className="relative flex flex-col items-start justify-between gap-space-xl rounded-xl bg-surface-container-lowest p-space-xl shadow-[0_8px_24px_rgba(0,159,232,0.07)] lg:col-span-12 lg:flex-row lg:items-center">
-                <div className="flex max-w-2xl flex-col space-y-3">
-                  <span className="font-latin text-2xl tracking-wider text-primary">01 / Principle</span>
-                  <h3 className="font-serif-jp text-[24px] font-bold text-on-surface lg:text-[28px]">理念採用</h3>
-                  <p className="pt-2 text-base leading-relaxed text-on-surface-variant">
-                    共感を軸に、人と組織をつなぐ。理念に共鳴する仲間とともに、価値ある未来を創ります。
+                <div className="flex max-w-3xl flex-col space-y-3">
+                  <span className="font-latin text-2xl tracking-wider text-primary">01 / Happiness</span>
+                  <h3 className="font-serif-jp text-[24px] font-bold text-on-surface lg:text-[28px]">EH＝CH</h3>
+                  <p className="pt-2 font-medium text-on-surface">従業員幸福度（Employee Happiness）＝顧客幸福度（Customer Happiness）。</p>
+                  <p className="text-base leading-relaxed text-on-surface-variant">
+                    働く人の幸せが、顧客の幸せを生む。単なる「満足」を超えた喜びや感動を提供し、お客様とともに持続的な成長を目指します。
                   </p>
                 </div>
               </article>
-              <ValueCard num="02" kicker="Satisfaction" title="ES＝CS" className="bg-surface-container-lowest shadow-[0_8px_24px_rgba(0,159,232,0.07)] lg:col-span-6">
-                働く人の幸福が、顧客の満足を生む。社員満足と顧客満足の両立を通じて、持続的な成長を目指します。
+              <ValueCard num="02" kicker="Principle" title="理念採用" className="bg-surface-container-lowest shadow-[0_8px_24px_rgba(0,159,232,0.07)] lg:col-span-6">
+                共感を軸に、人と組織をつなぐ。理念に共鳴する仲間とともに、価値ある未来を創ります。
               </ValueCard>
               <ValueCard num="03" kicker="Growth & Challenge" title="成長と挑戦" className="bg-surface-container-high/40 shadow-[0_8px_24px_rgba(0,159,232,0.05)] lg:col-span-6">
                 一人ひとりが自らの成長に挑み、変化を恐れず前へ。挑戦を後押しする文化を大切にします。
