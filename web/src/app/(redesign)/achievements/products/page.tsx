@@ -45,7 +45,7 @@ const PRODUCTS = [
     image: "/image/encore_logo.webp",
     alt: "ENCORE ロゴ",
     name: "ENCORE",
-    lead: "コミュニティ特化型の名刺管理×商談創出アプリ。",
+    lead: "コミュニティ特化型の名刺管理×商談創出アプリ",
     body: [
       "名刺を「整理して終わり」にせず、次の商談につなげる。",
       "当日、会話ができなかった潜在層へのアプローチを可能としています。",

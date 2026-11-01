@@ -35,7 +35,7 @@ const PRODUCTS: Product[] = [
   { logo: "/image/digOn_logo.png", alt: "digOn ロゴ", name: "digOn", desc: "音楽発掘をもっと身近にする音楽アプリ" },
   { logo: "/image/store-pass_logo.png", alt: "ストパス ロゴ", name: "ストパス", desc: "ストア特化の来店・販促パスポート" },
   // 2026-11-01 追加。ロゴは encore-platform の encore_logo.png を 256px の WebP に縮小したもの
-  { logo: "/image/encore_logo.webp", alt: "ENCORE ロゴ", name: "ENCORE", desc: "コミュニティ特化の名刺管理×商談創出アプリ", url: "https://www.encore-biz.com/" },
+  { logo: "/image/encore_logo.webp", alt: "ENCORE ロゴ", name: "ENCORE", desc: "コミュニティ特化型の名刺管理×商談創出アプリ", url: "https://www.encore-biz.com/" },
   { logo: "/image/dx_logo.webp", alt: "農業向け業務効率化 ロゴ", name: "農業DX", desc: "農作業と記録の効率化を支援", badge: "開発中" },
 ];
 
