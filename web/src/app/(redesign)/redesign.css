@@ -399,3 +399,15 @@
     }
   }
 }
+
+/* 受託開発実績の「詳細を見る」（<details>）を開いたときに中身をふわっと出す（2026-11-01） */
+@layer components {
+  .case-details[open] .case-details__body {
+    animation: hero-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .case-details[open] .case-details__body {
+      animation: none;
+    }
+  }
+}

@@ -4,6 +4,11 @@ import { useEffect, useState, useTransition, type ReactNode } from "react";
 import PrivacyPolicyText from "@/components/redesign/PrivacyPolicyText";
 import Turnstile from "@/components/Turnstile";
 import {
+  CONTACT_COMPANY_MAX,
+  CONTACT_CONTENTS_MAX,
+  CONTACT_EMAIL_MAX,
+  CONTACT_NAME_MAX,
+  CONTACT_TEL_MAX,
   EMPTY_CONTACT_VALUES,
   validateContact,
   type ContactErrors,
@@ -167,6 +172,7 @@ export default function ContactForm({ heroInput, heroConfirm, breadcrumbInput, b
                 type="text"
                 id="name"
                 name="name"
+                maxLength={CONTACT_NAME_MAX}
                 placeholder="お名前をご記入ください"
                 value={values.name}
                 onChange={(e) => update("name", e.target.value)}
@@ -178,6 +184,7 @@ export default function ContactForm({ heroInput, heroConfirm, breadcrumbInput, b
                 type="email"
                 id="email"
                 name="email"
+                maxLength={CONTACT_EMAIL_MAX}
                 placeholder="例：○○○○@○○○○.com"
                 value={values.email}
                 onChange={(e) => update("email", e.target.value)}
@@ -189,24 +196,26 @@ export default function ContactForm({ heroInput, heroConfirm, breadcrumbInput, b
                 type="text"
                 id="company"
                 name="company"
+                maxLength={CONTACT_COMPANY_MAX}
                 placeholder="例：○○○○株式会社"
                 value={values.company}
                 onChange={(e) => update("company", e.target.value)}
                 className={INPUT_CLASS}
               />
             </Field>
-            <Field label="電話番号" htmlFor="tel" error={fieldError("tel")}>
+            <Field label="電話番号（ハイフン可）" htmlFor="tel" error={fieldError("tel")}>
               <input
                 type="tel"
                 id="tel"
                 name="tel"
+                maxLength={CONTACT_TEL_MAX}
                 placeholder="例：03-1234-5678"
                 value={values.tel}
                 onChange={(e) => update("tel", e.target.value)}
                 className={INPUT_CLASS}
               />
             </Field>
-            <Field label="お問い合わせ内容" htmlFor="contents" required error={fieldError("contents")}>
+            <Field label={`お問い合わせ内容（${CONTACT_CONTENTS_MAX.toLocaleString()}文字以内）`} htmlFor="contents" required error={fieldError("contents")}>
               <textarea
                 id="contents"
                 name="contents"
@@ -215,7 +224,15 @@ export default function ContactForm({ heroInput, heroConfirm, breadcrumbInput, b
                 value={values.contents}
                 onChange={(e) => update("contents", e.target.value)}
                 className={`${INPUT_CLASS} min-h-[160px] resize-y`}
+                aria-describedby="contents-count"
               ></textarea>
+              {/* 文字数の目安（上限を超えると赤字。超えても入力はでき、確認画面へ進む時にエラーを出す） */}
+              <p
+                id="contents-count"
+                className={`mt-1 text-right font-latin text-xs ${values.contents.trim().length > CONTACT_CONTENTS_MAX ? "text-error" : "text-outline"}`}
+              >
+                {values.contents.trim().length.toLocaleString()} / {CONTACT_CONTENTS_MAX.toLocaleString()}
+              </p>
             </Field>
 
             {/* ハニーポット: 人には見えない欄。bot が埋めたら Server Action 側で送信せずに完了画面へ */}
