@@ -1,13 +1,13 @@
 # OBFALL-PROJECT
 
 Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移行中。
-移行方針・決定事項は docs/MIGRATION.md、現行の画面仕様・工数は docs/migration-assessment.md を参照。
+移行方針・決定事項は docs/移行方針.md、現行の画面仕様・工数は docs/migration-assessment.md を参照。
 
 ## ディレクトリ
 
 - `./` 現行 Laravel（参照専用。変更しない）
 - `./web/` 移行先 Next.js（App Router、TypeScript、Bootstrap 5）
-- `./docs/` 移行方針・評価書・消費量記録
+- `./docs/` 移行方針・評価書
 
 ## 移行先（web/）の構成
 
@@ -73,7 +73,7 @@ Laravel 8 製サイト（obfall.com）を Next.js（React + TypeScript）へ移�
 - プレビュー環境と本番環境は DB と Blob を共有しているため、どちらの管理画面でも書き込み操作（登録・編集・削除・画像のアップロード）はしない。動作確認は必ずローカルの環境で行う
 - 見た目は現行と一致させることを優先。現行の不具合を見つけたら直さず「確認事項」として報告
 - 静的ページはサーバーコンポーネント、フォームはクライアントコンポーネント + Server Actions
-- 未確定の技術選定（ORM / 認証 / メール / ストレージ）は MIGRATION.md の「未定」欄を確認し、
+- 未確定の技術選定（ORM / 認証 / メール / ストレージ）は docs/移行方針.md の「未定」欄を確認し、
   勝手に決めない
 - 日本語で報告する。完了時は「作成ファイル一覧 / 現行との差分 / 次に再利用できる部品」を短く
 
