@@ -23,6 +23,8 @@ export type MailMessage = {
 
 /** 現行の送信元表示名（送信者向け） */
 export const COMPANY_NAME = "OBFall株式会社";
+/** 会社宛て通知の差出人表示名（2026-11-01 から固定） */
+export const COMPANY_NOTICE_SENDER_NAME = "OBFall お問い合わせ";
 
 /** メールヘッダーの表示名に使えない改行・山括弧・引用符を除く */
 export function sanitizeDisplayName(name: string): string {
@@ -84,12 +86,13 @@ export function buildContactMailToUser(data: ContactInput, fromAddress: string):
 
 /**
  * 会社向け通知（mails.contact_to_company）
- * From: <入力会社名> <FROM> / Reply-To: <入力会社名> <入力メール> / To: CONTACT_MAIL_TO
- * ※ 現行どおり From の表示名に入力された会社名を使う（なりすまし判定を受けやすい点は確認事項）
+ * From: OBFall お問い合わせ <FROM> / Reply-To: <入力会社名> <入力メール> / To: CONTACT_MAIL_TO
+ * ※ 現行は From の表示名に入力された会社名を使っていたが、表示名とアドレスの組織が食い違い、
+ *   入力内容がそのまま差出人名になるため、2026-11-01 の指示で固定値に変更（会社名は件名に残る）
  */
 export function buildContactMailToCompany(data: ContactInput, fromAddress: string, toAddress: string): MailMessage {
   return {
-    from: formatAddress(data.company, fromAddress),
+    from: formatAddress(COMPANY_NOTICE_SENDER_NAME, fromAddress),
     to: toAddress,
     replyTo: formatAddress(data.company, data.email),
     subject: sanitizeHeaderLine(`【${data.company}】新しいお問い合わせがありました`),

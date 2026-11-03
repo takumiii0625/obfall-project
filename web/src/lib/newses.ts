@@ -105,15 +105,15 @@ export async function getTopNewses(): Promise<NewsListItem[]> {
 
 /**
  * 詳細（現行 UserNewsesController@show）。
- * 現行どおり deleted_at IS NULL のみで status は見ない（非公開でも直 URL で閲覧できる。§7.1 の 9。
- * 修正可否の回答が出るまで現行踏襲）。存在しなければ null。
+ * 公開中（status=1、deleted_at IS NULL）のものだけを返す。非公開・削除済み・存在しなければ null（ページ側で 404）。
+ * ※ 現行は status を見ておらず、非公開記事も直 URL で閲覧できた（§7.1 の 9）。2026-11-01 の指示で修正
  */
 export async function getNewsById(id: number): Promise<NewsDetail | null> {
   if (!Number.isInteger(id) || id <= 0) return null;
   const rows = await db()
     .select()
     .from(newses)
-    .where(and(eq(newses.id, id), isNull(newses.deleted_at)))
+    .where(and(eq(newses.id, id), publishedWhere))
     .limit(1);
   const row = rows[0];
   if (!row) return null;
