@@ -19,3 +19,11 @@ yarn-error.log
 
 # リデザインの参考資料（Stitch 生成）。ローカルだけに置き、push しない
 /design/
+
+# Mac が自動で作るフォルダ表示設定のファイル
+.DS_Store
+
+# AI ツールが自動で入れた Neon の説明書（サイトの動作には無関係）
+/web/.agents/
+/web/.claude/
+/web/skills-lock.json
