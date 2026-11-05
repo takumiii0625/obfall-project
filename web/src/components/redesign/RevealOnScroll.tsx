@@ -11,7 +11,7 @@ import { useEffect } from "react";
  * 対象:
  * - `.reveal` を手で付けた要素（トップ）
  * - 自動付与（2026-11-01。トップ以外の全ページ）: <main> 直下の各 section / div（先頭のタイトル帯は除く）の
- *   `.wrap` 直下の要素（1 つの div で包んでいるだけなら 1〜2 段下りる）。直下の要素が 2 つ以上の子を持つグリッド / リストなら、子を 1 つずつ時間差（0.1 秒刻み、最大 0.5 秒）で出す。
+ *   `.wrap` 直下の要素（1 つの div で包んでいるだけなら 1〜2 段下りる）。直下の要素が 2 つ以上の子を持つグリッド / リストなら、子を 1 つずつ時間差（0.05 秒刻み、最大 0.2 秒）で出す。
  *   <main data-reveal-manual> のページ（トップ）と [data-no-reveal] のブロックは自動付与しない。
  *   自動付与した要素は表示し終えたらクラスを外す（hover 等の transition に遅延が残らないように）
  *
@@ -22,11 +22,15 @@ import { useEffect } from "react";
  * - 対象を決めた時点で既に画面内にある要素は、隠さずに表示扱いにする（ちらつき防止）
  * - prefers-reduced-motion の場合は何もしない（全要素そのまま表示）
  * - スクロール位置を動かす処理は持たない（scroll-snap・スクロールの乗っ取りはしない）
+ *
+ * 素早いスクロールで遅れて見えないように（2026-11-05）:
+ * - 画面に入る少し手前（画面の高さの 15%）で表示を始める
+ * - 通り過ぎた要素も、画面 1 枚分上までなら表示扱いにする（戻ったときに空白にしない）
  */
-const STAGGER_STEP = 0.1;
-const STAGGER_MAX = 0.5;
-/** .reveal.is-visible の transition（0.8s）+ 余裕 */
-const REVEAL_DURATION_MS = 1000;
+const STAGGER_STEP = 0.05;
+const STAGGER_MAX = 0.2;
+/** .reveal-auto.is-visible の transition（0.6s）+ 余裕 */
+const REVEAL_DURATION_MS = 700;
 
 function isGroup(el: Element): boolean {
   if (el.children.length < 2) return false;
@@ -117,7 +121,7 @@ function setup(main: HTMLElement | null): () => void {
         }
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+    { threshold: 0, rootMargin: "100% 0px 15% 0px" },
   );
   els.forEach((el) => {
     if (el.classList.contains("reveal") && !el.classList.contains("is-visible")) observer.observe(el);

@@ -136,7 +136,7 @@
 
 /* ---------------------------------------------------------------
    スクロールで現れるフェードイン（components/redesign/RevealOnScroll.tsx）
-   旧トップの .anim-fade-up（30px 下から 0.8s ease）と同じ控えめな動き。
+   旧トップの .anim-fade-up（30px 下から）をもとにした控えめな動き。素早いスクロールで遅れないよう 0.5s に短縮（2026-11-05）。
    JS がマウントして <html> に js-reveal を付けるまでは隠さない（JS 無効時は常に表示）。
    --------------------------------------------------------------- */
 @layer components {
@@ -149,12 +149,12 @@
     opacity: 1;
     transform: translateY(0);
     transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
+      opacity 0.5s ease,
+      transform 0.5s ease;
   }
   /* 同じセクション内の 2 つ目以降は少し遅らせる（旧 .section-block の時間差） */
   html.js-reveal .reveal.reveal--delay {
-    transition-delay: 0.15s;
+    transition-delay: 0.08s;
   }
   @media (prefers-reduced-motion: reduce) {
     html.js-reveal .reveal {
@@ -311,8 +311,8 @@
   html.js-reveal .reveal.reveal-auto.is-visible {
     transform: translateY(0);
     transition:
-      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
   }
 
   @keyframes page-in {
