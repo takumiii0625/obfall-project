@@ -7,6 +7,7 @@ import LeadStatement from "@/components/redesign/LeadStatement";
 import SectionTitle from "@/components/redesign/SectionTitle";
 import BleedWord from "@/components/redesign/BleedWord";
 import ValueCard, { type ValueCardItem } from "@/components/redesign/ValueCard";
+import TextLink from "@/components/redesign/TextLink";
 
 export const metadata: Metadata = {
   title: "脆弱性診断（Vulnerability Assessment） | OBFall Inc.",
@@ -132,6 +133,22 @@ export default function ServiceSecurityPage() {
                 </li>
               ))}
             </ul>
+
+            {/* 無料のセルフチェック（外部サイト「サイト健康診断」） */}
+            <div className="mt-space-xl flex flex-col gap-space-md rounded-lg border-t-2 border-primary-container bg-surface-container-low px-space-lg py-space-lg lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p className="font-latin text-xs tracking-[0.2em] text-primary uppercase">Free Check</p>
+                <h3 className="mt-space-xs font-serif-jp text-lg text-on-surface lg:text-xl">Webサイト セキュリティ無料診断</h3>
+                <p className="mt-space-sm text-sm leading-relaxed text-on-surface-variant">
+                  URLを入力するだけで、HTTPS・SSL証明書・サーバーのバージョン露出・CMS・セキュリティヘッダなど全10項目を自動でチェックします。
+                  <br className="hidden lg:inline" />
+                  公開情報を1回取得するだけのパッシブ診断です（攻撃的なスキャンは行いません）。
+                </p>
+              </div>
+              <TextLink href="https://hp-check.obfall-vulnerability-manager.com/" newTab className="shrink-0">
+                無料で診断する
+              </TextLink>
+            </div>
           </div>
         </section>
 
